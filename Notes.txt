@@ -1,9 +1,15 @@
 Pass by Reference
 
-    void swap( int *a , int *b )
+1/
+    void swap( int *a , int *b ) // * here and below
     {
         int temp = *a;
         *a = *b;
         *b = temp;
-    }
+    } // use poiter
 
+2/
+    void squareByReference(int &cRef ) //& here
+    {
+        cRef *= cRef;   
+    }
