@@ -58,3 +58,13 @@ horizonal rules
 {@gist: Gist ID or URL}
 {@jsfiddle: JSFiddle URL}
 {@googleslide: document_link}
+
+        LƯU Ý
+
+Để không hiển thị thông tin trên cùng dòng
+
+thì phải chừa 1 dòng trống ở giữa như này
+
+để thể hiện là mình đang muốn xuống dòng
+
+chứ hong phải do enter vì trang này (vsc) hết chỗ
