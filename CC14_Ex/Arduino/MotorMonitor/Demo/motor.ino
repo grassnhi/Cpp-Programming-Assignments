@@ -1,4 +1,5 @@
 // fan
+// left motor controller
 
 void setup () {
     pinMode (8 , OUTPUT ) ;

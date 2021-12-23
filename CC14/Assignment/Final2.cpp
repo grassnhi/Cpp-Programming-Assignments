@@ -41,20 +41,46 @@ using namespace std;
 
 int move(string moves)
 {
-    
-    
+    int x, y;
+	x = y = 0;
+
+    for (size_t i = 0; i < moves.length()-1; i=i+2 ){
+    	if (moves[i] == 'U') 
+            y = y + int((int)moves[i+1] - '0');
+
+    	if (moves[i] == 'D') 
+            y = y - int((int)moves[i+1] - '0');
+
+		if (moves[i] == 'L') 
+            x = x - int((int)moves[i+1] - '0');
+            
+		if (moves[i] == 'R') 
+            x = x + int((int)moves[i+1] - '0');
+	}
+
+	int t = round(sqrt(x*x + y*y));
+	return t;   
 }
 
 bool isPrime(int n)
 {
-    
+    int i;
+
+    for (i = 2; i <= n-1; i++){
+    	if (n%i == 0) break;
+    	else continue;
+	}
+
+	if (i == n) return true;
+	else return false;
     
 }
 
 bool isSquared(int n)
 {
-    
-    
+    if (int(sqrt(n))*int(sqrt(n)) == n) 
+        return true;
+    else return false;
 }
 
 int main()
@@ -77,7 +103,7 @@ int main()
         * Remember to assign calculated value to variable `distance`
     */
     
-    
+    distance = move(moves);
     
     /*---------------------------------*/
 
@@ -88,7 +114,7 @@ int main()
         * Remember to assign appropriate value to variable `primality`
     */
     
-    
+    primality = isPrime(distance);
     
     /*---------------------------------*/
     /*---------------------------------
@@ -96,7 +122,8 @@ int main()
         * Remember to assign appropriate value to variable `squared`
     */
     
-    
+    squared = isSquared(distance);
+
     /*---------------------------------*/
 
     if (primality) {
