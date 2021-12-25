@@ -1,15 +1,20 @@
-Pass by Reference
+1/ Pass by Pointer
 
-1/
     void swap( int *a , int *b ) // * here and below
     {
         int temp = *a;
         *a = *b;
         *b = temp;
     } // use poiter
+    // Exchange the value of a and b 
 
-2/
+2/ Pass by Reference
+
     void squareByReference(int &cRef ) //& here
     {
         cRef *= cRef;   
-    }
+    } // cRef = cRef*cRef
+
+3/ Pass by Value
+ 
+    - No * and no &
