@@ -1,0 +1,17 @@
+
+- Kiểu unsigned int là kiểu số nguyên nằm trong khoảng từ 0 đến 65535 (0 đến 216 - 1). 
+Mỗi biến mang kiểu dữ liệu này chiếm 2 byte bộ nhớ.
+
+- enum: kiểu dữ liệu cố định
+    enum number one = 1, two, three, four = 7, five;
+        =>  two     = one   + 1
+            three   = two   + 1
+            five    = four  + 1
+
+-   [ ++i ]
+        b = ++a means   a = a + 1; 
+                        b = a; (b = a + 1;) 
+                                => a = new value first, b = new value of a
+    [ i++ ]
+        b = a++ means   b = a; 
+                        a = a +1; (b = a first, then a = new value)
