@@ -2,8 +2,10 @@
 
 #include<iostream>
 using namespace std;
+
 const int N = 3;
-void main( )
+
+int main( )
 {
     int i, j;
     int a[N][N];

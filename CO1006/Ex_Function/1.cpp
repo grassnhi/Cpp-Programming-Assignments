@@ -19,7 +19,7 @@ using namespace std;
 int convertBinaryToDecimal(string n)
 {
     int deci = 0, r, i=0, m;
-    m=stoi(n);
+    m = stoi(n);
 
     while (m!=0)
     {

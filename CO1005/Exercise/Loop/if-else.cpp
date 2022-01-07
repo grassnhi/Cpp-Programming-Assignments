@@ -20,7 +20,7 @@ int main()
   cout << "Please type in the taxable income: ";
   cin  >> taxable;
 
-  if (taxable <= CUTOFF)
+  if (taxable <= CUTOFF)
     taxes = LOWRATE * taxable;
   else
     taxes = HIGHRATE * (taxable - CUTOFF) + FIXEDAMT;

@@ -16,9 +16,7 @@ The largest element in the array, round up to 2 digits after decimal point
 #include<math.h>
 using namespace std;
 
-int main()
-{
-   float maximum(float arr[], int n)
+float maximum(float arr[], int n)
 {
     int i;
     float max = arr[0];
