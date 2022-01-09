@@ -23,9 +23,9 @@ void printPrimes(int lower, int upper)
         lower =2;
 
     for( int i = lower; i <= upper; i++){
-	    for(int j=2; j<i; j++){
-		    if(i%j==0)
-                temp =1;
+	    for(int j = 2; j < i; j++){
+		    if(i % j == 0)
+                temp = 1;
 	    }
 
 	    if(temp == 0) 

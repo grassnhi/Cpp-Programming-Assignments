@@ -109,3 +109,7 @@
     Cmd + K, Cmd + Shift + Mũi tên phải	        Di chuyển trình chỉnh sửa trái
     Control + `	                                Hiển thị terminal tích hợp
     Control + Shift + `	                        Tạo phiên bản terminal mới
+
+# Terminal
+
+    Ctrl + C            Stop terminal

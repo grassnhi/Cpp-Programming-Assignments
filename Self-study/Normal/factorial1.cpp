@@ -1,8 +1,6 @@
-// function to call itself
-// n!
-
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 int factorial( int );
