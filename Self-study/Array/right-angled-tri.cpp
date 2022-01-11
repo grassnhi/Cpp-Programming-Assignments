@@ -13,7 +13,7 @@ void rightTriangle(int h) {
 }
 
 int main() {
-	int h, d;
+	int h;
 	cout << "Enter h: ";
 	cin >> h;
 	rightTriangle(h);

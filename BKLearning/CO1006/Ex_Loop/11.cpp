@@ -22,11 +22,11 @@ You should store the input matrix in a 2-dimensional array
 using namespace std;
 int main()
 {
-   int n;
-    cin >> n;
-   int a[n][n];
-   int i,j;
-   for( i=0 ; i <n; i++){
+    const int n = 10;
+
+    int a[n][n];
+    int i,j;
+    for( i=0 ; i <n; i++){
         for (j = 0; j < n; j++)
             cin >> a[i][j];
     }
