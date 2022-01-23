@@ -29,15 +29,17 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 
                 HP1 -= P1[i]*(i + 1)*2;
                 EXP1 += (1000 - P1[i]*(i + 1) % 101);
-                M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);
+                M1 = ceil(M1 - (i + 1)*E3 / 9);
 
                 if(EXP1>900)    EXP1 = 900;
                 if(M1<0)    M1=0;
                 if(HP1<0)   HP1=0;
             }
         }
-        if(road1 = 0)    
-            M1= ceil(M1 - 9*9*E3*1.0 / 9);
+        if(road1 == 0){
+            M1= ceil(M1 - 9*9*E3 / 9);
+            if(M1<0)    M1=0;
+        }    
             
         int P2[7]={2, 3, 5, 7, 11, 13, 17};
         int s = 0, m = 0;
@@ -57,16 +59,18 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 
                 HP1 -= P2[i]*(i + 1)*2;
                 EXP1 += (1000 - P2[i]*(i + 1) % 101);
-                M1 = ceil(M1-(i + 1)*E3*1.0 / 9);
+                M1 = ceil(M1-(i + 1)*E3 / 9);
 
                 if(EXP1>900)    EXP1 = 900;
                 if(M1<0)    M1=0;
                 if(HP1<0)   HP1=0;
             }
         }
-        if(road2 = 0)    
-            M1= ceil(M1 - 7*7*E3*1.0 / 9);
-            
+        if(road2 == 0){
+            M1= ceil(M1 - 7*7*E3 / 9);
+            if(M1<0)    M1=0;
+        }    
+       
         int P3[20];
         int n = 2;
 
@@ -94,7 +98,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 
                 HP1 -= P3[i]*(20 - i)*3;
                 EXP1 += (3500 - P3[i]*(20 - i) % 300);
-                M1 = ceil(M1 - (20 - i)*E3*1.0 / 9);
+                M1 = ceil(M1 - (20 - i)*E3 / 9);
 
                 if(EXP1>900)    EXP1 = 900;
                 if(M1<0)    M1=0;
@@ -102,9 +106,11 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
             }
         }
 
-        if(road3 = 0)    
-            M1 = ceil(M1 - 20*20*E3*1.0 / 9);
-            
+        if(road3 == 0){
+            M1 = ceil(M1 - 20*20*E3 / 9);
+            if(M1<0)    M1=0;
+        }             
+        
         int P4[12]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         
         int b = (P4[0]+ pow(ceil(E3*1.0/29),3));
@@ -132,22 +138,24 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 
                 HP1 -= P4[i]*(12 - i)*4;
                 EXP1 += (4500 - P4[i]*(12 - i) % 400);
-                M1 = ceil(M1 - (12 - i)*E3*1.0 / 9);
+                M1 = ceil(M1 - (12 - i)*E3 / 9);
 
                 if(EXP1>900)    EXP1 = 900;
                 if(M1<0)    M1=0;
                 if(HP1<0)   HP1=0;
             }            
         }
-        if(road4 = 0)    
-            M1 = ceil(M1 - 12*12*E3*1.0 / 9);
+        if(road4 == 0){
+            M1 = ceil(M1 - 12*12*E3 / 9);
+            if(M1<0)    M1=0;
+        }    
         
         if((road1 + road2 + road3 + road4) == 0){
             HP1 -= (59 * E3) % 900;
             if(HP1 < 0)   HP1 = 0;
 
             EXP1 -= (79*E3) % 300;
-            if(EXP1 < 0)  EXP1 =0;
+            if(EXP1 < 0)  EXP1 = 0;
             
             return -1;
         }

@@ -34,8 +34,8 @@ int investigateScene(int& EXP1, int& EXP2, int& HP2, int& M2, const int& E2){
             EXP1 = ceil(EXP1+(E2*1.0 / 9 + 10) / 3);
             EXP2 = ceil(EXP2 + E2*0.35); 
             EXP1 = ceil(EXP1 + (E2*0.35) / 3);
-            EXP2 = ceil(EXP2*1.17);
-            EXP1 = ceil (EXP1 + EXP2*0.17/3);
+            EXP2 = ceil((E2*1.0 / 9 + 10 + E2*0.35)*1.17);
+            EXP1 = ceil (EXP1 + E2*1.0 / 9 + 10 + E2*0.35)*1.17/3);
         }
 
         HP2 = ceil(HP2 - pow(E2, 3)*1.0 / pow(2, 23));
