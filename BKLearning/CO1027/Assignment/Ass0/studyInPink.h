@@ -29,11 +29,11 @@ int firstMeet(int& EXP1, int& EXP2, const int& E1){
     if( E1 < 0 || E1 > 999)
         return -999;
     else{ 
-        if(EXP2 < 0) EXP2 = 0;
-        if(EXP2 > 900) EXP2 = 900;
+        if(EXP2 < 0)        EXP2 = 0;
+        if(EXP2 > 900)      EXP2 = 900;
 
-        if(EXP1 < 0) EXP1 = 0;
-        if(EXP1 > 900) EXP1 = 900;
+        if(EXP1 < 0)        EXP1 = 0;
+        if(EXP1 > 900)      EXP1 = 900;
 
         if(E1 >= 0 && E1 < 400){
             
@@ -99,48 +99,48 @@ int investigateScene(int& EXP1, int& EXP2, int& HP2, int& M2, const int& E2){
     if( E2 < 0 || E2 > 999)
         return -999;
     else{
-        if(EXP2 < 0) EXP2 = 0;
-        if(EXP2 > 900) EXP2 = 900;
+        if(EXP2 < 0)    EXP2 = 0;
+        if(EXP2 > 900)  EXP2 = 900;
         
-        if(HP2 < 0) HP2 = 0;
-        if(HP2 > 999) EXP2 = 999;
+        if(HP2 < 0)     HP2 = 0;
+        if(HP2 > 999)   EXP2 = 999;
     
-        if(EXP1 < 0) EXP1 = 0;
-        if(EXP1 > 900) EXP1 = 900;
+        if(EXP1 < 0)    EXP1 = 0;
+        if(EXP1 > 900)  EXP1 = 900;
         
-        if(M2 > 2000) M2 = 2000; 
-        if(M2 < 0)  M2 = 0;
+        if(M2 > 2000)   M2 = 2000; 
+        if(M2 < 0)      M2 = 0;
 
         if(E2 >= 0 && E2 <= 299){
-            EXP2 = ceil(EXP2 + E2*1.0 / 9 + 10);
-            EXP1 = ceil(EXP1 + (E2*1.0 /9 + 10)*1.0 / 3);
+            EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
+            EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
         }else if(E2 <= 499){
-            EXP2 = ceil(EXP2 + E2*1.0 / 9 + 10);
-            EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0/3);
-            EXP2 = ceil(EXP2 + E2*0.35);
+            EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
+            EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
+            EXP2 = ceil(EXP2 +  E2*0.35);
             EXP1 = ceil(EXP1 + (E2*0.35)*1.0 / 3);
         }else if(E2 <= 999){
-            EXP2 = ceil(EXP2 + E2*1.0 / 9 + 10);
+            EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
             EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
-            EXP2 = ceil(EXP2 + E2*0.35); 
+            EXP2 = ceil(EXP2 +  E2*0.35); 
             EXP1 = ceil(EXP1 + (E2*0.35)*1.0 / 3);
             EXP2 = ceil(EXP2 + (E2*1.0/9 + 10 + E2*0.35)*0.17);
             EXP1 = ceil(EXP1 + (E2*1.0/9 + 10 + E2*0.35)*0.17*1.0 / 3); 
         }
 
-        HP2 = ceil(HP2 - pow(E2,3)*1.0/pow(2,23));
+        HP2 = ceil(HP2 - pow(E2, 3)*1.0 / pow(2, 23));
 
-        if(E2%2==0){
-            M2 = ceil(M2+pow(E2,2)*1.0/50);
+        if(E2 % 2 == 0){
+            M2 = ceil(M2 + pow(E2, 2)*1.0 / 50);
         }
 
-        if(EXP2 > 900) EXP2 = 900;
+        if(EXP2 > 900)  EXP2 = 900;
         
-        if(HP2 < 0) HP2 = 0;
+        if(HP2 < 0)     HP2 = 0;
     
-        if(EXP1 > 900) EXP1 = 900;
+        if(EXP1 > 900)  EXP1 = 900;
         
-        if(M2 > 2000) M2 = 2000; 
+        if(M2 > 2000)   M2 = 2000; 
         
         return (EXP2 + HP2 + M2 + EXP1);
 
@@ -159,10 +159,14 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         
         if(HP1 < 0)         HP1 = 0;
         if(HP1 > 999)       EXP1 = 999;
-//cout << " M1 = " << M1 << endl;               
-        int road1 = 0, road2 =0, road3 = 0, road4 = 0;
-        int P1[9]= {1, 3, 5, 7, 9, 11, 13, 15, 17};
+
+//cout << " M1 = " << M1 << endl;    
+
+        int road1 = 0, road2 = 0, road3 = 0, road4 = 0;
+        int P1[9] = {1, 3, 5, 7, 9, 11, 13, 15, 17};
+
 //cout << "  M1 = " << M1 << endl;  
+
         for(int i = 0; i < 9; i++){
             P1[i] = (P1[i] + E3) % 26 + 65;
 
@@ -174,6 +178,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
                 M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);
 
 //cout << "   M1 = " << M1 << endl;  
+
                 if(EXP1 > 900)      EXP1 = 900;
                 if(M1 < 0)          M1 = 0;
                 if(HP1 < 0)         HP1 = 0;
@@ -184,17 +189,17 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         if(road1 == 0){
             M1 = ceil(M1 - 9*9*E3*1.0 / 9);
             if(M1 < 0)    M1 = 0;
+
 //cout << "   M1 = " << M1 << endl;  
         }    
 
 //cout << HP1 << " " << EXP1 << " " << M1 << endl;
             
-        int P2[7]={2, 3, 5, 7, 11, 13, 17};
+        int P2[7] = {2, 3, 5, 7, 11, 13, 17};
         int s = 0, m = 0;
 
         for(int i = 0; i < 7; i++){
             P2[i] = (P2[i] + E3) % 26;
-            //P2[i] = fmod((P2[i]+E3),26);
             s += P2[i];
         }
 
@@ -219,7 +224,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
         if(road2 == 0){
             M1= ceil(M1 - 7*7*E3*1.0 / 9);
-            if(M1 < 0)    M1=0;
+            if(M1 < 0)    M1 = 0;
         } 
 
 //cout << HP1 << " " << EXP1 << " " << M1 << endl;   
@@ -242,7 +247,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
 
         for(int i = 0; i < 20; i++){
-            int a = (ceil((P3[19-i]+E3)*1.0 / max));
+            int a = (ceil((P3[19-i] + E3)*1.0 / max));
 
             P3[19-i] = a % 26 + 65;
 
@@ -253,9 +258,9 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
                 EXP1 += (3500 - P3[19-i]*(i+1)) % 300;
                 M1 = ceil(M1 - (i+1)*E3*1.0 / 9);
 
-                if(EXP1>900)    EXP1 = 900;
-                if(M1<0)    M1=0;
-                if(HP1<0)   HP1=0;
+                if(EXP1 > 900)    EXP1 = 900;
+                if(M1 < 0)        M1 = 0;
+                if(HP1 < 0)       HP1 = 0;
 
                 break;
             }
@@ -263,20 +268,20 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 
         if(road3 == 0){
             M1 = ceil(M1 - 20*20*E3*1.0 / 9);
-            if(M1 < 0)    M1=0;
+            if(M1 < 0)    M1 = 0;
         }   
 
 //cout << HP1 << " " << EXP1 << " " << M1 << endl;          
         
-        int P4[12]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int P4[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         
-        int b = (P4[0]+ pow(ceil(E3*1.0/29),3));
+        int b = (P4[0] + pow(ceil(E3*1.0 / 29), 3));
         P4[0] = b % 9;
 
         int min = P4[0];
         int idx = 1;
 
-        for(int i = 1;i < 12; i++){
+        for(int i = 1; i < 12; i++){
             int c = (P4[i] + pow(ceil(E3*1.0 / 29), 3));
             P4[i] = c % 9;
 
@@ -306,7 +311,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         }
         if(road4 == 0){
             M1 = ceil(M1 - 12*12*E3*1.0 / 9);
-            if(M1 < 0)    M1=0;
+            if(M1 < 0)    M1 = 0;
         } 
 
 //cout << HP1 << " " << EXP1 << " " << M1 << endl;
