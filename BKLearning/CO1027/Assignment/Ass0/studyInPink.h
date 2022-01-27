@@ -39,54 +39,68 @@ int firstMeet(int& EXP1, int& EXP2, const int& E1){
             
             if(E1 >= 0 && E1 <= 49){
                 EXP2 += 25;
-            } else if (E1 <= 99){
+            } 
+            else if (E1 <= 99){
                 EXP2 += 50;
-            } else if (E1 <= 149){
+            } 
+            else if (E1 <= 149){
                 EXP2 += 85;
-            } else if(E1 <= 199){
+            } 
+            else if(E1 <= 199){
                 EXP2 += 75;
-            } else if(E1 <= 249){
+            } 
+            else if(E1 <= 249){
                 EXP2 += 110;
-            }else if(E1 <= 299){
+            }
+            else if(E1 <= 299){
                 EXP2 += 135;
-            }else if(E1 <= 399){
+            }
+            else if(E1 <= 399){
                 EXP2 += 160;
             }
 
             if( E1 %2 == 0){
                 EXP1 = ceil(EXP1 - E1*1.0 / 5);                
-                if(EXP1 < 0) EXP1 = 0;
-
-            } else{
+                if(EXP1 < 0)    EXP1 = 0;
+            } 
+            else{
                 EXP1 = ceil(EXP1 + E1*1.0 / 10);
-                if(EXP1 > 900) EXP1 = 900;
-
+                if(EXP1 > 900)  EXP1 = 900;
             }
-        }else if (E1 >= 400 && E1 <= 999){
+
+        }
+        else if (E1 >= 400 && E1 <= 999){
             if(E1 <= 499){
                 EXP2 = ceil(EXP2 + E1*1.0 / 7 + 9);
-            }else if(E1 <= 599){
+            }
+            else if(E1 <= 599){
                 EXP2 = ceil(EXP2 + E1*1.0 / 9 + 11);
-            }else if(E1 <= 699){
+            }
+            else if(E1 <= 699){
                 EXP2 = ceil(EXP2 + E1*1.0 / 5 + 6);
-            }else if(E1 <= 799){
+            }
+            else if(E1 <= 799){
                 EXP2 = ceil(EXP2 + E1*1.0 / 7 + 9);
+
                 if(EXP2 > 200){
                     EXP2 = ceil(EXP2 + E1*1.0 / 9 + 11);
                 }
-            }else if(E1 <= 999){
+            }
+            else if(E1 <= 999){
                 EXP2 = ceil(EXP2 + E1*1.0 / 7 + 9);
                 EXP2 = ceil(EXP2 + E1*1.0 / 9 + 11);
+
                 if(EXP2 > 600){
                     EXP2 = ceil(EXP2 + E1*1.0 / 5 + 6);
                     EXP2 = ceil(EXP2*1.15);
                 }
             }
+
             EXP1 = ceil(EXP1 - E1*0.1);
-            if(EXP1 < 0) EXP1 = 0;
+            if(EXP1 < 0)    EXP1 = 0;
         }
     
-        if(EXP2 > 900) EXP2 = 900;
+        if(EXP2 > 900)  EXP2 = 900;
         
         int EXP = EXP1 + EXP2;
 
@@ -114,16 +128,21 @@ int investigateScene(int& EXP1, int& EXP2, int& HP2, int& M2, const int& E2){
         if(E2 >= 0 && E2 <= 299){
             EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
             EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
-        }else if(E2 <= 499){
+        }
+        else if(E2 <= 499){
             EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
             EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
+
             EXP2 = ceil(EXP2 +  E2*0.35);
             EXP1 = ceil(EXP1 + (E2*0.35)*1.0 / 3);
-        }else if(E2 <= 999){
+        }
+        else if(E2 <= 999){
             EXP2 = ceil(EXP2 +  E2*1.0 / 9 + 10);
             EXP1 = ceil(EXP1 + (E2*1.0 / 9 + 10)*1.0 / 3);
+
             EXP2 = ceil(EXP2 +  E2*0.35); 
             EXP1 = ceil(EXP1 + (E2*0.35)*1.0 / 3);
+
             EXP2 = ceil(EXP2 + (E2*1.0/9 + 10 + E2*0.35)*0.17);
             EXP1 = ceil(EXP1 + (E2*1.0/9 + 10 + E2*0.35)*0.17*1.0 / 3); 
         }
@@ -155,7 +174,7 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         if(EXP1 > 900)      EXP1 = 900;
         
         if(M1 < 0)          M1 = 0;
-        if(M1 > 2000)        M1 = 2000;
+        if(M1 > 2000)       M1 = 2000;
         
         if(HP1 < 0)         HP1 = 0;
         if(HP1 > 999)       EXP1 = 999;
@@ -180,17 +199,19 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
 //cout << "   M1 = " << M1 << endl;  
 
                 if(EXP1 > 900)      EXP1 = 900;
+
                 if(M1 < 0)          M1 = 0;
+
                 if(HP1 < 0)         HP1 = 0;
 
                 break;
             }
         }
+
         if(road1 == 0){
             M1 = ceil(M1 - 9*9*E3*1.0 / 9);
             if(M1 < 0)    M1 = 0;
-
-//cout << "   M1 = " << M1 << endl;  
+    //cout << "   M1 = " << M1 << endl;  
         }    
 
 //cout << HP1 << " " << EXP1 << " " << M1 << endl;
@@ -212,16 +233,18 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
                 road2 = 1;
 
                 HP1 -= P2[i]*(i + 1)*2;
-                EXP1 += (1000 - P2[i]*(i + 1)) % 101;
-                M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);
-
-                if(EXP1 > 900)      EXP1 = 900;
-                if(M1 < 0)          M1 = 0;
                 if(HP1 < 0)         HP1 = 0;
 
+                EXP1 += (1000 - P2[i]*(i + 1)) % 101;
+                if(EXP1 > 900)      EXP1 = 900;
+
+                M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);                
+                if(M1 < 0)          M1 = 0;
+                
                 break;
             }
         }
+
         if(road2 == 0){
             M1= ceil(M1 - 7*7*E3*1.0 / 9);
             if(M1 < 0)    M1 = 0;
@@ -233,8 +256,9 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
         int n = 2;
 
         for(int i = 0; i < 20; i++){
-            P3[i] = n*n;
+            P3[i] = n*n;   
             n += 2;
+
             P3[i]=(P3[i] + E3*E3) % 113;
         }
 
@@ -255,13 +279,14 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
                 road3 = 1;
 
                 HP1 -= P3[19-i]*(i + 1)*3;
-                EXP1 += (3500 - P3[19-i]*(i+1)) % 300;
-                M1 = ceil(M1 - (i+1)*E3*1.0 / 9);
-
-                if(EXP1 > 900)    EXP1 = 900;
-                if(M1 < 0)        M1 = 0;
                 if(HP1 < 0)       HP1 = 0;
 
+                EXP1 += (3500 - P3[19-i]*(i+1)) % 300;
+                if(EXP1 > 900)    EXP1 = 900;
+
+                M1 = ceil(M1 - (i+1)*E3*1.0 / 9);
+                if(M1 < 0)        M1 = 0;
+                
                 break;
             }
         }
@@ -299,16 +324,18 @@ int traceLuggage(int& HP1, int& EXP1, int& M1, const int& E3){
                 road4 = 1;
 
                 HP1 -= P4[11-i]*(i + 1)*4;
-                EXP1 += (4500 - P4[11-i]*(i + 1)) % 400;
-                M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);
-
-                if(EXP1 > 900)      EXP1 = 900;
-                if(M1 < 0)          M1 = 0;
                 if(HP1 < 0)         HP1 = 0;
 
+                EXP1 += (4500 - P4[11-i]*(i + 1)) % 400;
+                if(EXP1 > 900)      EXP1 = 900;
+
+                M1 = ceil(M1 - (i + 1)*E3*1.0 / 9);
+                if(M1 < 0)          M1 = 0;
+                
                 break;
             }            
         }
+
         if(road4 == 0){
             M1 = ceil(M1 - 12*12*E3*1.0 / 9);
             if(M1 < 0)    M1 = 0;
