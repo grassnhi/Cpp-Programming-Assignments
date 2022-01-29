@@ -1,3 +1,17 @@
+/*
+Implement void process(const char *str, char *outstr) function which eliminates redundant 
+space characters so that there are no consecutive space characters and there is 
+no space character at the beginning/end of string.
+
+- Input: Char * pointer to the first character of string
+
+- Output: The result is written to outstr
+
+- Available library: <iostream>, <cstring>
+
+- Note: Your code MUST NOT contain any of the words in the list {"include", "string"} even in the comment
+*/
+
 #include <iostream>
 #include <cstring>
 
