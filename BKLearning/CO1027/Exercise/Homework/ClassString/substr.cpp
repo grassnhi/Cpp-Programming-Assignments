@@ -10,15 +10,13 @@ Hint:  Use the string::substr function in the <string> library.
 using namespace std;
 
 void cutString(string s, int index){
-    //int n = s.length();
-
-    string c = s.substr(index);
-    //string c = s.substr(index, n - index);
-
-    cout << c;
+    if(index > s.length() || index <0){
+        return;
+    }else
+    cout << s.substr(index);
 }
 
 int main(){
     string s = "Truong Dai Hoc Bach Khoa.";
-    cutString(s, 9);
+    cutString(s, 100);
 }

@@ -21,8 +21,8 @@ void calSum(const string& fileName){
 
     string myText;
 
-    int a = 0;
-    int sum = 0;
+    unsigned long long int a = 0;
+    unsigned long long int sum = 0;
 
     if (my_file.is_open()){
         //cout << "reading" << endl;
@@ -32,7 +32,7 @@ void calSum(const string& fileName){
     }
 
     if(myText.length() == 0) 
-        return;
+        cout << sum;
     
     for(unsigned int i = 0; i < myText.length(); i++){
        // cout << "i: " << i << " "  << "text: " <<myText[i] << endl;
@@ -57,6 +57,6 @@ int main(){
 	string fileName = "fileName.txt";
 
 	calSum(fileName);
-    
+
 	return 0;
 }
