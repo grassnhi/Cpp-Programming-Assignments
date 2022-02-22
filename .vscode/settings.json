@@ -5,7 +5,10 @@
     "cmath": "cpp",
     "iosfwd": "cpp",
     "xstring": "cpp",
-    "sstream": "cpp"
+    "sstream": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xutility": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
