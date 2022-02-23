@@ -8,7 +8,10 @@
     "sstream": "cpp",
     "xiosbase": "cpp",
     "xlocale": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "istream": "cpp",
+    "string": "cpp",
+    "iterator": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

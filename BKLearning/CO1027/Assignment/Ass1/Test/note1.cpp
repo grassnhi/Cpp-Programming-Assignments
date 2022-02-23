@@ -31,7 +31,7 @@ int checkElement(string str){
 
 string notebook1(string ntb1) {
     // Complete this function to gain point
-    ifstream note1(nb1, ifstream::in);
+    ifstream note1(ntb1, ifstream::in);
     
     string N1 = "";
 
