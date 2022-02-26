@@ -64,3 +64,13 @@ Input:
 Output:
     "True" or "False" for the input.
 */
+
+#include <iostream>
+#include <fstream>
+#include <cstring>
+
+using namespace std;
+
+void manage(string library, string book, string author){
+    
+}

@@ -23,7 +23,7 @@ Output:
 #include <iostream>
 #include <fstream>
 
-using namespace std
+using namespace std;
 
 void studentGrading(string fileName){
     fstream myFile;

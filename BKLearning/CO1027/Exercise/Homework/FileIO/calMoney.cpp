@@ -49,32 +49,69 @@ Output:
 */
 #include <iostream>
 #include <fstream>
+#include <cstring>
 
-using namespace std
+using namespace std;
 
 void calMoney(string price, string buy) {
     fstream priceFile;
-    price.open(price, ios::in);
+    priceFile.open(price, ios::in);
     
     fstream buyFile;
-    price.open(buy, ios::in);
+    buyFile.open(buy, ios::in);
 
-    string product;
     int N;
 
-
-    if (price.is_open() && buy.is_open()){
+    if (priceFile.is_open()){
         priceFile >> N;
+        int arr[N];
+        int id_idx;
+        for(int i = 0;  i < N; i++){
+            priceFile >> id_idx;
+            priceFile >> arr[id_idx];
+        }
+cout << arr[N] << endl;        
+        priceFile.close();
+    }
 
-        for(int i = 0;  i < N.le; i++){
-            getline(price, produce);
+    if (buyFile.is_open()){
+        buyFile >> N;
+        string customer;
+        while(!buyFile.eof()){
+            getline(buyFile, customer);
+            unsigned long int sum = 0;
+            string tokens[100];
+            int idx = 0;
+cout << customer << endl;
+            for (auto i = strtok(&customer[0], " "); i; i = strtok(NULL, " ")){
+                tokens[idx++] = i;
+cout << tokens[idx++] << endl;
+            }
+
+            cout << tokens[0];
+
+            int pro, num;
+            for(int j = 1; j < idx; j += 2){
+                pro = stoi(tokens[j]);
+                num = stoi(tokens[j+1]);
+                sum += pro*num;
+cout << pro << " " << num << " " << sum << endl;
+            }
+            
+            cout << " " << sum << endl;
+            sum = 0;
+
+            buyFile.close();
+        }
+    }
+    
 }
 
 int main(){
     string price = "price.txt";
     string buy = "buy.txt";
 
-    cout << calMoney(price, buy);
+    calMoney(price, buy);
 
     return 0;
 }
