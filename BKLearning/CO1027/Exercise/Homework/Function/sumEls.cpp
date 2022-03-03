@@ -9,7 +9,7 @@ Parameters:
 
 #include <iostream>
 
-using namespace std
+using namespace std;
 
 void sum2(int * array, int numEls, int &result){
     result = 0; 

@@ -11,7 +11,7 @@ Output:
 
 #include <iostream>
 
-using namespace std
+using namespace std;
 
 bool completeNum(int N){
     long long int sum = 1;

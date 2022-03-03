@@ -17,7 +17,7 @@ Note:
 using namespace std;
 
 bool checkElementsUniqueness(int* arr, int n) {
-    for (int i=0; i<n; i++){
+    for(int i=0; i<n; i++){
         for ( int j=0; j<i; j++)
            if (arr[i] == arr[j])
                return false;

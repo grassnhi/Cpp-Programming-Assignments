@@ -15,7 +15,7 @@ Note: Libraries iostream, vector, and string have been imported, and namespace s
 #include <iostream>
 #include <string>
 
-using namespace std
+using namespace std;
 
 int main(){
     int arr[][1000] = {{66,16,71},{25,81,61},{2,10,34}};
