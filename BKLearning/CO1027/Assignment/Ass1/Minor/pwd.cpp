@@ -7,10 +7,30 @@
 
 using namespace std;
 
-
+string match(string s1, string s2){
+    string s;
+    int n = 0, r = 0;
+    for(int i = 0; i < s1.length(); i++){
+        n = stoi(s1[i]) + stoi(s2[i]) + r;
+        r = 0;
+        if(n > 10){
+            r = n / 10;
+            n = n % 10;
+        }
+        s += to_string(n);
+        n = 0;
+    }
+    
+    return s;
+    
+}
 string generateListPasswords(string pwd1, string pwd2, string pwd3) {
-    // Complete this function to gain point
-    return "000000000";
+    string m1 = match(pwd1, pwd2);
+    string m2 = match(pwd1, pwd3);
+    string m3 = match(pwd2, pwd3)
+    string passList = pwd1 + "," + pwd2 + "," + pwd3 + "," + m1 + "," + m2 + "," + m3 + "," 
+                            + match(m1, pwd3) + "," + match(pwd1, m3) + "," + match(m1, m3);
+    return passList;
 }
 
 int main(){

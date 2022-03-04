@@ -11,7 +11,9 @@
     "xutility": "cpp",
     "istream": "cpp",
     "string": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "initializer_list": "cpp",
+    "vector": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
