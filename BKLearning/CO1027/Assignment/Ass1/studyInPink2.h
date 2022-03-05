@@ -95,9 +95,9 @@ string notebook2(string ntb2) {
                         j = finding.find("Pink", j);
                     }
                 }  
-cout << cntP << " ";
+//cout << cntP << " ";
                 }
-cout << cntP << endl;
+//cout << cntP << endl;
             if(cntP < 10000)
                 cntP = cntP * cntP;
 //cout << cntP << endl;
@@ -126,8 +126,7 @@ cout << cntP << endl;
     }
 }
 
-bool isPrime(int n)
-{
+bool isPrime(int n){
 	// Base cases
 	if (n <= 1)
 		return false;
@@ -152,8 +151,7 @@ bool isPrime(int n)
 	return true;
 }
 
-int findSmallest(int N)
-{
+int findSmallest(int N){
 
 	// Base case
 	if (N == 0)
@@ -164,17 +162,10 @@ int findSmallest(int N)
 	int prime = N, counter = 0;
 	bool found = false;
 
-	// Loop continuously until isPrime returns
-	// true for a number greater than n
-	while (!found) {
+	while (!found){
 		if (isPrime(prime))
 			found = true;
 		else {
-
-			// If the number is not a prime, then
-			// increment the number by 1 and the
-			// counter which stores the number
-			// to be added
 			prime++;
 			counter++;
 		}
@@ -183,39 +174,22 @@ int findSmallest(int N)
 	return counter;
 }
 
-int nearestFibonacci(int num)
-{
-	// Base Case
-	if (num == 0) {
+int nearestFibonacci(int num){
+	if (num == 0){
 		return 0;
 	}
 
-	// Initialize the first & second
-	// terms of the Fibonacci series
 	int first = 0, second = 1;
-
-	// Store the third term
 	int third = first + second;
 
-	// Iterate until the third term
-	// is less than or equal to num
-	while (third <= num) {
-
-		// Update the first
+	while (third < num) {
 		first = second;
-
-		// Update the second
 		second = third;
-
-		// Update the third
 		third = first + second;
 	}
 
-	// Store the Fibonacci number
-	// having smaller difference with N
-	int ans = (abs(third - num) >= abs(second - num)) ? second: third;
+	int ans = third;
 
-	// Print the result
 	return ans;
 }
 
@@ -279,12 +253,12 @@ string notebook3(string ntb3) {
         maxEls += to_string(maxIndex);
     }
 
-// for(i = 0; i < 10; i++){
-//     for(j = 0; j < 10; j++){
-//         cout << N3[i][j] << " ";
-//     }
-//     cout << endl;
-// }
+for(i = 0; i < 10; i++){
+    for(j = 0; j < 10; j++){
+        cout << N3[i][j] << " ";
+    }
+    cout << endl;
+}
 return maxEls;
 }
 
@@ -308,8 +282,8 @@ string generateListPasswords(string pwd1, string pwd2, string pwd3){
     string m1 = match(pwd1, pwd2);
     string m2 = match(pwd1, pwd3);
     string m3 = match(pwd2, pwd3);
-    string passList = pwd1 + "," + pwd2 + "," + pwd3 + "," + m1 + "," + m2 + "," + m3 + "," 
-                            + match(m1, pwd3) + "," + match(pwd1, m3) + "," + match(m1, m2);
+    string passList = pwd1 + ";" + pwd2 + ";" + pwd3 + ";" + m1 + ";" + m2 + ";" + m3 + ";" 
+                            + match(m1, pwd3) + ";" + match(pwd1, m3) + ";" + match(m1, m2);
     return passList;
 
 }
@@ -326,33 +300,6 @@ bool chaseTaxi(
             arr[i][j] = -9;
     }
     arr[0][0] = 0;
-    bool catch = false;
-    int prePosition[2] = {0 , 0}, currPositon[2] = {-9, -9};
-    int preTime = 0, currTime = 0;
-    while(points != "\0"){
-        int start = points.find("("), mid = points.find(","), end = points.find(")");
-        int x = currPositon[0], y = currPositon[1];
-
-        string point = points.substr(start + 1, mid - start);
-        x = stoi(point);
-
-        points = points.substr(mid + 1);
-
-        point = points.substr(mid + 1, end - mid);
-        y = stoi(point);
-
-        currTime = 14*(abs(currPositon[0] - prePositon[0]) + abs(currPositon[1] - prePositon[1])) + preTime;
-    
-        if(arr[x][y] != -9 && arr[x][y] >= currTime){
-            catch = true;
-            outTimes += (to_string(currTime) + ";");
-            outCatchUps += ("Y;")
-        }
-        else{
-
-        }
-        
-    }
 
     int location = 0, row = 0, col = 0;
     for(int i = 0; i < moves.length(); i++){
@@ -384,13 +331,79 @@ bool chaseTaxi(
                 break;
         }
     }
+    bool caught = false;
+    int prePosition[2] = {0 , 0}, currPosition[2] = {0, 0};
+    int preTime = 0, currTime = 0;
+    while(points != "\0"){
+        int start = points.find("("), mid = points.find(","), end = points.find(")");
+cout << start << " " << mid << " " << end << endl;
+        string point = points.substr(start + 1, mid - start - 1);
+        int x = stoi(point);
+//cout << x << endl;
 
+cout << point << " ";
+        point = points.substr(mid + 1, end - mid - 1);
+cout << point << " ";
+        int y = stoi(point);
+//cout << y << endl;
+        currPosition[0] = x; 
+        currPosition[1] = y;
+//cout << currPosition[0] << " " << currPosition[1] << endl;
 
+        currTime = 14*(abs(currPosition[0] - prePosition[0]) + abs(currPosition[1] - prePosition[1])) + preTime;
+//cout << currTime << endl;  
+        if(arr[x][y] != -9 && arr[x][y] >= currTime && !caught){
+            caught = true;
+            outTimes += (to_string(currTime) + ";");
+            outCatchUps += ("Y;");
+cout << outTimes << "     " << outCatchUps << endl;
+        }
+        else if(!caught){
+            outTimes += (to_string(currTime) + ";");
+            outCatchUps += ("N;");
+cout << outTimes << "     " << outCatchUps << endl;
+        }else{
+            outTimes += ("-;");
+            outCatchUps += ("-;");
+cout << outTimes << "     " << outCatchUps << endl;
+        }
+        prePosition[0] = currPosition[0]; 
+        prePosition[1] = currPosition[1]; 
+        preTime = currTime; 
+        points = points.substr(end + 1);
+    }
+    outTimes.pop_back();
+    outCatchUps.pop_back();
+    return caught;
 }
 
 string enterLaptop(string tag, string message) {
-    // Complete this function to gain point
-    return "";
+    ifstream pass(tag, ifstream::in);
+    string email, address, N3 = "", password;
+    if(pass.is_open()){
+        getline(pass, email);
+        getline(pass, address);
+//cout << email << " " << address << endl;
+        if(isdigit(address[10])){
+            for (int i = 9; i < 11; i++){
+                N3 += address[i];
+//cout << N3 << " ";
+            } 
+        }else
+            N3 = address[9];
+//cout << N3 << " ";      
+        int n3 = stoi(N3);
+//cout << n3 << endl;
+        string temp = message;
+        for(int i = 1; i < n3; i++){
+            message += temp;
+//cout << message << endl;
+        }
+
+        password = email.substr(7) + ";" + message;       
+        pass.close();
+    }
+    return password;
 }
 
 ////////////////////////////////////////////////
