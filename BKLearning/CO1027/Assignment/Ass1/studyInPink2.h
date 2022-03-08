@@ -253,12 +253,12 @@ string notebook3(string ntb3) {
         maxEls += to_string(maxIndex);
     }
 
-for(i = 0; i < 10; i++){
-    for(j = 0; j < 10; j++){
-        cout << N3[i][j] << " ";
-    }
-    cout << endl;
-}
+// for(i = 0; i < 10; i++){
+//     for(j = 0; j < 10; j++){
+//         cout << N3[i][j] << " ";
+//     }
+//     cout << endl;
+// }
 return maxEls;
 }
 
@@ -301,34 +301,31 @@ bool chaseTaxi(
     }
     arr[0][0] = 0;
 
-    int location = 0, row = 0, col = 0;
-    for(int i = 0; i < moves.length(); i++){
-        char step = moves[i];
-        switch(step){   
-            case 'U':
-                if(row - 1 > 0) {
-                    arr[--row][col] = location + 9;
-                    location = arr[row][col];
+    int row = 0, col = 0;
+    for(int i = 0; i < moves.length(); i++){ // 9-18-27-36-45-54-63-72-81-90-99-108-117-126-135
+        if(moves[i] == 'U'){   
+            if(row > 0) {
+                arr[row-1][col] = arr[row][col] + 9;
+                row--;
+            }
+        }
+        else if(moves[i] == 'D'){
+                if(row < 100) {
+                    arr[row+1][col] = arr[row][col] + 9;
+                    row++;
                 }
-                break;
-            case 'D':
-                if(row + 1 < 100) {
-                    arr[++row][col] = location + 9;
-                    location = arr[row][col];
+        }
+        else if(moves[i] == 'R'){
+                if(col < 100) {
+                    arr[row][col+1] = arr[row][col] + 9;
+                    col++;
                 }
-                break;
-            case 'R':
-                if(col + 1 < 100) {
-                    arr[row][++col] = location + 9;
-                    location = arr[row][col];
+        }
+        else if(moves[i] == 'L'){
+                if(col > 0) {
+                    arr[row][col-1] = arr[row][col] + 9;
+                    col--;
                 }
-                break;
-            case 'L':
-                if(col - 1 > 0) {
-                    arr[row][--col] = location + 9;
-                    location = arr[row][col];
-                } 
-                break;
         }
     }
     bool caught = false;
@@ -336,36 +333,29 @@ bool chaseTaxi(
     int preTime = 0, currTime = 0;
     while(points != "\0"){
         int start = points.find("("), mid = points.find(","), end = points.find(")");
-cout << start << " " << mid << " " << end << endl;
+//cout << start << " " << mid << " " << end << endl;
         string point = points.substr(start + 1, mid - start - 1);
         int x = stoi(point);
-//cout << x << endl;
 
-cout << point << " ";
         point = points.substr(mid + 1, end - mid - 1);
-cout << point << " ";
         int y = stoi(point);
-//cout << y << endl;
+
         currPosition[0] = x; 
         currPosition[1] = y;
-//cout << currPosition[0] << " " << currPosition[1] << endl;
 
         currTime = 14*(abs(currPosition[0] - prePosition[0]) + abs(currPosition[1] - prePosition[1])) + preTime;
 //cout << currTime << endl;  
-        if(arr[x][y] != -9 && arr[x][y] >= currTime && !caught){
+        if(arr[x][y] >= currTime && !caught){ // 153 -  84
             caught = true;
             outTimes += (to_string(currTime) + ";");
             outCatchUps += ("Y;");
-cout << outTimes << "     " << outCatchUps << endl;
         }
         else if(!caught){
             outTimes += (to_string(currTime) + ";");
             outCatchUps += ("N;");
-cout << outTimes << "     " << outCatchUps << endl;
         }else{
             outTimes += ("-;");
             outCatchUps += ("-;");
-cout << outTimes << "     " << outCatchUps << endl;
         }
         prePosition[0] = currPosition[0]; 
         prePosition[1] = currPosition[1]; 
@@ -374,6 +364,7 @@ cout << outTimes << "     " << outCatchUps << endl;
     }
     outTimes.pop_back();
     outCatchUps.pop_back();
+
     return caught;
 }
 

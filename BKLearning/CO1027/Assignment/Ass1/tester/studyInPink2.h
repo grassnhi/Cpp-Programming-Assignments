@@ -126,8 +126,7 @@ string notebook2(string ntb2) {
     }
 }
 
-bool isPrime(int n)
-{
+bool isPrime(int n){
 	// Base cases
 	if (n <= 1)
 		return false;
@@ -152,8 +151,7 @@ bool isPrime(int n)
 	return true;
 }
 
-int findSmallest(int N)
-{
+int findSmallest(int N){
 
 	// Base case
 	if (N == 0)
@@ -164,17 +162,10 @@ int findSmallest(int N)
 	int prime = N, counter = 0;
 	bool found = false;
 
-	// Loop continuously until isPrime returns
-	// true for a number greater than n
-	while (!found) {
+	while (!found){
 		if (isPrime(prime))
 			found = true;
 		else {
-
-			// If the number is not a prime, then
-			// increment the number by 1 and the
-			// counter which stores the number
-			// to be added
 			prime++;
 			counter++;
 		}
@@ -183,38 +174,22 @@ int findSmallest(int N)
 	return counter;
 }
 
-int nearestFibonacci(int num)
-{
-	// Base Case
-	if (num == 0) {
+int nearestFibonacci(int num){
+	if (num == 0){
 		return 0;
 	}
 
-	// Initialize the first & second
-	// terms of the Fibonacci series
 	int first = 0, second = 1;
-
-	// Store the third term
 	int third = first + second;
 
-	// Iterate until the third term
-	// is less than or equal to num
 	while (third < num) {
-
-		// Update the first
 		first = second;
-
-		// Update the second
 		second = third;
-
-		// Update the third
 		third = first + second;
 	}
 
-	// Store the Fibonacci number
 	int ans = third;
 
-	// Print the result
 	return ans;
 }
 
@@ -326,34 +301,31 @@ bool chaseTaxi(
     }
     arr[0][0] = 0;
 
-    int location = 0, row = 0, col = 0;
-    for(int i = 0; i < moves.length(); i++){
-        char step = moves[i];
-        switch(step){   
-            case 'U':
-                if(row - 1 > 0) {
-                    arr[--row][col] = location + 9;
-                    location = arr[row][col];
+    int row = 0, col = 0;
+    for(int i = 0; i < moves.length(); i++){ 
+        if(moves[i] == 'U'){   
+            if(row > 0) {
+                arr[row-1][col] = arr[row][col] + 9;
+                row--;
+            }
+        }
+        else if(moves[i] == 'D'){
+                if(row < 100) {
+                    arr[row+1][col] = arr[row][col] + 9;
+                    row++;
                 }
-                break;
-            case 'D':
-                if(row + 1 < 100) {
-                    arr[++row][col] = location + 9;
-                    location = arr[row][col];
+        }
+        else if(moves[i] == 'R'){
+                if(col < 100) {
+                    arr[row][col+1] = arr[row][col] + 9;
+                    col++;
                 }
-                break;
-            case 'R':
-                if(col + 1 < 100) {
-                    arr[row][++col] = location + 9;
-                    location = arr[row][col];
+        }
+        else if(moves[i] == 'L'){
+                if(col > 0) {
+                    arr[row][col-1] = arr[row][col] + 9;
+                    col--;
                 }
-                break;
-            case 'L':
-                if(col - 1 > 0) {
-                    arr[row][--col] = location + 9;
-                    location = arr[row][col];
-                } 
-                break;
         }
     }
     bool caught = false;
@@ -364,19 +336,15 @@ bool chaseTaxi(
 //cout << start << " " << mid << " " << end << endl;
         string point = points.substr(start + 1, mid - start - 1);
         int x = stoi(point);
-//cout << x << endl;
-        //points = points.substr(mid + 1);
-//cout << points << endl;
+
         point = points.substr(mid + 1, end - mid - 1);
         int y = stoi(point);
-//cout << y << endl;
+
         currPosition[0] = x; 
         currPosition[1] = y;
-//cout << currPosition[0] << " " << currPosition[1] << endl;
 
         currTime = 14*(abs(currPosition[0] - prePosition[0]) + abs(currPosition[1] - prePosition[1])) + preTime;
-//cout << currTime << endl;  
-        if(arr[x][y] != -9 && arr[x][y] >= currTime && !caught){
+        if(arr[x][y] >= currTime && !caught){ 
             caught = true;
             outTimes += (to_string(currTime) + ";");
             outCatchUps += ("Y;");
@@ -395,6 +363,7 @@ bool chaseTaxi(
     }
     outTimes.pop_back();
     outCatchUps.pop_back();
+
     return caught;
 }
 
