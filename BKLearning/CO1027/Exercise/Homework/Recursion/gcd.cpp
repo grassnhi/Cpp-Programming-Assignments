@@ -48,7 +48,7 @@ int gcdIteration(int p, int q){
 }
 
 int main(){
-    hiddenCheck();
+    //hiddenCheck();
 
     int p,q;
     cin >> p >> q;

@@ -41,17 +41,3 @@ bool checkDuplicate(int* ar, int size) {
 
 }
 
-int main(){
-    int n, shift; 
-    cin >> n >> shift;
-    char* text = new char[n+1];
-    for(int i = 0; i < n; i++) cin >> text[i];
-    text[n] = 0;
-
-    encrypt(text, shift);
-    cout << text << '\n';
-    decrypt(text, shift);
-    cout << text;
-
-    delete[] text;
-}

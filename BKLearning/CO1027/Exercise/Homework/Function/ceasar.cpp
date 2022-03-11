@@ -12,6 +12,9 @@ Input:
 char* text: the text string that needs to be encrypted or decrypted. text only contains lowercase and uppercase ASCII letters
 int shift: the shift value in Caesar Cipher technique
 */
+#include <iostream>
+
+using namespace std;
 
 void encrypt(char* text, int shift) {
     int l = 0;
@@ -61,4 +64,19 @@ void decrypt(char* text, int shift) {
         }
     }
     text[l] = '\0';
+}
+
+int main(){
+    int n, shift; 
+    cin >> n >> shift;
+    char* text = new char[n+1];
+    for(int i = 0; i < n; i++) cin >> text[i];
+    text[n] = 0;
+
+    encrypt(text, shift);
+    cout << text << '\n';
+    decrypt(text, shift);
+    cout << text;
+
+    delete[] text;
 }
