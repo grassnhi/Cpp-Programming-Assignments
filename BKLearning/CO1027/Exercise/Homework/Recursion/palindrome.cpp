@@ -26,41 +26,57 @@ Output:
 using namespace std;
 /* END of library */
 bool palindrome(string strg);
+bool palindrome(string strg){
+    int begin = 0;
+    int end = strg.length() - 1;
+    while(strg[begin] == strg[end] && begin <= end){
+        begin++;
+        end--;
+    }
+    if(strg[begin] != strg[end]){
+        return false;
+    }else
+        return true;
+}
 bool palindromeRecursion(string s)
 {
     // BEGIN YOUR IMPLEMENTATION [1]
     int begin = 0;
     int end = s.length() - 1;
-    if (end == begin || end - begin == 1) 
-        return true;
-    else{
-        if (s[begin] == s[end]){
-            s.erase(0,1);
-            s.erase(s.length()-1,s.length());
+    if (end == begin || end - begin == 1) return true;
+    else
+    {
+        if (s[begin] == s[end])
+        {
+            s.erase(0, 1);
+            s.erase(s.length()-1, s.length());
             return palindromeRecursion(s);
         }
         return false;
     }
+   
     // END YOUR EMPLEMENTATION [1]
 }
 
 int main()
 {
-    hiddenCheck();
     // BEGIN YOUR IMPLEMENTATION [2]
-   while(str[0] != '*'){
-       
-   }
-   
-    // END YOUR EMPLEMENTATION [2]
-    return 0;
-}
-int main()
-{
-    hiddenCheck();
-    // BEGIN YOUR IMPLEMENTATION [2]
-    // TODO
-   
+    string s;
+    
+    while (cin >> s) {
+        if(s == "*"){
+            break;
+        }
+        if(palindrome(s)){
+            cout << "true ";
+        }else
+            cout << "false ";
+        if(palindromeRecursion(s)){
+            cout << "true";
+        }else
+            cout << "false";
+        cout << endl;
+    }   
     // END YOUR EMPLEMENTATION [2]
     return 0;
 }
