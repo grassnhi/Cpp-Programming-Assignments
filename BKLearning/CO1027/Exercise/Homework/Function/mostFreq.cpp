@@ -17,6 +17,9 @@ Note: return res as a lowercase letter.
 
 #include <iostream>
 
+#include <algorithm>
+
+
 using namespace std;
 
 void mostFrequentCharacter(char* str, char& res, int& freq) {
@@ -30,43 +33,38 @@ void mostFrequentCharacter(char* str, char& res, int& freq) {
         if(str[i] >= 65 && str[i] <= 90)
             str[i]=str[i]+32;
    }
-    int check = 0;
-    for(int i = 0; i < len; i++){  
-        if(str[i] <= 96 || str[i] > 122){
-            check++; 
-        }
-    }
-    if(check == len){
-        return;
-    }
-    
-    for(int i = 0; i < len; i++){  
-        int count = 0;
-        if(str[i] <= 96 || str[i] > 122){
-            continue; 
-        } 
-        for(int j = 0; j < len; j++){  
-            if(str[j] == str[i]){  
-                count++;  
-            }  
-        }
-        
-        if(count > freq){  
-            freq = count;  
-            res = str[i];
-            idx = i;
-        }
-        else if(count = freq){
-            if(str[i] < str[idx]){
-                res = str[i];
+    sort(str,str + len);
+    res = str[0];
+    freq = 0;
+    for (int i = 0; i < len; i++)
+    {
+        int max = 0;
+        for (int j = i; j < len; j++)
+        {
+            if (str[i] == str[j]) 
+            {
+                max++;
             }
-            else
-                res = str[idx];
+            
+            else 
+            {
+                if (max > freq) 
+                {
+                    freq = max;
+                    res = str[i];
+                    i = j - 1;
+                    break;
+                }
+                else if (max == freq)
+                {
+                    if (res > str[i]) res = str[i];
+                    i = j - 1;
+                    break;
+                }
+            }
         }
     }
-    
 }
-
 int main(){
     string s = "AAZhakkjdsjjgBbakKqkibbbgh";
     char *str = &s[0];

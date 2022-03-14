@@ -25,7 +25,60 @@ bool isPalindrome(const char* str) {
     }
     return true;
 }
+bool palindromeRecursion(string s)
+{
+    // BEGIN YOUR IMPLEMENTATION [1]
+    int begin = 0;
+    int end = s.length() - 1;
+    if (end == begin || end - begin == 1) return true;
+    else
+    {
+        if (s[begin] == s[end])
+        {
+            s.erase(0, 1);
+            s.erase(s.length()-1, s.length());
+            return palindromeRecursion(s);
+        }
+        return false;
+    }
+   
+    // END YOUR EMPLEMENTATION [1]
+}
 
+int main()
+{
+    // BEGIN YOUR IMPLEMENTATION [2]
+    string s;
+    cin >> s;
+    if (s[0] == '*') return 0;
+    else
+    {
+        do
+        {
+            int i = 0;
+            int j = s.length() - 1;
+            while (s[i] == s[j] && i <= s.length()/2)
+            {
+                i++;
+                j--;
+                
+            }
+            if (s[i] != s[j]) cout << "false" << " ";
+            else cout << "true" << " ";
+            if(palindromeRecursion(s))
+            {
+                cout << "true";
+            }
+            else cout << "false";
+            cout << "\n";
+            cin >> s;
+        }
+        while(s[0] != '*');
+    }
+     
+    // END YOUR EMPLEMENTATION [2]
+    return 0;
+}
 int main(){
     const char* str = "abba";
 cout << isPalindrome(str);
