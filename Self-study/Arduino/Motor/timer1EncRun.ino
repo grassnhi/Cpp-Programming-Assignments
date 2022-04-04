@@ -11,11 +11,29 @@
 float velo;
 float timer;
 
+volatile int temp = 0; 
+
 int save = TCNT1;
+
 void velocity(){
-    timer = (TCNT1 - save)*0.000004;
-    velo = 1 / timer;
-    save = TCNT1;
+    if( temp == 0){
+      timer = (TCNT1 - save)*0.000004;
+      velo = 1 / timer;
+      save = TCNT1;
+    }
+    else{
+      if( TCNT1 > save){
+        timer = (TCNT1 - save)*0.000004 + 25000*(temp)*0.000004;
+        velo = 1/ timer;
+        save = TCNT1;
+        temp = 0;
+      }else{
+        timer = (65536 - save + TCNT1 - 40536)*0.000004 + 25000*(temp-1)*0.000004;
+        velo = 1/ timer;
+        save = TCNT1;
+        temp = 0;
+      }
+    }
 }
 
 void setup()
@@ -52,44 +70,46 @@ void motorLeftStop() {
   digitalWrite(IN4, LOW);
 }
  
-void motorRightHead(int speed) { 
+void motorLeftHead(int speed) { 
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
   digitalWrite(IN1, HIGH);
   analogWrite(IN2, 255 - speed);
 }
 
 
-void motorRightBack(int speed) {
+void motorLeftBack(int speed) {
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
   digitalWrite(IN1, LOW);
   analogWrite(IN2, speed);
 }
 
-void motorLeftHead(int speed) { 
+void motorRightHead(int speed) { 
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
   digitalWrite(IN4, HIGH);
   analogWrite(IN3, 255 - speed);
 }
 
-void motorLeftBack(int speed) {
+void motorRightBack(int speed) {
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
   digitalWrite(IN4, LOW);
   analogWrite(IN3, speed);
-
 }
  
 void loop()
 {
- //motorRightHead(200);
- motorRightBack(200);
+ motorRightHead(200);
+ //motorRightBack(200);
 //motorLeftBack(200);
- motorLeftHead(200);
+ //motorLeftHead(200);
+
     Serial.print(timer);
     Serial.print(" ");
     Serial.println(velo);
 }
 
+
 ISR (TIMER1_OVF_vect) 
 {
     TCNT1 = 40536;
+    temp++;
 }
