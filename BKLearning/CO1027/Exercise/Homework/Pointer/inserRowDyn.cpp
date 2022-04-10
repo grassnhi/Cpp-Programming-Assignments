@@ -1,5 +1,6 @@
 /*
 Given a dynamic two-dimensional array of size r x c. 
+
 Implement the function 
         void insertRow(int**& matrix, int r, int c, int* rowArr, int row) 
 that can insert the rowArr array (with the size c) into the row position, row, of the matrix.
@@ -16,9 +17,11 @@ void insertRow(int**& matrix, int r, int c, int* rowArr, int row) {
     
     int newR = r;
     r++;
+
     for(int i = newR - 1; i >= row; i--){
         matrix[i+1] = matrix[i];
     }
+
     matrix[row] = rowArr; 
 }
 
@@ -26,6 +29,7 @@ void insertRow(int**& matrix, int r, int c, int* rowArr, int row) {
     // TODO
     int r1 = r + 1;
     int** newArr = new int*[r1];
+    
     for ( int i = 0; i < r1; i++ )
         newArr[i] = new int[c];
     

@@ -14,7 +14,9 @@ Input:
 Value from standards input (stdin) with value in (0; 5000)
 */
 #include <iostream>
+
 using namespace std;
+
 struct node
 {
   int data;
@@ -28,21 +30,29 @@ node *insertNode(node *head, node *newNode, int position)
   // TO DO
   int count = 0;
   node* cur = head;
+
   while(head != NULL){
     head = head -> next;
     count++;  
   }
+
   head = cur;
+
   if(position > 0){
-  if(position > count) position = count + 1;
-  for(int i =2; i <= position -1; i++){
-      cur = cur -> next;
+    if(position > count) 
+      position = count + 1;
+
+    for(int i =2; i <= position -1; i++){
+        cur = cur -> next;
+    }
+    
+    newNode -> next = cur -> next;
+    cur -> next = newNode;
   }
-  newNode -> next = cur -> next;
-  cur -> next = newNode;
-  }
+  
   return head;
 }
+
 void print(node *head)
 {
   while (head != nullptr)
@@ -51,17 +61,24 @@ void print(node *head)
     head = head->next;
   }
 }
+
 int main()
 {
   int n = 0;
   cin >> n;
+
   node *head = createLinkedList(n);
+
   node *newNode = new node();
   cin >> newNode->data;
+
   int position = 0;
   cin >> position;
+
   head = insertNode(head, newNode, position);
+
   print(head);
+
   return 0;
 }
 

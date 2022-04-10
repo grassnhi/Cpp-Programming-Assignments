@@ -18,15 +18,19 @@ using namespace std;
 int* zeros(int n) {
     // TODO
     if(n<=0) return nullptr;
+
     int *p = new int[n];
+
     for(int i = 0; i < n; i++){
-            *(p+i)=0;
-        }
-        return p;
+        *(p+i)=0;
+    }
+
+    return p;
 }
 
 int main(){
     int n;
     cin >> n;
+    
     zeros(n);
 }
