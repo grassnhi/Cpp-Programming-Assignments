@@ -11,13 +11,16 @@ R: the value of electrical resistance for the formula used to measure the voltag
 The formula for the measurement of the voltage signal is as follows::
 V (voltage) = R * (5.0/1023.0)
 
-The program will output the brightness of the light directly to the screen depending on the voltage signal listed below
+The program will output the brightness of the light directly to the screen depending 
+on the voltage signal listed below
 
 - If the voltage signal is less than 1.4. The LED light is off
 
-- If the voltage signal is more than or equal to 1.4 and less than 2.5 volts. The LED light will h avedim brightness
+- If the voltage signal is more than or equal to 1.4 and less than 2.5 volts. 
+The LED light will h avedim brightness
 
-- If the voltage signal is more than or equal to 2.5 and less than 5 volts. The LED light will be of medium brightness
+- If the voltage signal is more than or equal to 2.5 and less than 5 volts. 
+The LED light will be of medium brightness
 
 - If the voltage signal is equal to 5 volts. The LED light will be of maximum brightness
 
