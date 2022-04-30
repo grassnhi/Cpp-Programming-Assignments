@@ -79,8 +79,9 @@ public:
     ~Path(){
         while(head!=NULL){
             Node *delNode = head;
-            head = head->next;
+            
             delete delNode;
+            head = head->next;
         }
     }
 
