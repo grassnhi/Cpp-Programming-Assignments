@@ -1,0 +1,201 @@
+Câu 1:
+[Tiếng Việt]
+Ta gọi hai chuỗi s1, s2 là hai chuỗi "bạn bè" nếu ta có thể thực hiện k phép dịch trái (với k là số nguyên không âm) để biến chuỗi s1 thành s2.
+Phép dịch trái là:
+Phép di chuyển các kí tự trong chuỗi sang bên trái 1 đơn vị.
+Đồng thời, kí tự đầu tiên của chuỗi sẽ chuyển tới vị trí cuối cùng của chuỗi.
+Ví dụ: Chuỗi "abcd" và chuỗi "bcda" là hai chuỗi bạn bè vì khi chuỗi "abcd" dịch trái một lần ta sẽ thu được chuỗi "bcda"
+
+Cho hai chuỗi s1 và s2, hãy viết hàm kiểm tra xem hai chuỗi trên có phải là 2 chuỗi "bạn bè" không?
+Input: 2 chuỗi s1, s2: Kiểu const char* (chỉ bao gồm chữ cái viết thường)
+Output: Giá trị boolean (true nếu hai chuỗi là chuỗi bạn bè, và ngược lại)
+Lưu ý:  Sinh viên không được sử dụng thêm thư viện. Các thư viện đã được include sẵn: iostream, cstring (string.h).
+[English]
+Two strings s1 and s2 will be called "friend" if we can perform left shift k times (k is a non-negative number) to transform s1 into s2.
+A left shift can be described as:
+Move all characters in the string to the left for one time.
+Simultaneously, move the first character of the string to the last position
+For example: The string "abcd" and the string "bcda" are friend strings because when the string "abcd" shifts left once we get the string "bcda"
+Given two strings s1, and s2, write a function to check if s1 and s2 is "friend"
+Input: two strings s1 and s2: const char* type (only contains lower-case letters)
+Output: a boolean value (true if s1 and s2 are "friend")
+Note: Students are not allowed to use additional libraries. The libraries are already included: iostream, cstring (string.h).
+Testcases:
+Input:
+char str1[] = "abcd";
+char str2[] = "bcda";
+Output: 1
+
+Input:
+char str1[] = "abcdxyzt";
+char str2[] = "abcdxyzt";
+Output: 1
+
+Input:
+char str1[] = "";
+char str2[] = "a";
+Output: 0
+
+Input:
+char str1[] = "abbbb";
+char str2[] = "bbabb";
+Output: 1
+
+Input:
+char str1[] = "cccc";
+char str2[] = "ccc";
+Output: 0
+Câu 2:
+Tiếng Việt:
+Cho ma trận vuông n x n bất kỳ (n nhỏ hơn 1000). Hãy viết hàm kiểm tra tổng của các đường chéo có bằng nhau hay không?
+Biết rằng, một đường chéo của ma trận sẽ bắt đầu từ bên dưới của phía trái sang bên trên của phía phải.
+Hình minh họa: 
+Lưu ý:  Sinh viên không được sử dụng thêm thư viện. Các thư viện đã được thêm vào: iostream
+English:
+Given a square matrix n x n, which n is smaller than 1000. Write a function to check if all the sums of the diagonal lines are equal or not
+Given that the diagonal line will start from the bottom left to the top right of the matrix
+Illustration: 
+Note: Students are not allowed to use additional libraries. Included libraries: iostream
+
+Testcase:
+Input:
+int M[3][20] = 
+{
+{ 3, 2, 1},
+{ 1, 0, -2},
+{ 2, 5, 3}
+};
+// sum 1: {3} -> 3
+// sum 2: {1, 2} -> 3
+// sum 3: {2, 0, 1} -> 3
+// sum 4: {5, -2} -> 3
+// sum 5: {3} -> 3
+int n = 3;
+Output: 1
+
+Input:
+int M[3][20] = {
+{1, 1, 1},
+{2, 2, 2},
+{3, 3, 3}
+};
+// sum 1: {1} -> 1
+// sum 2: {2, 1} -> 3
+// sum 3: {3, 2, 1} -> 6
+// sum 4: {3, 2} -> 5
+// sum 5: {3} -> 3
+int n = 3;
+Output: 0
+
+Input:
+int M[2][20] = {{1,0},{1,1}};
+int n = 2;
+Output: 1
+Câu 3:
+Tiếng Việt:
+Cho một cầu thang có k bậc (k nguyên dương), tính toán số cách để bạn An leo k bậc trên, biết rằng mỗi lần bạn An sẽ bước 1 hoặc 2 bậc.
+Lưu ý:  Sinh viên không được sử dụng thêm thư viện
+
+English:
+Given a staircase with k steps (k is a positive integers), calculate the number of ways for An to climb k steps, knowing that each time An will take 1 or 2 steps.
+Giving that the diagonal line will start from the bottom left to the top right
+Note: Students are not allowed to use additional libraries
+Testcase:
+Input:
+int k = 4;
+Output: 5
+
+Input:
+int k = 5;
+Output: 8
+
+Input:
+int k = 7;
+Output: 21
+Câu 4:
+Mô tả tiếng Việt:
+Cho lớp Screen mô phỏng hiện thực của một màn hình với chức năng là xuất dữ liệu gồm các thuộc tính:
+width, height lần lượt là kích thước màn hình.
+buffer là một con trỏ của mảng hai chiều đại diện cho nội dung lưu tạm mà màn hình sẽ xuất ra.
+class Screen {
+private:
+    int width;
+    int height;
+    int** buffer;
+}
+Hãy hiện thực một số hàm sau:
+Hàm khởi tạo nhận tham số là kích thước màn hình.
+Hàm in nội dung buffer ra màn hình. Hàm này sẽ in ra các phần tử trong buffer ra màn hình (tham khảo ví dụ). Cụ thể:
+Các phần tử cách nhau một khoảng trắng
+Không được dư xuống dòng ở dòng cuối cùng
+Không được dư khoảng trắng cuối cùng dòng
+Hàm thay đổi kích thước màn hình. Hàm này sẽ gán lại tất cả phần tử trong buffer về 0. Nếu width hoặc height nhỏ hơn hoặc bằng 0 thì buffer sẽ được gán về null và width, height đều được set về 0.
+Hàm thay đổi nội dung buffer tại vị trí xác định. Hàm sẽ trả về true nếu việc set là thành công (w và h lần lượt nằm trong khoảng của [0, width) và [0,height)). Ngược lại, trả về false.
+English version:
+Given a Screen class that simulates the implementaion of a screen operation. The class contains som attributes such as:
+width, height represent for the screen size.
+buffer represent for a pointer of a two-demensional array of screen content.
+class Screen {
+private:
+    int width;
+    int height;
+    int** buffer;
+}
+Student is required to implement some class methods such as:
+A constructor that get screen size as parameters.
+A function that output the buffer to te screen. This function will print the elements in the buffer to the screen (refer to the example). Specifically:
+Elements separated by a space
+No carriage return on the last line
+No extra spaces at the end of the line
+A function that change the size of the current screen. This function will assign all the element in buffer to 0. If the width or height is less than 0, the buffer will be set to null and width, height will also be add to null..
+A function that change the buffer content.
+
+
+
+Testcase:
+Input:
+Screen scr(3, 4);
+scr.print();
+Output: 
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+Input:
+Screen scr(3, 4);
+scr.setBuffer(0, 0, 1);
+scr.print();
+Output: 
+1 0 0 0
+0 0 0 0
+0 0 0 0
+
+Input:
+Screen scr(5, 3);
+scr.print();
+cout << endl;
+scr.resize(9, 9);
+scr.setBuffer(7, 7, 2);
+scr.setBuffer(0, 0, 2);
+scr.print();
+Output: 
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+2 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 2 0
+0 0 0 0 0 0 0 0 0
+
+
+
+
+
+

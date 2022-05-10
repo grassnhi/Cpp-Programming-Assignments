@@ -33,6 +33,7 @@ int** insertCol(int**& matrix, int r, int c, int* colArr, int col) {
     for ( int i = 0; i < r; i++ )
         for ( int j = col+1; j < c1; j++ )
             newArr[i][j] = matrix[i][j-1];
+            
     matrix = newArr;   
 }
 

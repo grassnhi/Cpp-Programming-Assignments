@@ -30,7 +30,17 @@ bool completeNum(int N){
   
     return false;
 }
-
+/*
+bool completeNum(int N)
+{
+    int i, S;
+    S = 0;
+    for (int i = 1; i < N; i++){
+        if (N%i == 0) S += i;
+    }
+    return (S == N);
+}
+*/
 int main(){
     int N;
     cin >> N;
