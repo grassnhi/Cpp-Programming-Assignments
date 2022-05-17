@@ -6,7 +6,7 @@ Write a program where:
     + create a linked list with value from standard input (stdin) a new node is add to the  END  of the linked list
     + Return a pointer which points to the first node of the linked list.
 - Function insertNode
-    + receive the linked list's head pointers, a pointer of a new nodei, the position
+    + receive the linked list's head pointers, a pointer of a new node, the position
     + The function will insert the new node to the input position(head's position is 1). If position <=0, do nothing. If position is greater than the size of the linked list, insert to the end of the linked list.
 - function main reads the size of the linked list, calls function createLinkedList to initialize the linked list, then call function print to print the linked list.
 Complete functions insertNode

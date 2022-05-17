@@ -35,13 +35,12 @@ public:
         this->x = x;
         this->y = y;
     }
-
     string toString() const{
-        return ("<Point[" + to_string(x) + "," + to_string(y) + "]>");
+        return ("<Point[" + to_string(this->x) + "," + to_string(this->y) + "]>");
     }
 
     int distanceTo(const Point & otherPoint) const{
-        return ceil(sqrt((otherPoint.x - x)*(otherPoint.x - x) + (otherPoint.y - y)*(otherPoint.y - y)));
+        return (ceil(sqrt(pow(otherPoint.x - this->x, 2) + pow(otherPoint.y - this->y, 2))));
     }
 };
 
@@ -54,7 +53,7 @@ private:
 
 public:
     Node(const Point & point=Point(), Node * next=NULL){
-        this->point = point;
+        this->point = Point(x, y);
         this->next = next;
     }
     string toString() const{
@@ -71,73 +70,61 @@ private:
 
 public:
     Path(){
-        head = NULL;
-        tail = NULL;
-        this->count = 0;
-        this->length = -1; 
+        head = tail = NULL;
+        int count = 0;
+        int length = -1;
     }
     ~Path(){
-        while(head!=NULL){
-            Node *delNode = head;
+        Node* curr = head;
+        while(curr != NULL){
             head = head->next;
-            delete delNode;
+            delete curr;
+            curr = head;
         }
+        head = tail = NULL;
     }
 
     void addPoint(int x, int y){
-        Node* newPoint = new Node();
-        newPoint->point = Point(x, y);
-        newPoint->next = NULL;
-        if(head == NULL){
+        Point point = Point(x, y);
+        Node *newPoint = new Node(point);
+        if(head = NULL){
             head = tail = newPoint;
-            length = 0;
-            count = 1;
+            this->count = 1;
+            this->length = 0;
         }else{
-            // Node* temp = head;
-            // while(temp != NULL){
-            //     if(temp->next == NULL){
-            //         temp->next = newPoint;
-            //         tail = newPoint;
-            //         break;
-            //     }
-            //     temp = temp->next;
-                          
-            // }
-            
-            
-            length += (tail->point).distanceTo(newPoint->point);
+            this->length += (tail->point).distanceTo(newPoint->point);
             tail->next = newPoint;
-            count++;
             tail = tail->next;
-            // count++;
-            // length += tail->point.distanceTo(temp->point);  
+            this->count++;
         }
-    
     }
-
-    int getLength(){
-        return length;
-    }
-
     string toString() const{
         string result = "<Path[count:" + to_string(count) + ",length:" + to_string(length) + ",[";
-        Node* p = head;
-        while(p != NULL){
-            result += p->toString();
-            p = p->next;
-            if(p != NULL){
-                result += ",";
+        if(head == NULL){
+            result += "]]>";
+        }else{
+            Node *point = head;
+            while (point != NULL)
+            {
+                result += point->toString();
+                point = point->next;
+                if(point != NULL){
+                    result += ",";
+                }
             }
-        
+            result += "]]>";
+            
         }
-        result += "]]>";
         return result;
     }
     Point getLastPoint() const{
         return tail->point;
     }
-};
 
+    int getLength(){
+        return length;
+    }
+};
 
 class Character {
 private:
@@ -147,7 +134,7 @@ private:
 public:
     Character(const string & name=""){
         this->name = name;
-        path = new Path();
+        this->path = new Path();
     }
     ~Character(){
         delete path;
@@ -164,14 +151,16 @@ public:
         path->addPoint(x, y);
     }
     string toString() const{
-        return ("<Character[name:" + getName() + ",path:" + path->toString() + "]>");
+        return "<Character[name:" + getName() + ",path:" + path->toString() + "]>";
     }
+
     int getLength() const{
         return path->getLength();
     }
     Point getCurrentPosition() const{
         return path->getLastPoint();
     }
+
 };
 
 bool rescueSherlock(
@@ -181,7 +170,6 @@ bool rescueSherlock(
         int maxDistance,
         int & outDistance
         ) {
-
             if(chWatson.getLength() - chMurderer.getLength() <= maxLength){
                 outDistance = chWatson.getCurrentPosition().distanceTo(chMurderer.getCurrentPosition());
                 if(outDistance <= maxDistance){

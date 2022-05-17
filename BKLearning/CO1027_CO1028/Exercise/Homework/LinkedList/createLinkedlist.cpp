@@ -3,16 +3,23 @@ Write a program where:
 - struct node: represents a node in linkedlists
 - functions createLinkedList:
     + Receive the size of a linked list (>0)
-    + create a linked list with value from standard input (stdin) a new node is add to the  First  position of the linked list
+    + create a linked list with value from standard input (stdin) a new node is add to the  First  
+    position of the linked list
     + Return a pointer which points to the first node of the linked list.
-- Function main reads the size of the linked list, calls function createLinkedList to Initialize the linked list, then call function print to print the linked list.
+- Function main reads the size of the linked list, calls function createLinkedList to 
+Initialize the linked list, then call function print to print the linked list.
+
 Complete function createLinkedList
+
 Input:
-size n of the linked list (0 < n < 5000)
-following by n numbers, each number is a value of a node in the linked list, each number is an integer in (-5000; 5000)
+    size n of the linked list (0 < n < 5000)
+    following by n numbers, each number is a value of a node in the linked list, 
+    each number is an integer in (-5000; 5000)
+
 Output:
-Satisfy the requirements
+    Satisfy the requirements
 */
+
 #include <iostream>
 using namespace std;
 

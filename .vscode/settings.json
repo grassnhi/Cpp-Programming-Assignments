@@ -13,7 +13,11 @@
     "string": "cpp",
     "iterator": "cpp",
     "initializer_list": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "system_error": "cpp",
+    "type_traits": "cpp",
+    "xlocnum": "cpp",
+    "xtr1common": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
