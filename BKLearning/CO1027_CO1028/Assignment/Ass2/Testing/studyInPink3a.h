@@ -107,8 +107,8 @@ public:
             
             length += (tail->point).distanceTo(newPoint->point);
             tail->next = newPoint;
-            count++;
             tail = tail->next;
+            count++;
             // count++;
             // length += tail->point.distanceTo(temp->point);  
         }
