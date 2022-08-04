@@ -47,8 +47,8 @@ void motorLeftStop(){
 
 void rightHead(int speed){
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
-  digitalWrite(IN1, HIGH); //+
-  analogWrite(IN2, 255 - speed);//-
+  digitalWrite(IN1, HIGH); //+ =>hướng
+  analogWrite(IN2, 255 - speed);//- => tốc độ
 }
 
 void rightBack(int speed){
@@ -63,7 +63,7 @@ void leftHead(int speed){
   analogWrite(IN3, 255 - speed);
 }
 
-void leftBack(int speed)\
+void leftBack(int speed){
 {
   speed = constrain(speed, MIN_SPEED, MAX_SPEED);
   digitalWrite(IN4, LOW);

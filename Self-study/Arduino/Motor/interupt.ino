@@ -1,13 +1,13 @@
 int led_W = 8;
 
-void tat_led(){
+void turnOff(){
   digitalWrite(led_W, !digitalRead(led_W));
 }
 
 void setup() {
   pinMode(led_W, OUTPUT);
   pinMode(2, INPUT_PULLUP);
-  attachInterrupt(0, tat_led, LOW);
+  attachInterrupt(0, turnOff, LOW);
 }
 
 void loop() {
