@@ -1,1 +1,0 @@
-This part is used to transform from infix-notation representation to prefix-notation representaton of the expresssion
