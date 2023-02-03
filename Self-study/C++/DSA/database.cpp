@@ -3,6 +3,8 @@
 #include "personal.h" 
 #include "database.h" 
 
+using namespace std;
+
 template<class T> Database<T>::Database() { } 
 
 template<class T> 

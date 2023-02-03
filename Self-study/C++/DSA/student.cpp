@@ -1,4 +1,7 @@
 #include "student.h" 
+#include <iostream>
+
+using namespace std;
 
 Student::Student() : majorLen(10){
     Personal();
@@ -27,7 +30,8 @@ ostream& Student::writeLegibly(ostream& out){
 
 istream& Student::readFromConsole(istream& in){
     Personal::readFromConsole(in);
-    char s[80];cout << "Major: ";
+    char s[80];
+    cout << "Major: ";
     in.getline(s,80);
     strncpy(major,s,9);
     return in; 
