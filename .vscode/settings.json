@@ -55,7 +55,13 @@
     "xhash": "cpp",
     "xlocinfo": "cpp",
     "xmemory": "cpp",
-    "xstddef": "cpp"
+    "xstddef": "cpp",
+    "filesystem": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "execution": "cpp",
+    "xtree": "cpp",
+    "ratio": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
