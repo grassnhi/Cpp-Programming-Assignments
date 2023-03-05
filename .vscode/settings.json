@@ -61,7 +61,8 @@
     "chrono": "cpp",
     "execution": "cpp",
     "xtree": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "variant": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

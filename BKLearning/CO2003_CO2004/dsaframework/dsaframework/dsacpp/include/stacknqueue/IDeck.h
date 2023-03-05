@@ -42,7 +42,7 @@ public:
     virtual void clear()=0;
     virtual bool remove(T item)=0;
     virtual bool contains(T item)=0;
-    virtual string toString(string (*item2str)(T&)=0 )=0;
+    virtual string toString(string (*item2str)(T&)=0 )=0; 
 };
 
 #endif /* IDECK_H */

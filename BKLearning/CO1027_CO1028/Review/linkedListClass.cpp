@@ -29,40 +29,30 @@ public:
     }
 
     void createList(int mode, int n){
-        int data = 0;
-        this->number = 0;
+        if(mode != 1 || mode != 2 || n < 0){
+            cout << "Mode error!";
+            return;
+        }
+        if(n > 0 && (mode == 1 || mode ==2)){
+            int data = 0;
+            this->number = 0;
 
-        if(n > 0 && (mode == 1 || mode ==2)){ //new to head
-            if(mode == 1){
-                while(this->number != n){
-                    cin >> data;
-                    this->number++;
+            while(this->number != n){
+                cin >> data;
+                this->number++;
 
-                    if(head == nullptr){
-                        head = tail = new Node(data);
-                    }else{
-                        head = new Node(data, head);
-                    }
-                }
-            }else{ // new to tail
-                while (this->number != n)
-                {
-                    cin >> data;
-                    this->number++;
-
-                    if(head == nullptr){
-                        head = tail = new Node(data);
-                    }else{
-                        tail->next = new Node(data);
-                        tail = tail->next;
-                    }
-
+                if(head == nullptr){
+                    head = tail = new Node(data);
+                }else if(mode == 1){
+                    head = new Node(data, head);
+                }else{ 
+                    tail->next = new Node(data);
+                    tail = tail->next;
                 }
             }
         }else{
             cout << "Invalid!" << endl;
         }
-        
     }
 
     int getData(int position){
@@ -70,12 +60,10 @@ public:
             return -1;
         }else{
             Node* curr = head;
-            int index = 1;
-            while (index != position)
-            {
-                index++;
+            for (int i = 1; i < position; i++){
                 curr = curr->next;
             }
+
             return curr->data;
         }
     }
@@ -85,12 +73,10 @@ public:
             cout << "Out of range!" << endl;
         }else{
             Node *curr = head;
-            int count = 1;
-            while (count != position)
-            {
-                count++;
+            for (int i = 1; i < position; i++){
                 curr = curr->next;
             }
+            
             curr->data = data;
         }
     }

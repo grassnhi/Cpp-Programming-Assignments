@@ -37,6 +37,7 @@ public:
     }
     void push(T item){
         list.add(0, item); 
+        count++;
     }
     T pop(){
         if(list.empty()) throw Underflow("Stack");
