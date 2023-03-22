@@ -18,7 +18,7 @@
 #include "stacknqueue/Queue.h"
 
 #define XNode typename BST<K,V>::Node
-
+// define another name for BST Node or node inside of BST
 
 template<class K, class V>
 class AVL : public BST<K,V>{
@@ -108,7 +108,7 @@ private:
         root->pRight = newRoot->pLeft;
         newRoot->pLeft = root;
         root->updateHeight();
-        newRoot->updateHeight();
+        newRoot->updateHeight(); // only 2 of them change height-> update
         return newRoot;
     }
     
@@ -156,8 +156,8 @@ private:
         if(root->isLH()){
             XNode* leftTree = root->pLeft;
             if(leftTree->isRH()){ // RH-of-LH
-                root->pLeft = rotateLeft(root->pLeft);
-                newRoot = rotateRight(root);
+                root->pLeft = rotateLeft(root->pLeft); // rotation at subtree first
+                newRoot = rotateRight(root); // rotation of root then
             }
             else newRoot = rotateRight(root); //LH-of-LH or EH-of-LH (if remove)
         }
@@ -181,7 +181,7 @@ private:
             root->pRight = add(root->pRight, newNode);
          
         return rebalance(root);
-    }
+    } // Try to remove and replace by 1 line (call add method in BST) => total 2 line only
 
     
     XNode* remove(XNode* root, K key, bool& success, V& retValue){
@@ -221,7 +221,7 @@ private:
         }//end: consider all cases of the delete-key
        
         return rebalance(newRoot);
-    }
+    } // can replace by call BST remove
 };
 
 
