@@ -57,7 +57,7 @@ public:
     void remove(T item, void (*removeItemData)(T)=0);
     bool contains(T item);
     int size();
-    void heapify(T array[], int size);
+    void heapify(T array[], int size); // =>heapSort
     void clear();
     bool empty();
     string toString(string (*item2str)(T&)=0 );
@@ -364,7 +364,7 @@ void Heap<T>::swap(int a, int b){
 }
 
 template<class T>
-void Heap<T>::reheapUp(int position){
+void Heap<T>::reheapUp(int position){ // for insert
     if(position <= 0) return;
     int parent = (position-1)/2;
     if(aLTb(this->elements[position], this->elements[parent])){
@@ -374,7 +374,7 @@ void Heap<T>::reheapUp(int position){
 }
 
 template<class T>
-void Heap<T>::reheapDown(int position){
+void Heap<T>::reheapDown(int position){ // for delete
     int leftChild = position*2 + 1;
     int rightChild = position*2 + 2;
     int lastPosition = this->count - 1;

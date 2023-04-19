@@ -13,22 +13,22 @@ bool isValidParentheses (string s){
 }
 */
 
-bool isValidParentheses(string s) {
+bool isValidParentheses (string s){
+    /*TODO*/
     stack<char> stk;
-    for (char c : s) {
+    for(char c : s){
         if (c == '(' || c == '[' || c == '{') {
             stk.push(c);
         } else {
             if (stk.empty()) {
                 return false;
             }
-            char top = stk.top();
-            stk.pop();
-            if ((c == ')' && top != '(') ||
-                (c == ']' && top != '[') ||
-                (c == '}' && top != '{')) {
+            if ((c == ')' && stk.top() != '(') ||
+                (c == ']' && stk.top() != '[') ||
+                (c == '}' && stk.top() != '{')) {
                 return false;
             }
+            stk.pop();
         }
     }
     return stk.empty();

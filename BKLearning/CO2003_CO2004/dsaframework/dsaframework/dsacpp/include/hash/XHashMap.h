@@ -29,6 +29,7 @@ public:
     
 protected:
     Entry** table;  //array of Entry*; initialized with nullptr
+    // DLinkedList<Entry<k, V>>** table; // -> array of dll
     int capacity;   //size of table
     int count;      //number of entries stored hash-map
     float loadFactor; //define max number of entries can be stored (< (loadFactor * capacity))
@@ -87,6 +88,7 @@ public:
     static int simpleHash(K& key, int capacity){
         return key%capacity;
     }
+    
     static void freeKey(XHashMap<K,V> *pMap){
         for(int idx=0; idx < pMap->capacity; idx++){
             Entry* entry = pMap->table[idx];

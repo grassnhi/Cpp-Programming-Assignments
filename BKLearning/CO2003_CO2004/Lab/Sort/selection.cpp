@@ -24,7 +24,22 @@ public:
 
 */
 
-
+template <class T>
+void Sorting<T>::selectionSort(T *start, T *end)
+{
+    for (T *i = start; i < end - 1; i++) {
+        T *min = i;
+        for (T *j = i + 1; j < end; j++) {
+            if (*j < *min) {
+                min = j;
+            }
+        }
+        if (min != i) {
+            swap(*i, *min);
+        }
+        printArray(start, end);
+    }
+}
 
 /*
 Test	Result

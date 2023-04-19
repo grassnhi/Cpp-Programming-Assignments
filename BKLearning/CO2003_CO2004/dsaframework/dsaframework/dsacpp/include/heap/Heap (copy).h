@@ -58,6 +58,7 @@ public:
     bool contains(T item);
     int size();
     void heapify(T array[], int size);
+    // or insert tutu => need reHeapUp or Down
     void clear();
     bool empty();
     string toString(string (*item2str)(T&)=0 );
