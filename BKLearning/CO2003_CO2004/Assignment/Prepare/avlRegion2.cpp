@@ -37,6 +37,7 @@ public:
     };
     
 private:
+    int count;
     Node* root;
 protected:
     int getHeight(Node* node){
@@ -78,26 +79,26 @@ protected:
         return newNode;
     }
 
-    Node* getRightmost(Node* node){
+    Node* leftmostRight(Node* node){ 
         Node* curr = node;
-        while (curr->right != nullptr)
-        {
-            curr = curr->right;
+        while(curr->left != nullptr){
+            curr = curr->left;
         }
         return curr;
     }
 
-public:
-    AVLTree(){
-        this->root = nullptr;
-    }
 
-    ~AVLTree(){
-        clear();
-    }
-
-    int getHeight(){
-        return this->getHeight(this->root);
+    void clear(Node* node) {
+        if (node == nullptr) {
+            return;
+        }
+        if(node->left){
+            clear(node->left);
+        }
+        if(node->right){
+            clear(node->right);
+        }
+        delete node;
     }
 
     Node* insert(Node* node, int ID, int name){
@@ -128,10 +129,6 @@ public:
         return node;
     }
 
-    void insert(const int ID, const int name){
-        this->root = insert(this->root, ID, name);
-    }
-
     Node* remove(Node* node, int ID){
         if(node == nullptr){
             return nullptr;
@@ -144,19 +141,22 @@ public:
             if(node->left == nullptr && node->right == nullptr){
                 delete node;
                 return nullptr;
-            }else if(node->left == nullptr){
-                Node* tmp = node->right;
-                *node = *tmp;
-                delete tmp;
             }else if(node->right == nullptr){
                 Node* tmp = node->left;
                 *node = *tmp;
                 delete tmp;
+            }else if(node->left == nullptr){
+                Node* tmp = node->right;
+                *node = *tmp;
+                delete tmp;
             }else{
-                Node* tmp = getRightmost(node->left);
+                Node* tmp = leftmostRight(node->right);  
                 node->name = tmp->name;
                 node->ID = tmp->ID;
-                node->left = remove(node->left, tmp->ID);
+                node->right = remove(node->right, tmp->ID); 
+                // The node with the smallest value in the right subtree is selected to replace the node to be removed.
+                // For example, given a tree 10(7(5 9) 15), deleting 10 will result in the tree 7(5 15(9)).
+
             }
         }
         if(node == nullptr){
@@ -179,43 +179,56 @@ public:
         }
         return node;
     }
+public:
+    AVLTree(){
+        this->count = 0;
+        this->root = nullptr;
+    }
+
+    ~AVLTree(){
+        clear();
+    }
+
+    int getHeight(){
+        return this->getHeight(this->root);
+    }
+
+    int getCount(){
+        return this->count;
+    }
+
+    void insert(const int ID, const int name){
+        this->root = insert(this->root, ID, name);
+        this->count++;
+    }
 
     void remove(const int ID){
         this->root = remove(this->root, ID);
+        this->count--;
     }
 
     void printInorder(){
         this->printInorder(this->root);
     }
 
-    void clear(Node* node) {
-        if (node == nullptr) {
-            return;
-        }
-        if(node->left){
-            clear(node->left);
-        }
-        if(node->right){
-            clear(node->right);
-        }
-        delete node;
-    }
-
     void clear(){
         clear(this->root);
         this->root = nullptr;
+        this->count = 0;
     }
 };
 
 int main(){
     AVLTree avlTree;
-    avlTree.insert(5, 333);
-    avlTree.insert(3, 555);
+    avlTree.insert(10, 333);
+    avlTree.insert(5, 555);
     avlTree.insert(7, 999);
+    avlTree.insert(9, 555);
+    avlTree.insert(15, 999);
 
     avlTree.printInorder();
 
-    avlTree.remove(3);
+    avlTree.remove(10);
     avlTree.printInorder();
 
     avlTree.clear();

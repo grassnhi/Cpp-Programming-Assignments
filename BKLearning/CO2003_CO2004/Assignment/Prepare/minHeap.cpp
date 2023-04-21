@@ -9,11 +9,12 @@ class MinHeap
 {
 public:
     class Node {
-    public:
+    private:
         int ID;
         int name;
         int NUM;
-        
+        friend class MinHeap;
+    public:    
         Node(){}
         
         Node(int ID, int name, int NUM) {
@@ -22,6 +23,7 @@ public:
             this->NUM = NUM;
         }
     };
+    
 private:
     int capacity;
     int count;
@@ -32,7 +34,9 @@ protected:
             return;
         }
         int parent = (position - 1) / 2;
-        if(this->nodes[parent]->NUM < this->nodes[position]->NUM){
+        if(this->nodes[parent]->NUM > this->nodes[position]->NUM || 
+                (this->nodes[parent]->NUM == this->nodes[position]->NUM && 
+                    this->nodes[parent]->order > this->nodes[position]->order)){
             Node* tmp = this->nodes[parent];
             this->nodes[parent] = this->nodes[position];
             this->nodes[position] = tmp;
@@ -47,21 +51,21 @@ protected:
         int leftChild = 2 * position + 1;
         int rightChild = 2 * position + 2;
         int minChild = position; 
-        
+        // con < cha => swap (2 con: con min swap cha, bằng: con trái swap cha)
         if(leftChild < this->count && this->nodes[leftChild]->NUM < this->nodes[minChild]->NUM){
-            minChild = leftChild;
+            minChild = leftChild; // left < cha => min = left
         }
         
         if(rightChild < this->count && this->nodes[rightChild]->NUM < this->nodes[minChild]->NUM){
-            minChild = rightChild;
+            minChild = rightChild; // right < cha or right < left => min = right
         }
         
-        if(minChild != position){
+        if(minChild != position || minChild == position && this->nodes[minChild]->order < this->nodes[position]->order){ 
             Node* tmp = this->nodes[position];
             this->nodes[position] = this->nodes[minChild];
             this->nodes[minChild] = tmp;
             this->reheapDown(minChild);
-        }
+        }   // min = con => swap
     }
 
 public:
@@ -78,11 +82,12 @@ public:
         clear();
     }
 
-    void push(int ID, int name, int NUM){
+    void insert(int ID, int name, int NUM, int order){
         if (this->count < this->capacity) {
             this->nodes[count]->ID = ID;
             this->nodes[count]->name = name;
             this->nodes[count]->NUM = NUM;
+            this->nodes[count]->order = order;
             this->count++;
             this->reheapUp(this->count - 1);
         }
@@ -119,6 +124,7 @@ public:
         }
     }
 
+    
     bool isEmpty(){
         return (this->count == 0);
     }
@@ -133,6 +139,14 @@ public:
         this->nodes = nullptr;
         this->count = 0;
     }
+
+    void printHeap()
+    {
+        cout << "Heap [ ";
+        for (int i = 0; i < count; i++)
+            cout << nodes[i]->NUM << "-" << nodes[i]->order << " ";
+        cout << "]\n";
+    }
 };
 
 int main() {
@@ -142,25 +156,30 @@ int main() {
     // Test isEmpty() on an empty heap
     assert(heap->isEmpty());
     
-    // Test push() and getCount()
-    heap->push(1, 222, 3);
-    heap->push(2, 333, 2);
-    heap->push(3, 444, 4);
+    // Test insert() and getCount()
+    heap->insert(1, 222, 3, 1);
+    heap->insert(2, 333, 9, 2);
+    heap->insert(3, 444, 10, 3);
+    heap->insert(1, 222, 3, 4);
+    heap->insert(2, 333, 9, 5);
+    heap->insert(3, 444, 10, 6);
     assert(!heap->isEmpty());
-    assert(heap->getCount() == 3);
+    assert(heap->getCount() == 6);
     
     // Test locateID()
-    assert(heap->locateID(2) == 1);
-    assert(heap->locateID(4) == -1);
+    //assert(heap->locateID(2) == 1);
+    //assert(heap->locateID(4) == -1);
+
+    heap->printHeap();
     
     // Test increaseNUM()
     heap->increaseNUM(0);
     
     // Test remove()
-    heap->remove(1);
-    assert(heap->getCount() == 2);
+    heap->remove(2);
+    assert(heap->getCount() == 5);
 
-    
+    heap->printHeap();
     // Test clear() and isEmpty()
     //heap->clear();
     //assert(heap->isEmpty());

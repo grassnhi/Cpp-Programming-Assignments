@@ -5,6 +5,8 @@
 #include <string>
 #include <bitset>
 #include <utility>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -51,6 +53,7 @@ public:
 class IntNode : public HuffNode
 {
 private:
+    char chars;
     int fred;
     HuffNode* left;
     HuffNode* right;
@@ -90,26 +93,36 @@ public:
         this->right = right;
     }
 
-    virtual char character() { return '\0'; }
+    char character() { return chars; }
+
+    void setChar(char chars){
+        this->chars = chars;
+    }
 };
 
 class CompareNodes {
 public:
-    bool operator()(HuffNode* a, HuffNode* b) const {
-        if (a->weight() == b->weight()) {
-            if (a->isLeaf() && b->isLeaf()) {
-                if (isupper(a->character()) && !isupper(b->character())) {
-                    return true; // nếu node a là chữ in hoa, node b là chữ thường => a có ưu tiên hơn
-                } else if (!isupper(a->character()) && isupper(b->character())) {
-                    return false; // nếu node a là chữ thường, node b là chữ in hoa => b có ưu tiên hơn
+    bool operator()(HuffNode* a, HuffNode* b) const{
+        if(a->weight() == b->weight()){
+            if(a->isLeaf() && b->isLeaf()){
+                if (isupper(a->character()) && !isupper(b->character())){
+                    return false; // nếu node a là chữ in hoa, node b là chữ thường => a có ưu tiên hơn
+                }else if (!isupper(a->character()) && isupper(b->character())){
+                    return true; // nếu node a là chữ thường, node b là chữ in hoa => b có ưu tiên hơn
+                }else{
+                    return a->character() > b->character(); // ưu tiên kí tự lớn
                 }
-            } else {
-                // nếu cả 2 node không phải đều là node lá thì node nào được add vào queue trước sẽ được xử lý trước
-                return a < b;
+            }else if(a->isLeaf() && !b->isLeaf()){
+                return false; // ưu tiên lá
+            }else if(!a->isLeaf() && b->isLeaf()){
+                return true; // ưu tiên lá
+            }else if(!a->isLeaf() && !b->isLeaf()){
+                // nếu cả 2 node không phải đều là node lá thì vào trước ưu tiên
+                return true;
             }
         }
 
-        return a->weight() > b->weight();
+        return a->weight() > b->weight(); 
     }
 };
 
@@ -120,11 +133,11 @@ private:
     
 
     void buildEncodingMap(HuffNode* node, string code) {
-        if (node == NULL) {
+        if (node == nullptr) {
             return;
         }
         
-        if (node->leftNode() == NULL && node->rightNode() == NULL) {
+        if (node->leftNode() == nullptr && node->rightNode() == nullptr) {
             encodingMap[node->character()] = code;
             return;
         }
@@ -134,20 +147,23 @@ private:
     }
 
 public:
-    unordered_map<char, string> encodingMap;
+    map<char, string> encodingMap;
 
     HuffTree(){
         this->root = nullptr;
     }
 
     void buildTree(string name) {
-        unordered_map<char, int> freqMap;
+        map<char, int> freqMap;
         
         // Calculate frequency of each character in the input text
         for (char c : name) {
             freqMap[c]++;
         }
 
+        for (const auto& pair : freqMap) {
+            cout << pair.first << ": " << pair.second << endl;
+        }
         priority_queue<HuffNode*, vector<HuffNode*>, CompareNodes> minHeap;
         for (auto entry : freqMap) {
             minHeap.push(new LeafNode(entry.first, entry.second));
@@ -156,13 +172,16 @@ public:
         while (minHeap.size() > 1) {
             auto left = minHeap.top();
             minHeap.pop();
+            cout << left->character() << " ";
             auto right = minHeap.top();
             minHeap.pop();
+            cout << right->character() << " ";
             auto internal = new IntNode(left, right);
+            internal->setChar('.');
             minHeap.push(internal);
             this->root = internal;
         }
-
+        cout << endl;
         buildEncodingMap(this->root, "");
     }
 
@@ -191,7 +210,7 @@ public:
         if(node->leftNode()){
             clear(node->leftNode());
         }
-        if(node->leftNode()){
+        if(node->rightNode()){
             clear(node->rightNode());
         }
         delete node;
@@ -206,8 +225,8 @@ public:
 };
 
 int main(){
-    string text = "Jeniene";
-    
+    string text = "Johnuigfifbahjasbdfhjbasdhjf";
+
     HuffTree* ht = new HuffTree();
     ht->buildTree(text);
     for (auto entry : ht->encodingMap) {

@@ -337,13 +337,13 @@ public:
     {
     private:
         int key; // name (result) -> hashCode
-        int value; // name (result)
+        int name; // name (result)
         int ID; // table ID
         friend class HashMap;
     public:
-        Entry(int key, int value, int ID){
+        Entry(int key, int name, int ID){
             this->key = key;
-            this->value = value;
+            this->name = name;
             this->ID = ID;
         }
     };
@@ -370,22 +370,22 @@ public:
         return key % TABLE_SIZE;
     }
 
-    void insert(int key, int value, int ID){
+    void insert(int key, int name, int ID){
         int index = this->hashFunct(key);
 
         while (table[index] != nullptr && table[index]->key != key) {
             index = hashFunct(index + 1);
         }
         if (table[index] != nullptr) {
-            table[index]->value = value;
+            table[index]->name = name;
             table[index]->ID = ID;
         }else{
-            table[index] = new Entry(key, value, ID);
+            table[index] = new Entry(key, name, ID);
             count++;
         }
     }
 
-    int getValue(int key){
+    int getName(int key){
         int index = this->hashFunct(key);
         while (table[index] != nullptr && table[index]->key != key) {
             index = hashFunct(index + 1);
@@ -393,8 +393,12 @@ public:
         if (table[index] == nullptr) {
             return -1;
         } else {
-            return table[index]->value;
+            return table[index]->name;
         }
+    }
+
+    int getCount(){
+        return this->count;
     }
 
     void remove(int key){
@@ -427,7 +431,7 @@ public:
     void printTable() {
         for(int i = 0; i < capacity; i++) {
             if(table[i] != nullptr) {
-                cout << table[i]->ID << "-" << table[i]->value << endl;
+                cout << table[i]->ID << "-" << table[i]->name << endl;
             }
         } 
     }
@@ -467,6 +471,7 @@ public:
     };
     
 private:
+    int count;
     Node* root;
 protected:
     int getHeight(Node* node){
@@ -517,17 +522,17 @@ protected:
         return curr;
     }
 
-public:
-    AVLTree(){
-        this->root = nullptr;
-    }
-
-    ~AVLTree(){
-        clear();
-    }
-
-    int getHeight(){
-        return this->getHeight(this->root);
+    void clear(Node* node) {
+        if (node == nullptr) {
+            return;
+        }
+        if(node->left){
+            clear(node->left);
+        }
+        if(node->right){
+            clear(node->right);
+        }
+        delete node;
     }
 
     Node* insert(Node* node, int ID, int name){
@@ -556,10 +561,6 @@ public:
             return leftRotate(node);
         }
         return node;
-    }
-
-    void insert(const int ID, const int name){
-        this->root = insert(this->root, ID, name);
     }
 
     Node* remove(Node* node, int ID){
@@ -609,31 +610,42 @@ public:
         }
         return node;
     }
+public:
+    AVLTree(){
+        this->count = 0;
+        this->root = nullptr;
+    }
+
+    ~AVLTree(){
+        clear();
+    }
+
+    int getHeight(){
+        return this->getHeight(this->root);
+    }
+
+    int getCount(){
+        return this->count;
+    }
+
+    void insert(const int ID, const int name){
+        this->root = insert(this->root, ID, name);
+        this->count++;
+    }
 
     void remove(const int ID){
         this->root = remove(this->root, ID);
+        this->count--;
     }
 
     void printInorder(){
         this->printInorder(this->root);
     }
 
-    void clear(Node* node) {
-        if (node == nullptr) {
-            return;
-        }
-        if(node->left){
-            clear(node->left);
-        }
-        if(node->right){
-            clear(node->right);
-        }
-        delete node;
-    }
-
     void clear(){
         clear(this->root);
         this->root = nullptr;
+        this->count = 0;
     }
 };
 
@@ -641,11 +653,12 @@ class MinHeap
 {
 public:
     class Node {
-    public:
+    private:
         int ID;
         int name;
         int NUM;
-        
+        friend class MinHeap;
+    public:    
         Node(){}
         
         Node(int ID, int name, int NUM) {
@@ -767,8 +780,53 @@ public:
     }
 };
 
+int* checkID = new int[MAXSIZE]; // used ID = 1, otherwise 0
+HashMap* hashMap = new HashMap();
+AVLTree* avlTree = new AVLTree();
+queue<int>* FIFO = new queue<int>();
+
+int encodeName(string name){
+    HuffTree* ht = new HuffTree();
+    ht->buildTree(name);
+    int cusName = ht->encode(name);
+    delete ht;
+    return cusName;
+}
+
+int generateID(int result){
+    int tableID = result % MAXSIZE + 1;
+    for(int i = 0; i < MAXSIZE; i++){
+        if(checkID[tableID + i] == 0){
+            tableID = tableID + i;
+            checkID[tableID] = 1;
+            break;
+        }
+    }
+    return tableID;
+}
+
+void setRegion(int result){
+    if(result % 2 == 1){
+        if(hashMap->getCount() < MAXSIZE){
+            int tableID = generateID(result);
+            hashMap->insert(result, result, tableID); 
+        }else if(avlTree->getCount() < MAXSIZE){
+            int tableID = generateID(result);
+            avlTree->insert(tableID, result);
+        }else{
+            // FIFO
+            // LRCO
+            // LFCO
+        }
+    }
+}
+
 void REG(string name){
 	cout << "REG: " << name << endl;
+    // name standardization
+    int result = encodeName(name);
+    // region
+
 }
 
 void CLE(int NUM){
@@ -843,3 +901,7 @@ void simulate(string filename)
         orders.close();
     }
 }
+
+delete[] checkID;
+delete hashMap;
+delete avlTree;

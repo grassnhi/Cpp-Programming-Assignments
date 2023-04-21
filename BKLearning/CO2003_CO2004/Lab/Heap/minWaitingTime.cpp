@@ -34,103 +34,39 @@ cout << minWaitingTime(n, arrvalTime, completeTime);
 
 */
 
-#include <iostream>
-using namespace std;
-
-void heapify(int *arr, int n, int i);
-void buildHeap(int *arr, int n);
-void insert(int *arr, int &n, int val);
-int extractMax(int *arr, int &n);
-
-int minWaitingTime(int n, int* arrivalTime, int* cookTime);
-
-int main() {
-    // Test case 1
-    int n = 3;
-    int arrvalTime[] = {0, 1, 2};
-    int completeTime[] = {3, 9, 6};
-
-    cout << "Test case 1: " << minWaitingTime(n, arrvalTime, completeTime) << "\n";
-
-    // Test case 2
-    n = 4;
-    int arrvalTime2[] = {0, 4, 2, 5};
-    int completeTime2[] = {4, 2, 3, 4};
-
-    cout << "Test case 2: " << minWaitingTime(n, arrvalTime2, completeTime2) << "\n";
-
-    return 0;
-}
-
-void heapify(int *arr, int n, int i) {
-    int largest = i;
-    int left = 2*i + 1;
-    int right = 2*i + 2;
-
-    if (left < n && arr[left] > arr[largest]) {
-        largest = left;
+#include<queue>
+#include<vector>
+#include<algorithm>
+int minWaitingTime(int n, int arrvalTime[], int completeTime[]) {
+    // YOUR CODE HERE
+    vector<vector<int>> vc(n);
+    for (int i = 0; i < n; i++) {
+        vc[i] = vector<int>(2);
     }
-
-    if (right < n && arr[right] > arr[largest]) {
-        largest = right;
+    for(int i = 0; i < n; i++){
+        vc[i][0] = arrvalTime[i];
+        vc[i][1] = completeTime[i];
     }
-
-    if (largest != i) {
-        swap(arr[i], arr[largest]);
-        heapify(arr, n, largest);
+    sort(vc.begin(), vc.end());
+    int totalWaittime = 0, curTime = 0;
+    priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+    int index = 0;
+    while(index < n || !pq.empty()){
+        if(pq.empty()){
+            pq.push({vc[index][1], vc[index][0]});
+            if(curTime < vc[index][0]){
+                curTime = vc[index][0];
+            }
+            index++;
+        }
+        int orderTime = pq.top()[1], duration = pq.top()[0];
+        pq.pop();
+        curTime+= duration;
+        totalWaittime += curTime-orderTime;
+        while(index < n && vc[index][0] <= curTime){
+            pq.push({vc[index][1], vc[index][0]});
+            index++;
+        }
     }
-}
-
-void buildHeap(int *arr, int n) {
-    for (int i = n/2 - 1; i >= 0; i--) {
-        heapify(arr, n, i);
-    }
-}
-
-void insert(int *arr, int &n, int val) {
-    arr[n++] = val;
-    for (int i = n/2 - 1; i >= 0; i--) {
-        heapify(arr, n, i);
-    }
-}
-
-int extractMax(int *arr, int &n) {
-    int maxVal = arr[0];
-    arr[0] = arr[--n];
-    heapify(arr, n, 0);
-    return maxVal;
-}
-
-int minWaitingTime(int n, int* arrivalTime, int* cookTime) {
-    // Calculate the completion times for each customer's order
-    int *completeTime = new int[n];
-    completeTime[0] = arrivalTime[0] + cookTime[0];
-    for (int i = 1; i < n; i++) {
-        completeTime[i] = max(completeTime[i-1], arrivalTime[i]) + cookTime[i];
-    }
-
-    // Use a heap to track the completion times of orders
-    int *heap = new int[n];
-    int heapSize = 0;
-
-    // Insert the first completion time into the heap
-    insert(heap, heapSize, completeTime[0]);
-
-    int waitTime = 0;
-
-    for (int i = 1; i < n; i++) {
-        // Extract the minimum completion time from the heap
-        int minTime = extractMax(heap, heapSize);
-
-        // Calculate the wait time and add it to the total wait time
-        waitTime += max(0, minTime - arrivalTime[i]);
-
-        // Add the current customer's completion time to the heap
-        insert(heap, heapSize, completeTime[i]);
-    }
-
-    delete[] completeTime;
-    delete[] heap;
-
-    return waitTime;
+    return totalWaittime;
 }

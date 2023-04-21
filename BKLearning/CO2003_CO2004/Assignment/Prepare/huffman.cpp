@@ -1,352 +1,237 @@
 #include <iostream>
-#include <string>
-#include <unordered_map>
+#include <vector>
 #include <queue>
+#include <unordered_map>
+#include <string>
+#include <bitset>
+#include <utility>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
-// Define a Huffman Node struct
-struct HuffmanNode {
-    int frequency;
-    char character;
-    HuffmanNode* left;
-    HuffmanNode* right;
+
+class HuffNode
+{
+public:
+    virtual ~HuffNode(){}
+    virtual int weight() = 0;
+    virtual char character() = 0;
+    virtual bool isLeaf() = 0;
+    virtual HuffNode* leftNode() const = 0;
+    virtual HuffNode* rightNode() const = 0;
+};
+
+class LeafNode : public HuffNode
+{
+private:
+    char chars;
+    int fred;
+
+public:
+    LeafNode(char chars, int fred = 0){
+        this->chars = chars;
+        this->fred = fred;
+    }
+
+    int weight(){
+        return fred;
+    }
+
+    char character(){
+        return chars;
+    }
+
+    bool isLeaf() { 
+        return true; 
+    }
+
+    virtual HuffNode* leftNode() const { return nullptr; }
+    virtual HuffNode* rightNode() const { return nullptr; }
+
+};
+
+class IntNode : public HuffNode
+{
+private:
+    int fred;
+    HuffNode* left;
+    HuffNode* right;
     
-    HuffmanNode(int frequency, char character) {
-        this->frequency = frequency;
-        this->character = character;
+public:
+    IntNode(HuffNode* left = nullptr, HuffNode* right = nullptr){
+        fred = left->weight() + right->weight();
+        this->left = left;
+        this->right = right;
+    }
+    ~IntNode(){
         left = nullptr;
         right = nullptr;
     }
+
+    int weight(){
+        return fred;
+    }
+
+    bool isLeaf() { 
+        return false; 
+    }
+
+    HuffNode* leftNode() const{
+        return left;
+    }
+
+    void setLeft(HuffNode* left){
+        this->left = left;
+    }
+
+    HuffNode* rightNode() const{
+        return right;
+    }
+
+    void setRight(HuffNode* right){
+        this->right = right;
+    }
+
+    virtual char character() { return '\0'; }
 };
 
-// Define a comparison struct for Huffman Nodes based on their frequency values
-struct CompareNodes {
-    bool operator()(const HuffmanNode* a, const HuffmanNode* b) {
-        return a->frequency > b->frequency;
-    }
-};
-
-// Define a class for the Huffman Tree
-class HuffmanTree {
-private:
-    HuffmanNode* root;
-    unordered_map<char, string> encodingMap;
-    
-    // Recursive function to build the encoding map by traversing the tree
-    void buildEncodingMapHelper(HuffmanNode* node, string encoding) {
-        if (node) {
-            if (!node->left && !node->right) {
-                encodingMap[node->character] = encoding;
-            }
-            buildEncodingMapHelper(node->left, encoding + "0");
-            buildEncodingMapHelper(node->right, encoding + "1");
-        }
-    }
-    
+class CompareNodes {
 public:
-    // Constructor to build the Huffman Tree and encoding Map
-    HuffmanTree(string text) {
-        unordered_map<char, int> frequencyMap;
+    bool operator()(HuffNode* a, HuffNode* b) const{
+        if(a->weight() == b->weight()){
+            if(a->isLeaf() && b->isLeaf()){
+                if (isupper(a->character()) && !isupper(b->character())){
+                    return true; // nếu node a là chữ in hoa, node b là chữ thường => a có ưu tiên hơn
+                }else if (!isupper(a->character()) && isupper(b->character())){
+                    return false; // nếu node a là chữ thường, node b là chữ in hoa => b có ưu tiên hơn
+                }else{
+                    return a->character() > b->character(); // ưu tiên kí tự lớn
+                }
+            }else if(a->isLeaf() && !b->isLeaf()){
+                return true; // ưu tiên lá
+            }else if(!a->isLeaf() && b->isLeaf()){
+                return false; // ưu tiên lá
+            }else {
+                // nếu cả 2 node không phải đều là node lá thì vào trước ưu tiên
+                return true;
+            }
+        }
+
+        return a->weight() > b->weight(); 
+    }
+};
+
+class HuffTree
+{
+private:
+    HuffNode* root;
+    friend class MinHeap;
+
+    void buildEncodingMap(HuffNode* node, string code) {
+        if (node == nullptr) {
+            return;
+        }
+        
+        if (node->leftNode() == nullptr && node->rightNode() == nullptr) {
+            encodingMap[node->character()] = code;
+            return;
+        }
+        
+        buildEncodingMap(node->leftNode(), code + "0");
+        buildEncodingMap(node->rightNode(), code + "1");
+    }
+
+public:
+    unordered_map<char, string> encodingMap;
+
+    HuffTree(){
+        this->root = nullptr;
+    }
+
+    void buildTree(string name) {
+        map<char, int> freqMap;
         
         // Calculate frequency of each character in the input text
-        for (char c : text) {
-            if (c >= 'a' && c <= 'z') { // lowercase letters
-                frequencyMap[c - ('a' - 'A')]++;
-            } else { // uppercase letters and other characters
-                frequencyMap[c]++;
-            }
-        }
-
-        
-        // Build priority queue of Huffman Nodes based on frequency
-        priority_queue<HuffmanNode*, vector<HuffmanNode*>, CompareNodes> pq;
-        for (auto entry : frequencyMap) {
-            pq.push(new HuffmanNode(entry.second, entry.first));
-        }
-        
-        // Build Huffman Tree by merging nodes
-        while (pq.size() > 1) {
-            HuffmanNode* a = pq.top();
-            pq.pop();
-            
-            HuffmanNode* b = pq.top();
-            pq.pop();
-            
-            HuffmanNode* c = new HuffmanNode(a->frequency + b->frequency, '#');
-            c->left = a;
-            c->right = b;
-            
-            pq.push(c);
-        }
-        
-        root = pq.top();
-        pq.pop();
-        
-        buildEncodingMapHelper(root, "");
-    }
-    
-    // Function to encode the input name using the encoding map
-    string encodeName(string name) {
-        string encodedString = "";
         for (char c : name) {
-            encodedString += encodingMap[c];
-        }
-        return encodedString;
-    }
-};
-
-int main() {
-    string input;
-    cin >> input;
-    
-    // Create a Huffman Tree with the input text
-    HuffmanTree huffmanTree(input);
-    
-    // Encode the name and convert binary to decimal
-    string encodedName = huffmanTree.encodeName(input);
-    int decimalValue = stoi(encodedName, nullptr, 2);
-    
-    // Print the decimal value (up to 15 digits)
-    cout << decimalValue % 1000000000000000 << endl;
-    
-    return 0;
-}
-
-class HuffTree {
-private:
-    HuffNode* root; // con trỏ đến nút gốc của cây Huffman
-
-public:
-    // constructor khởi tạo cây Huffman từ một danh sách các LeafNode
-    HuffTree(std::vector<LeafNode*> leaves) {
-        // tạo một hàng đợi ưu tiên (min heap) dựa trên tần số (weight) của các lá
-        std::priority_queue<HuffNode*, std::vector<HuffNode*>, CompareHuffNodes> minHeap;
-        for (auto leaf : leaves) {
-            minHeap.push(leaf);
+            freqMap[c]++;
         }
 
-        // xây dựng cây Huffman từ các lá
+        for (const auto& pair : freqMap) {
+            cout << pair.first << ": " << pair.second << endl;
+        }
+
+        MinHeap* minHeap = new MinHeap();
+
+        priority_queue<HuffNode*, vector<HuffNode*>, CompareNodes> minHeap;
+        for (auto entry : freqMap) {
+            minHeap.push(new LeafNode(entry.first, entry.second));
+        }
+
         while (minHeap.size() > 1) {
-            HuffNode* left = minHeap.top();
+            auto left = minHeap.top();
             minHeap.pop();
-            HuffNode* right = minHeap.top();
+            cout << left->character() << " ";
+            auto right = minHeap.top();
             minHeap.pop();
-            HuffNode* internal = new IntNode(left, right); // tạo nút nội bộ
+            cout << right->character() << " ";
+            auto internal = new IntNode(left, right);
+            
             minHeap.push(internal);
+            this->root = internal;
         }
 
-        root = minHeap.top(); // lấy nút gốc của cây Huffman
+        buildEncodingMap(this->root, "");
     }
 
-    ~HuffTree() {
-        // giải phóng bộ nhớ của các nút trong cây Huffman
-        deleteSubtree(root);
-        root = nullptr;
-    }
-
-    // Hàm giải phóng bộ nhớ của một cây con dựa trên DFS
-    void deleteSubtree(HuffNode* node) {
-        if (node) { // nếu đang xem nút hợp lệ
-            if (!node->isLeaf()) { // nếu đây là một nút nội bộ
-                IntNode* internal = dynamic_cast<IntNode*>(node); // ép kiểu node thành IntNode
-                deleteSubtree(internal->leftNode()); // giải phóng bộ nhớ của cây con bên trái
-                deleteSubtree(internal->rightNode()); // giải phóng bộ nhớ của cây con bên phải
-            }
-
-            delete node; // giải phóng bộ nhớ của nút hiện tại
-        }
+    ~HuffTree(){
+        clear();
     }
 
     // Hàm chuyển đổi thông điệp sang mã Huffman
-    std::string encode(const std::string& message) const {
-        std::unordered_map<char, std::string> encodingMap;
-        buildEncodingMap(encodingMap, root, std::string());
-        std::string encodedMessage;
-        for (char c : message) {
-            encodedMessage += encodingMap[c];
+    int encode(string name){
+        string result = "";
+        
+        for (char c : name) {
+            string code = "";
+            code = encodingMap.at(c);
+            result += code;
         }
-        return encodedMessage;
+        result = result.substr(max(0, (int)result.size() - 15)); // chỉ lấy tối đa 15 số từ bên phải
+        int decimal = stoi(result, nullptr, 2);
+        return decimal; 
     }
 
-    // Hàm chuyển đổi mã Huffman sang thông điệp gốc
-    std::string decode(const std::string& code) const {
-        std::string decodedMessage;
-        HuffNode* currentNode = root;
-        for (char c : code) {
-            if (c == '0') { // tiếp tục đi xuống cây theo bên trái
-                currentNode = dynamic_cast<IntNode*>(currentNode)->leftNode();
-            } else if (c == '1') { // tiếp tục đi xuống cây theo bên phải
-                currentNode = dynamic_cast<IntNode*>(currentNode)->rightNode();
-            }
-            if (currentNode->isLeaf()) { // nếu đến lá
-                LeafNode* leaf = dynamic_cast<LeafNode*>(currentNode); // ép kiểu thành LeafNode
-                decodedMessage += leaf->character(); // thêm kí tự của lá vào thông điệp đã giải mã
-                currentNode = root; // quay lại điểm xuất phát cho lần duyệt tiếp theo
-            }
+    void clear(HuffNode* node) {
+        if (node == nullptr) {
+            return;
         }
-        return decodedMessage;
+        if(node->leftNode()){
+            clear(node->leftNode());
+        }
+        if(node->rightNode()){
+            clear(node->rightNode());
+        }
+        delete node;
     }
 
-private:
-    // Hàm xây dựng bảng mã Huffman từ cây Huffman
-    void buildEncodingMap(
-            std::unordered_map<char, std::string>& encodingMap,
-            HuffNode* node,
-            std::string code) const {
-        if (node->isLeaf()) { // nếu đang xem một lá
-            LeafNode* leaf = dynamic_cast<LeafNode*>(node); // ép kiểu node thành LeafNode
-            encodingMap[leaf->character()] = code; // lưu mã Huffman tương ứng với kí tự
-        } else { // nếu đang xem một nút nội bộ
-            IntNode* internal = dynamic_cast<IntNode*>(node); // ép kiểu node thành IntNode
-            buildEncodingMap(encodingMap, internal->leftNode(), code + "0"); // duyệt theo bên trái và thêm số 0 vào mã
-            buildEncodingMap(encodingMap, internal->rightNode(), code + "1"); // duyệt theo bên phải và thêm số 1 vào mã
-        }
+    void clear(){
+        clear(this->root);
+        this->root = nullptr;
+        encodingMap.clear();
     }
+
 };
 
-class HuffmanTree {
-private:
-    TreeNode *root;
-    std::unordered_map<char, std::string> codes;
-
-    // Duyệt cây Huffman để tạo bảng mã
-    void buildCodeTable(TreeNode *node, std::string code) {
-        if (auto leaf = dynamic_cast<LeafNode *>(node)) {
-            codes[leaf->character()] = code;
-        } else if (auto inner = dynamic_cast<InnerNode *>(node)) {
-            buildCodeTable(inner->getLeftChild(), code + "0");
-            buildCodeTable(inner->getRightChild(), code + "1");
-        }
+int main(){
+    string text = "Johnuigfifbahjasbdfhjbasdhjf";
+    // o:0 l:10 h111 e110 
+    HuffTree* ht = new HuffTree();
+    ht->buildTree(text);
+    for (auto entry : ht->encodingMap) {
+        cout << entry.first << ": " << entry.second << endl;
     }
-
-public:
-    HuffmanTree(const std::unordered_map<char, int> &frequencies) {
-        auto cmp = [](TreeNode *a, TreeNode *b) { return a->weight() > b->weight(); };
-        std::priority_queue<TreeNode *, std::vector<TreeNode *>, decltype(cmp)> q(cmp);
-
-        for (auto pair : frequencies) {
-            q.push(new LeafNode(pair.first, pair.second));
-        }
-
-        while (q.size() >= 2) {
-            auto left = q.top();
-            q.pop();
-            auto right = q.top();
-            q.pop();
-            auto parent = new InnerNode(left, right);
-            q.push(parent);
-        }
-
-        root = q.top();
-
-        buildCodeTable(root, "");
-    }
-
-    ~HuffmanTree() {
-        destroy(root);
-    }
-
-    std::string encode(const std::string &text) const {
-        std::string result;
-        for (char c : text) {
-            result += codes.at(c);
-        }
-        return result;
-    }
-
-    std::string decode(const std::string &bits) const {
-        std::string result;
-        auto p = root;
-        for (char bit : bits) {
-            if (bit == '0') {
-                p = dynamic_cast<InnerNode *>(p)->getLeftChild();
-            } else {
-                p = dynamic_cast<InnerNode *>(p)->getRightChild();
-            }
-            if (dynamic_cast<LeafNode *>(p)) {
-                result += dynamic_cast<LeafNode *>(p)->character();
-                p = root;
-            }
-        }
-        return result;
-    }
-
-private:
-    void destroy(TreeNode *node) {
-        if (auto leaf = dynamic_cast<LeafNode *>(node)) {
-            delete leaf;
-        } else if (auto inner = dynamic_cast<InnerNode *>(node)) {
-            destroy(inner->getLeftChild());
-            destroy(inner->getRightChild());
-            delete inner;
-        }
-    }
-};
-
-class Customer {
-private:
-    std::string name;
-
-public:
-    Customer(const std::string &name) {
-        this->name = name;
-    }
-
-    const std::string &getName() const {
-        return name;
-    }
-};
-
-std::ostream &operator<<(std::ostream &os, const Customer &customer) {
-    os << "Customer " << customer.getName();
-    return os;
-}
-
-int main(int argc, char **argv) {
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " filename" << std::endl;
-        return 1;
-    }
-
-    std::unordered_map<char, int> frequencies;
-    std::ifstream file(argv[1]);
-    std::string line;
-
-    // Đọc file và tính tần số xuất hiện của các ký tự
-    while (std::getline(file, line)) {
-        if (line.substr(0, 3) == "REG") { // Chỉ xử lý dòng lệnh REG
-            std::string name = line.substr(4);
-            for (char c : name) {
-                frequencies[c]++;
-            }
-        }
-    }
-
-    // Xây dựng cây Huffman từ tần số xuất hiện
-    HuffmanTree tree(frequencies);
-
-    // Mở file lại để đọc tính năng khác
-    file.clear();
-    file.seekg(0);
-
-    // Đọc file và mã hóa tên khách hàng bằng cây Huffman để lưu vào codeword
-    while (std::getline(file, line)) {
-        if (line.substr(0, 3) == "REG") { // Chỉ xử lý dòng lệnh REG
-            std::string name = line.substr(4);
-            auto encodedName = tree.encode(name);
-            long long codeword = std::bitset<15>(encodedName).to_ulong();
-            std::cout << "Encoded Name: " << encodedName << std::endl;
-            std::cout << "Codeword: " << codeword << std::endl;
-
-            Customer customer(name);
-            LeafNode *leaf = dynamic_cast<LeafNode *>(tree.decode(encodedName));
-            leaf->setCode(encodedName);
-            std::cout << "Customer: " << customer << ", Codeword: " << leaf->getCode() << std::endl;
-        }
-    }
-
-    file.close();
-
+    cout << ht->encode(text);
+    delete ht;
     return 0;
 }
