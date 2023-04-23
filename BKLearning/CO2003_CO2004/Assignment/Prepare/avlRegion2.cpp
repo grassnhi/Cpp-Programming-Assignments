@@ -131,7 +131,7 @@ protected:
 
     Node* remove(Node* node, int ID){
         if(node == nullptr){
-            return nullptr;
+            return node;
         }
         if(ID < node->ID){
             node->left = remove(node->left, ID);

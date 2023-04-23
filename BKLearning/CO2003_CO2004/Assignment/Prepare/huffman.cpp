@@ -161,12 +161,14 @@ public:
             cout << pair.first << ": " << pair.second << endl;
         }
 
-        MinHeap* minHeap = new MinHeap();
-
+        
+        vector<huffNode*> vc;
         priority_queue<HuffNode*, vector<HuffNode*>, CompareNodes> minHeap;
         for (auto entry : freqMap) {
             minHeap.push(new LeafNode(entry.first, entry.second));
         }
+
+        
 
         while (minHeap.size() > 1) {
             auto left = minHeap.top();

@@ -59,8 +59,8 @@ private:
     HuffNode* right;
     
 public:
-    IntNode(HuffNode* left = nullptr, HuffNode* right = nullptr){
-        fred = left->weight() + right->weight();
+    IntNode(HuffNode* left, HuffNode* right){
+        this->fred = left->weight() + right->weight();
         this->left = left;
         this->right = right;
     }
@@ -104,25 +104,32 @@ class CompareNodes {
 public:
     bool operator()(HuffNode* a, HuffNode* b) const{
         if(a->weight() == b->weight()){
+            
             if(a->isLeaf() && b->isLeaf()){
                 if (isupper(a->character()) && !isupper(b->character())){
+                    
                     return false; // nếu node a là chữ in hoa, node b là chữ thường => a có ưu tiên hơn
                 }else if (!isupper(a->character()) && isupper(b->character())){
+                    
                     return true; // nếu node a là chữ thường, node b là chữ in hoa => b có ưu tiên hơn
                 }else{
+                    
                     return a->character() > b->character(); // ưu tiên kí tự lớn
                 }
             }else if(a->isLeaf() && !b->isLeaf()){
+                
                 return false; // ưu tiên lá
             }else if(!a->isLeaf() && b->isLeaf()){
+                
                 return true; // ưu tiên lá
-            }else if(!a->isLeaf() && !b->isLeaf()){
+            }else{
+                
                 // nếu cả 2 node không phải đều là node lá thì vào trước ưu tiên
-                return true;
+                return false;//
             }
         }
-
-        return a->weight() > b->weight(); 
+        
+        return a->weight() >= b->weight(); 
     }
 };
 
@@ -172,10 +179,10 @@ public:
         while (minHeap.size() > 1) {
             auto left = minHeap.top();
             minHeap.pop();
-            cout << left->character() << " ";
+            cout << left->character() << "-" << left->weight() << " ";
             auto right = minHeap.top();
             minHeap.pop();
-            cout << right->character() << " ";
+            cout << right->character() << "-" << right->weight() << " ";
             auto internal = new IntNode(left, right);
             internal->setChar('.');
             minHeap.push(internal);
@@ -225,7 +232,7 @@ public:
 };
 
 int main(){
-    string text = "Johnuigfifbahjasbdfhjbasdhjf";
+    string text = "ukkajhsdfjkasbndbmnFJKHJKsdbfsabdf";
 
     HuffTree* ht = new HuffTree();
     ht->buildTree(text);
