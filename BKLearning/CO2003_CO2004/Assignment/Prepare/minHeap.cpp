@@ -13,6 +13,7 @@ public:
         int ID;
         int name;
         int NUM;
+        int order;
         friend class MinHeap;
     public:    
         Node(){}
@@ -113,6 +114,22 @@ public:
         return this->count;
     }
 
+    int getName(int index){
+        if (this->isEmpty()) {
+            return -1;
+        }
+        for (int i = 0; i < this->count; i++) {
+            if (this->nodes[i]->ID == index) {
+                return this->nodes[i]->name;
+            }
+        }
+        return -1;
+    }
+
+    int getName(){
+        return this->nodes[0]->name;
+    }
+
     void remove(int ID){
         int index = this->locateID(ID);
         if (index == -1) {
@@ -183,6 +200,8 @@ int main() {
     // Test clear() and isEmpty()
     //heap->clear();
     //assert(heap->isEmpty());
+
+    cout << " " << heap->getName() << " ";
     
     cout << "All tests passed!\n";
     delete heap;

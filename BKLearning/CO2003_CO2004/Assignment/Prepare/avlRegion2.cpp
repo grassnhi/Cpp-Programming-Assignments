@@ -154,9 +154,6 @@ protected:
                 node->name = tmp->name;
                 node->ID = tmp->ID;
                 node->right = remove(node->right, tmp->ID); 
-                // The node with the smallest value in the right subtree is selected to replace the node to be removed.
-                // For example, given a tree 10(7(5 9) 15), deleting 10 will result in the tree 7(5 15(9)).
-
             }
         }
         if(node == nullptr){
@@ -179,6 +176,30 @@ protected:
         }
         return node;
     }
+
+    int findID(Node* node, int name){
+        if(node == nullptr){
+            return -1;
+        }else if(node->name == name){
+            return node->ID;
+        }else if(node->name > name){
+            return findID(node->left, name);
+        }else{
+            return findID(node->right, name);
+        }
+    }
+
+    int getName(Node* node, int ID){
+        if(node == nullptr){
+            return -1;
+        }else if(node->ID == ID){
+            return node->name;
+        }else if(node->ID > ID){
+            return getName(node->left, ID);
+        }else{
+            return getName(node->right, ID);
+        }
+    }
 public:
     AVLTree(){
         this->count = 0;
@@ -197,6 +218,20 @@ public:
         return this->count;
     }
 
+    int findID(int name){
+        return this->findID(this->root, name);
+    }
+
+    bool existID(int ID){
+        if(this->getName() = -1){
+            return false;
+        }
+        return true;
+    }
+
+    int getName(int ID){
+        return this->getName(this->root, ID);
+    }
     void insert(const int ID, const int name){
         this->root = insert(this->root, ID, name);
         this->count++;
@@ -230,7 +265,7 @@ int main(){
 
     avlTree.remove(10);
     avlTree.printInorder();
-
+    cout << avlTree.findID(999) << " " << avlTree.findID(99);
     avlTree.clear();
 
 

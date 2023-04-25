@@ -1,6 +1,6 @@
 #include "main.h"
 
-const int TABLE_SIZE = MAXSIZE/2;
+const int HALFMAX = MAXSIZE / 2;
 
 class DLinkedList{
 public:
@@ -354,7 +354,7 @@ protected:
     int count;
 public:
     HashMap(){
-        this->capacity = TABLE_SIZE;
+        this->capacity = HALFMAX;
         this->count = 0;
         this->table = new Entry*[capacity];
         for(int i = 0; i < capacity; i++){
@@ -367,7 +367,7 @@ public:
     }
 
     int hashFunct(int key) {
-        return key % TABLE_SIZE;
+        return key % HALFMAX;
     }
 
     void insert(int key, int name, int ID){
@@ -394,6 +394,18 @@ public:
             return -1;
         } else {
             return table[index]->name;
+        }
+    }
+
+    int findID(int key){
+        int index = this->hashFunct(key);
+        while(table[index] != nullptr && table[index]->key != key){
+            index = hashFunct(index + 1);
+        }
+        if(table[index] == nullptr){
+            return -1;
+        }else{
+            return table[index]->ID;
         }
     }
 
@@ -513,14 +525,14 @@ protected:
         return newNode;
     }
 
-    Node* getRightmost(Node* node){
+    Node* leftmostRight(Node* node){ 
         Node* curr = node;
-        while (curr->right != nullptr)
-        {
-            curr = curr->right;
+        while(curr->left != nullptr){
+            curr = curr->left;
         }
         return curr;
     }
+
 
     void clear(Node* node) {
         if (node == nullptr) {
@@ -565,7 +577,7 @@ protected:
 
     Node* remove(Node* node, int ID){
         if(node == nullptr){
-            return nullptr;
+            return node;
         }
         if(ID < node->ID){
             node->left = remove(node->left, ID);
@@ -575,19 +587,19 @@ protected:
             if(node->left == nullptr && node->right == nullptr){
                 delete node;
                 return nullptr;
-            }else if(node->left == nullptr){
-                Node* tmp = node->right;
-                *node = *tmp;
-                delete tmp;
             }else if(node->right == nullptr){
                 Node* tmp = node->left;
                 *node = *tmp;
                 delete tmp;
+            }else if(node->left == nullptr){
+                Node* tmp = node->right;
+                *node = *tmp;
+                delete tmp;
             }else{
-                Node* tmp = getRightmost(node->left);
+                Node* tmp = leftmostRight(node->right);  
                 node->name = tmp->name;
                 node->ID = tmp->ID;
-                node->left = remove(node->left, tmp->ID);
+                node->right = remove(node->right, tmp->ID); 
             }
         }
         if(node == nullptr){
@@ -610,6 +622,30 @@ protected:
         }
         return node;
     }
+
+    int findID(Node* node, int name){
+        if(node == nullptr){
+            return -1;
+        }else if(node->name == name){
+            return node->ID;
+        }else if(node->name > name){
+            return findID(node->left, name);
+        }else{
+            return findID(node->right, name);
+        }
+    }
+
+    int getName(Node* node, int ID){
+        if(node == nullptr){
+            return -1;
+        }else if(node->ID == ID){
+            return node->name;
+        }else if(node->ID > ID){
+            return getName(node->left, ID);
+        }else{
+            return getName(node->right, ID);
+        }
+    }
 public:
     AVLTree(){
         this->count = 0;
@@ -628,6 +664,20 @@ public:
         return this->count;
     }
 
+    int findID(int name){
+        return this->findID(this->root, name);
+    }
+
+    bool existID(int ID){
+        if(this->getName() = -1){
+            return false;
+        }
+        return true;
+    }
+
+    int getName(int ID){
+        return this->getName(this->root, ID);
+    }
     void insert(const int ID, const int name){
         this->root = insert(this->root, ID, name);
         this->count++;
@@ -657,6 +707,7 @@ public:
         int ID;
         int name;
         int NUM;
+        int order;
         friend class MinHeap;
     public:    
         Node(){}
@@ -667,6 +718,7 @@ public:
             this->NUM = NUM;
         }
     };
+    
 private:
     int capacity;
     int count;
@@ -677,7 +729,9 @@ protected:
             return;
         }
         int parent = (position - 1) / 2;
-        if(this->nodes[parent]->NUM < this->nodes[position]->NUM){
+        if(this->nodes[parent]->NUM > this->nodes[position]->NUM || 
+                (this->nodes[parent]->NUM == this->nodes[position]->NUM && 
+                    this->nodes[parent]->order > this->nodes[position]->order)){
             Node* tmp = this->nodes[parent];
             this->nodes[parent] = this->nodes[position];
             this->nodes[position] = tmp;
@@ -692,21 +746,21 @@ protected:
         int leftChild = 2 * position + 1;
         int rightChild = 2 * position + 2;
         int minChild = position; 
-        
+        // con < cha => swap (2 con: con min swap cha, bằng: con trái swap cha)
         if(leftChild < this->count && this->nodes[leftChild]->NUM < this->nodes[minChild]->NUM){
-            minChild = leftChild;
+            minChild = leftChild; // left < cha => min = left
         }
         
         if(rightChild < this->count && this->nodes[rightChild]->NUM < this->nodes[minChild]->NUM){
-            minChild = rightChild;
+            minChild = rightChild; // right < cha or right < left => min = right
         }
         
-        if(minChild != position){
+        if(minChild != position || minChild == position && this->nodes[minChild]->order < this->nodes[position]->order){ 
             Node* tmp = this->nodes[position];
             this->nodes[position] = this->nodes[minChild];
             this->nodes[minChild] = tmp;
             this->reheapDown(minChild);
-        }
+        }   // min = con => swap
     }
 
 public:
@@ -723,11 +777,12 @@ public:
         clear();
     }
 
-    void push(int ID, int name, int NUM){
+    void insert(int ID, int name, int NUM, int order){
         if (this->count < this->capacity) {
             this->nodes[count]->ID = ID;
             this->nodes[count]->name = name;
             this->nodes[count]->NUM = NUM;
+            this->nodes[count]->order = order;
             this->count++;
             this->reheapUp(this->count - 1);
         }
@@ -753,6 +808,27 @@ public:
         return this->count;
     }
 
+    int getName(int index){
+        if (this->isEmpty()) {
+            return -1;
+        }
+        for (int i = 0; i < this->count; i++) {
+            if (this->nodes[i]->ID == index) {
+                return this->nodes[i]->name;
+            }
+        }
+        return -1;
+    }
+
+    int getName(){
+        return this->nodes[0]->name;
+    }
+
+    int getID(){
+        return this->nodes[0]->ID;
+    }
+
+
     void remove(int ID){
         int index = this->locateID(ID);
         if (index == -1) {
@@ -764,6 +840,7 @@ public:
         }
     }
 
+    
     bool isEmpty(){
         return (this->count == 0);
     }
@@ -778,12 +855,25 @@ public:
         this->nodes = nullptr;
         this->count = 0;
     }
+
+    void printHeap()
+    {
+        cout << "Heap [ ";
+        for (int i = 0; i < count; i++)
+            cout << nodes[i]->NUM << "-" << nodes[i]->order << " ";
+        cout << "]\n";
+    }
 };
 
+
+long long int orders = 0;
 int* checkID = new int[MAXSIZE]; // used ID = 1, otherwise 0
 HashMap* hashMap = new HashMap();
 AVLTree* avlTree = new AVLTree();
-queue<int>* FIFO = new queue<int>();
+queue<int>* FIFO = new queue<int>(); 
+deque<int>* LRCO = new deque<int>(); 
+stack<int>* container = new stack<int>();
+MinHeap* LFCO = new MinHeap(); 
 
 int encodeName(string name){
     HuffTree* ht = new HuffTree();
@@ -805,18 +895,113 @@ int generateID(int result){
     return tableID;
 }
 
-void setRegion(int result){
+void removeFIFO(int name){
+    while (FIFO->top() != name){
+        container->push(FIFO->top());
+        FIFO->pop();
+    }
+    FIFO->pop();
+    while (!container->empty()){
+        FIFO->push(container->top())
+        container->pop();
+    }
+}
+
+void removeLRCO(int name){
+    while (LRCO->back() != name){
+        container->push(LRCO->back());
+        LRCO->pop_back();
+    }
+    LRCO->pop_back();
+    while (!container->empty()){
+        LRCO->push_back(container->top());
+        container->pop();
+    }
+}
+
+void outOfTable(int result){
+    if(result % 3 == 0){
+        int name = FIFO->front();
+        FIFO->pop();
+        FIFO->push(result);
+        int tableID = hashMap->findID(name);
+        orders++;
+        if(tableID = -1){
+            tableID = avlTree->findID(name);
+            avlTree->remove(tableID);
+            avlTree->insert(tableID, result);
+        }else{
+            hashMap->remove(name);
+            hashMap->insert(result, result, tableID);
+        }
+        removeLRCO(name, result);
+        LRCO->push_back(result);
+        LFCO->remove(tableID);
+        LFCO->insert(tableID, result, orders);
+    }else if(result % 3 == 1){
+        int name = LRCO->back();
+        LRCO->pop_back();
+        LRCO->push_front(name);
+        int tableID = hashMap->findID(name);
+        orders++;
+        if(tableID = -1){
+            tableID = avlTree->findID(name);
+            avlTree->remove(tableID);
+            avlTree->insert(tableID, result);
+        }else{
+            hashMap->remove(name);
+            hashMap->insert(result, result, tableID);
+        }
+        removeFIFO(name);
+        FIFO->push(result);
+        LFCO->remove(tableID);
+        LFCO->insert(tableID, result, orders);
+    }else if(result % 3 == 2){
+        int name = LFCO->getName();
+        int tableID = LFCO->getID();
+        orders++;
+        LFCO->remove(tableID);
+        LFCO->insert(tableID, result, orders);
+        int tableID = hashMap->findID(name);
+        if(tableID = -1){
+            tableID = avlTree->findID(name);
+            avlTree->remove(tableID);
+            avlTree->insert(tableID, result);
+        }else{
+            hashMap->remove(name);
+            hashMap->insert(result, result, tableID);
+        }
+        removeFIFO(name, result);
+        FIFO->push(result);
+        removeLRCO(name, result);
+        LRCO->push_back(result);
+    }
+}
+
+void placeTable(int result){
     if(result % 2 == 1){
         if(hashMap->getCount() < MAXSIZE){
             int tableID = generateID(result);
             hashMap->insert(result, result, tableID); 
+            orders++;
         }else if(avlTree->getCount() < MAXSIZE){
             int tableID = generateID(result);
             avlTree->insert(tableID, result);
+            orders++;
         }else{
-            // FIFO
-            // LRCO
-            // LFCO
+            outOfTable(result);
+        }
+    }else if(result % 2 == 0){
+        if(avlTree->getCount() < MAXSIZE){
+            int tableID = generateID(result);
+            avlTree->insert(tableID, result);
+            orders++;
+        }else if(hashMap->getCount() < MAXSIZE){
+            int tableID = generateID(result);
+            hashMap->insert(result, result, tableID); 
+            orders++;
+        }else{
+            outOfTable(result);
         }
     }
 }
@@ -825,24 +1010,50 @@ void REG(string name){
 	cout << "REG: " << name << endl;
     // name standardization
     int result = encodeName(name);
-    // region
-
+    // region and table
+    placeTable(result);
 }
 
 void CLE(int NUM){
 	cout << "CLE: " << NUM << endl;
+    if(NUM < 1){
+        while (hashMap->getCount() != 0)
+        {
+            int name = LFCO->getName();
+            int ID = LFCO->getID();
+        }
+        
+        
+        
+    }else if(NUM > MAXSIZE){
+
+    }else if(checkID[NUM] == 1){
+        checkID[NUM] = 0;
+        int name = LFCO->getName(NUM);
+        removeFIFO(name);
+        removeLRCO(name);
+        LFCO->remove(NUM);
+        if(avlTree->existID(NUM)){
+            avlTree->remove(NUM);
+        }else{
+            hashMap->remove(name);
+        }
+    }
 }
 
 void PrintHT(){
 	cout << "PrintHT" << endl;
+    hashMap->printTable();
 }
 
 void PrintAVL(){
 	cout << "PrintAVL" << endl;
+    avlTree->printInorder();
 }
 
 void PrintMH(){
 	cout << "PrintMH" << endl;
+    LFCO->printHeap();
 }
 
 void simulate(string filename)
@@ -905,3 +1116,7 @@ void simulate(string filename)
 delete[] checkID;
 delete hashMap;
 delete avlTree;
+delete FIFO;
+delete LRCO;
+delete LFCO;
+delete container;

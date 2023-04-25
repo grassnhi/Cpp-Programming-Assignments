@@ -75,6 +75,19 @@ public:
         }
     }
 
+    int findID(int key){
+        int index = this->hashFunct(key);
+        while(table[index] != nullptr && table[index]->key != key){
+            index = hashFunct(index + 1);
+        }
+        if(table[index] == nullptr){
+            return -1;
+        }else{
+            return table[index]->ID;
+        }
+    }
+
+
     int getCount(){
         return this->count;
     }
