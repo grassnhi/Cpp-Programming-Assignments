@@ -83,7 +83,7 @@ public:
         clear();
     }
 
-    void insert(int ID, int name, int NUM, int order){
+    void insert(int ID, int name, int NUM = 0, int order){
         if (this->count < this->capacity) {
             this->nodes[count]->ID = ID;
             this->nodes[count]->name = name;
@@ -106,8 +106,20 @@ public:
         return -1;
     }
 
-    void increaseNUM(int i){
-        this->nodes[i]->NUM++;
+    int existName(int name){
+        if (this->isEmpty()) {
+            return -1;
+        }
+        for (int i = 0; i < this->count; i++) {
+            if (this->nodes[i]->name == name) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    void increaseNUM(int index){
+        this->nodes[index]->NUM++;
     }
 
     int getCount(){

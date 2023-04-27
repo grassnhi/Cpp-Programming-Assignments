@@ -87,6 +87,17 @@ protected:
         return curr;
     }
 
+    void levelPrint(Node* node, int level){
+        if(node == nullptr){
+            return;
+        }
+        if(level == 0){
+            cout << node->ID << "-" << node->name << endl;
+        }else if(level > 0){
+            levelPrint(node->left, level - 1);
+            levelPrint(node->right, level - 1);
+        }
+    }
 
     void clear(Node* node) {
         if (node == nullptr) {
@@ -133,11 +144,10 @@ protected:
         if(node == nullptr){
             return node;
         }
-        if(ID < node->ID){
-            node->left = remove(node->left, ID);
-        }else if(ID > node->ID){
-            node->right = remove(node->right, ID);
-        }else if(ID == node->ID){
+        if (node->ID != ID) {
+			node->left = remove(node->left, ID);
+			node->right = remove(node->right, ID);
+		}else if(ID == node->ID){
             if(node->left == nullptr && node->right == nullptr){
                 delete node;
                 return nullptr;
@@ -150,10 +160,11 @@ protected:
                 *node = *tmp;
                 delete tmp;
             }else{
-                Node* tmp = leftmostRight(node->right);  
-                node->name = tmp->name;
-                node->ID = tmp->ID;
-                node->right = remove(node->right, tmp->ID); 
+                Node* temp = node->right;
+				while (temp->left != NULL) temp = temp->left;
+				node->name = temp->name;
+				node->ID = temp->ID;
+				node->right = remove(node->right, temp->ID);
             }
         }
         if(node == nullptr){
@@ -218,12 +229,19 @@ public:
         return this->count;
     }
 
+    void levelPrint(){
+        int height = this->getHeight(this->root);
+        for(int i = 0; i < height; i++){
+            levelPrint(this->root, i);
+        }
+    }
+
     int findID(int name){
         return this->findID(this->root, name);
     }
 
     bool existID(int ID){
-        if(this->getName() = -1){
+        if(this->getName(ID) == -1){
             return false;
         }
         return true;
@@ -264,8 +282,9 @@ int main(){
     avlTree.printInorder();
 
     avlTree.remove(10);
-    avlTree.printInorder();
-    cout << avlTree.findID(999) << " " << avlTree.findID(99);
+
+    avlTree.levelPrint();
+    
     avlTree.clear();
 
 

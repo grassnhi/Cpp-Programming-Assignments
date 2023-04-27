@@ -16,6 +16,7 @@ public:
     virtual ~HuffNode(){}
     virtual int weight() = 0;
     virtual char character() = 0;
+    virtual int priority() = 0;
     virtual bool isLeaf() = 0;
     virtual HuffNode* leftNode() const = 0;
     virtual HuffNode* rightNode() const = 0;
@@ -45,6 +46,7 @@ public:
         return true; 
     }
 
+    virtual int priority(){ return 0;}
     virtual HuffNode* leftNode() const { return nullptr; }
     virtual HuffNode* rightNode() const { return nullptr; }
 
@@ -53,13 +55,14 @@ public:
 class IntNode : public HuffNode
 {
 private:
-    char chars;
     int fred;
+    int prior;
     HuffNode* left;
     HuffNode* right;
     
 public:
-    IntNode(HuffNode* left, HuffNode* right){
+    IntNode(int prior, HuffNode* left, HuffNode* right){
+        this->prior = prior;
         this->fred = left->weight() + right->weight();
         this->left = left;
         this->right = right;
@@ -70,7 +73,11 @@ public:
     }
 
     int weight(){
-        return fred;
+        return this->fred;
+    }
+
+    int priority(){
+        return this->prior;
     }
 
     bool isLeaf() { 
@@ -93,43 +100,24 @@ public:
         this->right = right;
     }
 
-    char character() { return chars; }
-
-    void setChar(char chars){
-        this->chars = chars;
-    }
+    char character() { return ' '; }
 };
 
 class CompareNodes {
 public:
     bool operator()(HuffNode* a, HuffNode* b) const{
-        if(a->weight() == b->weight()){
-            
-            if(a->isLeaf() && b->isLeaf()){
-                if (isupper(a->character()) && !isupper(b->character())){
-                    
-                    return false; // nếu node a là chữ in hoa, node b là chữ thường => a có ưu tiên hơn
-                }else if (!isupper(a->character()) && isupper(b->character())){
-                    
-                    return true; // nếu node a là chữ thường, node b là chữ in hoa => b có ưu tiên hơn
-                }else{
-                    
-                    return a->character() > b->character(); // ưu tiên kí tự lớn
-                }
+        if(a->weight() < b->weight()){
+            return false;
+        }else if(a->weight() == b->weight()){
+            if(a->isLeaf() && b->isLeaf() && a->character() < b->character()){
+                return false;
             }else if(a->isLeaf() && !b->isLeaf()){
-                
-                return false; // ưu tiên lá
-            }else if(!a->isLeaf() && b->isLeaf()){
-                
-                return true; // ưu tiên lá
-            }else{
-                
-                // nếu cả 2 node không phải đều là node lá thì vào trước ưu tiên
-                return false;//
+                return false;
+            }else if(!a->isLeaf() && !b->isLeaf() && a->priority() < b->priority()){
+                return false;
             }
         }
-        
-        return a->weight() >= b->weight(); 
+        return true;
     }
 };
 
@@ -137,7 +125,7 @@ class HuffTree
 {
 private:
     HuffNode* root;
-    
+    map<char, string> encodingMap;
 
     void buildEncodingMap(HuffNode* node, string code) {
         if (node == nullptr) {
@@ -154,7 +142,7 @@ private:
     }
 
 public:
-    map<char, string> encodingMap;
+    
 
     HuffTree(){
         this->root = nullptr;
@@ -168,27 +156,28 @@ public:
             freqMap[c]++;
         }
 
-        for (const auto& pair : freqMap) {
-            cout << pair.first << ": " << pair.second << endl;
-        }
         priority_queue<HuffNode*, vector<HuffNode*>, CompareNodes> minHeap;
         for (auto entry : freqMap) {
             minHeap.push(new LeafNode(entry.first, entry.second));
         }
 
+        if (minHeap.size() == 1) {
+            this->root = minHeap.top();
+            minHeap.pop();
+        }
+
+        int prior = 0;
         while (minHeap.size() > 1) {
             auto left = minHeap.top();
             minHeap.pop();
-            cout << left->character() << "-" << left->weight() << " ";
             auto right = minHeap.top();
             minHeap.pop();
-            cout << right->character() << "-" << right->weight() << " ";
-            auto internal = new IntNode(left, right);
-            internal->setChar('.');
+            prior++;
+            auto internal = new IntNode(prior, left, right);
             minHeap.push(internal);
             this->root = internal;
         }
-        cout << endl;
+        
         buildEncodingMap(this->root, "");
     }
 
@@ -203,6 +192,9 @@ public:
         for (char c : name) {
             string code = "";
             code = encodingMap.at(c);
+            if(code == ""){
+                code = "1";
+            }
             result += code;
         }
         result = result.substr(max(0, (int)result.size() - 15)); // chỉ lấy tối đa 15 số từ bên phải
@@ -232,13 +224,11 @@ public:
 };
 
 int main(){
-    string text = "ukkajhsdfjkasbndbmnFJKHJKsdbfsabdf";
+    string text = "yy";
 
     HuffTree* ht = new HuffTree();
     ht->buildTree(text);
-    for (auto entry : ht->encodingMap) {
-        cout << entry.first << ": " << entry.second << endl;
-    }
+
     cout << ht->encode(text);
     delete ht;
     return 0;

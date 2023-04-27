@@ -75,16 +75,13 @@ public:
         }
     }
 
-    int findID(int key){
-        int index = this->hashFunct(key);
-        while(table[index] != nullptr && table[index]->key != key){
-            index = hashFunct(index + 1);
-        }
-        if(table[index] == nullptr){
-            return -1;
-        }else{
-            return table[index]->ID;
-        }
+    bool findID(int ID){
+        for(int i = 0; i < capacity; i++) {
+            if(table[i] != nullptr && table[i]->ID == ID){
+                return true;
+            }
+        } 
+        return false;
     }
 
 
@@ -92,20 +89,14 @@ public:
         return this->count;
     }
 
-    void remove(int key){
-        int index = this->hashFunct(key);
-        
-        while (table[index] != nullptr && table[index]->key != key) {
-            index = hashFunct(index + 1);
-        }
-
-        if (table[index] == nullptr) {
-            return;
-        }else{
-            delete table[index];
-            table[index] = nullptr;
-            count--;
-        }
+    void remove(int ID){
+        for(int i = 0; i < capacity; i++) {
+            if(table[i] != nullptr && table[i]->ID == ID){
+                table[i] = nullptr;
+                count--;
+                break;
+            }
+        } 
     }
 
     void deleteMap(){
