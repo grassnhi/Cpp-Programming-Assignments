@@ -224,7 +224,7 @@ public:
 };
 
 int main(){
-    string text = "yy";
+    string text = "";
 
     HuffTree* ht = new HuffTree();
     ht->buildTree(text);

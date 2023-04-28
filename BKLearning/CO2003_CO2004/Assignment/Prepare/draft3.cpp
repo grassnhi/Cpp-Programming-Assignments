@@ -1,27 +1,31 @@
+#include "main.h"
+
+const int HALFMAX = MAXSIZE / 2;
+
+class Table{
+public:
+    int ID; // ID bàn
+
+    Table* next;
+    Table* prev; 
+    
+    friend class DLinkedList;
+public:
+    Table(){
+        this->next = next;
+        this->prev = prev;
+    }
+    
+    Table(int ID, Table* next = nullptr, Table* prev = nullptr)
+    {
+        this->ID = ID;
+        this->next = next;
+        this->prev = prev;
+    }
+};
+
 class DLinkedList{
 public:
-    class Table{
-    private:
-        int ID; // ID bàn
-
-        Table* next;
-        Table* prev; 
-        
-        friend class DLinkedList;
-    public:
-        Table(){
-            this->next = next;
-            this->prev = prev;
-        }
-        
-        Table(int ID, Table* next = nullptr, Table* prev = nullptr)
-        {
-            this->ID = ID;
-            this->next = next;
-            this->prev = prev;
-        }
-    };
-protected:
     int count;
     Table* head;
     Table* tail;
@@ -114,6 +118,10 @@ public:
                 tmp = tmp->next;
             }
         }
+    }
+
+    int front(){
+        return this->head->ID;
     }
 
     void clear(){
@@ -355,8 +363,8 @@ public:
     {
     private:
         int key; // name (result) -> hashCode
-        string name; // name 
         int ID; // table ID
+        string name; // name 
         int NUM;
         friend class HashMap;
     public:
@@ -523,15 +531,15 @@ protected:
         printInorder(node->right);
     }
 
-    void levelPrint(Node* node, int level){
+    void printLevel(Node* node, int level){
         if(node == nullptr){
             return;
         }
         if(level == 0){
             cout << node->ID << "-" << node->result << "-" << node->NUM << endl;
         }else if(level > 0){
-            levelPrint(node->left, level - 1);
-            levelPrint(node->right, level - 1);
+            printLevel(node->left, level - 1);
+            printLevel(node->right, level - 1);
         }
     }
 
@@ -727,10 +735,10 @@ public:
         this->printInorder(this->root);
     }
 
-    void levelPrint(){
+    void printLevel(){
         int height = this->getHeight(this->root);
         for(int i = 0; i < height; i++){
-            levelPrint(this->root, i);
+            printLevel(this->root, i);
         }
     }
 
@@ -835,6 +843,15 @@ protected:
         }
         return -1;
     }
+
+    void printPreOrder(int i){
+        if(i >= this->count){
+            return;
+        }
+        cout << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
+        printPreOrder(2 * i + 1);
+        printPreOrder(2 * i + 2);
+    }
 public:
     MinHeap(){
         this->capacity = MAXSIZE;
@@ -849,7 +866,7 @@ public:
         clear();
     }
 
-    void insert(int ID, string name, int NUM, int prior){
+    void insert(int ID, string name, int NUM = 1, int prior){
         if (this->count < this->capacity) {
             this->nodes[count]->ID = ID;
             this->nodes[count]->name = name;
@@ -907,6 +924,10 @@ public:
             this->reheapDown(index);
         }
     }
+
+    int front(){
+        return this->nodes[0]->ID;
+    }
     
     bool isEmpty(){
         return (this->count == 0);
@@ -914,6 +935,14 @@ public:
 
     int getCount(){
         return this->count;
+    }
+
+    int getID(string name){
+        for (int i = 0; i < this->count; i++) {
+            if (this->nodes[i]->name == name) {
+                return this->nodes[i]->ID;
+            }
+        }
     }
 
     void clear(){
@@ -943,5 +972,215 @@ public:
             this->remove(index);
         }
     }
+
+    void printPreOrder(){
+        this->printPreOrder(0);
+    }
 };
 
+long long int orders = 0;
+int* checkID = new int[MAXSIZE]; // reg1 = 1 reg2 = 2 no use = 0
+HashMap* hashMap = new HashMap();
+AVLTree* avlTree = new AVLTree();
+DLinkedList* FIFO = new DLinkedList(); // không update nếu trùng name
+DLinkedList* LRCO = new DLinkedList(); // update for order
+MinHeap* LFCO = new MinHeap();
+
+int encodeName(string name){
+    HuffTree* ht = new HuffTree();
+    ht->buildTree(name);
+    int cusName = ht->encode(name);
+    delete ht;
+    return cusName;
+}
+
+int generateID(int result){
+    int tableID = result % MAXSIZE + 1;
+    for(int i = 0; i < MAXSIZE; i++){
+        int ID = tableID + i;
+        if(ID > MAXSIZE){
+            ID = ID % MAXSIZE;
+        }
+        if(checkID[ID] == 0){
+            tableID = ID;
+            break;
+        }
+    }
+    return tableID;
+}
+
+void REG(string name){
+    if(LFCO->checkName(name)){
+        LFCO->updateOrder(name);
+        LRCO->update(LFCO->getID(name));
+    }else{
+        int result = encodeName(name);
+        if(hashMap->getCount() + avlTree->getCount() < MAXSIZE){
+            int tableID = generateID(result);
+            orders++;
+
+            if(result % 2 == 1){
+                if(hashMap->getCount() < HALFMAX){
+                    checkID[tableID] = 1; 
+                    hashMap->insert(result, name, tableID);
+                }else if(hashMap->getCount() == HALFMAX){
+                    checkID[tableID] = 2; 
+                    avlTree->insert(tableID, result, name);
+                }
+            }else if(result % 2 == 0){
+                if(avlTree->getCount() < HALFMAX){
+                    checkID[tableID] = 2; 
+                    avlTree->insert(tableID, result, name);
+                }else if(avlTree->getCount() == HALFMAX){
+                    checkID[tableID] = 1; 
+                    hashMap->insert(result, name, tableID);
+                }
+            }
+
+            FIFO->insert(tableID);
+            LRCO->insert(tableID);
+            LFCO->insert(tableID, name, orders);
+        }else{
+            int tableID = -1;
+            orders++;
+
+            if(result % 3 == 0){
+                tableID = FIFO->front();
+            }else if(result % 3 == 1){
+                tableID = LRCO->front();
+            }else if(result % 3 == 2){
+                tableID = LFCO->front();
+            }
+
+            if(checkID[tableID] == 1){
+                hashMap->remove(tableID);
+                hashMap->insert(result, name, ID);
+            }else if(checkID[tableID] == 2){
+                avlTree->remove(tableID);
+                avlTree->insert(tableID, result, name);
+            }
+            
+            FIFO->remove(tableID);
+            LRCO->remove(tableID);
+            LFCO->remove(tableID);
+
+            FIFO->insert(tableID);
+            LRCO->insert(tableID);
+            LFCO->insert(tableID, name, orders);
+        }
+    }
+}
+
+void CLE(int NUM){
+    if(NUM < 1){
+        Table* tmp = FIFO->head;
+        for(int i = 0; i < FIFO->size(); i++){
+            int ID = tmp->ID;
+            if(checkID[ID] == 1){
+                LFCO->remove(ID);
+                FIFO->remove(ID);
+                LRCO->remove(ID);
+            }
+            tmp = tmp->next;
+        }
+        hashMap->deleteMap();
+    }else if(NUM > MAXSIZE){
+        Table* tmp = LRCO->head;
+        for(int i = 0; i < LRCO->size(); i++){
+            int ID = tmp->ID;
+            if(checkID[ID] == 1){
+                LFCO->remove(ID);
+                LRCO->remove(ID);
+                FIFO->remove(ID);
+            }
+            tmp = tmp->next;
+        }
+        avlTree->clear();
+    }else{
+        if(checkID[NUM] == 1){
+            hashMap->remove(NUM);
+        }else if(checkID[NUM] == 2){
+            avlTree->remove(NUM);
+        }
+        checkID[NUM] = 0;
+        FIFO->remove(NUM);
+        LRCO->remove(NUM);
+        LFCO->remove(NUM);
+    }
+}
+
+void PrintHT(){
+    hashMap->printTable();
+}
+
+void PrintAVL(){
+    avlTree->printLevel();
+}
+
+void PrintMH(){
+    LFCO->printPreOrder();
+}
+
+void simulate(string filename)
+{
+	ifstream orders(filename);
+    string command;
+	
+    if (orders.is_open()) {
+        while (getline(orders, command)) {
+			int space = count(command.begin(), command.end(), ' ');
+
+			string request = "";
+			string para = "";
+			int NUM = 0;
+
+			if(space == 1){
+				stringstream ss(command);
+				ss >> request >> para;
+
+				if(request == "REG"){
+                    bool noDigit = true;
+                    for (char c : para){
+                        if (isdigit(c)){
+                            noDigit = false;
+                            break;
+                        }
+                    }
+                    if(noDigit){
+                        REG(para);
+                    }
+				}else if(request == "CLE"){
+                    bool isNum = true;
+                    for (char c : para){
+                        if (!isdigit(c)){
+                            isNum = false;
+                            break;
+                        }
+                    }
+                    if(isNum){
+                        NUM = stoi(para);
+					    CLE(NUM);
+                    }
+				}
+			}else if(space == 0){
+				stringstream ss(command);
+				ss >> request;
+				if(request == "PrintHT"){
+					PrintHT();
+				}else if(request == "PrintAVL"){
+					PrintAVL();
+				}else if(request == "PrintMH"){
+					PrintMH();
+				}
+			}
+		}
+        orders.close();
+    }
+}
+
+delete[] checkID;
+delete hashMap;
+delete avlTree;
+delete FIFO;
+delete LRCO;
+delete LFCO;

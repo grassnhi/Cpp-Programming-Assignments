@@ -856,12 +856,9 @@ public:
         this->count = 0;
     }
 
-    void printHeap()
+    void printPreOrder()
     {
-        cout << "Heap [ ";
-        for (int i = 0; i < count; i++)
-            cout << nodes[i]->NUM << "-" << nodes[i]->order << " ";
-        cout << "]\n";
+        
     }
 };
 

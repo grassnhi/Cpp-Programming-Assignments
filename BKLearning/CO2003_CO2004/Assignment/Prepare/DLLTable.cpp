@@ -1,7 +1,9 @@
-class DLinkedList{
-public:
-    class Table{
-    private:
+#include<iostream>
+
+using namespace std;
+
+class Table{
+    public:
         int ID; // ID bàn
 
         Table* next;
@@ -21,7 +23,8 @@ public:
             this->prev = prev;
         }
     };
-protected:
+class DLinkedList{   
+public:
     int count;
     Table* head;
     Table* tail;
@@ -116,6 +119,10 @@ public:
         }
     }
 
+    Table* getHead(){
+        return this->head;
+    }
+
     void clear(){
         Table* tmp = head;
         while (head != nullptr)
@@ -136,3 +143,16 @@ public:
         return count == 0;
     }
 };
+
+int main(){
+    DLinkedList* list = new DLinkedList();
+    list->insert(1);
+    list->insert(2);
+    list->insert(3);
+    list->insert(4);
+    list->insert(5);
+    Table* tmp = list->head;
+    if(list->head->ID == 1){
+        cout << "10" << endl;
+    }
+}
