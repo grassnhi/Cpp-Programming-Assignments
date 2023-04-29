@@ -1,4 +1,5 @@
 #include "main.h"
+
 class nodeList {
 public:
 	int ID;
@@ -29,7 +30,6 @@ public:
 			head = tail = new nodeList(ID);
 		}
 		else {
-			//fix for List
 			deleteNode(ID);
 			if (head == NULL)head = tail = new nodeList(ID);
 			else {
@@ -133,7 +133,6 @@ public:
 	heapNode* pop() {
 		heapNode* item = vc[0];
 		vc[0] = vc[size - 1];
-		//add a little
 		vc[size - 1] = NULL;
 		size--;
 		reHeapDown(0);
@@ -163,7 +162,6 @@ public:
 		for (int i = 0; i < size; i++) {
 			if (vc[i]->name == name) {
 				vc[i]->order++;
-				// fix delete and then insert again 
 				swap(i, size - 1);
 				size--;
 				reHeapDown(i);
@@ -180,7 +178,6 @@ public:
 		}
 		return vc[min]->ID;
 	}
-	//delete according to priority
 	void deleteListID(vector<int>& listID) {
 		int n = listID.size();
 		for (int i = 0; i < n - 1; i++) {
@@ -200,6 +197,7 @@ public:
 		for (int i = 0; i < size; i++) {
 			if (vc[i]->ID == ID) return i;
 		}
+		return -1;
 	}
 	void deleteNode(int ID) {
 		int foundIdx = -1;
@@ -209,7 +207,6 @@ public:
 				break;
 			}
 		}
-		// how to delete
 		if (foundIdx == -1) return;
 		heapNode* temp = vc[foundIdx];
 		vc[foundIdx] = vc[size - 1];
@@ -217,16 +214,6 @@ public:
 		delete temp;
 		size--;
 		reHeapDown(foundIdx);
-
-		/*
-		if (foundIdx == -1) return;
-		for (int i = foundIdx; i < size; i++) {
-			vc[i] = vc[i + 1];
-		}
-		vc[size - 1] = NULL;
-		size--;
-		reHeapDown(foundIdx);
-		*/
 	}
 	int sizeofresHeap() {
 		return size;
@@ -419,14 +406,6 @@ public:
 			printGivenLevel(root->right, level - 1, rheap);
 		}
 	}
-	/*
-	void printPreorder(AVLNode* root, resHeap* rheap) {
-		if (root == NULL) return;
-		cout << root->ID << "-" << root->result << "-" << rheap->foundNum(root->name) <<"\n";
-		printPreorder(root->left, rheap);
-		printPreorder(root->right, rheap);
-	}*/
-	//printforCheck
 	int sizeofAVL() {
 		return size;
 	}
@@ -437,7 +416,6 @@ public:
 		root = NULL;
 		size = 0;
 	}
-	//delete listres according to listID
 	void deleteAll(AVLNode* root, vector<int>& listID, List* listres, vector<bool>& boolofID) {
 		if (root == NULL) return;
 		listID.push_back(root->ID);
@@ -479,7 +457,7 @@ public:
 				delete temp;
 			}
 		}
-		delete arr;
+		delete[] arr;
 	}
 	int sizeofHash() {
 		return size;
@@ -525,7 +503,6 @@ public:
 			}
 		}
 	}
-	//printforcheck
 	void printforCheck() {
 		for (int i = 0; i < 16; i++) {
 			if (arr[i] != NULL) {
@@ -533,7 +510,6 @@ public:
 			}
 		}
 	}
-	//delete listres according to list ID
 	void deleteAll(resHeap* rheap, List* listres, vector<bool>& boolofID) {
 		vector<int> listID;
 		for (int i = 0; i < 16; i++) {
@@ -699,18 +675,17 @@ HuffTree* buildHuff(vector<HuffTree*> TreeArray, int count) {
 	minHeap* forest = new minHeap(TreeArray, count);
 	HuffTree* temp1, * temp2, * temp3 = NULL;
 	int c = 1;
-	//fix when size equal1
 	if (forest->size() == 1) {
 		return forest->pop();
 	}
 	while (forest->size() > 1) {
-		temp1 = forest->pop(); // Pull first two trees
-		temp2 = forest->pop(); // off the list
+		temp1 = forest->pop();
+		temp2 = forest->pop();
 		c++;
 		temp3 = new HuffTree(temp1, temp2, c);
-		forest->push(temp3); // Put the new tree back on list
-		delete temp1; // Must delete the remnants
-		delete temp2; // of the trees we created
+		forest->push(temp3);
+		delete temp1;
+		delete temp2;
 	}
 	delete forest;
 	return temp3;
@@ -768,12 +743,6 @@ int encode(string s) {
 	int length = 0;
 	vector<string> store(128);
 	traverse(root, result, length, store);
-
-	/*
-	for (auto& c : result) {
-		cout << c.first << " " << c.second << endl;
-	}*/
-
 	string temp = "";
 	for (int i = size - 1; i >= 0; i--) {
 		temp = result[s[i]] + temp;
@@ -782,9 +751,6 @@ int encode(string s) {
 	if (temp.length() > 15) {
 		temp = temp.substr(temp.length() - 15, 15);
 	}
-
-	//cout << temp << endl;
-
 	int sum = 0;
 	for (int i = temp.length() - 1; i >= 0; i--) {
 		sum += (temp[i] - 48) * pow(2, temp.length() - i - 1);
@@ -933,15 +899,16 @@ void simulate(string filename)
 		else {
 			string func = "";
 			int i = 0;
-			while (line[i] != ' ' && i != line.size()) {
+			int n = line.size();
+			while (i != n && line[i] != ' ') {
 				func += line[i];
 				i++;
 			}
-			if (i == line.size()) continue;
+			if (i == n) continue;
 			i++;
 			if (func == "REG") {
 				string name = "";
-				while (i != line.size() && line[i] != ' ') {
+				while (i != n && line[i] != ' ') {
 					name += line[i];
 					i++;
 				}
@@ -950,7 +917,7 @@ void simulate(string filename)
 			}
 			else if (func == "CLE") {
 				int ID = 0;
-				while (i != line.size() && line[i] != ' ') {
+				while (i != n && line[i] != ' ') {
 					ID = 10 * ID + line[i] - 48;
 					i++;
 				}
@@ -963,19 +930,5 @@ void simulate(string filename)
 	delete avlTree;
 	delete rheap;
 	delete listres;
-
-
-	/*
-	hashTable->printforCheck();
-	cout << endl;
-	for (int i = 1; i < 33; i++) {
-		cout << boolofID[i] << "-";
-	}
-	*/
-
-	/*
-	string s = "Johnuigfifbahjasbdfhjbasdhjf";
-	int n = encode(s);
-	*/
 	return;
 }
