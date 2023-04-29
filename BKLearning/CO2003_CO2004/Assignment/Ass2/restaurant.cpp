@@ -81,7 +81,7 @@ public:
         }else{
             if(index < count /2){
                 Table* tmp = head;
-                Table* prev = nullptr;
+                Table* prev = head;
                 for(int i = 0; i < index; i++){
                     prev = tmp;
                     tmp = tmp->next;
@@ -91,7 +91,7 @@ public:
                 tmp->prev = prev;
             }else{
                 Table* tmp = tail;
-                Table* follow = nullptr;
+                Table* follow = tail;
                 for(int i = count - 1; i > index; i--){
                     follow = tmp;
                     tmp = tmp->prev;
@@ -447,6 +447,15 @@ public:
                 count--;
             }
         }
+    }
+
+    void clear(){
+        for(int i = 0; i < capacity; i++){
+            if (table[i] != nullptr) { 
+                table[i] = nullptr;
+            }
+        }
+        this->count = 0;
     }
 
     void deleteMap(){
@@ -811,7 +820,7 @@ protected:
          
         // con < cha => swap (2 con: con min swap cha, bằng: con trái swap cha)
         if(leftChild < this->count){
-            int minChild = position;
+            int minChild = leftChild;
             if(rightChild < this->count && compare(rightChild, leftChild)){
                 minChild = rightChild;
             }
@@ -861,8 +870,8 @@ public:
         this->capacity = MAXSIZE;
         this->count = 0;
         this->nodes = new Node*[capacity]; 
-        for (int i = 0; i < capacity; i++) {
-            nodes[i] = new Node();  
+        for (int i = 0; i < capacity; i++){
+            this->nodes[i] = nullptr;  
         }
     }
 
@@ -871,11 +880,12 @@ public:
     }
 
     void insert(int ID, string name, int prior, int NUM = 1){
-        if (this->count < this->capacity) {
-            this->nodes[count]->ID = ID;
-            this->nodes[count]->name = name;
-            this->nodes[count]->NUM = NUM;
-            this->nodes[count]->prior = prior;
+        if (this->count < this->capacity){
+            this->nodes[count] = new Node(ID, name, prior);
+            // this->nodes[count]->ID = ID;
+            // this->nodes[count]->name = name;
+            // this->nodes[count]->NUM = NUM;
+            // this->nodes[count]->prior = prior;
             this->count++;
             this->reheapUp(this->count - 1);
         }
@@ -886,7 +896,7 @@ public:
             return false;
         }
         for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+            if (this->nodes[i] != nullptr && this->nodes[i]->name == name) {
                 return true;
             }
         }
@@ -895,7 +905,7 @@ public:
 
     void updateOrder(string name){
         for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+            if (this->nodes[i] != nullptr && this->nodes[i]->name == name) {
                 this->nodes[i]->NUM++;
                 
                 Node* tmp = this->nodes[i];
@@ -944,7 +954,7 @@ public:
 
     int getID(string name){
         for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+            if (this->nodes[i] != nullptr && this->nodes[i]->name == name) {
                 return this->nodes[i]->ID;
             }
         }
@@ -952,13 +962,13 @@ public:
     }
 
     void clear(){
-        for (int i = 0; i < this->capacity; i++) {
-            if (this->nodes[i] != nullptr) {
-                delete this->nodes[i];
+        for (int i = 0; i < capacity; i++) {
+            if (nodes[i] != nullptr){
+                delete nodes[i];
+                nodes[i] = nullptr;
             }
         }
-        delete[] this->nodes;  
-        this->nodes = nullptr;
+        delete[] nodes;  
         this->count = 0;
     }
 
@@ -1092,7 +1102,7 @@ void CLE(int NUM){
             }
             tmp = tmp->next;
         }
-        hashTable->deleteMap();
+        hashTable->clear();
     }else if(NUM > MAXSIZE){
         Table* tmp = LRCO->head;
         for(int i = 0; i < LRCO->size(); i++){

@@ -1,5 +1,9 @@
 #include <string>
+#include <iostream>
+#include <cassert>
 using namespace std;
+
+const int MAXSIZE = 32;
 
 class MinHeap
 {
@@ -14,7 +18,7 @@ public:
     public:    
         Node(){}
         
-        Node(int ID, string name, int NUM = 1, int prior) {
+        Node(int ID, string name, int prior, int NUM = 1) {
             this->ID = ID;
             this->name = name;
             this->prior = prior;
@@ -139,7 +143,7 @@ public:
                 Node* tmp = this->nodes[i];
                 this->nodes[i] = this->nodes[this->count - 1];
                 this->nodes[this->count - 1] = tmp;
-                
+
                 this->count--;
                 this->reheapDown(i);
                 
@@ -204,3 +208,37 @@ public:
         }
     }
 };
+
+
+
+int main() {
+    MinHeap heap;
+
+    // Test insert method
+    heap.insert(1, "Pizza", 0, 2);
+    heap.insert(2, "Burger", 0, 1);
+    heap.insert(3, "Fries", 0, 3);
+    assert(heap.getCount() == 3);
+
+    // Test checkName method
+    assert(heap.checkName("Pizza") == true);
+    assert(heap.checkName("Pasta") == false);
+
+    // Test updateOrder method
+    heap.updateOrder("Pizza");
+    heap.updateOrder("Pizza");
+    assert(heap.numOrders("Pizza") == 2);
+
+    // Test remove method
+    heap.remove(2);
+    assert(heap.getCount() == 2);
+
+    // Test FIFO method
+    assert(heap.FIFO() == 1);
+
+    // Test priorDelete method
+    heap.priorDelete(1); 
+    assert(heap.getCount() == 1);
+    
+    return 0;
+}

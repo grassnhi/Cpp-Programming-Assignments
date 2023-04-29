@@ -224,7 +224,7 @@ public:
 };
 
 int main(){
-    string text = "";
+    string text = "DAHqdRuDDNCMOOPxVclfwioilBggRNLdADVvQRVFLrQxvGnChJaSmrZlZDDIaGEB";
 
     HuffTree* ht = new HuffTree();
     ht->buildTree(text);
