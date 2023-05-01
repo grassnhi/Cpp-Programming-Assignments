@@ -91,11 +91,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 prev->next = tmp->next;
-                tmp = tmp->next;
-                tmp->prev = prev;
-                delete del;
+                //tmp = prev->next;
+                prev->next->prev = prev;
+                delete tmp;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -103,11 +103,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 follow->prev = tmp->prev;
-                tmp = tmp->prev;
-                tmp->next = follow;
-                delete del;
+                //tmp = follow->prev;
+                follow->prev->next = follow;
+                delete tmp;
             }
             count--;
         }
