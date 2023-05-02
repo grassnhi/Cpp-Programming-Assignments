@@ -31,6 +31,7 @@ public:
     int count;
     Table* head;
     Table* tail;
+
     
 public:
     DLinkedList(int count = 0, Table* head = nullptr, Table* tail = nullptr){
@@ -45,14 +46,22 @@ public:
     // chưa có gì thì insert cho có :>
     void insert(int ID){
         Table* node = new Table(ID);
-        if(head == nullptr){
-            head = tail = node;
-        }else{
-            tail->next = node;
-            node->prev = tail;
-            tail = tail->next;
+        if (this->head == NULL) {
+            this->head = this->tail = node;
         }
-        count++;
+        else {
+            this->tail->next = node;
+            node->prev = this->tail;
+            this->tail = node;
+        }
+        // ++this->count;
+        // if (head == nullptr) {
+		// 	head = tail = new Table(ID);
+		// }else {
+		// 	tail->next = new Table(ID, nullptr, tail);
+		// 	tail = tail->next;	
+		// }
+        // this->count++;
     }
 
     // có thì xóa add lại :> 
@@ -65,7 +74,7 @@ public:
         }
     }
 
-    void removeAt(int index){
+    void removeAt(int index) {
         if(index < 0 || index >= count || head == nullptr){
             return;
         }else if(index == 0){
@@ -73,17 +82,17 @@ public:
                 head = tail = nullptr;
                 count--;
             }else{
-                //Table* tmp = head;
+                Table* tmp = head;
                 head = head->next;
                 head->prev = nullptr;
-                //delete tmp;
+                delete tmp;
                 count--;
             }
         }else if(index == count - 1){
-            //Table* tmp = tail;
+            Table* tmp = tail;
             tail = tail->prev;
             tail->next = nullptr;
-            //delete tmp;
+            delete tmp;
             count--;
         }else{
             if(index < count /2){
@@ -93,11 +102,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 prev->next = tmp->next;
                 tmp = tmp->next;
                 tmp->prev = prev;
-                //delete del;
+                delete del;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -105,11 +114,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 follow->prev = tmp->prev;
                 tmp = tmp->prev;
                 tmp->next = follow;
-                //delete del;
+                delete del;
             }
             count--;
         }
@@ -117,17 +126,15 @@ public:
 
     // có ID thì xóa :>
     void remove(int ID){
-        if(head == nullptr){
-            return;
-        }else{
-            Table* tmp = head;
-            for (int i = 0; i < count; i++) {
-                if (tmp->ID == ID){
-                    removeAt(i);
-                    return;
-                }
-                tmp = tmp->next;
+        Table* tmp = this->head;
+        int i = 0;
+        while(tmp != nullptr){
+            if(tmp->ID == ID){
+                this->removeAt(i);
+                break;
             }
+            tmp = tmp->next;
+            ++i;
         }
     }
 
@@ -136,14 +143,13 @@ public:
     }
 
     void clear(){
-        Table* tmp = head;
         while (head != nullptr)
         {
+            Table* tmp = head;
             head = head->next;
             delete tmp;
-            tmp = head;
         }
-        tail = nullptr;
+        head = tail = nullptr;
         count = 0;
     }
 
@@ -157,10 +163,10 @@ public:
 
     void printList(){
         Table* tmp = head;
-        cout << "List: ";
+        outfile << "List: ";
         for (int i = 0; i < count; i++)
         {
-            cout << tmp->ID << " ";
+            outfile << tmp->ID << " ";
             tmp = tmp->next;
         }
         
@@ -436,7 +442,7 @@ public:
             table[index]->NUM = 1;
         }else{
             table[index] = new Entry(key, name, ID, result);
-            count++;
+            this->count++;
         }
     }
 
@@ -463,17 +469,21 @@ public:
 
     void remove(int ID){
         for(int i = 0; i < capacity; i++){
-            if (table[i] != nullptr && table[i]->ID == ID){ 
+            if (table[i] != nullptr && table[i]->ID == ID){
+                Entry* tmp = table[i]; 
                 table[i] = nullptr;
                 count--;
+                delete tmp;
             }
         }
     }
 
     void clear(){
         for(int i = 0; i < capacity; i++){
-            if (table[i] != nullptr) { 
+            if (table[i] != nullptr){ 
+                Entry* tmp = table[i];
                 table[i] = nullptr;
+                delete tmp;
             }
         }
         this->count = 0;
@@ -482,8 +492,9 @@ public:
     void deleteMap(){
         for(int i = 0; i < capacity; i++){
             if (table[i] != nullptr) { 
-                delete table[i];
+                Entry* tmp = table[i];
                 table[i] = nullptr;
+                delete tmp;
             }
         }
         delete[] table;
@@ -889,7 +900,7 @@ public:
     }
 
     void insert(int ID, string name, int prior){
-        if (this->count < this->capacity) {
+        if (this->count < this->capacity){
             // this->nodes[count]->ID = ID;
             // this->nodes[count]->name = name;
             // this->nodes[count]->NUM = NUM;
@@ -951,8 +962,10 @@ public:
         if (index == -1) {
             return;
         }else{
+            Node* tmp = this->nodes[index];
             this->nodes[index] = this->nodes[this->count - 1];
             this->nodes[this->count - 1] = nullptr;
+            delete tmp;
             this->count--;
 // outfile << "PrintHeap" << endl;
 // this->printHeap(); 
@@ -982,10 +995,11 @@ public:
     }
 
     void clear(){
-        for (int i = 0; i < this->capacity; i++) {
-            if (this->nodes[i] != nullptr) {
-                delete this->nodes[i];
+        for (int i = 0; i < this->capacity; i++){
+            if (this->nodes[i] != nullptr){
+                Node* tmp = this->nodes[i];
                 this->nodes[i] = nullptr;
+                delete tmp;
             }
         }
         delete[] this->nodes;  
@@ -1101,27 +1115,6 @@ void REG(string name){
 void CLE(int NUM){
     if(NUM < 1){
         Table* tmp = FIFO->head;
-
-        cout << "FIFO: ";
-        for (int i = 0; i < FIFO->size(); i++)
-        {
-            cout << tmp->ID << " ";
-            tmp = tmp->next;
-        }
-        tmp = FIFO->head;
-
-        cout << endl << "DEL FIFO: ";
-        // for(int i = 0; i < FIFO->size(); i++){
-        //     int ID = tmp->ID;
-        //     if(checkID[ID] == 1){
-        //     	LFCO->remove(ID);
-        //         FIFO->remove(ID);
-        //         LRCO->remove(ID);
-        //         checkID[ID] = 0;
-        //         cout << ID << " ";
-        //     }
-        //     tmp = tmp->next;
-        // }
         while (FIFO->size() != 0 && tmp != nullptr)
         {
             int ID = tmp->ID;
@@ -1130,36 +1123,12 @@ void CLE(int NUM){
                 FIFO->remove(ID);
                 LRCO->remove(ID);
                 checkID[ID] = 0;
-                cout << ID << " ";
             }
             tmp = tmp->next;
         }
         hashTable->clear();
-        FIFO->printList();
-        LRCO->printList();
     }else if(NUM > MAXSIZE){
         Table* tmp = FIFO->head;
-
-        cout  << endl << "FIFO: ";
-        for (int i = 0; i < FIFO->size(); i++)
-        {
-            cout << tmp->ID << " ";
-            tmp = tmp->next;
-        }
-        tmp = FIFO->head;
-
-        cout << endl << "DEL FIFO: ";
-        // for(int i = 0; i < FIFO->size(); i++){
-        //     int ID = tmp->ID;
-        //     if(checkID[ID] == 2){
-        //         LFCO->remove(ID);
-        //         LRCO->remove(ID);
-        //         FIFO->remove(ID);
-        //         checkID[ID] = 0;
-        //         cout << ID << " ";
-        //     }
-        //     tmp = tmp->next;
-        // }
         while (FIFO->size() != 0 && tmp != nullptr)
         {
             int ID = tmp->ID;
@@ -1168,13 +1137,10 @@ void CLE(int NUM){
                 FIFO->remove(ID);
                 LRCO->remove(ID);
                 checkID[ID] = 0;
-                cout << ID << " ";
             }
             tmp = tmp->next;
         }
         avlTree->clear();
-        FIFO->printList();
-        LRCO->printList();
     }else{
         if(checkID[NUM] == 1){
             hashTable->remove(NUM);

@@ -2,7 +2,7 @@
 #include "restaurant.cpp"
 
 int main(int argc, char* argv[]) {
-    string fileName = "test.txt";
+    string fileName = "input//input4.txt";
     simulate(fileName);
 
     return 0;

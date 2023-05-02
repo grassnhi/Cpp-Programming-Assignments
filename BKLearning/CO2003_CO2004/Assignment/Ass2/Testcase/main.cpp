@@ -3,8 +3,8 @@
 //#include "restaurant.cpp"
 
 int main(int argc, char* argv[]) {
-    outfile.open("got\\got44.txt"); 
-    string fileName = "input\\input44.txt";
+    outfile.open("got\\got10.txt"); 
+    string fileName = "input\\input10.txt";
     //string fileName = "test.txt";  
     simulate(fileName);
     outfile.close();

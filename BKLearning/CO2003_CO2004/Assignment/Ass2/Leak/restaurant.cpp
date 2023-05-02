@@ -29,6 +29,7 @@ public:
     int count;
     Table* head;
     Table* tail;
+
     
 public:
     DLinkedList(int count = 0, Table* head = nullptr, Table* tail = nullptr){
@@ -43,14 +44,22 @@ public:
     // chưa có gì thì insert cho có :>
     void insert(int ID){
         Table* node = new Table(ID);
-        if(head == nullptr){
-            head = tail = node;
-        }else{
-            tail->next = node;
-            node->prev = tail;
-            tail = tail->next;
+        if (this->head == NULL) {
+            this->head = this->tail = node;
         }
-        count++;
+        else {
+            this->tail->next = node;
+            node->prev = this->tail;
+            this->tail = node;
+        }
+        // ++this->count;
+        // if (head == nullptr) {
+		// 	head = tail = new Table(ID);
+		// }else {
+		// 	tail->next = new Table(ID, nullptr, tail);
+		// 	tail = tail->next;	
+		// }
+        // this->count++;
     }
 
     // có thì xóa add lại :> 
@@ -63,7 +72,7 @@ public:
         }
     }
 
-    void removeAt(int index){
+    void removeAt(int index) {
         if(index < 0 || index >= count || head == nullptr){
             return;
         }else if(index == 0){
@@ -73,14 +82,14 @@ public:
             }else{
                 Table* tmp = head;
                 head = head->next;
-                //head->prev = nullptr;
+                head->prev = nullptr;
                 delete tmp;
                 count--;
             }
         }else if(index == count - 1){
             Table* tmp = tail;
             tail = tail->prev;
-            //tail->next = nullptr;
+            tail->next = nullptr;
             delete tmp;
             count--;
         }else{
@@ -91,11 +100,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 prev->next = tmp->next;
-                //tmp = prev->next;
-                prev->next->prev = prev;
-                delete tmp;
+                tmp = tmp->next;
+                tmp->prev = prev;
+                delete del;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -103,11 +112,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 follow->prev = tmp->prev;
-                //tmp = follow->prev;
-                follow->prev->next = follow;
-                delete tmp;
+                tmp = tmp->prev;
+                tmp->next = follow;
+                delete del;
             }
             count--;
         }
@@ -115,17 +124,15 @@ public:
 
     // có ID thì xóa :>
     void remove(int ID){
-        if(head == nullptr){
-            return;
-        }else{
-            Table* tmp = head;
-            for (int i = 0; i < count; i++) {
-                if (tmp->ID == ID){
-                    removeAt(i);
-                    return;
-                }
-                tmp = tmp->next;
+        Table* tmp = this->head;
+        int i = 0;
+        while(tmp != nullptr){
+            if(tmp->ID == ID){
+                this->removeAt(i);
+                break;
             }
+            tmp = tmp->next;
+            ++i;
         }
     }
 

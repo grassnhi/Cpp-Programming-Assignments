@@ -71,17 +71,17 @@ public:
                 head = tail = nullptr;
                 count--;
             }else{
-                //Table* tmp = head;
+                Table* tmp = head;
                 head = head->next;
                 head->prev = nullptr;
-                //delete tmp;
+                delete tmp;
                 count--;
             }
         }else if(index == count - 1){
-            //Table* tmp = tail;
+            Table* tmp = tail;
             tail = tail->prev;
             tail->next = nullptr;
-            //delete tmp;
+            delete tmp;
             count--;
         }else{
             if(index < count /2){
@@ -91,11 +91,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 prev->next = tmp->next;
                 tmp = tmp->next;
                 tmp->prev = prev;
-                //delete del;
+                delete del;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -103,11 +103,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                //Table* del = tmp;
+                Table* del = tmp;
                 follow->prev = tmp->prev;
                 tmp = tmp->prev;
                 tmp->next = follow;
-                //delete del;
+                delete del;
             }
             count--;
         }
