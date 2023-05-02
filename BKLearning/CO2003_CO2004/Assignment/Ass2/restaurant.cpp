@@ -91,11 +91,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 prev->next = tmp->next;
-                tmp = tmp->next;
-                tmp->prev = prev;
-                delete del;
+                //tmp = prev->next;
+                prev->next->prev = prev;
+                delete tmp;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -103,11 +103,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 follow->prev = tmp->prev;
-                tmp = tmp->prev;
-                tmp->next = follow;
-                delete del;
+                //tmp = follow->prev;
+                follow->prev->next = follow;
+                delete tmp;
             }
             count--;
         }
@@ -128,7 +128,7 @@ public:
             }
         }
     }
-    
+
     int front(){
         return this->head->ID;
     }
@@ -507,18 +507,18 @@ public:
     class Node
     {
     public:
-        enum BalanceValue
-        {
-            LH = -1,
-            EH = 0,
-            RH = 1
-        };
+        // enum BalanceValue
+        // {
+        //     LH = -1,
+        //     EH = 0,
+        //     RH = 1
+        // };
     private:
         int ID;
         int result;
         string name;
         int NUM;
-        BalanceValue balance;
+        //BalanceValue balance;
         friend class AVLTree;
         Node* left;
         Node* right;
@@ -1104,36 +1104,49 @@ void REG(string name){
 }
 
 void CLE(int NUM){
-    if(NUM < 1){
+    if(NUM < 1 && hashTable->getCount() != 0){
+        int delID[HALFMAX] = {};
         Table* tmp = FIFO->head;
-        while (FIFO->size() != 0 && tmp != nullptr)
+        int i = 0;
+        while (tmp != nullptr)
         {
             int ID = tmp->ID;
             if(checkID[ID] == 1){
-            	LFCO->remove(ID);
-                FIFO->remove(ID);
-                LRCO->remove(ID);
-                checkID[ID] = 0;
-                cout << ID << " ";
+            	delID[i] = ID;
+                i++;
+                //cout << ID << " ";
             }
             tmp = tmp->next;
         }
+        for(int j = 0; j < i; j++){
+            LFCO->remove(delID[j]);
+            FIFO->remove(delID[j]);
+            LRCO->remove(delID[j]);
+            checkID[delID[j]] = 0;
+        }
         hashTable->clear();
-    }else if(NUM > MAXSIZE){
+        //FIFO->printList();
+    }else if(NUM > MAXSIZE && avlTree->getCount() != 0){
+        int delID[HALFMAX] = {};
         Table* tmp = FIFO->head;
-        while (FIFO->size() != 0 && tmp != nullptr)
+        int i = 0;
+        while (tmp != nullptr)
         {
             int ID = tmp->ID;
             if(checkID[ID] == 2){
-            	LFCO->remove(ID);
-                FIFO->remove(ID);
-                LRCO->remove(ID);
-                checkID[ID] = 0;
-                cout << ID << " ";
+            	delID[i] = ID;
+                i++;
             }
             tmp = tmp->next;
         }
+        for(int j = 0; j < i; j++){
+            LFCO->remove(delID[j]);
+            FIFO->remove(delID[j]);
+            LRCO->remove(delID[j]);
+            checkID[delID[j]] = 0;
+        }
         avlTree->clear();
+        //FIFO->printList();
     }else{
         if(checkID[NUM] == 1){
             hashTable->remove(NUM);
@@ -1227,5 +1240,3 @@ void simulate(string filename)
     delete LRCO;
     delete LFCO;
 }
-
-

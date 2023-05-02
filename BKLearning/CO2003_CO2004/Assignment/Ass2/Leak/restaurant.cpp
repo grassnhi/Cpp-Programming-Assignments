@@ -43,23 +43,23 @@ public:
 
     // chưa có gì thì insert cho có :>
     void insert(int ID){
-        Table* node = new Table(ID);
-        if (this->head == NULL) {
-            this->head = this->tail = node;
-        }
-        else {
-            this->tail->next = node;
-            node->prev = this->tail;
-            this->tail = node;
-        }
+        // Table* node = new Table(ID);
+        // if (this->head == NULL) {
+        //     this->head = this->tail = node;
+        // }
+        // else {
+        //     this->tail->next = node;
+        //     node->prev = this->tail;
+        //     this->tail = node;
+        // }
         // ++this->count;
-        // if (head == nullptr) {
-		// 	head = tail = new Table(ID);
-		// }else {
-		// 	tail->next = new Table(ID, nullptr, tail);
-		// 	tail = tail->next;	
-		// }
-        // this->count++;
+        if (head == nullptr) {
+			head = tail = new Table(ID);
+		}else {
+			tail->next = new Table(ID, nullptr, tail);
+			tail = tail->next;	
+		}
+        this->count++;
     }
 
     // có thì xóa add lại :> 

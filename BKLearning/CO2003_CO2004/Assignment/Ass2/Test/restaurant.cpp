@@ -1,7 +1,5 @@
 #include "main.h"
 
-ofstream outfile;
-
 const int HALFMAX = MAXSIZE / 2;
 
 class Table{
@@ -31,7 +29,6 @@ public:
     int count;
     Table* head;
     Table* tail;
-
     
 public:
     DLinkedList(int count = 0, Table* head = nullptr, Table* tail = nullptr){
@@ -46,22 +43,14 @@ public:
     // chưa có gì thì insert cho có :>
     void insert(int ID){
         Table* node = new Table(ID);
-        if (this->head == NULL) {
-            this->head = this->tail = node;
+        if(head == nullptr){
+            head = tail = node;
+        }else{
+            tail->next = node;
+            node->prev = tail;
+            tail = tail->next;
         }
-        else {
-            this->tail->next = node;
-            node->prev = this->tail;
-            this->tail = node;
-        }
-        // ++this->count;
-        // if (head == nullptr) {
-		// 	head = tail = new Table(ID);
-		// }else {
-		// 	tail->next = new Table(ID, nullptr, tail);
-		// 	tail = tail->next;	
-		// }
-        // this->count++;
+        count++;
     }
 
     // có thì xóa add lại :> 
@@ -74,7 +63,7 @@ public:
         }
     }
 
-    void removeAt(int index) {
+    void removeAt(int index){
         if(index < 0 || index >= count || head == nullptr){
             return;
         }else if(index == 0){
@@ -102,11 +91,11 @@ public:
                     prev = tmp;
                     tmp = tmp->next;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 prev->next = tmp->next;
-                tmp = tmp->next;
-                tmp->prev = prev;
-                delete del;
+                //tmp = prev->next;
+                prev->next->prev = prev;
+                delete tmp;
             }else{
                 Table* tmp = tail;
                 Table* follow = nullptr;
@@ -114,11 +103,11 @@ public:
                     follow = tmp;
                     tmp = tmp->prev;
                 }
-                Table* del = tmp;
+                //Table* del = tmp;
                 follow->prev = tmp->prev;
-                tmp = tmp->prev;
-                tmp->next = follow;
-                delete del;
+                //tmp = follow->prev;
+                follow->prev->next = follow;
+                delete tmp;
             }
             count--;
         }
@@ -126,15 +115,17 @@ public:
 
     // có ID thì xóa :>
     void remove(int ID){
-        Table* tmp = this->head;
-        int i = 0;
-        while(tmp != nullptr){
-            if(tmp->ID == ID){
-                this->removeAt(i);
-                break;
+        if(head == nullptr){
+            return;
+        }else{
+            Table* tmp = head;
+            for (int i = 0; i < count; i++) {
+                if (tmp->ID == ID){
+                    removeAt(i);
+                    return;
+                }
+                tmp = tmp->next;
             }
-            tmp = tmp->next;
-            ++i;
         }
     }
 
@@ -163,10 +154,10 @@ public:
 
     void printList(){
         Table* tmp = head;
-        outfile << "List: ";
+        cout << "List: ";
         for (int i = 0; i < count; i++)
         {
-            outfile << tmp->ID << " ";
+            cout << tmp->ID << " ";
             tmp = tmp->next;
         }
         
@@ -504,7 +495,7 @@ public:
     void printTable() {
         for(int i = 0; i < capacity; i++) {
             if(table[i] != nullptr) {
-                outfile << table[i]->ID << "-" << table[i]->result << "-" << table[i]->NUM << endl;
+                cout << table[i]->ID << "-" << table[i]->result << "-" << table[i]->NUM << endl;
             }
         } 
     }
@@ -572,7 +563,7 @@ protected:
             return;
         }
         printInorder(node->left);
-        outfile << node->ID << "-" << node->result << "-" << node->NUM << endl;
+        cout << node->ID << "-" << node->result << "-" << node->NUM << endl;
         printInorder(node->right);
     }
 
@@ -581,7 +572,7 @@ protected:
             return;
         }
         if(level == 0){
-            outfile << node->ID << "-" << node->result << "-" << node->NUM << endl;
+            cout << node->ID << "-" << node->result << "-" << node->NUM << endl;
         }else if(level > 0){
             printLevel(node->left, level - 1);
             printLevel(node->right, level - 1);
@@ -823,7 +814,7 @@ protected:
             Node* tmp = this->nodes[parent];
             this->nodes[parent] = this->nodes[position];
             this->nodes[position] = tmp;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap();  
             this->reheapUp(parent);
         }
@@ -845,7 +836,7 @@ protected:
                 Node* tmp = this->nodes[position];
                 this->nodes[position] = this->nodes[minChild];
                 this->nodes[minChild] = tmp;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap();      
                 this->reheapDown(minChild);
             }
@@ -880,7 +871,7 @@ protected:
         if(i >= this->count){
             return;
         }
-        outfile << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
+        cout << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
         printPreOrder(2 * i + 1);
         printPreOrder(2 * i + 2);
         
@@ -907,7 +898,7 @@ public:
             // this->nodes[count]->prior = prior;
             this->nodes[count] = new Node(ID, name, prior);
             this->count++;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap();  
             this->reheapUp(this->count - 1);
         }
@@ -935,12 +926,12 @@ public:
                 this->nodes[this->count - 1] = tmp;
                 
                 this->count--;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap();  
                 this->reheapDown(i);
 
                 this->count++;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap();                
                 this->reheapUp(this->count - 1);
 
@@ -967,7 +958,7 @@ public:
             this->nodes[this->count - 1] = nullptr;
             delete tmp;
             this->count--;
-// outfile << "PrintHeap" << endl;
+// cout << "PrintHeap" << endl;
 // this->printHeap(); 
             this->reheapDown(index);
         }
@@ -1011,7 +1002,7 @@ public:
     }
     void printHeap(){
         for (int i = 0; i < this->count; i++) {
-            outfile << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
+            cout << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
         }
     }
 };
@@ -1123,6 +1114,7 @@ void CLE(int NUM){
                 FIFO->remove(ID);
                 LRCO->remove(ID);
                 checkID[ID] = 0;
+                cout << ID << " ";
             }
             tmp = tmp->next;
         }
@@ -1137,6 +1129,7 @@ void CLE(int NUM){
                 FIFO->remove(ID);
                 LRCO->remove(ID);
                 checkID[ID] = 0;
+                cout << ID << " ";
             }
             tmp = tmp->next;
         }
@@ -1155,19 +1148,19 @@ void CLE(int NUM){
 }
 
 void PrintHT(){
-    //outfile << "PrintHT" << endl;
+    //cout << "PrintHT" << endl;
     hashTable->printTable();
 }
 
 void PrintAVL(){
-	//outfile << "PrintAVL" << endl;
+	//cout << "PrintAVL" << endl;
     avlTree->printLevel();
 }
 
 void PrintMH(){
-	//outfile << "PrintMH" << endl;
+	//cout << "PrintMH" << endl;
     LFCO->printPreOrder();
-    //outfile << "PrintHeap" << endl;
+    //cout << "PrintHeap" << endl;
     //LFCO->printHeap();
 }
 
@@ -1234,5 +1227,3 @@ void simulate(string filename)
     delete LRCO;
     delete LFCO;
 }
-
-
