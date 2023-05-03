@@ -6,10 +6,10 @@
 
 int main(int argc, char* argv[]) {
     
-        outfile.open("got\\got100.txt"); 
-        string fileName = "input\\input100.txt";  
+        //outfile.open("got\\got100.txt"); 
+        string fileName = "input\\input7.txt";  
         simulate(fileName);
-        outfile.close();
+        //outfile.close();
 
 
     

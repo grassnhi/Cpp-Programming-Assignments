@@ -84,8 +84,8 @@ private:
 	int size;
 public:
 	resHeap() {
-		vc = vector<heapNode*>(32);
-		for (int i = 0; i < 32; i++) {
+		vc = vector<heapNode*>(MAXSIZE);
+		for (int i = 0; i < MAXSIZE; i++) {
 			vc[i] = NULL;
 		}
 		size = 0;
@@ -165,6 +165,7 @@ public:
 				swap(i, size - 1);
 				size--;
 				reHeapDown(i);
+				if (i < size) reHeapUp(i);
 				size++;
 				reHeapUp(size - 1);
 				break;
@@ -214,6 +215,7 @@ public:
 		delete temp;
 		size--;
 		reHeapDown(foundIdx);
+		if (foundIdx < size) reHeapUp(foundIdx);
 	}
 	int sizeofresHeap() {
 		return size;
@@ -300,7 +302,7 @@ public:
 		return y;
 	}
 	void insert(int ID, string name, int result) {
-		if (size >= 16) return;
+		if (size >= MAXSIZE / 2) return;
 		root = insert(root, ID, name, result);
 		size++;
 	}
@@ -443,14 +445,14 @@ private:
 	int size;
 public:
 	HashTable() {
-		arr = new HashNode * [16];
+		arr = new HashNode * [MAXSIZE / 2];
 		size = 0;
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			arr[i] = NULL;
 		}
 	}
 	~HashTable() {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i] != NULL) {
 				HashNode* temp = arr[i];
 				arr[i] = NULL;
@@ -463,10 +465,10 @@ public:
 		return size;
 	}
 	void insert(int ID, string name, int result) {
-		if (size >= 16)return;
-		int d = result % 16;
+		if (size >= MAXSIZE / 2)return;
+		int d = result % (MAXSIZE / 2);
 		int count = 0;
-		while (count != 16) {
+		while (count != MAXSIZE / 2) {
 			if (arr[d] == NULL) {
 				arr[d] = new HashNode(ID, name, result);
 				size++;
@@ -474,13 +476,13 @@ public:
 			}
 			else {
 				d++;
-				d = d % 16;
+				d = d % (MAXSIZE / 2);
 				count++;
 			}
 		}
 	}
 	void deleteNode(int ID) {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i] != NULL && arr[i]->ID == ID) {
 				HashNode* temp = arr[i];
 				arr[i] = NULL;
@@ -491,20 +493,20 @@ public:
 		}
 	}
 	bool search(string name) {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i]->name == name) return true;
 		}
 		return false;
 	}
 	void print(resHeap* rheap) {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i] != NULL) {
 				cout << arr[i]->ID << "-" << arr[i]->result << "-" << rheap->foundNum(arr[i]->name) << "\n";
 			}
 		}
 	}
 	void printforCheck() {
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i] != NULL) {
 				cout << arr[i]->ID << "-";
 			}
@@ -512,7 +514,7 @@ public:
 	}
 	void deleteAll(resHeap* rheap, List* listres, vector<bool>& boolofID) {
 		vector<int> listID;
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < MAXSIZE / 2; i++) {
 			if (arr[i] != NULL) {
 				HashNode* temp = arr[i];
 				arr[i] = NULL;
@@ -684,8 +686,8 @@ HuffTree* buildHuff(vector<HuffTree*> TreeArray, int count) {
 		c++;
 		temp3 = new HuffTree(temp1, temp2, c);
 		forest->push(temp3);
-		delete temp1;
-		delete temp2;
+		delete temp1; 
+		delete temp2; 
 	}
 	delete forest;
 	return temp3;
@@ -724,7 +726,6 @@ int encode(string s) {
 	for (int i = 0; i < size; i++) {
 		mp[s[i]]++;
 	}
-	// fix case name have 1 character
 	if (mp.size() == 1) {
 		int result = 0;
 		for (int i = 0; i < size; i++) {
@@ -769,7 +770,7 @@ void REG(string name) {
 		rheap->add(name);
 		listres->push(rheap->found(name));
 	}
-	else if (hashTable->sizeofHash() + avlTree->sizeofAVL() == 32) {
+	else if (hashTable->sizeofHash() + avlTree->sizeofAVL() == MAXSIZE) {
 		int result = encode(name);
 		if (result % 3 == 0) {
 			int ID = rheap->earliest();
@@ -810,44 +811,44 @@ void REG(string name) {
 	}
 	else {
 		int result = encode(name);
-		if (result % 2 == 1 && hashTable->sizeofHash() < 16) {
-			int ID = result % 32 + 1;
+		if (result % 2 == 1 && hashTable->sizeofHash() < MAXSIZE / 2) {
+			int ID = result % MAXSIZE + 1;
 			while (boolofID[ID] == true) {
 				ID++;
-				if (ID > 32) ID = ID % 32;
+				if (ID > MAXSIZE) ID = ID % MAXSIZE;
 			}
 			hashTable->insert(ID, name, result);
 			rheap->push(ID, name, result);
 			listres->push(ID);
 			boolofID[ID] = true;
 		}
-		else if (result % 2 == 1 && hashTable->sizeofHash() == 16) {
-			int ID = result % 32 + 1;
+		else if (result % 2 == 1 && hashTable->sizeofHash() == MAXSIZE / 2) {
+			int ID = result % MAXSIZE + 1;
 			while (boolofID[ID] == true) {
 				ID++;
-				if (ID > 32) ID = ID % 32;
+				if (ID > MAXSIZE) ID = ID % MAXSIZE;
 			}
 			avlTree->insert(ID, name, result);
 			rheap->push(ID, name, result);
 			listres->push(ID);
 			boolofID[ID] = true;
 		}
-		else if (result % 2 == 0 && avlTree->sizeofAVL() < 16) {
-			int ID = result % 32 + 1;
+		else if (result % 2 == 0 && avlTree->sizeofAVL() < MAXSIZE / 2) {
+			int ID = result % MAXSIZE + 1;
 			while (boolofID[ID] == true) {
 				ID++;
-				if (ID > 32) ID = ID % 32;
+				if (ID > MAXSIZE) ID = ID % MAXSIZE;
 			}
 			avlTree->insert(ID, name, result);
 			rheap->push(ID, name, result);
 			listres->push(ID);
 			boolofID[ID] = true;
 		}
-		else if (result % 2 == 0 && avlTree->sizeofAVL() == 16) {
-			int ID = result % 32 + 1;
+		else if (result % 2 == 0 && avlTree->sizeofAVL() == MAXSIZE / 2) {
+			int ID = result % MAXSIZE + 1;
 			while (boolofID[ID] == true) {
 				ID++;
-				if (ID > 32) ID = ID % 32;
+				if (ID > MAXSIZE) ID = ID % MAXSIZE;
 			}
 			hashTable->insert(ID, name, result);
 			rheap->push(ID, name, result);
@@ -860,7 +861,7 @@ void CLE(int NUM) {
 	if (NUM < 1) {
 		hashTable->deleteAll(rheap, listres, boolofID);
 	}
-	else if (NUM > 32) {
+	else if (NUM > MAXSIZE) {
 		avlTree->deleteAll(rheap, listres, boolofID);
 	}
 	else {
@@ -908,19 +909,25 @@ void simulate(string filename)
 			i++;
 			if (func == "REG") {
 				string name = "";
+				bool check = false;
 				while (i != n && line[i] != ' ') {
+					if (line[i] < 65 || (line[i] > 90 && line[i] < 97) || line[i] > 122) check = true;
 					name += line[i];
 					i++;
 				}
+				if (check == true) continue;
 				if (name == "" || line[i] == ' ') continue;
 				REG(name);
 			}
 			else if (func == "CLE") {
 				int ID = 0;
+				bool check = false;
 				while (i != n && line[i] != ' ') {
+					if (line[i] < 48 || line[i] > 57) check = true;
 					ID = 10 * ID + line[i] - 48;
 					i++;
 				}
+				if (check == true) continue;
 				if (line[i] == ' ') continue;
 				CLE(ID);
 			}

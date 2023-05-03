@@ -68,7 +68,9 @@ public:
             return;
         }else if(index == 0){
             if(head == tail){
+                Table* tmp = head;
                 head = tail = nullptr;
+                delete tmp;
                 count--;
             }else{
                 Table* tmp = head;
@@ -930,6 +932,10 @@ public:
 // this->printHeap();  
                 this->reheapDown(i);
 
+                if(i < this->count){
+                    reheapUp(i);
+                }
+
                 this->count++;
 // cout << "PrintHeap" << endl;
 // this->printHeap();                
@@ -961,6 +967,9 @@ public:
 // cout << "PrintHeap" << endl;
 // this->printHeap(); 
             this->reheapDown(index);
+            if(index < this->count){
+                reheapUp(index);
+            }
         }
     }
 
@@ -1147,8 +1156,8 @@ void CLE(int NUM){
         }
         avlTree->clear();
         //FIFO->printList();
-    }else{
-        if(checkID[NUM] == 1){
+    }else if(NUM >= 1 && NUM <= MAXSIZE){
+        if(checkID[NUM] == 1){ 
             hashTable->remove(NUM);
         }else if(checkID[NUM] == 2){
             avlTree->remove(NUM);
@@ -1195,14 +1204,14 @@ void simulate(string filename)
 				ss >> request >> para;
 
 				if(request == "REG"){
-                    bool noDigit = true;
+                    bool charac = true;
                     for (char c : para){
-                        if (isdigit(c)){
-                            noDigit = false;
+                        if (!isalpha(c)){
+                            charac = false;
                             break;
                         }
                     }
-                    if(noDigit){
+                    if(charac){
                         REG(para);
                     }
 				}else if(request == "CLE"){
