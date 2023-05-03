@@ -40,7 +40,6 @@ public:
         clear();
     }
 
-    // chưa có gì thì insert cho có :>
     void insert(int ID){
         Table* node = new Table(ID);
         if(head == nullptr){
@@ -53,7 +52,6 @@ public:
         count++;
     }
 
-    // có thì xóa add lại :> 
     void update(int ID){
         if(head == nullptr){
             head = tail = new Table(ID);
@@ -115,7 +113,6 @@ public:
         }
     }
 
-    // có ID thì xóa :>
     void remove(int ID){
         if(head == nullptr){
             return;
@@ -162,7 +159,6 @@ public:
             cout << tmp->ID << " ";
             tmp = tmp->next;
         }
-        
     }
 };
 
@@ -256,7 +252,9 @@ public:
         this->right = right;
     }
 
-    char character() { return ' '; }
+    char character(){ 
+        return ' '; 
+    }
 };
 
 class CompareNodes {
@@ -283,12 +281,12 @@ private:
     HuffNode* root;
     map<char, string> encodingMap;
 
-    void buildEncodingMap(HuffNode* node, string code) {
-        if (node == nullptr) {
+    void buildEncodingMap(HuffNode* node, string code){
+        if(node == nullptr){
             return;
         }
         
-        if (node->leftNode() == nullptr && node->rightNode() == nullptr) {
+        if(node->leftNode() == nullptr && node->rightNode() == nullptr){
             encodingMap[node->character()] = code;
             return;
         }
@@ -302,11 +300,11 @@ public:
         this->root = nullptr;
     }
 
-    void buildTree(string name) {
+    void buildTree(string name){
         map<char, int> freqMap;
         
         // Calculate frequency of each character in the input text
-        for (char c : name) {
+        for (char c : name){
             freqMap[c]++;
         }
 
@@ -339,11 +337,11 @@ public:
         clear();
     }
 
-    // Hàm chuyển đổi thông điệp sang mã Huffman
+    // Hàm chuyển đổi sang mã Huffman
     int encode(string name){
         string result = "";
         
-        for (char c : name) {
+        for(char c : name){
             string code = "";
             code = encodingMap.at(c);
             if(code == ""){
@@ -356,8 +354,8 @@ public:
         return decimal; 
     }
 
-    void clear(HuffNode* node) {
-        if (node == nullptr) {
+    void clear(HuffNode* node){
+        if (node == nullptr){
             return;
         }
         if(node->leftNode()){
@@ -494,9 +492,9 @@ public:
         this->count = 0;
     }
 
-    void printTable() {
-        for(int i = 0; i < capacity; i++) {
-            if(table[i] != nullptr) {
+    void printTable(){
+        for(int i = 0; i < capacity; i++){
+            if(table[i] != nullptr){
                 cout << table[i]->ID << "-" << table[i]->result << "-" << table[i]->NUM << endl;
             }
         } 
@@ -508,19 +506,12 @@ class AVLTree
 public:
     class Node
     {
-    public:
-        // enum BalanceValue
-        // {
-        //     LH = -1,
-        //     EH = 0,
-        //     RH = 1
-        // };
     private:
         int ID;
         int result;
         string name;
         int NUM;
-        //BalanceValue balance;
+
         friend class AVLTree;
         Node* left;
         Node* right;
@@ -603,8 +594,8 @@ protected:
         return curr;
     }
 
-    void clear(Node* node) {
-        if (node == nullptr) {
+    void clear(Node* node){
+        if (node == nullptr){
             return;
         }
         if(node->left){
@@ -780,6 +771,7 @@ public:
         string name; // name
         int NUM; // sổ lần gọi món
         int prior; // thứ tự ưu tiên
+
         friend class MinHeap;
     public:    
         Node(){}
@@ -816,8 +808,6 @@ protected:
             Node* tmp = this->nodes[parent];
             this->nodes[parent] = this->nodes[position];
             this->nodes[position] = tmp;
-// cout << "PrintHeap" << endl;
-// this->printHeap();  
             this->reheapUp(parent);
         }
     }
@@ -837,20 +827,18 @@ protected:
             if(compare(minChild, position)){
                 Node* tmp = this->nodes[position];
                 this->nodes[position] = this->nodes[minChild];
-                this->nodes[minChild] = tmp;
-// cout << "PrintHeap" << endl;
-// this->printHeap();      
+                this->nodes[minChild] = tmp;      
                 this->reheapDown(minChild);
             }
         }
     }
 
     int locateID(int ID){
-        if (this->isEmpty()) {
+        if(this->isEmpty()){
             return -1;
         }
-        for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->ID == ID) {
+        for(int i = 0; i < this->count; i++){
+            if(this->nodes[i]->ID == ID){
                 return i;
             }
         }
@@ -858,11 +846,11 @@ protected:
     }
 
     int locateID(string name){
-        if (this->isEmpty()) {
+        if(this->isEmpty()){
             return -1;
         }
-        for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+        for(int i = 0; i < this->count; i++){
+            if(this->nodes[i]->name == name){
                 return i;
             }
         }
@@ -883,7 +871,7 @@ public:
         this->capacity = MAXSIZE;
         this->count = 0;
         this->nodes = new Node*[capacity]; 
-        for (int i = 0; i < capacity; i++) {
+        for (int i = 0; i < capacity; i++){
             nodes[i] = nullptr;  
         }
     }
@@ -910,8 +898,8 @@ public:
         if (this->isEmpty()) {
             return false;
         }
-        for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+        for (int i = 0; i < this->count; i++){
+            if (this->nodes[i]->name == name){
                 return true;
             }
         }
@@ -927,18 +915,14 @@ public:
                 this->nodes[i] = this->nodes[this->count - 1];
                 this->nodes[this->count - 1] = tmp;
                 
-                this->count--;
-// cout << "PrintHeap" << endl;
-// this->printHeap();  
+                this->count--; 
                 this->reheapDown(i);
 
                 if(i < this->count){
                     reheapUp(i);
                 }
 
-                this->count++;
-// cout << "PrintHeap" << endl;
-// this->printHeap();                
+                this->count++;            
                 this->reheapUp(this->count - 1);
 
 				break;
@@ -956,17 +940,17 @@ public:
 
     void remove(int ID){
         int index = this->locateID(ID);
-        if (index == -1) {
+        if (index == -1){
             return;
         }else{
             Node* tmp = this->nodes[index];
             this->nodes[index] = this->nodes[this->count - 1];
             this->nodes[this->count - 1] = nullptr;
             delete tmp;
+
             this->count--;
-// cout << "PrintHeap" << endl;
-// this->printHeap(); 
             this->reheapDown(index);
+
             if(index < this->count){
                 reheapUp(index);
             }
@@ -986,8 +970,8 @@ public:
     }
 
     int getID(string name){
-        for (int i = 0; i < this->count; i++) {
-            if (this->nodes[i]->name == name) {
+        for(int i = 0; i < this->count; i++){
+            if(this->nodes[i]->name == name){
                 return this->nodes[i]->ID;
             }
         }
@@ -1010,7 +994,7 @@ public:
         this->printPreOrder(0);
     }
     void printHeap(){
-        for (int i = 0; i < this->count; i++) {
+        for (int i = 0; i < this->count; i++){
             cout << this->nodes[i]->ID << "-" << this->nodes[i]->NUM << endl;
         }
     }
@@ -1123,7 +1107,6 @@ void CLE(int NUM){
             if(checkID[ID] == 1){
             	delID[i] = ID;
                 i++;
-                //cout << ID << " ";
             }
             tmp = tmp->next;
         }
@@ -1170,20 +1153,15 @@ void CLE(int NUM){
 }
 
 void PrintHT(){
-    //cout << "PrintHT" << endl;
     hashTable->printTable();
 }
 
 void PrintAVL(){
-	//cout << "PrintAVL" << endl;
     avlTree->printLevel();
 }
 
 void PrintMH(){
-	//cout << "PrintMH" << endl;
     LFCO->printPreOrder();
-    //cout << "PrintHeap" << endl;
-    //LFCO->printHeap();
 }
 
 void simulate(string filename)
