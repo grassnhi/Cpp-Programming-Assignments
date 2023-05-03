@@ -887,9 +887,8 @@ public:
             // this->nodes[count]->NUM = NUM;
             // this->nodes[count]->prior = prior;
             this->nodes[count] = new Node(ID, name, prior);
+            
             this->count++;
-// cout << "PrintHeap" << endl;
-// this->printHeap();  
             this->reheapUp(this->count - 1);
         }
     }
@@ -1182,14 +1181,14 @@ void simulate(string filename)
 				ss >> request >> para;
 
 				if(request == "REG"){
-                    bool charac = true;
+                    bool isChar = true;
                     for (char c : para){
                         if (!isalpha(c)){
-                            charac = false;
+                            isChar = false;
                             break;
                         }
                     }
-                    if(charac){
+                    if(isChar){
                         REG(para);
                     }
 				}else if(request == "CLE"){
