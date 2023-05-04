@@ -673,7 +673,7 @@ public:
 		return n;
 	}
 };
-HuffTree* buildHuff(vector<HuffTree*> TreeArray, int count) {
+HuffTree* buildHuff(vector<HuffTree*> &TreeArray, int count) {
 	minHeap* forest = new minHeap(TreeArray, count);
 	HuffTree* temp1, * temp2, * temp3 = NULL;
 	int c = 1;
@@ -922,6 +922,14 @@ void simulate(string filename)
 			else if (func == "CLE") {
 				int ID = 0;
 				bool check = false;
+				bool negative = false;
+				if (i != n && line[i] == '-') {
+					negative = true;
+					i++;
+				}
+				else if (i != n && line[i] == '+') {
+					i++;
+				}
 				while (i != n && line[i] != ' ') {
 					if (line[i] < 48 || line[i] > 57) check = true;
 					ID = 10 * ID + line[i] - 48;
@@ -929,6 +937,7 @@ void simulate(string filename)
 				}
 				if (check == true) continue;
 				if (line[i] == ' ') continue;
+				if (negative == true) ID *= -1;
 				CLE(ID);
 			}
 		}
@@ -939,3 +948,4 @@ void simulate(string filename)
 	delete listres;
 	return;
 }
+

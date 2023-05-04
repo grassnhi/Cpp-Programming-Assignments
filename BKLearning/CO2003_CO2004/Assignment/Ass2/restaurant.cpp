@@ -1193,8 +1193,12 @@ void simulate(string filename)
                     }
 				}else if(request == "CLE"){
                     bool isNum = true;
-                    for (char c : para){
-                        if (!isdigit(c)){
+                    int startIdx = 0;
+                    if (para[0] == '-') {
+                        startIdx = 1; 
+                    }
+                    for (int i = startIdx; i < para.size(); i++){
+                        if (!isdigit(para[i])){
                             isNum = false;
                             break;
                         }
