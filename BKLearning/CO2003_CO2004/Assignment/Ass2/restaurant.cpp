@@ -1194,10 +1194,10 @@ void simulate(string filename)
 				}else if(request == "CLE"){
                     bool isNum = true;
                     int startIdx = 0;
-                    if (para[0] == '-') {
+                    if (para[0] == '-' || para[0] == '+'){
                         startIdx = 1; 
                     }
-                    for (int i = startIdx; i < para.size(); i++){
+                    for(unsigned int i = startIdx; i < para.size(); i++){
                         if (!isdigit(para[i])){
                             isNum = false;
                             break;
