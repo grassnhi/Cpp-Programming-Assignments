@@ -17,15 +17,13 @@ string removeDuplicates(string S){
     stack<char> st;
     string result = "";
     for(unsigned int i = 0; i < S.size(); i++){
-        if (!st.empty() && st.top() == S[i]){
+        if(!st.empty() && st.top() == S[i]){
             st.pop();
         }else{
             st.push(S[i]);
         }
-        
     }
-    while (!st.empty())
-    {
+    while(!st.empty()){
         result = st.top() + result;
         st.pop();
     }

@@ -46,30 +46,27 @@ public:
 template<class T>
 T SLinkedList<T>::get(int index) {
     /* Give the data of the element at given index in the list. */
-    if (index < 0 || index >= count) {
-        throw out_of_range("Index out of range");
-    }else{
-        Node* tmp = head;
-        for(int i = 0; i < index; i++){
-            tmp = tmp->next;
-        }
-        return tmp->data;
+    if(index < 0 || index >= count){
+        return -1;
     }
-    
+    Node* tmp = head;
+    for(int i = 0; i < index; i++){
+        tmp = tmp->next;
+    }
+    return tmp->data;
 }
 
 template <class T>
 void SLinkedList<T>::set(int index, const T& e) {
     /* Assign new value for element at given index in the list */
-    if (index < 0 || index >= count) {
+    if(index < 0 || index >= count){
         return;
-    }else{
-        Node* tmp = head;
-        for(int i = 0; i < index; i++){
-            tmp = tmp->next;
-        }
-        tmp->data = e;
     }
+    Node* tmp = head;
+    for(int i = 0; i < index; i++){
+        tmp = tmp->next;
+    }
+    tmp->data = e;
 }
 
 template<class T>
@@ -81,19 +78,14 @@ bool SLinkedList<T>::empty() {
 template<class T>
 int SLinkedList<T>::indexOf(const T& item) {
     /* Return the first index wheter item appears in list, otherwise return -1 */
-    if(tail == nullptr){
-        return -1;
-    }else{
-        Node* tmp = head;
-        for(int i = 0; i < count; i++){
-            if(tmp->data == item){
-                return i;
-            }else{
-                tmp = tmp->next;
-            }
+    Node* tmp = head;
+    for(int i = 0; i < count; i++){
+        if(tmp->data == item){
+            return i;
         }
-        return -1;
+        tmp = tmp->next;
     }
+    return -1;
 }
 
 template<class T>

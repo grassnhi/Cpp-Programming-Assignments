@@ -45,7 +45,141 @@ public:
 
 */
 
+class Deque {
+private:
+    class Node {
+    private:
+        int value;
+        Node* left;
+        Node* right;
+        friend class Deque;
+    public:
+        Node(int val = 0, Node* l = nullptr, Node* r = nullptr) : value(val), left(l), right(r) { }
+    };
 
+private:
+    Node* head;
+    Node* tail;
+    int curSize;
+
+public:
+    Deque();
+    ~Deque();
+    int getSize();
+    void pushFront(int item);
+    void pushBack(int item);
+    int popFront();
+    int popBack();
+    void clear();
+    void printDequeReverse();
+    void printDeque();
+};
+
+Deque::Deque() {
+    this->head = nullptr;
+    this->tail = nullptr;
+    this->curSize = 0;
+}
+
+Deque::~Deque() {
+    clear();
+}
+
+void Deque::clear() {
+    //=> erase all items in the deque
+    while(head != nullptr){
+        Node* tmp = head;
+        head = head->right;
+        delete tmp;
+    }
+    tail = nullptr;
+    curSize = 0;
+}
+
+int Deque::getSize() {
+    //=> number of items in the deque
+    return curSize;
+}
+
+void Deque::pushFront(int i) {
+    //=> add an item to the left end
+    if(head == nullptr){
+        head = tail = new Node(i);
+    }else{
+        head->left = new Node(i, nullptr, head);
+        head = head->left;
+    }
+    curSize++;
+}
+
+void Deque::pushBack(int i) {
+    //=> add an item to the right end
+    if(tail == nullptr){
+        head = tail = new Node(i);
+    }else{
+        tail->right = new Node(i, tail, nullptr);
+        tail = tail->right;
+    }
+    curSize++;
+}
+
+int Deque::popFront() {
+    //=> remove and return an item from the left end
+    if(head == nullptr){
+        head = tail = nullptr;
+        return -1;
+    }
+    Node* tmp = head;
+    int val = head->value;
+    if(head == tail){
+        head = tail = nullptr;
+    }else{
+        head = head->right;
+        head->left = nullptr;
+    }
+    delete tmp;
+    curSize--;
+    return val;
+}
+
+int Deque::popBack() {
+    //=> remove and return an item from the right end
+    if(tail == nullptr){
+        head = tail = nullptr;
+        return - 1;
+    }
+    Node* tmp = tail;
+    int val = tail->value;
+    if(head == tail){
+        head = tail = nullptr;
+    }else{
+        tail = tail->left;
+        tail->right = nullptr;
+    }
+    delete tmp;
+    curSize--;
+    return val;
+}
+
+void Deque::printDequeReverse() {
+    Node* tmp = tail;
+    while (tmp != nullptr)
+    {
+        cout << tmp->value << " ";
+        tmp = tmp->left;
+    }
+    cout << endl;
+}
+
+void Deque::printDeque() {
+    Node* tmp = head;
+    while (tmp != nullptr)
+    {
+        cout << tmp->value << " ";
+        tmp = tmp->right;
+    }
+    cout << endl;
+}
 
 
 /*

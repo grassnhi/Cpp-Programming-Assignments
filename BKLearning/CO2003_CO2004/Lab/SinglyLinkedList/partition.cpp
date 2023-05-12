@@ -138,3 +138,73 @@ l1->add(20); l1->add(30); l1->add(10); l1->add(60); l1->add(40); l1->add(45); l1
 l1->partition(45);
 cout << l1->toString() << "\n";
 */
+
+if(head == nullptr || head->next == nullptr){
+        return;
+    }
+    Node* head1 = nullptr;
+    Node* head2 = nullptr;
+    Node* head3 = nullptr;
+    Node* tail1 = nullptr;
+    Node* tail2 = nullptr;
+    Node* tail3 = nullptr;
+    Node* tmp = head;
+    while(tmp != nullptr){
+        if(tmp->value < k){
+            if(head1 != nullptr){
+                tail1->next = tmp;
+                tail1 = tmp;
+            }else{
+                head1 = tail1 = tmp;
+            }
+        }else if(tmp->value == k){
+            if(head2 != nullptr){
+                tail2->next = tmp;
+                tail2 = tmp;
+            }else{
+                tail2 = head2 = tmp;
+            }
+        }else{
+            if(head3 != nullptr){
+                tail3->next = tmp;
+                tail3 = tmp;
+            }else{
+                tail3 = head3 = tmp;
+            }
+        }
+        tmp = tmp->next;
+    }
+    if(head1 != nullptr){
+        head = head1;
+        if(head2 != nullptr){
+            tail1->next = head2;
+            if(head3 != nullptr){
+                tail2->next = head3;
+                tail = tail3;
+            }else{
+                tail = tail2;
+            }
+        }else{
+            if(head3 != nullptr){
+                tail1->next = head3;
+                tail = tail3;
+            }else{
+                tail = tail1;
+            }
+        }
+    }else{
+        if(head2 != nullptr){
+            head = head2;
+            if(head3 != nullptr){
+                tail2->next = head3;
+                tail = tail3;
+            }else{
+                tail = tail2;
+            }
+        }else{
+            if(head3 != nullptr){
+                head = head3;
+                tail = tail3;
+            }
+        }
+    }

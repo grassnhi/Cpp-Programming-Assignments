@@ -72,32 +72,25 @@ void SLinkedList<T>::add(T e) {
 
 template <class T>
 void SLinkedList<T>::add(int index, T e) {
-    if (index < 0 || index > count) {
-        throw std::out_of_range("Index out of range");
+    if(index < 0 || index > count){
+        return;
     }
-
-    Node* newNode = new Node(e, nullptr);
-
-    if (index == 0) {
-        newNode->next = head;
-        head = newNode;
-        if (tail == nullptr) {
-            tail = newNode;
+    if(index == 0){
+        head = new Node(e, head);
+        if(tail == nullptr){
+            tail = head;
         }
-    }
-    else if (index == count) {
-        tail->next = newNode;
-        tail = newNode;
-    }
-    else {
+    }else if(index == count){
+        tail->next = new Node(e, nullptr);
+        tail = tail->next;
+    }else{
         Node* prev = head;
-        for (int i = 0; i < index - 1; i++) {
+        for(int i = 0; i < index - 1; i++){
             prev = prev->next;
         }
-        newNode->next = prev->next;
+        Node* newNode = new Node(e, prev->next);
         prev->next = newNode;
     }
-
     count++;
 }
 

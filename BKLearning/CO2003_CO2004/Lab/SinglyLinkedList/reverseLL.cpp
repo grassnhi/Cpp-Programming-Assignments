@@ -20,23 +20,18 @@ Note:
 LLNode* reverseLinkedList(LLNode* head) {
     // STUDENT ANSWER
     if(head == nullptr){
-        return head;
-    }else{
-        LLNode* prev = nullptr;
-        LLNode* curr = head;
-        LLNode* next = nullptr;
-    
-        while(curr != nullptr){
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-        head->next = nullptr;
-        head = prev;
-        return head;
+        return nullptr;
     }
-    
+    LLNode* prev = nullptr;
+    LLNode* curr = head;
+    LLNode* next = head;
+    while(curr != nullptr){
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
 }
 
 /*

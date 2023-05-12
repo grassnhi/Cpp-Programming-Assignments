@@ -42,17 +42,16 @@ int sumOfMinSubarray(vector<int>& nums) {
 // iostream, stack and vector are included
 
 vector<int> nextSmaller(vector<int>& arr){
-    vector<int> vc(arr.size());
+    int n = arr.size();
+    vector<int> vt(n, -1);
     stack<int> st;
-    for(int i = arr.size()-1; i >= 0; i--){
+    for(int i = n - 1; i >= 0; i--){
         if(st.empty()){
-            vc[i] = -1;
             st.push(i);
-        }
-        else{
+        }else{
             while(!st.empty()){
                 if(arr[st.top()] < arr[i]){
-                    vc[i] = st.top();
+                    vt[i] = st.top();
                     st.push(i);
                     break;
                 }else{
@@ -60,12 +59,11 @@ vector<int> nextSmaller(vector<int>& arr){
                 }
             }
             if(st.empty()){
-                vc[i] = -1;
                 st.push(i);
             }
         }
     }
-    return vc;
+    return vt;
 }
 int sumOfMinSubarray(vector<int>& nums) {
     // STUDENT ANSWER

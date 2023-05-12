@@ -123,23 +123,24 @@ class BTNode {
         }
 };   
 
-int sumSubtree(BTNode* root) {
-    if (!root) {
+int sumSubtree(BTNode* root){
+    if(root == nullptr){
         return 0;
     }
     return root->val + sumSubtree(root->left) + sumSubtree(root->right);
 }
 
 int distinctParities(BTNode* root) {
-    if (!root) {
+    if(root == nullptr){
         return 0;
     }
     int count = 0;
-    if (root->left && root->right) {
-        int left_sum = sumSubtree(root->left);
-        int right_sum = sumSubtree(root->right);
-        if ((left_sum % 2 == 0 && right_sum % 2 == 1) || (left_sum % 2 == 1 && right_sum % 2 == 0)) {
-            count++;
+    if(root->left && root->right){
+        int leftSum = sumSubtree(root->left);
+        int rightSum = sumSubtree(root->right);
+        if((leftSum % 2 == 0 && rightSum % 2 != 0) ||
+            (leftSum % 2 != 0 && rightSum % 2 == 0)){
+                count++;
         }
     }
     count += distinctParities(root->left);

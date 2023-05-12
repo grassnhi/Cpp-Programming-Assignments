@@ -197,54 +197,46 @@ template <class T>
 T DLinkedList<T>::removeAt(int index)
 {
     /* Remove element at index and return removed value */
-    T value = 0;
     if(index < 0 || index >= count || head == nullptr){
-        throw out_of_range("Index out of range.");
-    }else if(index == 0){
-        if(head == tail){
-            value = head->data;
-            head = tail = nullptr;
-            count--;
-            return value;
-        }
-        value = head->data;
-        head = head->next;
-        head->previous = nullptr;
-        count--;
-        return value;
-    }else if(index == count - 1){
-        value = tail->data;
-        tail = tail->previous;
-        tail->next = nullptr;
-        count--;
-        return value;
+        return -1;
     }
-    else{
-        if(index < count /2){
-            Node* tmp = head;
-            Node* prev = nullptr;
-            for(int i = 0; i < index; i++){
-                prev = tmp;
-                tmp = tmp->next;
-            }
-            value = tmp->data;
-            prev->next = tmp->next;
-            tmp = tmp->next;
-            tmp->previous = prev;
+    if(index == 0){
+        Node* tmp = head;
+        int val = tmp->data;
+        if(head == tail){
+            head = tail = nullptr;
         }else{
-            Node* tmp = tail;
-            Node* follow = nullptr;
-            for(int i = count - 1; i > index; i--){
-                follow = tmp;
-                tmp = tmp->previous;
-            }
-            value = tmp->data;
-            follow->previous = tmp->previous;
-            tmp = tmp->previous;
-            tmp->next = follow;
+            head = head->next;
+            head->previous = nullptr;
         }
+        delete tmp;
         count--;
-        return value;
+        return val;
+    }else if(index == count - 1){
+        Node* tmp = tail;
+        int val = tail->data;
+        if(head == tail){
+            head = tail = nullptr;
+        }else{
+            tail = tail->previous;
+            tail->next = nullptr;
+        }
+        delete tmp;
+        count--;
+        return val;
+    }else{
+        Node* tmp = head;
+        Node* prev = nullptr;
+        for(int i = 0; i < index; i++){
+            prev = tmp;
+            tmp = tmp->next;
+        }
+        prev->next = tmp->next;
+        tmp->next->previous = prev;
+        int val = tmp->data;
+        delete tmp;
+        count--;
+        return val;
     }
 }
 
@@ -252,17 +244,13 @@ template <class T>
 bool DLinkedList<T>::removeItem(const T& item)
 {
     /* Remove the first apperance of item in list and return true, otherwise return false */
-    if(head == nullptr){
-        return false;
-    }else{
-        Node* tmp = head;
-        for (int i = 0; i < count; i++) {
-            if (tmp->data == item){
-                removeAt(i);
-                return true;
-            }
-            tmp = tmp->next;
+    Node* tmp = head;
+    for(int i = 0; i < count; i++){
+        if(tmp->data == item){
+            removeAt(i);
+            return true;
         }
+        tmp = tmp->next;
     }
     return false;
 }
@@ -270,12 +258,10 @@ bool DLinkedList<T>::removeItem(const T& item)
 template<class T>
 void DLinkedList<T>::clear(){
     /* Remove all elements in list */
-    Node* tmp = head;
-    while (head != nullptr)
-    {
+    while(head != nullptr){
+        Node* tmp = head;
         head = head->next;
         delete tmp;
-        tmp = head;
     }
     tail = nullptr;
     count = 0;

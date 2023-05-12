@@ -21,7 +21,7 @@ Note:
 */
 LLNode* rotateLinkedList(LLNode* head, int k) {
     // STUDENT ANSWER
-     if (!head || !head->next || k == 0) {
+    if (!head || !head->next || k == 0) {
         return head;
     }
     LLNode* tail = head;

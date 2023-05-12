@@ -35,34 +35,30 @@ and may result in unexpected errors.
 
 LLNode* addLinkedList(LLNode* l0, LLNode* l1) {
     int carry = 0;
-    LLNode* resultHead = nullptr;
-    LLNode* currNode = nullptr;
-    
-    while (l0 != nullptr || l1 != nullptr || carry > 0) {
+    LLNode* result = nullptr;
+    LLNode* tail = nullptr;
+    while(l0 != nullptr || l1 != nullptr || carry > 0){
         int sum = carry;
-        if (l0 != nullptr) {
+        if(l0 != nullptr){
             sum += l0->val;
             l0 = l0->next;
         }
-        if (l1 != nullptr) {
+        if(l1 != nullptr){
             sum += l1->val;
             l1 = l1->next;
         }
-        
         carry = sum / 10;
-        int digit = sum % 10;
-        
-        LLNode* newNode = new LLNode(digit, nullptr);
-        if (resultHead == nullptr) {
-            resultHead = newNode;
-            currNode = newNode;
-        } else {
-            currNode->next = newNode;
-            currNode = newNode;
+        int newVal = sum % 10;
+        LLNode* newNode = new LLNode(newVal, nullptr);
+        if(result == nullptr){
+            result = newNode;
+            tail = newNode;
+        }else{
+            tail->next = newNode;
+            tail = newNode;
         }
     }
-    
-    return resultHead;
+    return result;
 }
 
 /*

@@ -32,23 +32,24 @@ Output:
 
 using namespace std;
 
-long long nthNiceNumber(int n) {
-    if (n <= 0) {
+long long nthNiceNumber(unsigned int n) {
+    if(n <= 0){
         return -1;
     }
-
     queue<long long> q;
     vector<long long> res;
+
     q.push(2);
     q.push(5);
-    while (res.size() < n) {
+
+    while(res.size() < n){
         long long curr = q.front();
         res.push_back(curr);
         q.pop();
-        
+
         long long next2 = curr * 10 + 2;
         long long next5 = curr * 10 + 5;
-     
+        
         q.push(next2);
         q.push(next5);
     }

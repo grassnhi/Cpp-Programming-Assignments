@@ -50,35 +50,35 @@ You can add other functions, however, you are not allowed to add other libraries
 */
 
 void LinkedList::replace(LinkedList* linked_list, int low, int high) {
-    if (low < 0) {
+    if(low < 0){
         low = 0;
     }
-    if (high >= size) {
+    if(high >= size){
         high = size - 1;
     }
-    if (low > high) {
+    if(low > high){
         return;
     }
-    Node* cur = head;
+    Node* curr = head;
     Node* prev = nullptr;
     int count = 0;
-    while (cur != nullptr && count <= high) {
-        if (count == low) {
-            if (prev == nullptr) {
+    while(curr != nullptr && count <= high){
+        if(count == low){
+            if(prev == nullptr){
                 head = linked_list->head;
-            } else {
+            }else{
                 prev->next = linked_list->head;
             }
         }
-        if (count == high) {
-            linked_list->tail->next = cur->next;
-            if (cur == tail) {
+        if(count == high){
+            linked_list->tail->next = curr->next;
+            if(curr == tail){
                 tail = linked_list->tail;
             }
             break;
         }
-        prev = cur;
-        cur = cur->next;
+        prev = curr;
+        curr = curr->next;
         count++;
     }
     size = size - (high - low + 1) + linked_list->size;

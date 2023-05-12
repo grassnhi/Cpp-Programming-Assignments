@@ -157,25 +157,22 @@ public:
 template <class T>
 void SLinkedList<T>::bubbleSort()
 {
-    if (this->count <= 1) {
+    if(this->count <= 1){
         return;
     }
-    
     Node* tmp = head;
     for(int i = 0; i < this->count - 1; i++){
-        while (tmp != nullptr && tmp->next != nullptr)
-        {
-            if (tmp->data > tmp->next->data) {
-                T temp = tmp->data;
+        while(tmp != nullptr && tmp->next != nullptr){
+            if(tmp->data > tmp->next->data){
+                T swap = tmp->data;
                 tmp->data = tmp->next->data;
-                tmp->next->data = temp;
+                tmp->next->data = swap;
             }
             tmp = tmp->next;
         }
         tmp = head;
         this->printList();
     }
-   
 }
 
 

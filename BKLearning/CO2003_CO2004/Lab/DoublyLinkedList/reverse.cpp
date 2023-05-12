@@ -35,6 +35,48 @@ struct ListNode {
 */
 
 ListNode* reverse(ListNode* head, int a, int b) {
+    //To Do
+    ListNode* head1 = head;
+    for(int i = 1; i < a; i++){
+        head1 = head1->right;
+    }
+    ListNode* tail1 = head1;
+    for(int i = a; i < b; i++){
+        tail1 = tail1->right;
+    }
+    ListNode* curr = head1;
+    ListNode* tmp = nullptr;
+    for(int i = a; i <= b; i++){
+        tmp = curr->left;
+        curr->left = curr->right;
+        curr->right = tmp;
+        curr = curr->left;
+    }
+    tmp = head1->right;
+    curr = tail1->left;
+    tail1->left = tmp;
+    head1->right = curr;
+    if(tmp != nullptr){
+        tmp->right = tail1;
+    }else{
+        head = tail1;
+    }
+    if(curr != nullptr){
+        curr->left = head1;
+    }
+    return head;
+}
+
+/*
+struct ListNode {
+    int val;
+    ListNode *left;
+    ListNode *right;
+    ListNode(int x = 0, ListNode *l = nullptr, ListNode* r = nullptr) : val(x), left(l), right(r) {}
+};
+*/
+
+ListNode* reverse(ListNode* head, int a, int b) {
     // /To Do
     if(head == nullptr){
         return head;

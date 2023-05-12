@@ -52,94 +52,74 @@ T SLinkedList<T>::removeAt(int index)
 {
     /* Remove element at index and return removed value */
     if (index < 0 || index >= count || head == nullptr) {
-        throw out_of_range("Index out of range");
-    }else{
-        Node* prev = head;
-        Node* tmp = head;
-        if(index == 0){
-            head = head->next;
-            count--;
-            return prev->data;
-        }else{
-            for(int i = 0; i < index; i++){
-                prev = tmp;
-                tmp = tmp->next;
-                if(i == count - 2)  tail = prev;
-            }
-            prev->next = tmp->next;
-            count--;
-            return tmp->data;
-        }  
+        return -1;
     }
+    if(index == 0){
+        int e = head->data;
+        if(head == tail){
+            Node* tmp = head;
+            head = tail = nullptr;
+            delete tmp;
+        }else{
+            Node* tmp = head;
+            head = head->next;
+            delete tmp;
+        }
+        count--;
+        return e;
+    }else if(index == count - 1){
+        int e = tail->data;
+        Node* tmp = head;
+        for(int i = 0; i < index - 1; i++){
+            tmp = tmp->next;
+        }
+        tail = tmp;
+        tmp = tmp->next;
+        tail->next = nullptr;
+        delete tmp;
+        count--;
+        return e;
+    }else{
+        Node* tmp = head;
+        Node* prev = tmp;
+        for(int i = 0; i < index; i++){
+            prev = tmp;
+            tmp = tmp->next;
+        }
+        prev->next = tmp->next;
+        int e = tmp->data;
+        delete tmp;
+        count--;
+        return e;
+    }  
 }
 
 template <class T>
 bool SLinkedList<T>::removeItem(const T& item)
 {
     /* Remove the first apperance of item in list and return true, otherwise return false */
-    if(tail == nullptr){
-        return false;
-    }else{
-        if(head->data == item){
-            head = head->next;
-            count--;
+    Node* tmp = head;
+    for(int i = 0; i < count; i++){
+        if(tmp->data == item){
+            removeAt(i);
             return true;
-        }else if(tail->data == item){
-            Node* tmp = head;
-            while(tmp->next != tail){
-                tmp = tmp->next;
-            }
-            tail = tmp;
-            tail->next = nullptr;
-            return true;
-        }else{
-            Node* tmp = head;
-            Node* prev = nullptr;
-            for(int i = 0; i < count; i++){
-                if(tmp->data == item){
-                    prev->next = tmp->next;
-                    count--;
-                    return true; 
-                }else{
-                    prev = tmp;
-                    tmp = tmp->next;
-                }
-            }
         }
-        return false;
+        tmp = tmp->next;
     }
+    return false;
 }
 
 template<class T>
 void SLinkedList<T>::clear(){
     /* Remove all elements in list */
-    Node* curr = head;
-    while (curr != nullptr) {
-        Node* temp = curr;
-        curr = curr->next;
-        delete temp;
+    while(head != nullptr){
+        Node* prev = head;
+        head = head->next;
+        delete prev;
     }
-    head = nullptr;
     tail = nullptr;
     count = 0;
 }
-
-// need to check again
-void    clear(){
-            Node* prev = head;
-            Node* curr = head;
-            Node* tmp = curr->next;
-            while(tmp != nullptr){
-                curr = tmp;
-                tmp = tmp->next;
-                prev->next = tmp;
-                delete curr;
-            }
-            delete prev;
-            delete tmp;
-            head = tail = nullptr;
-        } // maybe some error still exits
-
 
 /*
 SLinkedList<int> list;

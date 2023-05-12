@@ -30,13 +30,13 @@ using namespace std;
 
 vector<int> nextGreaterElement(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result(n, -1);
     stack<int> st;
-    for(int i = n - 1; i >= 0; i--) {
-        while(!st.empty() && arr[i] > st.top()) {
+    vector<int> result(n, -1);
+    for(int i = n - 1; i >= 0; i--){
+        while(!st.empty() && arr[i] > st.top()){
             st.pop();
         }
-        if(!st.empty()) {
+        if(!st.empty()){
             result[i] = st.top();
         }
         st.push(arr[i]);

@@ -145,33 +145,37 @@ DataLog::DataLog(const int &data)
 
 void DataLog::addCurrentState(int number)
 {
-	*this->currentState = *this->currentState + number;
+	*currentState += number;
 }
 
 void DataLog::subtractCurrentState(int number)
 {
-	*this->currentState = *this->currentState - number;
+	*currentState -= number;
 }
 
 void DataLog::save()
 {
-	list<int>::iterator a = currentState;
-	++a;
-	while (a != logList.end()) {
-		a = logList.erase(a);
-	}
-	logList.push_back(*currentState);
-	++currentState;
+	list<int>::iterator newState = currentState;
+    newState++;
+    while(newState != logList.end()){
+        newState = logList.erase(newState);
+    }
+    logList.push_back(*currentState);
+    currentState++;
 }
 
 void DataLog::undo()
 {
-	if (currentState != logList.begin()) currentState = prev(currentState, 1);
+	if(currentState != logList.begin()){
+        currentState = prev(currentState, 1);
+    }
 }
 
 void DataLog::redo()
 {
-	list<int>::iterator a = currentState;
-	list<int>::iterator b = ++a;
-	if (b != logList.end()) ++currentState;
+	list<int>::iterator latter = currentState;
+    latter++;
+    if(latter != logList.end()){
+        currentState++;
+    }
 }

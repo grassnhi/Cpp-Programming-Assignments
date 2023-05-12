@@ -145,25 +145,19 @@ public:
         delete currentNode;
     }
 
+    int getHeight(Node* node){
+        if(node == nullptr){
+            return 0;
+        }
+        return 1 + max(getHeight(node->pLeft), getHeight(node->pRight));
+    }
+
     int getDiameter(){
         //TODO
-        return computeDiameter(this->root);
-    }
-
-    int computeDiameter(Node* currentNode){
-        if(!currentNode) return 0;
-        
-        int currentDiameter = getHeight(currentNode->pLeft) + getHeight(currentNode->pRight) + 1;
-        int leftDiameter = computeDiameter(currentNode->pLeft);
-        int rightDiameter = computeDiameter(currentNode->pRight);
-        
-        return max(currentDiameter, max(leftDiameter, rightDiameter));
-    }
-
-    int getHeight(Node* currentNode){
-        if(!currentNode) return 0;
-        
-        return 1 + max(getHeight(currentNode->pLeft), getHeight(currentNode->pRight));
+        if(root == nullptr){
+            return 0;
+        }
+        return getHeight(root->pLeft) + getHeight(root->pRight) + 1;
     }
 
 };

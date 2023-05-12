@@ -18,26 +18,26 @@ using namespace std;
 
 int sumOfMaxSubarray(vector<int>& nums, int k) {
     // STUDENT ANSWER
-    deque<int> qu;
-    qu.push_back(0);
+    deque<int> dq;
+    dq.push_back(0);
     for(int i = 1; i < k; i++){
-        while(!qu.empty() && nums[qu.back()] < nums[i]){
-            qu.pop_back();
+        while(!dq.empty() && nums[dq.back()] < nums[i]){
+            dq.pop_back();
         }
-        qu.push_back(i);
+        dq.push_back(i);
     }
-    int sum = nums[qu.front()];
+    int sum = nums[dq.front()];
     int n = nums.size();
     int  i = k;
     while(i != n){
-        if(i - qu.front() == k){
-            qu.pop_front();
+        if(i - dq.front() == k){
+            dq.pop_front();
         }
-        while(!qu.empty() && nums[qu.back()] < nums[i]){
-            qu.pop_back();
+        while(!dq.empty() && nums[dq.back()] < nums[i]){
+            dq.pop_back();
         }
-        qu.push_back(i);
-        sum+=nums[qu.front()];
+        dq.push_back(i);
+        sum+=nums[dq.front()];
         i++;
     }
     return sum;

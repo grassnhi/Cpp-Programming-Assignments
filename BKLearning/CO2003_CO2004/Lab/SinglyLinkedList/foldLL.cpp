@@ -24,36 +24,35 @@ Note:
 
 LLNode* foldLinkedList(LLNode* head) {
     // STUDENT ANSWER
-    if (head == NULL) return NULL;
-    float listSize = 0;
-    LLNode* cur = head;
-    while(cur!=NULL){
-        listSize++;
-        cur = cur->next;
+    if(head == nullptr){
+        return nullptr;
     }
-    int size = listSize;
-    //listSize = listSize/2;
-    cur = head;
+    int len = 0;
+    LLNode* curr = head;
+    while(curr != nullptr){
+        len++;
+        curr = curr->next;
+    }
+    curr = head;
     int count = 1;
-    LLNode* s1 = new LLNode(cur->val,NULL);
-    while(count<listSize/2){
-        cur = cur->next;
+    LLNode* fold = new LLNode(curr->val, nullptr);
+    while(count < len / 2){
+        curr = curr->next;
+        fold = new LLNode(curr->val, fold);
         count++;
-        s1 = new LLNode(cur->val,s1);
     }
-    if(size%2!=0){
-        cur = new LLNode(0, cur->next);
+    curr = curr->next;
+    LLNode* tmp = fold;
+    if(len % 2 != 0){
+        fold = new LLNode(curr->val, fold);
+        curr = curr->next;
     }
-    else {
-        cur = cur->next;
+    while(tmp != nullptr){
+        tmp->val += curr->val;
+        tmp = tmp->next;
+        curr = curr->next;
     }
-    LLNode* headS1 = s1;
-    while(s1!=NULL){
-        s1->val = s1->val + cur->val;
-        s1 = s1->next;
-        cur = cur->next;
-    }
-    return headS1;
+    return fold;
 }
 
 /*

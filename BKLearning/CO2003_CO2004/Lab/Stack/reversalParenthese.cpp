@@ -15,25 +15,17 @@ Note:
 #include<stack>
 using namespace std;
 
-void reverseSubstring(string& s, int start, int end) {
-    while (start < end) {
-        swap(s[start], s[end]);
-        start++;
-        end--;
-    }
-}
-
 string parenthesesReversal(string s) {
     // STUDENT ANSWER
-    stack<char> st;
     string result = "";
-    for (unsigned int i = 0; i < s.size(); i++) {
+    stack<char> st;
+    int n = s.size();
+    for(int i = 0; i < n; i++){
         st.push(s[i]);
-        if(s[i] == ')'){
+        if(st.top() == ')'){
             st.pop();
             string rev = "";
-            while (st.top() != '(')
-            {
+            while(st.top() != '('){
                 rev += st.top();
                 st.pop();
             }
@@ -43,8 +35,7 @@ string parenthesesReversal(string s) {
             }
         }
     }
-    while (!st.empty())
-    {
+    while(!st.empty()){
         result = st.top() + result;
         st.pop();
     }

@@ -46,23 +46,23 @@ string deleteDuplicate(string s, int k) {
 }
 
 string deleteDuplicate(string s, int k) {
-    if(k == 1) return "";
+    if(k == 1){
+        return "";
+    }
     stack<char> st;
     string result = "";
     for(unsigned int i = 0; i < s.size(); i++){
         if(st.empty()){
             st.push(s[i]);
         }else{
-            if(s[i] == st.top()){
+            if(st.top() == s[i]){
                 int count = 1;
-                while (!st.empty() && s[i] == st.top())
-                {
-                    count++;
+                while(!st.empty() && s[i] == st.top()){
                     st.pop();
+                    count++;
                 }
                 if(count != k){
-                    while (count != 0)
-                    {
+                    while(count != 0){
                         st.push(s[i]);
                         count--;
                     }
@@ -72,8 +72,7 @@ string deleteDuplicate(string s, int k) {
             }
         }
     }
-    while (!st.empty())
-    {
+    while(!st.empty()){
         result = st.top() + result;
         st.pop();
     }

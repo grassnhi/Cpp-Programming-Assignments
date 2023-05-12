@@ -53,7 +53,9 @@ void reduceDuplicate(Node* root)
     Node* curr = root;
     while (curr != nullptr && curr->getNext() != nullptr) {
         if (curr->getData() == curr->getNext()->getData()) {
+            Node* tmp = curr->getNext();
             curr->setNext(curr->getNext()->getNext());
+            delete tmp;
         } else {
             curr = curr->getNext();
         }

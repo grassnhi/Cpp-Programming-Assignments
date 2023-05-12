@@ -160,21 +160,22 @@ public:
         return 1 + max(getHeight(currentNode->pLeft), getHeight(currentNode->pRight));
     }
 
-    void BFS()
-    {
-        if(!this->root) return;
-
+    void BFS(){
+        if(this->root == nullptr){
+            return;
+        }
         queue<Node*> q;
         q.push(this->root);
-
         while(!q.empty()){
-            Node* current = q.front();
+            Node* curr = q.front();
             q.pop();
-
-            cout << current->value << " ";
-
-            if(current->pLeft) q.push(current->pLeft);
-            if(current->pRight) q.push(current->pRight);
+            cout << curr->value << " ";
+            if(curr->pLeft != nullptr){
+                q.push(curr->pLeft);
+            }
+            if(curr->pRight != nullptr){
+                q.push(curr->pRight);
+            }
         }
     }
 
