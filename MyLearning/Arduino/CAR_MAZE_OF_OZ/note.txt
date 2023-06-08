@@ -1,0 +1,39 @@
+setMotorLeft()
+    Description: The function is used to controls the left motor speed and direction of rotation.
+    Syntax: setMotorLeft(speed, direction)
+    Parameters:
+    speed: PWM value, from 0 to 255, to control the speed of the left motor.
+    direction: 1 or 0, to control the direction of rotation of the left motor, with 1 being the value for setting the motor to go forward, 0 being the value for setting the motor to go backwards.
+    Returns: Nothing.
+setMotorRight()
+    Description: The function is used to controls the right motor speed and direction of rotation.
+    Syntax: setMotorRight(speed, direction)
+    Parameters:
+    speed: PWM value, from 0 to 255, to control the speed of the right motor.
+    direction: 1 or 0, to control the direction of rotation of the right motor with 1 being the value for setting the motor to go forward, 0 being the value for setting the motor to go backwards.
+    Returns: Nothing.
+getSpeedLeft()
+    Description: The function performs the calculation of the left motor speed value.
+    Syntax: getSpeedLeft()
+    Parameters: Nothing.
+    Returns: Speed value of left motor, float type, in cm/s.
+getSpeedRight()
+    Description: The function performs the calculation of the right motor speed value.
+    Syntax: getSpeedLeft()
+    Parameters: Nothing.
+    Returns: Speed value of right motor, float type, in cm/s.
+getDistanceHead()
+    Description: The function performs the calculation of the distance value in front of the car.
+    Syntax: getDistanceHead()
+    Parameters: Nothing.
+    Returns: Distance value in front of the vehicle, float type, in cm.
+getDistanceLeft()
+    Description: The function performs the calculation of the distance value on the left side of the car.
+    Syntax: getDistanceLeft()
+    Parameters: Nothing.
+    Returns: Distance value on the left side the vehicle, float type, in cm.
+getDistanceRight()
+    Description: The function performs the calculation of the distance value on the right side of the car.
+    Syntax: getDistanceRight()
+    Parameters: Nothing.
+    Returns: Distance value on the right side the vehicle, float type, in cm.
