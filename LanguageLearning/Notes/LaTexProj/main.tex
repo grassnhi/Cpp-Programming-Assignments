@@ -1,0 +1,364 @@
+\documentclass{article}
+
+\begin{document}
+
+\title{HCMUT-SSPS Software Specification}
+\date{\today}
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Purpose of the Document}
+This document serves as the software specification for the HCMUT Student Smart Printing Service (HCMUT-SSPS). Its primary purpose is to provide a comprehensive overview of the software, its functionalities, requirements, and architectural details. Additionally, this document aims to define the scope of the project and set clear expectations for all stakeholders involved in its development, testing, and deployment.
+
+\subsection{Scope of the Software}
+The HCMUT-SSPS is an integrated software system designed to facilitate and streamline the printing process for students at HCMUT campuses. It encompasses various modules, including user authentication, document management, printing services, payment processing, logging, reporting, and system administration. This system is web-based and includes a mobile app component, ensuring accessibility and convenience for users.
+
+\subsection{Definitions, Acronyms, and Abbreviations}
+To enhance clarity and understanding throughout this document, the following definitions, acronyms, and abbreviations are used:
+
+\begin{itemize}
+    \item \textbf{HCMUT-SSPS}: HCMUT Student Smart Printing Service
+    \item \textbf{SPSO}: Student Printing Service Officer
+    \item \textbf{A4-size}: Standard paper size commonly used in printing (210 x 297 mm)
+    \item \textbf{A3-size}: Larger paper size equivalent to two A4-size pages (297 x 420 mm)
+\end{itemize}
+
+\subsection{References}
+There are no specific external references for this document. Any relevant internal documents or project-related materials will be cited as needed within the document sections.
+
+
+\section{General Description}
+
+\subsection{Product Perspective}
+The HCMUT Student Smart Printing Service (HCMUT-SSPS) is a standalone software system developed to address the printing needs of students at HCMUT campuses. While it operates independently, it interfaces with various hardware components, including printers, to facilitate the document printing process. The system also integrates with external payment gateways for handling transactions related to additional printing pages.
+
+\subsection{Product Functions}
+HCMUT-SSPS offers a range of functions, including but not limited to:
+\begin{itemize}
+    \item User authentication and authorization for access.
+    \item Document management, allowing students to upload and manage their printing documents.
+    \item Selection of printers and specification of printing preferences (e.g., paper size, single/double-sided printing, number of copies).
+    \item Payment processing for additional printing pages via online payment gateways.
+    \item Logging and tracking of printing actions for auditing purposes.
+    \item Generation of reports and analytics for usage analysis.
+    \item System administration for printer management and configuration.
+\end{itemize}
+
+\subsection{User Classes and Characteristics}
+HCMUT-SSPS caters to the following user classes:
+\begin{enumerate}
+    \item **Students**: Primary users of the system who upload documents for printing and interact with printing services.
+    \item **Student Printing Service Officer (SPSO)**: Administers and manages the system, including printer configuration and user accounts.
+    \item **Administrators**: Oversee the overall system operation and perform administrative tasks as needed.
+\end{enumerate}
+
+Users of HCMUT-SSPS are expected to have basic computer literacy and internet access.
+
+\subsection{Operating Environment}
+HCMUT-SSPS is a web-based system accessible via standard web browsers, ensuring cross-platform compatibility. It is designed to operate in the following environments:
+\begin{itemize}
+    \item Web Browsers: Compatible with modern web browsers, including Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari.
+    \item Operating Systems: Supports Windows, macOS, and Linux.
+    \item Internet Connection: Requires an internet connection for user access and communication with external services.
+\end{itemize}
+
+\subsection{Design and Implementation Constraints}
+To ensure effective design and implementation, HCMUT-SSPS must adhere to certain constraints, including:
+\begin{itemize}
+    \item **Limited File Types**: The system accepts a predefined list of file types for document uploads, which can be configured by the SPSO.
+    \item **Payment Integration**: Integration with external payment gateways, such as the BKPay system of the university, for additional page purchases.
+\end{itemize}
+
+\subsection{Assumptions and Dependencies}
+The successful implementation and operation of HCMUT-SSPS are based on the following assumptions and dependencies:
+\begin{itemize}
+    \item Students have access to internet-enabled devices for system usage.
+    \item Payment gateways, as configured, are available and functional.
+    \item User authentication is handled by the HCMUT Single Sign-On (HCMUT-SSO) authentication service.
+    \item External dependencies, such as third-party libraries or frameworks, are available as needed.
+\end{itemize}
+
+
+\section{Specific Requirements}
+
+\subsection{External Interface Requirements}
+
+\subsubsection{User Interfaces}
+The user interfaces of HCMUT-SSPS are designed to be user-friendly and intuitive. Users interact with the system through web-based interfaces and a mobile app. Key user interface requirements include:
+
+\begin{itemize}
+    \item A web-based portal for students to log in, upload documents, select printing options, and make payments.
+    \item A mobile app for convenient access on smartphones, providing similar functionality to the web portal.
+    \item User authentication screens with HCMUT Single Sign-On (HCMUT-SSO) integration.
+    \item Document upload and management interfaces with support for common file formats.
+    \item Printer selection screens with location details and available options.
+    \item Payment processing screens with secure integration with external payment gateways.
+\end{itemize}
+
+\subsubsection{Hardware Interfaces}
+HCMUT-SSPS interacts with printers installed in various campus locations. Hardware interface requirements include:
+
+\begin{itemize}
+    \item Compatibility with a range of printer models and brands.
+    \item Data exchange with printers for job queuing and status updates.
+    \item Support for standard printer protocols and drivers.
+\end{itemize}
+
+\subsubsection{Software Interfaces}
+The system interfaces with external software components and services. Software interface requirements encompass:
+
+\begin{itemize}
+    \item Integration with the HCMUT-SSO authentication service for user access.
+    \item Integration with external payment gateways for handling online payments.
+    \item Compatibility with web browsers (for the web portal) and mobile operating systems (for the app).
+\end{itemize}
+
+\subsubsection{Communication Interfaces}
+HCMUT-SSPS relies on communication interfaces to facilitate data exchange with external services and printers. Key communication requirements include:
+
+\begin{itemize}
+    \item Secure data transmission over HTTPS for user interactions.
+    \item API integration with payment gateways for payment processing.
+    \item Compatibility with standard network protocols for printer communication.
+\end{itemize}
+
+\subsection{Functional Requirements}
+
+\subsubsection{User Authentication}
+HCMUT-SSPS requires robust user authentication to ensure security and user privacy. Functional requirements include:
+
+\begin{itemize}
+    \item User login with HCMUT-SSO credentials.
+    \item Role-based access control (e.g., students, SPSO, administrators).
+    \item Password recovery and account management features.
+\end{itemize}
+
+\subsubsection{Document Management}
+Efficient document management is essential for a seamless user experience. Functional requirements encompass:
+
+\begin{itemize}
+    \item Document upload, storage, and retrieval.
+    \item Support for common document formats (e.g., PDF, Word).
+    \item Version control for uploaded documents.
+\end{itemize}
+
+\subsubsection{Printing Services}
+HCMUT-SSPS provides flexible printing services to meet user preferences. Functional requirements include:
+
+\begin{itemize}
+    \item Selection of printers based on location and availability.
+    \item Specification of printing properties (e.g., paper size, single/double-sided, copies).
+    \item Job queuing and status monitoring.
+\end{itemize}
+
+\subsubsection{Payment Processing}
+The system supports online payment for additional printing pages. Functional requirements encompass:
+
+\begin{itemize}
+    \item Secure payment gateway integration.
+    \item Account balance tracking for students.
+    \item Notifications for low balance and successful transactions.
+\end{itemize}
+
+\subsubsection{Logging and Tracking}
+Comprehensive logging and tracking features ensure accountability. Functional requirements include:
+
+\begin{itemize}
+    \item Logging of all printing actions (e.g., student ID, printer ID, file name, timestamps).
+    \item Accessible printing history for users and administrators.
+\end{itemize}
+
+\subsubsection{Reports and Analytics}
+HCMUT-SSPS generates reports and analytics for informed decision-making. Functional requirements encompass:
+
+\begin{itemize}
+    \item Automated report generation at the end of each month and year.
+    \item Storage of reports for audit and analysis.
+    \item Accessible reports for SPSO and administrators.
+\end{itemize}
+
+\subsubsection{System Administration}
+Administrative tools enable system configuration and management. Functional requirements include:
+
+\begin{itemize}
+    \item Printer management (addition, enabling, disabling).
+    \item Configuration of default printing page limits.
+    \item Configuration of permitted file types.
+\end{itemize}
+
+\subsection{Non-Functional Requirements}
+
+\subsubsection{Performance Requirements}
+HCMUT-SSPS must meet performance expectations. Non-functional requirements include:
+
+\begin{itemize}
+    \item Responsive user interfaces with minimal latency.
+    \item Scalability to handle a large number of users and printing requests.
+    \item Efficient database queries for quick data retrieval.
+\end{itemize}
+
+\subsubsection{Security Requirements}
+Security is paramount for user data and transactions. Non-functional requirements encompass:
+
+\begin{itemize}
+    \item Data encryption during transmission and storage.
+    \item Secure authentication and authorization mechanisms.
+    \item Regular vulnerability assessments and security updates.
+\end{itemize}
+
+\subsubsection{Usability and User Experience}
+The system must offer an intuitive and user-friendly experience. Non-functional requirements include:
+
+\begin{itemize}
+    \item Consistent and aesthetically pleasing user interfaces.
+    \item User training and onboarding materials.
+\end{itemize}
+
+\subsubsection{Reliability and Availability}
+HCMUT-SSPS should be reliable and available when needed. Non-functional
+requirements include:
+
+\begin{itemize}
+    \item High availability with minimal downtime for maintenance.
+    \item Data backup and recovery mechanisms.
+\end{itemize}
+
+\subsubsection{Compatibility and Portability}
+The system should be compatible with various devices and operating systems. Non-functional requirements encompass:
+
+\begin{itemize}
+    \item Cross-browser compatibility for web interfaces.
+    \item Mobile app compatibility with major mobile operating systems (iOS, Android).
+\end{itemize}
+
+\subsubsection{Scalability}
+HCMUT-SSPS should scale efficiently to accommodate growth. Non-functional requirements include:
+
+\begin{itemize}
+    \item Horizontal scalability to add more servers or resources.
+    \item Load balancing to distribute incoming requests evenly.
+\end{itemize}
+
+\subsubsection{Documentation}
+Comprehensive documentation aids in system understanding and maintenance. Non-functional requirements include:
+
+\begin{itemize}
+    \item User documentation for students and administrators.
+    \item Technical documentation for developers and system administrators.
+\end{itemize}
+
+\subsubsection{Regulatory and Compliance}
+The system must adhere to relevant regulations and compliance standards. Non-functional requirements encompass:
+
+\begin{itemize}
+    \item Compliance with data protection and privacy regulations.
+    \item Accessibility standards for users with disabilities.
+\end{itemize}
+
+\subsubsection{Testing and Quality Assurance}
+Rigorous testing and quality assurance are essential for reliability. Non-functional requirements include:
+
+\begin{itemize}
+    \item Testing protocols for functional and non-functional aspects.
+    \item Continuous integration and automated testing.
+\end{itemize}
+
+\subsubsection{Performance Monitoring and Optimization}
+Continuous monitoring and optimization ensure optimal performance. Non-functional requirements include:
+
+\begin{itemize}
+    \item Performance monitoring tools to detect bottlenecks.
+    \item Regular performance optimization based on monitoring results.
+\end{itemize}
+
+\subsection{Additional Requirements}
+
+\subsubsection{Legal and Compliance}
+The system must comply with all applicable laws and regulations, including copyright and intellectual property rights.
+
+\subsubsection{Internationalization and Localization}
+The system should support multiple languages and regions to accommodate a diverse user base.
+
+\subsubsection{User Support and Training}
+User support channels and training materials should be available to assist users in using the system effectively.
+
+\subsubsection{Data Privacy and Security}
+Stringent data privacy and security measures should be in place to protect user data and transactions.
+
+\subsubsection{Emergency Procedures}
+Clear emergency procedures and backup plans should be established to handle unexpected system failures or security breaches.
+
+\subsubsection{Audit Trails}
+The system should maintain detailed audit trails of all user actions and system events for auditing and troubleshooting purposes.
+
+\subsubsection{User Feedback and Improvement}
+Mechanisms for users to provide feedback and suggestions for system improvement should be available and actively encouraged.
+
+\subsubsection{System Maintenance and Updates}
+Regular maintenance and updates should be conducted to ensure the system's optimal performance and security.
+
+\subsubsection{Backup and Disaster Recovery}
+Robust backup and disaster recovery procedures should be in place to safeguard data and ensure rapid recovery in case of data loss or system failure.
+
+\subsubsection{Cost Estimation and Budgeting}
+Detailed cost estimation and budgeting processes should be established to manage the system's operational and maintenance expenses.
+
+\subsubsection{Third-Party Integration}
+The system should support future integration with third-party services and technologies to enhance functionality.
+
+\subsubsection{Environmental Impact}
+Efforts should be made to minimize the system's environmental impact, such as reducing paper waste and energy consumption.
+
+\section{System Architecture}
+   \subsection{High-Level System Architecture}
+   \subsection{Components and Modules}
+   \subsection{Data Flow Diagrams}
+   \subsection{Technology Stack}
+
+\section{User Interfaces}
+   \subsection{User Interface Design}
+   \subsection{Wireframes and Mockups}
+
+\section{Data Management}
+   \subsection{Data Entities and Attributes}
+   \subsection{Data Storage and Retrieval}
+   \subsection{Database Schema}
+
+\section{External Interfaces}
+   \subsection{Third-Party Integrations}
+   \subsection{Payment Gateways}
+   \subsection{Authentication Services}
+   \subsection{Communication Protocols}
+
+\section{Security}
+   \subsection{Authentication and Authorization}
+   \subsection{Data Encryption}
+   \subsection{Vulnerability Assessment}
+   \subsection{Security Compliance}
+
+\section{Testing and Quality Assurance}
+   \subsection{Test Strategy}
+   \subsection{Test Cases}
+   \subsection{Quality Assurance Measures}
+
+\section{Deployment and Release Management}
+   \subsection{Deployment Plan}
+   \subsection{Release Notes}
+
+\section{Maintenance and Support}
+   \subsection{Ongoing Maintenance}
+   \subsection{Bug Tracking and Resolution}
+   \subsection{User Support}
+
+\section{Appendices}
+   \subsection{Glossary}
+   \subsection{User Manuals}
+   \subsection{Change Log}
+
+\end{document}
