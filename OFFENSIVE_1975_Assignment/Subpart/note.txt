@@ -1,0 +1,4 @@
+- getAttackScore()
+- Army::Army()
+- LiberationArmy::fight()
+- xxx::getEffect() -> exp/lf or back to weight
