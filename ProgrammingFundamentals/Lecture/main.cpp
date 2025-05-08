@@ -1,9 +1,8 @@
-#include "MDArray.h"
-
+#include "oop.h"
 
 using namespace std;
 
 
 int main(int argc, char **argv){
-    demo1();
+    demo_5();
 }

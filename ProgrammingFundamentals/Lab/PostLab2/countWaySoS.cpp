@@ -74,7 +74,6 @@ int countWays(int x, int n){
     if(x < 0 || n == 0){
         return 0;
     }
-    
     int square = n * n;
     return countWays(x - square, n - 1) + countWays(x, n - 1);
 }
@@ -84,7 +83,9 @@ int countWaySumOfSquare(int x)
 	/*
 	* STUDENT ANSWER
 	*/
-	if (x <= 0) return 0;
+	if(x <= 0){
+	    return 0;
+	}
 	int maxRoot = (int)sqrt(x);
 	return countWays(x, maxRoot);
 }

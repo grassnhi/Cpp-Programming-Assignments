@@ -67,3 +67,26 @@ int** insertCol(int**& matrix, int r, int c, int* colArr, int col) {
 
     return matrix;
 }
+
+int** insertCol(int**& matrix, int r, int c, int* colArr, int col) {
+    // TODO
+    int** newM = new int*[r];
+    for(int i = 0; i < r; i++){
+        *(newM + i) = new int[c + 1];
+        for(int j = 0; j <= c; j++){
+            if(j < col){
+                *(*(newM + i) + j) = matrix[i][j];
+            }else if(j == col){
+                *(*(newM + i) + j) = colArr[i];
+            }else{
+                *(*(newM + i) + j) = matrix[i][j-1];
+            }
+        }
+    }
+    for(int i = 0; i < r; i++){
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+    matrix = newM;
+    return matrix;
+}

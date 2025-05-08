@@ -9,23 +9,11 @@
 #include <sstream>
 #include <vector>
 
+#include "header.h"
+
 using namespace std;
 
 // --------- POSITION CLASS IMPLEMENTATION ---------
-class Position
-{
-private:
-    int r, c;
-
-public:
-    Position(int r = 0, int c = 0);
-    Position(const string &str_pos); // Example: str_pos = "(1,15)"
-    int getRow() const;
-    int getCol() const;
-    void setRow(int r);
-    void setCol(int c);
-    string str() const; // Example: returns "(1,15)"
-};
 
 Position::Position(int r, int c) : r(r), c(c) {}
 
@@ -56,30 +44,6 @@ string Position::str() const{
 }
 
 // --------- UNIT CLASS IMPLEMENTATION (ABSTRACT) ---------
-class Unit
-{
-protected:
-    int quantity, weight;
-    Position pos;
-
-public:
-    Unit(int quantity, int weight, Position pos);
-    virtual ~Unit();
-    virtual int getAttackScore() = 0; // must be overridden by derived classes
-    Position getCurrentPosition() const;
-    virtual string str() const = 0; // Pure virtual functions cannot have an implementation in the base class
-    
-    int getWeight() const;
-    void setWeight(int w);
-    void reduceWeight(double percent);
-
-    int getQuantity() const;  
-    void setQuantity(int q);
-    void increaseQuantity(int amount); 
-    void reduceQuantity(double percent);
-
-    virtual bool isVehicle() const = 0;
-};
 
 Unit::Unit(int quantity, int weight, Position pos) 
     : quantity(quantity), weight(weight), pos(pos) {}
@@ -143,28 +107,6 @@ public:
 };
 
 // --------- VEHICLE CLASS IMPLEMENTATION ---------
-enum VehicleType
-{
-    TRUCK,
-    MORTAR,
-    ANTIAIRCRAFT,
-    ARMOREDCAR,
-    APC,
-    ARTILLERY,
-    TANK
-};
-
-class Vehicle : public Unit {
-private:
-    VehicleType vehicleType;
-public:
-    Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
-    int getAttackScore() override;
-    string str() const override;
-    VehicleType getVehicleType() const;
-    bool isVehicle() const override;
-};
-
 Vehicle::Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType)
     : Unit(quantity, weight, pos), vehicleType(vehicleType) {}
 
@@ -191,30 +133,6 @@ bool Vehicle::isVehicle() const {
 
 
 // --------- INFANTRY CLASS IMPLEMENTATION ---------
-enum InfantryType
-{
-    SNIPER,
-    ANTIAIRCRAFTSQUAD,
-    MORTARSQUAD,
-    ENGINEER,
-    SPECIALFORCES,
-    REGULARINFANTRY
-};
-
-class Infantry : public Unit {
-private:
-    InfantryType infantryType;
-
-public:
-    Infantry(int quantity, int weight, Position pos, InfantryType infantryType);
-    int getAttackScore() override;
-    string str() const override;
-    InfantryType getInfantryType() const;  // Getter for InfantryType
-    int personalNumber(int score);
-    bool isPerfectSquare(int num);
-    bool isVehicle() const override;
-};
-
 Infantry::Infantry(int quantity, int weight, Position pos, InfantryType infantryType)
         : Unit(quantity, weight, pos), infantryType(infantryType) {}
 
@@ -307,42 +225,7 @@ bool Infantry::isVehicle() const {
 }
 
 // --------- UNITLIST CLASS IMPLEMENTATION (LINKED LIST) ---------
-class UnitNode {
-public:
-    Unit* unit;
-    UnitNode* next;
-    
-    UnitNode(Unit* unit) : unit(unit), next(nullptr) {}
-};
 
-class UnitList
-{
-private:
-    int capacity;
-    // TODO
-    int size;
-    int count_vehicle;
-    int count_infantry;
-    UnitNode* head;
-    UnitNode* tail;
-public:
-    UnitList(int capacity);
-    bool insert(Unit *unit);                   
-    bool isContain(VehicleType vehicleType);   
-    bool isContain(InfantryType infantryType); 
-    string str() const;
-    // TODO
-    ~UnitList();
-    void removeUnit(Unit* unit);
-    void reduceWeight(double percent);
-    void reduceQuantity(double percent);
-    void transferTo(UnitList* otherList);
-
-    UnitNode* getHead() const;
-    int getSize() const;
-
-    bool isSpecialNumber(int S);
-};
 
 UnitList::UnitList(int capacity){
     this->capacity = capacity;
@@ -548,6 +431,17 @@ void UnitList::removeUnit(Unit* unit){
     // cout << "NOT Found!";
 }
 
+void UnitList::removeWeakUnits(){
+    UnitNode* node = head;
+    while (node)
+    {
+        if(node->unit->getAttackScore() <= 5){
+            removeUnit(node->unit);
+        }
+        node = node->next;
+    }
+}
+
 UnitNode* UnitList::getHead() const{
     return this->head;
 }
@@ -593,33 +487,7 @@ void UnitList::transferTo(UnitList* otherList){
 }
 
 // --------- ARMY CLASS IMPLEMENTATION (ABSTRACT) ---------
-class BattleField;
 
-class Army
-{
-protected:
-    int LF, EXP;
-    string name;
-    UnitList *unitList;
-    BattleField *battleField;
-
-public:
-    Army(Unit **unitArray, int size, string name, BattleField *battleField);
-    virtual void fight(Army *enemy, bool defense = false) = 0;
-    virtual string str() const = 0;
-
-    virtual ~Army();
-    virtual bool isLiberation() const = 0;
-
-    int getLF() const;
-    int getEXP() const;
-    void setLF(int value);
-    void setEXP(int value);
-
-    void updateScore();
-
-    UnitList* getUnitList() const;
-};
 
 Army::Army(Unit **unitArray, int size, string name, BattleField *battleField){
     this->name = name;
@@ -697,6 +565,10 @@ UnitList* Army::getUnitList() const{
     return this->unitList;
 }
 
+BattleField* Army::getBattleField() const{
+    return this->battleField;
+}
+
 class Test_army : public Army {
 public:
     Test_army(Unit** unitArray, int size, string name, BattleField* battleField)
@@ -720,18 +592,7 @@ public:
 };
 
 // --------- LIBERATIONARMY CLASS IMPLEMENTATION ---------
-class LiberationArmy : public Army {
-public:
-    LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField);
-    void fight(Army* enemy, bool defense = false) override;
-    string str() const override;
 
-    bool isLiberation() const override;
-
-private:
-    int getNearestFibonacci(int num);
-    bool findSmallest(int target, vector<Unit*>& selectedUnits); 
-};
 
 LiberationArmy::LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField)
                 : Army(unitArray, size, name, battleField) {}
@@ -875,14 +736,7 @@ string LiberationArmy::str() const {
 }
 
 // --------- ARVN CLASS IMPLEMENTATION ---------
-class ARVN : public Army {
-public:
-    ARVN(Unit** unitArray, int size, string name, BattleField* battleField);
-    void fight(Army* enemy, bool defense = false) override;
-    string str() const override;
 
-    bool isLiberation() const override;
-};
 
 ARVN::ARVN(Unit** unitArray, int size, string name, BattleField* battleField)
     : Army(unitArray, size, name, battleField) {}
@@ -929,17 +783,7 @@ string ARVN::str() const {
 }
 
 // --------- TERRAIN ELEMENT CLASS IMPLEMENTATION (ABSTRACT) ---------
-class TerrainElement
-{
-private:
-    Position position;
-public:
-    TerrainElement();
-    TerrainElement(Position pos); 
-    ~TerrainElement();
-    virtual void getEffect(Army *army) = 0;
-    Position getPosition() const;
-};
+
 
 TerrainElement::TerrainElement() {}
 
@@ -952,24 +796,18 @@ Position TerrainElement::getPosition() const {
 }
 
 // --------- INDIVIDUAL TERRAIN CLASSES IMPLEMENTATION ---------
-class Road : public TerrainElement {
-public:
-    Road(Position pos);
-    void getEffect(Army* army) override;
-};
+
 
 Road::Road(Position pos) : TerrainElement(pos) {}
 
 void Road::getEffect(Army* army) {
     // No effect
-    cout << "No effect" << endl;
+    // cout << "No effect" << endl;
 }
 
-class Mountain : public TerrainElement {
-public:
-    Mountain(Position pos);
-    void getEffect(Army* army) override;
-};
+string Road::type() const { 
+    return "Road"; 
+}
 
 Mountain::Mountain(Position pos) : TerrainElement(pos) {}
 
@@ -999,11 +837,9 @@ void Mountain::getEffect(Army* army){
     army->setEXP(max(0, min(500, army->getEXP())));
 }
 
-class River : public TerrainElement {
-public:
-    River(Position pos);
-    void getEffect(Army* army) override;
-};
+string Mountain::type() const { 
+    return "Moun"; 
+}
 
 River::River(Position pos) : TerrainElement(pos) {}
 
@@ -1025,11 +861,9 @@ void River::getEffect(Army* army){
     army->setEXP(max(0, min(500, army->getEXP())));
 }
 
-class Urban : public TerrainElement {
-public:
-    Urban(Position pos);
-    void getEffect(Army* army) override;
-};
+string River::type() const { 
+    return "Rivr"; 
+}
 
 Urban::Urban(Position pos) : TerrainElement(pos) {}
 
@@ -1068,11 +902,9 @@ void Urban::getEffect(Army* army){
     army->setEXP(max(0, min(500, army->getEXP())));
 }
 
-class Fortification : public TerrainElement {
-public:
-    Fortification(Position pos);
-    void getEffect(Army* army) override;
-};
+string Urban::type() const { 
+    return "Urbn"; 
+}
 
 Fortification::Fortification(Position pos) : TerrainElement(pos) {}
 
@@ -1107,11 +939,9 @@ void Fortification::getEffect(Army* army){
     army->setEXP(max(0, min(500, army->getEXP())));
 }
 
-class SpecialZone : public TerrainElement {
-public:
-    SpecialZone(Position pos);
-    void getEffect(Army* army) override;
-};
+string Fortification::type() const { 
+    return "Fort"; 
+}
 
 SpecialZone::SpecialZone(Position pos) : TerrainElement(pos) {}
 
@@ -1135,29 +965,19 @@ void SpecialZone::getEffect(Army* army){
     army->setEXP(max(0, min(500, army->getEXP())));
 }
 
-// --------- BATTLEFIELD CLASS IMPLEMENTATION ---------
-class BattleField
-{
-private:
-    int n_rows, n_cols;
-    // TODO
-    TerrainElement*** terrain;
-public:
-    BattleField(int n_rows, int n_cols, vector<Position *> arrayForest,
-                vector<Position *> arrayRiver, vector<Position *> arrayFortification,
-                vector<Position *> arrayUrban, vector<Position *> arraySpecialZone);
-    ~BattleField();
+string SpecialZone::type() const { 
+    return "Spec"; 
+}
 
-    void replaceTerrain(Position* pos, TerrainElement* newTerrain);
-    void applyTerrainEffects(Army* army);
-    string str() const;
-};
+// --------- BATTLEFIELD CLASS IMPLEMENTATION ---------
+
 
 BattleField::BattleField(int n_rows, int n_cols, vector<Position *> arrayForest,
                 vector<Position *> arrayRiver, vector<Position *> arrayFortification,
                 vector<Position *> arrayUrban, vector<Position *> arraySpecialZone) 
                 : n_rows(n_rows), n_cols(n_cols) 
 {
+    terrain = new TerrainElement**[n_rows];
     for (int i = 0; i < n_rows; ++i) {
         terrain[i] = new TerrainElement*[n_cols];
         for (int j = 0; j < n_cols; ++j) {
@@ -1220,14 +1040,320 @@ void BattleField::applyTerrainEffects(Army* army) {
 
 string BattleField::str() const {
     stringstream ss;
-    ss << "BattleField[n_rows=" << n_rows << ",n_cols=" << n_cols << "]";
+    ss << "BattleField[n_rows=" << n_rows << ",n_cols=" << n_cols << "]" << endl;
 
-    cout << "Just for test: ";
+    cout << "Just for test: " << endl;
     for (int i = 0; i < n_rows; ++i) {
         for (int j = 0; j < n_cols; ++j) {
-            ss << terrain[i][j] << "\t";  // Abbreviated for clarity
+            ss << terrain[i][j]->type() << "\t"; 
         }
         ss << "\n";
     }
     return ss.str();
+}
+
+// --------- CONFIGURATION CLASS IMPLEMENTATION ---------
+void Configuration::extractPosition(const string& data, vector<Position*>& target) {
+    stringstream ss(data);
+    string pos;
+    while (getline(ss, pos, ')')) {
+        if (!pos.empty()) {
+            pos += ")"; // restore the closing parenthesis
+            target.push_back(new Position(pos));
+            ss.ignore(); // skip comma
+        }
+    }
+}
+
+Configuration::Configuration(const string& filepath){
+    ifstream file(filepath.c_str());
+    string line;
+    while (getline(file, line)){
+        if(line.find("NUM_ROWS=") == 0){
+            this->num_rows = stoi(line.substr(9));
+        }else if(line.find("NUM_COLS=") == 0){
+            this->num_cols = stoi(line.substr(9));
+        }else if(line.find("ARRAY_FOREST=") == 0){
+            extractPosition(line.substr(13), this->arrayForest);
+        }else if(line.find("ARRAY_RIVER=") == 0){
+            extractPosition(line.substr(12), this->arrayRiver);
+        }else if(line.find("ARRAY_FORTIFICATION=") == 0){
+            extractPosition(line.substr(21), this->arrayFortification);
+        }else if(line.find("ARRAY_URBAN=") == 0){
+            extractPosition(line.substr(12), this->arrayUrban);
+        }else if(line.find("ARRAY_SPECIAL_ZONE=") == 0){
+            extractPosition(line.substr(20), this->arraySpecialZone);
+        }else if(line.find("UNIT_LIST=") == 0){
+            string unitsStr = line.substr(10); // after UNIT_LIST=
+            unitsStr = unitsStr.substr(1, unitsStr.length() - 2); // remove [ ]
+
+            // cout << "hey: " << unitsStr << endl;
+            
+            vector<string> unitEntries;
+            string current = "";
+            int parenCount = 0;
+            bool tp = false;
+
+            for(int i = 0; i < (int)unitsStr.length(); i++){
+                char ch = unitsStr[i];
+                
+                current += ch;
+
+                if(ch == '('){
+                    parenCount++;
+                    tp = true;
+                }else if(ch == ')'){
+                    parenCount--;
+                }
+
+                // cout << ch << " pa:" << parenCount << " cur:" << current << " tp:" << tp << endl;
+
+                if(parenCount == 0 && !current.empty() && tp){
+                    tp = false;
+                    unitEntries.push_back(current);
+                    // cout << current << ":";
+                    current = "";
+                    if(i+1 < unitsStr.length() && unitsStr[i+1] == ','){
+                        i++;
+                    }
+                }
+            }
+
+            for(int i = 0; i < (int)unitEntries.size(); i++){
+                string entry = unitEntries[i];
+                int pa1 = entry.find('(');
+                int pa2 = entry.find_last_of(')');
+
+                // cout << " halo: " << entry << ": " << pa1 << " - " << pa2;
+
+                if(pa1 == string::npos || pa2 == string::npos){
+                    continue;
+                }
+
+                // cout << "\nhalo: " << entry << ": " << pa1 << " - " << pa2;
+
+                string type = entry.substr(0, pa1);
+                string args = entry.substr(pa1 + 1, pa2 - pa1 - 1);
+
+                // cout << " type: " << type;
+
+                stringstream ss(args);
+                string qua, wei, pos, own;
+                char com;
+
+                getline(ss, qua, ',');
+                getline(ss, wei, ',');
+                getline(ss, pos, ')');
+                pos += ")";
+                ss.ignore(); // skip comma
+                getline(ss, own);
+
+                // cout << " own: " << own;
+
+                int quantity = stoi(qua);
+                int weight = stoi(wei);
+                Position position(pos);
+                int owner = stoi(own);
+
+                // cout << " - " << owner;
+
+                Unit* unit = nullptr;
+
+                if(type == "SNIPER"){
+                    unit = new Infantry(quantity, weight, position, SNIPER);
+                }else if(type == "ANTIAIRCRAFTSQUAD"){
+                    unit = new Infantry(quantity, weight, position, ANTIAIRCRAFTSQUAD);
+                }else if(type == "MORTARSQUAD"){
+                    unit = new Infantry(quantity, weight, position, MORTARSQUAD);
+                }else if(type == "ENGINEER"){
+                    unit = new Infantry(quantity, weight, position, ENGINEER);
+                }else if(type == "SPECIALFORCES"){
+                    unit = new Infantry(quantity, weight, position, SPECIALFORCES);
+                }else if(type == "REGULARINFANTRY"){
+                    unit = new Infantry(quantity, weight, position, REGULARINFANTRY);
+                }else if(type == "TRUCK"){
+                    unit = new Vehicle(quantity, weight, position, TRUCK);
+                }else if(type == "MORTAR"){
+                    unit = new Vehicle(quantity, weight, position, MORTAR);
+                }else if(type == "ANTIAIRCRAFT"){
+                    unit = new Vehicle(quantity, weight, position, ANTIAIRCRAFT);
+                }else if(type == "ARMOREDCAR"){
+                    unit = new Vehicle(quantity, weight, position, ARMOREDCAR);
+                }else if(type == "APC"){
+                    unit = new Vehicle(quantity, weight, position, APC);
+                }else if(type == "ARTILLERY"){
+                    unit = new Vehicle(quantity, weight, position, ARTILLERY);
+                }else if(type == "TANK"){
+                    unit = new Vehicle(quantity, weight, position, TANK);
+                }
+
+                if(unit){
+                    // cout << "Owner: " << owner;
+                    if(owner){
+                        ARVNUnits.push_back(unit);
+                        // cout << " -> ARV okila ";
+                    }else{
+                        liberationUnits.push_back(unit);
+                        // cout << " -> LBR okila ";
+                    }
+                    // cout << endl;
+                }
+            }
+
+            file.close();
+
+        }else if(line.find("EVENT_CODE=") == 0){
+            this->eventCode = stoi(line.substr(11));
+            if(this->eventCode <= 0){
+                this->eventCode = 0;
+            }else{
+                this->eventCode = this->eventCode % 100;
+            }
+        }
+    }
+}
+
+Configuration::~Configuration(){
+    for(int i = 0; i < (int)arrayForest.size(); i++){
+        delete arrayForest[i];
+    }
+    for(int i = 0; i < (int)arrayFortification.size(); i++){
+        delete arrayFortification[i];
+    }
+    for(int i = 0; i < (int)arrayRiver.size(); i++){
+        delete arrayRiver[i];
+    }
+    for(int i = 0; i < (int)arraySpecialZone.size(); i++){
+        delete arraySpecialZone[i];
+    }
+    for(int i = 0; i < (int)arrayUrban.size(); i++){
+        delete arrayUrban[i];
+    }
+
+    for(int i = 0; i < (int)liberationUnits.size(); i++){
+        delete liberationUnits[i];
+    }
+    for(int i = 0; i < (int)ARVNUnits.size(); i++){
+        delete ARVNUnits[i];
+    }
+}
+
+
+int Configuration::getNumRows() const {
+    return num_rows;
+}
+
+int Configuration::getNumCols() const {
+    return num_cols;
+}
+
+const vector<Position*>& Configuration::getArrayForest() const {
+    return arrayForest;
+}
+
+const vector<Position*>& Configuration::getArrayRiver() const {
+    return arrayRiver;
+}
+
+const vector<Position*>& Configuration::getArrayFortification() const {
+    return arrayFortification;
+}
+
+const vector<Position*>& Configuration::getArrayUrban() const {
+    return arrayUrban;
+}
+
+const vector<Position*>& Configuration::getArraySpecialZone() const {
+    return arraySpecialZone;
+}
+
+const vector<Unit*>& Configuration::getLiberationUnits() const {
+    return liberationUnits;
+}
+
+const vector<Unit*>& Configuration::getARVNUnits() const {
+    return ARVNUnits;
+}
+
+int Configuration::getEventCode() const {
+    return eventCode;
+}
+
+string Configuration::str() const {
+    stringstream ss;
+    ss << "Configuration[\n";
+    ss << "NUM_ROWS=" << num_rows << "\n";
+    ss << "NUM_COLS=" << num_cols << "\n";
+    ss << "EVENT_CODE=" << eventCode << "\n";
+    ss << "UNIT_LIST=[";
+    cout << "Size: " << liberationUnits.size() << " - " << ARVNUnits.size() << endl;
+    for (int i = 0; i < (int)liberationUnits.size(); ++i) {
+        ss << liberationUnits[i]->str();
+        if (i < liberationUnits.size() - 1 || !ARVNUnits.empty()) ss << ",";
+    }
+    for (int i = 0; i < (int)ARVNUnits.size(); ++i) {
+        ss << ARVNUnits[i]->str();
+        if (i < ARVNUnits.size() - 1) ss << ",";
+    }
+    ss << "]\n]";
+    return ss.str();
+}
+
+// --------- HCMCAMPAIGN CLASS IMPLEMENTATION ---------
+HCMCampaign::HCMCampaign(const string& config_file_path){
+    this->config = new Configuration(config_file_path);
+
+    this->battleField = new BattleField(  
+        this->config->getNumRows(),
+        this->config->getNumCols(),
+        this->config->getArrayForest(),
+        this->config->getArrayRiver(),
+        this->config->getArrayFortification(),
+        this->config->getArrayUrban(),
+        this->config->getArraySpecialZone()
+    );
+
+    this->liberationArmy = new LiberationArmy(
+        const_cast<Unit**>(this->config->getLiberationUnits().data()),
+        this->config->getLiberationUnits().size(),
+        "LiberationArmy",
+        this->battleField
+    );
+
+    this->ARVNArmy = new ARVN(
+        const_cast<Unit**>(this->config->getARVNUnits().data()),
+        this->config->getARVNUnits().size(),
+        "ARVN",
+        this->battleField
+    );
+}
+
+HCMCampaign::~HCMCampaign() {
+    delete liberationArmy;
+    delete ARVNArmy;
+    delete battleField;
+    delete config;
+}
+
+void HCMCampaign::run() {
+    this->battleField->applyTerrainEffects(liberationArmy);
+    this->battleField->applyTerrainEffects(ARVNArmy);
+
+    if(this->config->getEventCode() < 75){
+        liberationArmy->fight(ARVNArmy, false);  // attacker
+        ARVNArmy->fight(liberationArmy, true);   // defender
+    }else{
+        ARVNArmy->fight(liberationArmy, false);  // attacker
+        liberationArmy->fight(ARVNArmy, true);   // counterattack
+    }
+
+    liberationArmy->getUnitList()->removeWeakUnits();
+    ARVNArmy->getUnitList()->removeWeakUnits();
+}
+
+string HCMCampaign::printResult(){
+    return "LIBERATIONARMY[LF=" + to_string(liberationArmy->getLF()) +
+           ",EXP=" + to_string(liberationArmy->getEXP()) + "] - " +
+           "ARVNArmy[LF=" + to_string(ARVNArmy->getLF()) +
+           ",EXP=" + to_string(ARVNArmy->getEXP()) + "]";
 }

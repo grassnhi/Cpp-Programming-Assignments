@@ -62,3 +62,29 @@ bool deleteRow(int**& matrix, int r, int c, int row) {
     
     return true;
 }
+
+bool deleteRow(int**& matrix, int r, int c, int row) {
+    // TODO
+    if(r <= 0 || c <= 0 || row < 0 || row >= r){
+        return false;
+    }
+    if (r == 1) {
+        delete[] matrix[0];  
+        delete[] matrix; 
+        matrix = nullptr;
+        return true; 
+    }
+    int** newM = new int*[r-1];
+    for(int i = 0; i < r; i++){
+        *(newM + i) = new int[c];
+        if(i < row){
+            *(newM + i) = matrix[i];
+        }else if(i > row){
+            *(newM + i - 1) = matrix[i];
+        }
+    }
+    
+    matrix = newM;
+    
+    return true;
+}

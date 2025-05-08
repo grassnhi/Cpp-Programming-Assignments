@@ -1,22 +1,15 @@
-/*
- * Ho Chi Minh City University of Technology
- * Faculty of Computer Science and Engineering
- * Initial code for Assignment 2
- * Programming Fundamentals Spring 2025
- * Date: 02.02.2025
- */
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <cstring>
+#include <climits>
+#include <cassert>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
 
-// The library here is concretely set, students are not allowed to include any other libraries.
-#ifndef _H_HCM_CAMPAIGN_H_
-#define _H_HCM_CAMPAIGN_H_
-
-#include "main.h"
-
-////////////////////////////////////////////////////////////////////////
-/// STUDENT'S ANSWER BEGINS HERE
-/// Complete the following functions
-/// DO NOT modify any parameters in the functions.
-////////////////////////////////////////////////////////////////////////
+using namespace std;
 
 // Forward declaration
 class Unit;
@@ -332,5 +325,3 @@ public:
     void run();
     string printResult();
 };
-
-#endif

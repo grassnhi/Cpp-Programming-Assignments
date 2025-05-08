@@ -795,6 +795,10 @@ void field_demo() {
 
     cout << bf->str();  // Full terrain map
 
+    cout << "Score: " << army->getEXP() << " - " << army->getLF() << endl;
+
+    cout << army->getBattleField()->str();
+
     // Clean up manually allocated positions
     for (auto p : forests) delete p;
     for (auto p : rivers) delete p;
@@ -805,8 +809,66 @@ void field_demo() {
     delete bf;
 }
 
+void config_demo() {
+    Configuration config("config.txt");
+
+    cout << "\n===== Configuration File Test =====" << endl;
+    cout << "Rows: " << config.getNumRows() << endl;
+    cout << "Cols: " << config.getNumCols() << endl;
+    cout << "Event Code: " << config.getEventCode() << endl;
+
+    cout << "Forest Positions: ";
+    for (size_t i = 0; i < config.getArrayForest().size(); ++i) {
+        cout << config.getArrayForest()[i]->str() << endl;
+    }
+
+    cout << "River Positions: ";
+    for (size_t i = 0; i < config.getArrayRiver().size(); ++i) {
+        cout << config.getArrayRiver()[i]->str() << endl;
+    }
+
+    cout << "Fortification Positions: ";
+    for (size_t i = 0; i < config.getArrayFortification().size(); ++i) {
+        cout << config.getArrayFortification()[i]->str() << endl;
+    }
+
+    cout << "Urban Positions: " ;
+    for (size_t i = 0; i < config.getArrayUrban().size(); ++i) {
+        cout << config.getArrayUrban()[i]->str() << endl;
+    }
+
+    cout << "Special Zone Positions: ";
+    for (size_t i = 0; i < config.getArraySpecialZone().size(); ++i) {
+        cout << config.getArraySpecialZone()[i]->str() << endl;
+    }
+
+    cout << "LBAUnit : " ;
+    for (size_t i = 0; i < config.getLiberationUnits().size(); ++i) {
+        cout << config.getLiberationUnits()[i]->str() << endl;
+    }
+
+    cout << "ARNUnit: ";
+    for (size_t i = 0; i < config.getARVNUnits().size(); ++i) {
+        cout << config.getARVNUnits()[i]->str() << endl;
+    }
+
+    cout << "Config: " << config.str() << endl;
+
+    cout << "\n===== End of Configuration Test =====" << endl;
+}
+
+void hcmc_demo() {
+    HCMCampaign campaign("config.txt");
+
+    campaign.run();
+
+    cout << campaign.printResult() << endl;
+}
+
+
 // Main
 int main(int argc, const char * argv[]){
-    field_demo();
+    config_demo();
+    hcmc_demo();
     return 0;
 }
