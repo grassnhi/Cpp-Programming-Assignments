@@ -316,6 +316,7 @@ public:
     string str() const;
 
     void extractPosition(const string& data, vector<Position*>& target);
+    string printPositions(const string& label, const vector<Position*>& positions) const;
 };
 
 class HCMCampaign

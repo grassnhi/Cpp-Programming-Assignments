@@ -592,8 +592,6 @@ public:
 };
 
 // --------- LIBERATIONARMY CLASS IMPLEMENTATION ---------
-
-
 LiberationArmy::LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField)
                 : Army(unitArray, size, name, battleField) {}
 
