@@ -3,32 +3,17 @@
 
 #include "Army.h"
 
-class LiberationArmy : public Army
-{
-private:
-    Unit **unitArray;       // For temporary
-    // * Hint: Bạn có thể thêm hoặc thay thế các phương thức khác để truy cập các thành viên riêng tư nếu cần thiết.
-    int nearestFibonacci(int value);
-    vector<Unit*> knapsack(vector<Unit*> units, int maxScore);
-    Unit* cloneUnit(Unit* unit);
-    
-
+class LiberationArmy : public Army {
 public:
-    LiberationArmy(Unit **unitArray, int size, string name, BattleField *battleField);
-    void fight(Army *enemy, bool defense) override;
+    LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField);
+    void fight(Army* enemy, bool defense = false) override;
     string str() const override;
 
-    // * Hint: Bạn có thể thêm hoặc thay thế các phương thức khác để truy cập các thành viên riêng tư nếu cần thiết.
-    int getLF() {
-        return this->LF;
-    }
-    int getEXP() {
-        return this->EXP;
-    }
+    bool isLiberation() const override;
 
-    void checkRange(int& num, int MAX){
-        num = std::max(0, std::min(num, MAX));
-    }
+private:
+    int getNearestFibonacci(int num);
+    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 };
 
 #endif

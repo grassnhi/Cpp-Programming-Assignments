@@ -4,18 +4,29 @@
 //! Lớp Position
 //!----------------------------------------------
 Position::Position(int r, int c) : r(r), c(c) {}
+
 Position::Position(const string &str_pos) {
+    char dummy;
+    stringstream ss(str_pos);
+    ss >> dummy >> this->r >> dummy >> this->c >> dummy;
 }
-int Position::getRow() const { return r; }
-int Position::getCol() const { return c; }
-void Position::setRow(int r) { 
-    this->r = std::max(0, r);
+
+int Position::getRow() const{
+    return this->r;
 }
-void Position::setCol(int c) { 
-    this->c = std::max(0, c);
+
+int Position::getCol() const{
+    return this->c;
 }
-string Position::str() const {
-    stringstream ss;
-    ss << "(" << r << "," << c << ")";
-    return ss.str();
+
+void Position::setRow(int r){
+    this->r = r;
+}
+
+void Position::setCol(int c){
+    this->c = c;
+}
+
+string Position::str() const{
+    return "(" + to_string(this->r) + "," + to_string(this->c) + ")";
 }

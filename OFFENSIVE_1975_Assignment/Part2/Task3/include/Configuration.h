@@ -11,34 +11,33 @@
 //!-----------------------------------------------------
 class Configuration {
 private:
-    int num_rows;
-    int num_cols;
-    vector<Position*> arrayForest;
-    vector<Position*> arrayRiver;
-    vector<Position*> arrayFortification;
-    vector<Position*> arrayUrban;
-    vector<Position*> arraySpecialZone;
-    // Các mảng đơn vị quân được để trống (stub) trong phần hiện thực mẫu
-    vector<Unit*> liberationUnits;
-    vector<Unit*> ARVNUnits;
-    
+    int num_rows, num_cols;
+    vector<Position*> arrayForest, arrayRiver, arrayFortification, arrayUrban, arraySpecialZone;
+    vector<Unit*> liberationUnits, ARVNUnits;
     int eventCode;
+
 public:
-    Configuration(const string & filepath);
+    Configuration(const string& filepath);
     ~Configuration();
-    string str() const;
+
+    int getNumRows() const;
+    int getNumCols() const;
+
+    const vector<Position*>& getArrayForest() const;
+    const vector<Position*>& getArrayRiver() const;
+    const vector<Position*>& getArrayFortification() const;
+    const vector<Position*>& getArrayUrban() const;
+    const vector<Position*>& getArraySpecialZone() const;
+
+    const vector<Unit*>& getLiberationUnits() const;
+    const vector<Unit*>& getARVNUnits() const;
+
+    int getEventCode() const;
     
-    // Hint: You can add more or other methods to access the private members if needed.
-    int getNumRows() const { return num_rows; }
-    int getNumCols() const { return num_cols; }
-    const vector<Position*>& getForestPositions() const { return arrayForest; }
-    const vector<Position*>& getRiverPositions() const { return arrayRiver; }
-    const vector<Position*>& getFortificationPositions() const { return arrayFortification; }
-    const vector<Position*>& getUrbanPositions() const { return arrayUrban; }
-    const vector<Position*>& getSpecialZonePositions() const { return arraySpecialZone; }
-    int getEventCode() const { return eventCode; }
-    vector<Unit*>& getLiberationUnits() { return liberationUnits; }
-    vector<Unit*>& getARVNUnits() { return ARVNUnits; }
+    string str() const;
+
+    void extractPosition(const string& data, vector<Position*>& target);
+    string printPositions(const string& label, const vector<Position*>& positions) const;
 };
 
 #endif

@@ -10,12 +10,14 @@ private:
 
 public:
     Position(int r = 0, int c = 0);
-    Position(const string &str_pos);
+    Position(const string &str_pos); // Example: str_pos = "(1,15)"
     int getRow() const;
     int getCol() const;
     void setRow(int r);
     void setCol(int c);
-    string str() const;
+    string str() const; // Example: returns "(1,15)"
 };
+
+
 
 #endif // POSITION_H

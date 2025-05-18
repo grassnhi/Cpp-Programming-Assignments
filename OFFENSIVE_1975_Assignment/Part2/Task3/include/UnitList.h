@@ -3,26 +3,42 @@
 
 #include "Infantry.h"
 #include "Vehicle.h"
+#include "Unit.h"
+
+class UnitNode {
+public:
+    Unit* unit;
+    UnitNode* next;
+    
+    UnitNode(Unit* unit) : unit(unit), next(nullptr) {}
+};
 
 class UnitList
 {
 private:
-    // Your implement
-
+    int capacity;
+    // TODO
+    int size;
+    int count_vehicle;
+    int count_infantry;
+    UnitNode* head;
+    UnitNode* tail;
 public:
     UnitList(int capacity);
-    bool insert(Unit *unit);
-    bool isContain(VehicleType vehicleType);
-    bool isContain(InfantryType infantryType);
-    //vector<Unit *> getUnits() const;
+    bool insert(Unit *unit);                   
+    bool isContain(VehicleType vehicleType);   
+    bool isContain(InfantryType infantryType); 
     string str() const;
-    void reduceQuantity(int percent);
-    void reduceWeight(int percent);
-    void clear() {}
-    void setUnits(vector<Unit *> units);
-    void remove(Unit *unit);
-    vector<Unit *>& getUnits();
-    void removeUnits(vector<Unit*>& unitsToRemove);
+    // TODO
+    ~UnitList();
+    void removeUnit(Unit* unit);
+    void removeWeakUnits();
+    void reduceWeight(double percent);
+    void reduceQuantity(double percent);
+    void transferTo(UnitList* otherList);
+
+    UnitNode* getHead() const;
+    int getSize() const;
 };
 
 #endif

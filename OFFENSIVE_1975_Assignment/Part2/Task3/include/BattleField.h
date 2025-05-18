@@ -10,22 +10,24 @@ class TerrainElement; // Forward declaration
 //!-----------------------------------------------------
 //! CLASS BattleField
 //!-----------------------------------------------------
-class BattleField {
+
+class BattleField
+{
 private:
     int n_rows, n_cols;
-    // 2D mảng chứa con trỏ đến các đối tượng TerrainElement
-    TerrainElement ***terrain;
+    // TODO
+    TerrainElement*** terrain;
 public:
-    // Constructor nhận các vector vị trí của các yếu tố địa hình
-    BattleField(int n_rows, int n_cols, const vector<Position*>& arrayForest,
-                const vector<Position*>& arrayRiver, const vector<Position*>& arrayFortification,
-                const vector<Position*>& arrayUrban, const vector<Position*>& arraySpecialZone);
+    BattleField(int n_rows, int n_cols, vector<Position *> arrayForest,
+                vector<Position *> arrayRiver, vector<Position *> arrayFortification,
+                vector<Position *> arrayUrban, vector<Position *> arraySpecialZone);
     ~BattleField();
-    
+
+    void replaceTerrain(Position* pos, TerrainElement* newTerrain);
+    void applyTerrainEffects(Army* army);
     // Trả về đối tượng TerrainElement tại vị trí (r,c)
     TerrainElement* getElement(int r, int c) const;
-    
-    // Hàm str để biểu diễn thông tin của BattleField
+
     string str() const;
 };
 
