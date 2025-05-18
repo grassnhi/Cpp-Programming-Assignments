@@ -19,6 +19,9 @@ UnitList::~UnitList(){
 }
 
 bool UnitList::insert(Unit *unit){
+    if(unit == nullptr){
+        return false;
+    }
     bool isVehicle = unit->isVehicle();
     bool isInfantry = !isVehicle;
 
@@ -37,7 +40,7 @@ bool UnitList::insert(Unit *unit){
                 // cout << " =>> " << existVeh->getQuantity();
                 
                 existVeh->getAttackScore(); 
-                return true;
+                return false;
             }
         } else if (isInfantry) {
             Infantry* existInf = dynamic_cast<Infantry*>(temp->unit);
@@ -50,7 +53,7 @@ bool UnitList::insert(Unit *unit){
                 cout << existInf->str();
                 existInf->getAttackScore(); //252
                 cout << " => " << existInf->str() << endl;
-                return true;
+                return false;
             }
         }
         temp = temp->next;
