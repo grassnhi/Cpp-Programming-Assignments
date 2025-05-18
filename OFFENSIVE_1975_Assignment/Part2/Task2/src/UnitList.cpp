@@ -43,11 +43,13 @@ bool UnitList::insert(Unit *unit){
             Infantry* existInf = dynamic_cast<Infantry*>(temp->unit);
             Infantry* newInf = dynamic_cast<Infantry*>(unit);
             if (existInf && newInf && existInf->getInfantryType() == newInf->getInfantryType()) {
-                // cout << "I Existed! ";
-                // cout << existInf->getQuantity() << " - " << newInf->getQuantity();
+                cout << "I Existed! ";
+                cout << existInf->getQuantity() << " + " << newInf->getQuantity();
                 existInf->increaseQuantity(unit->getQuantity());
-                // cout << " =>> " << existInf->getQuantity();
-                existInf->getAttackScore(); 
+                cout << " = " << existInf->getQuantity() << endl;
+                cout << existInf->str();
+                existInf->getAttackScore(); //252
+                cout << " => " << existInf->str() << endl;
                 return true;
             }
         }
@@ -79,8 +81,9 @@ bool UnitList::insert(Unit *unit){
     else if(isVehicle){
         count_vehicle++;
     }
-
+    // cout << "Add new: " << unit->str() + " -> ";
     unit->getAttackScore();
+    // cout << unit->str() << endl;
     
     return true;
 }
@@ -142,11 +145,11 @@ void UnitList::removeUnit(Unit* unit){
             
             if (unit->isVehicle()){
                 count_vehicle--;
-                cout << "Found vehicle!";
+                // cout << "Found vehicle!";
             }
             else{
                 count_infantry--;
-                cout << "Found infantry!";
+                // cout << "Found infantry!";
             }
             if(prev){
                 prev->next = curr->next;
@@ -156,7 +159,7 @@ void UnitList::removeUnit(Unit* unit){
             if(curr == tail){
                 this->tail = prev;
             }
-            cout << " remove: " << curr->unit->str() << endl;
+            // cout << " remove: " << curr->unit->str() << endl;
             delete curr;
             this->size--;
             return;
@@ -216,8 +219,11 @@ void UnitList::transferTo(UnitList* otherList){
     for (int i = 0; i < (int)units.size(); ++i) {
         int idx = units.size() - 1 - i;
         otherList->insert(units[idx]);
+        cout << "Insert + Remove: " << units[idx]->str() << endl;
         removeUnit(units[idx]);
     }
+
+    cout << this->str() << endl;
 
     head = tail = nullptr;
     size = 0;

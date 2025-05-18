@@ -458,6 +458,7 @@ bool UNIT_TEST_Task2::Task212()
     Army* enemy = new ARVN(unitArray2, 4, "EnemyArmy212");
     
     //! process ---------------------------------
+    string result = attacker->str() + "\n";
 
     attacker->fight(enemy, false);
     UnitNode* current = attacker->getUnitList()->getHead();
@@ -474,12 +475,12 @@ bool UNIT_TEST_Task2::Task212()
         current = current->next;
         ++i;
     }
-    string result = "";
-    result = "* After fight *\n" + attacker->str() + "\n";
+    
+    result += "* After fight *\n" + attacker->str() + "\n";
     result += "New_LF = " + to_string(attacker->getLF()) + "\nNew_EXP = " + to_string(attacker->getEXP());
 
     //! expect ----------------------------------
-    string expect = "* After fight *\nLiberationArmy[LF=62,EXP=181,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=MORTARSQUAD,quantity=2,weight=1,position=(3,4)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=4,weight=1,position=(3,3)],Infantry[infantryType=SNIPER,quantity=7,weight=1,position=(1,2)],Vehicle[vehicleType=TANK,quantity=3,weight=3,position=(3,1)]]]\nNew_LF = 62\nNew_EXP = 181";
+    string expect = "LiberationArmy[LF=61,EXP=233,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=1,position=(1,3)],Infantry[infantryType=SNIPER,quantity=5,weight=1,position=(1,2)],Vehicle[vehicleType=TANK,quantity=3,weight=1,position=(1,1)]]]\n* After fight *\nLiberationArmy[LF=62,EXP=181,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=MORTARSQUAD,quantity=2,weight=1,position=(3,4)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=4,weight=1,position=(3,3)],Infantry[infantryType=SNIPER,quantity=7,weight=1,position=(1,2)],Vehicle[vehicleType=TANK,quantity=3,weight=3,position=(3,1)]]]\nNew_LF = 62\nNew_EXP = 181";
 
     //! output ----------------------------------
     stringstream output;
@@ -512,6 +513,8 @@ bool UNIT_TEST_Task2::Task213()
     unitArray2[0] = &v2;
     unitArray2[1] = &i2;
     Army* enemy = new ARVN(unitArray2, 2, "EnemyArmy213");
+
+    // cout << attacker->str() << endl;
     
     //! process ---------------------------------
     attacker->fight(enemy, false);
@@ -602,14 +605,15 @@ bool UNIT_TEST_Task2::Task215()
     unitArray2[1] = &i2;
     Army* enemy = new ARVN(unitArray2, 2, "EnemyArmy215");
 
+    string result = attacker->str() + "\n";
     //! process ---------------------------------
     attacker->fight(enemy, true);
-    string result = "New_LF = " + to_string(attacker->getLF()) + "\nNew_EXP = " + to_string(attacker->getEXP());
-
+    result += "New_LF = " + to_string(attacker->getLF()) + "\nNew_EXP = " + to_string(attacker->getEXP());
+    result += "\n" + attacker->str();
     //! expect ----------------------------------
 
-    string expect = "New_LF = 75\nNew_EXP = 171";
-
+    string expect = "LiberationArmy[LF=76,EXP=171,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=ENGINEER,quantity=3,weight=1,position=(1,2)],Vehicle[vehicleType=TANK,quantity=112,weight=4,position=(1,1)]]]\nNew_LF = 75\nNew_EXP = 171";
+    expect += "\nLiberationArmy[LF=75,EXP=171,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=ENGINEER,quantity=3,weight=1,position=(1,2)],Vehicle[vehicleType=TANK,quantity=101,weight=4,position=(1,1)]]]";
     //! output ----------------------------------
     stringstream output;
     output << result;

@@ -20,7 +20,7 @@ private:
     VehicleType vehicleType;
 public:
     Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
-    int getAttackScore() override;
+    int getAttackScore(bool donoth = false) override;
     string str() const override;
     VehicleType getVehicleType() const;
     bool isVehicle() const override;

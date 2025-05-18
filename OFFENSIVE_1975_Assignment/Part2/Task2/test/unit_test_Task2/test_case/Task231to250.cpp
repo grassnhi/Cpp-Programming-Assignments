@@ -10,6 +10,9 @@ bool UNIT_TEST_Task2::Task231() {
     bool result = list.insert(&soldier);
    
     for (int i = 0; i < 20; i++) countFalse += list.insert(&soldier);
+
+    cout << result << endl;
+    cout << countFalse << endl;
     
     //! expect ----------------------------------
     string expect = "10";

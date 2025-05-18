@@ -19,7 +19,7 @@ private:
 
 public:
     Infantry(int quantity, int weight, Position pos, InfantryType infantryType);
-    int getAttackScore() override;
+    int getAttackScore(bool donoth = false) override;
     string str() const override;
     InfantryType getInfantryType() const;  // Getter for InfantryType
     int personalNumber(int score);

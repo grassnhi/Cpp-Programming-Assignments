@@ -59,21 +59,20 @@ Army::Army(Unit **unitArray, int size, string name/*, BattleField *battleField*/
     this->LF = 0;
     this->EXP = 0;
 
-    for(int i = 0; i < size; i++){
-        if(unitArray[i]->isVehicle()){
-            int debug = unitArray[i]->getAttackScore();
-            this->LF += debug;
-            cout << i << ": " << debug << " / " << endl;
-
-            // this->LF += unitArray[i]->getAttackScore();
-            
+    Unit** copyArray = new Unit*[size];
+    for (int i = 0; i < size; i++) {
+        if (unitArray[i]->isVehicle()) {
+            copyArray[i] = new Vehicle(*(Vehicle*)unitArray[i]);  
         } else {
-            int debug = unitArray[i]->getAttackScore();
-            this->EXP += debug;
-            cout << i << ": " << debug << " / " << endl;
+            copyArray[i] = new Infantry(*(Infantry*)unitArray[i]);  
+        }
+    }
 
-            // this->EXP += unitArray[i]->getAttackScore();
-
+    for (int i = 0; i < size; i++) {
+        if (copyArray[i]->isVehicle()) {
+            this->LF += copyArray[i]->getAttackScore();  
+        } else {
+            this->EXP += copyArray[i]->getAttackScore();
         }
     }
 
@@ -81,16 +80,16 @@ Army::Army(Unit **unitArray, int size, string name/*, BattleField *battleField*/
     this->EXP = min(this->EXP, 500);
 
     int S = this->LF + this->EXP;
-    cout << " S = " << S << endl;
+    // cout << " S = " << S << endl;
     int capacity = isSpecialNumber(S) ? 12 : 8;
 
     this->unitList = new UnitList(capacity); 
     // Khúc này bug vì cái size nè
-    // cout << "Create " << endl;
+    cout << "Create " << endl;
     for(int i = 0; i < size; i++){
         // cout << "Insert ";
         this->unitList->insert(unitArray[i]);
-        // cout << unitArray[i]->str() << " ";
+        // cout << unitArray[i]->str() << endl;
         // if(unitArray[i]->isVehicle()){
             
         //     this->LF += unitArray[i]->getAttackScore();
@@ -101,6 +100,11 @@ Army::Army(Unit **unitArray, int size, string name/*, BattleField *battleField*/
         // }
         // cout << "done " << endl;
     }
+
+    for (int i = 0; i < size; i++) {
+        delete copyArray[i];
+    }
+    delete[] copyArray;
 }
 
 Army::~Army(){
@@ -138,12 +142,13 @@ void Army::updateScore(){
     while (temp)
     {
         if(temp->unit->isVehicle()){
-            // cout << "\nveh attack:";
+            cout << "\nveh attack:";
             this->LF += temp->unit->getAttackScore();
-            // cout << " lf " << this->LF;
+            cout << " lf " << this->LF;
         }else{
-            // cout << "\ninf attack:";
+            cout << "\ninf attack:";
             this->EXP += temp->unit->getAttackScore();
+            cout << " exp " << this->EXP;
         }
         temp = temp->next;
     }

@@ -30,7 +30,8 @@ bool LiberationArmy::findSmallest(int target, vector<Unit*>& selectedUnits, bool
     for (int i = 0; i < (int)thisUnits.size() - 1; i++)
     {
         for (int j = 0; j < (int)thisUnits.size() - i - 1; j++){
-            if(thisUnits[j]->getAttackScore() > thisUnits[j+1]->getAttackScore()){
+            if(thisUnits[j]->getAttackScore(true) > thisUnits[j+1]->getAttackScore(true)){
+                // cout << thisUnits[j]->str() << endl;
                 Unit* temp = thisUnits[j];
                 thisUnits[j] = thisUnits[j+1];
                 thisUnits[j+1] = temp;
@@ -51,15 +52,17 @@ bool LiberationArmy::findSmallest(int target, vector<Unit*>& selectedUnits, bool
         vector<Unit*> group;
 
         for(int j = i; j < (int)thisUnits.size(); j++){
-            sum += thisUnits[j]->getAttackScore();
+            cout << "CK: " << thisUnits[j]->str() << " -> ";
+            sum += thisUnits[j]->getAttackScore(true);
+            cout << thisUnits[j]->str() << endl;
             group.push_back(thisUnits[j]);
             
             if(sum >= target){
-                cout << " sum: " << sum << " tar: " << target;
+                // cout << " sum: " << sum << " tar: " << target;
                 if(sum < bestScore){
                     bestScore = sum;
                     bestGroup = group;
-                    cout << " best score: " << bestScore;
+                    // cout << " best score: " << bestScore;
                 }
                 break;
             }
@@ -108,7 +111,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
                 temp->unit->increaseQuantity(newQuantity);
                 temp = temp->next;
             }
-            updateScore();
+            // updateScore();
 
             // Continue ??? Again ???
             // if (this->LF < enemy->getLF() || this->EXP < enemy->getEXP()) {
@@ -119,7 +122,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
             //     return;
             // }
         }
-        
+        updateScore();
     }else{
         cout << "Defense = false: ";
         this->EXP = ceil(this->EXP*1.5);

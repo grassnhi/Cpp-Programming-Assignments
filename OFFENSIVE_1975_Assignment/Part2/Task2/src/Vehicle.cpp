@@ -6,7 +6,7 @@
 Vehicle::Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType)
     : Unit(quantity, weight, pos), vehicleType(vehicleType) {}
 
-int Vehicle::getAttackScore(){
+int Vehicle::getAttackScore(bool donoth){
     // string vehicleTypeStr;
     // switch (vehicleType) {
     //     case TRUCK: vehicleTypeStr = "TRUCK"; break;
