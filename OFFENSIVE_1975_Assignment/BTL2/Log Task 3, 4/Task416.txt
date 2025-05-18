@@ -1,0 +1,806 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+LF: 620
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 6
+weight: 2
+attackScore lúc đầu: 292
+số cá nhân: 8
+quantity sau khi tăng 20%: 8
+attackScore tính lại: 296
+Tổng số lượng: 8
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 296
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 11
+weight: 2
+attackScore lúc đầu: 302
+số cá nhân: 9
+quantity sau khi tăng 20%: 14
+attackScore tính lại: 308
+Tổng số lượng: 14
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 308
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 17
+weight: 2
+attackScore lúc đầu: 314
+số cá nhân: 3
+attackScore tính lại: 314
+Tổng số lượng: 17
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 314
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 20
+weight: 2
+attackScore lúc đầu: 320
+số cá nhân: 9
+quantity sau khi tăng 20%: 24
+attackScore tính lại: 328
+Tổng số lượng: 24
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 328
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 27
+weight: 2
+attackScore lúc đầu: 334
+số cá nhân: 5
+attackScore tính lại: 334
+Tổng số lượng: 27
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 334
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 30
+weight: 2
+attackScore lúc đầu: 340
+số cá nhân: 2
+quantity sau khi giảm 10%: 27
+attackScore tính lại: 334
+Tổng số lượng: 27
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 334
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 30
+weight: 2
+attackScore lúc đầu: 340
+số cá nhân: 2
+quantity sau khi giảm 10%: 27
+attackScore tính lại: 334
+Tổng số lượng: 27
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 334
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 30
+weight: 2
+attackScore lúc đầu: 340
+số cá nhân: 2
+quantity sau khi giảm 10%: 27
+attackScore tính lại: 334
+Tổng số lượng: 27
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 334
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 30
+weight: 2
+attackScore lúc đầu: 340
+số cá nhân: 2
+quantity sau khi giảm 10%: 27
+attackScore tính lại: 334
+Tổng số lượng: 27
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 334
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 4
+weight: 5
+attackScore: 62
+Tổng số lượng: 4
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 6
+weight: 5
+attackScore: 62
+Tổng số lượng: 6
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 8
+weight: 5
+attackScore: 63
+Tổng số lượng: 8
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 10
+weight: 5
+attackScore: 63
+Tổng số lượng: 10
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 12
+weight: 5
+attackScore: 63
+Tổng số lượng: 12
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 14
+weight: 5
+attackScore: 64
+Tổng số lượng: 14
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 16
+weight: 5
+attackScore: 64
+Tổng số lượng: 16
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 18
+weight: 5
+attackScore: 64
+Tổng số lượng: 18
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Tổng số lượng: 20
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 65
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 5
+attackScore: 62
+LF: 620
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 4
+weight: 5
+attackScore: 62
+Tổng số lượng: 4
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 6
+weight: 5
+attackScore: 62
+Tổng số lượng: 6
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 8
+weight: 5
+attackScore: 63
+Tổng số lượng: 8
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 10
+weight: 5
+attackScore: 63
+Tổng số lượng: 10
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 12
+weight: 5
+attackScore: 63
+Tổng số lượng: 12
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 63
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 14
+weight: 5
+attackScore: 64
+Tổng số lượng: 14
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 16
+weight: 5
+attackScore: 64
+Tổng số lượng: 16
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 18
+weight: 5
+attackScore: 64
+Tổng số lượng: 18
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 64
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Tổng số lượng: 20
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 65
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (5,5)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (5,6)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (6,5)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (6,6)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (15,15)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (15,16)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (16,15)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 620
+River::getEffect()---------------------------
+Vị trí địa hình: (1,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (2,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (3,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (4,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (10,1)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (10,2)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (7,7)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (7,8)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (8,7)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (8,8)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (10,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (10,11)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (11,10)
+Quân đội: LiberationArmy
+LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)],Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(19,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Áp dụng hiệu ứng địa hình cho ARVN
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (5,5)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (5,6)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (6,5)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (6,6)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (15,15)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (15,16)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (16,15)
+Quân đội ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 620
+River::getEffect()---------------------------
+Vị trí địa hình: (1,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (2,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (3,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (4,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (10,1)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+River::getEffect()---------------------------
+Vị trí địa hình: (10,2)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (7,7)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (7,8)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (8,7)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (8,8)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (10,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (10,11)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (11,10)
+Quân đội: ARVN
+ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Sự kiện: 65
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 930
+EXP * 1.5: 500
+Có combo A
+Combo A bao gồm: 
+Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)]
+Liber LF: 930 > Enemy LF:620
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 27
+weight: 2
+attackScore lúc đầu: 334
+số cá nhân: 5
+attackScore tính lại: 334
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Xoá Vehicle: UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=2,position=(1,2)]]
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 27
+weight: 2
+attackScore lúc đầu: 334
+số cá nhân: 5
+attackScore tính lại: 334
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 27
+weight: 2
+attackScore lúc đầu: 334
+số cá nhân: 5
+attackScore tính lại: 334
+Xoá Infantry: UnitList[count_vehicle=0;count_infantry=0]
+Trưng dụng lại quân địch: 
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]
+ARVN: ARVN[LF=620,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+LiberationArmy: LiberationArmy[LF=620,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+LF: 65
+EXP: 0
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Đã thua trận, giảm 20% trọng số của đơn vị còn lại.
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=65,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=20,weight=5,position=(1,1)]],battleField=BattleField[n_rows=20,n_cols=20]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 20
+weight: 5
+attackScore: 65
+LF: 65
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=20,n_cols=20]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

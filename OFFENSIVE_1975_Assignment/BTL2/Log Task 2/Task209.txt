@@ -1,0 +1,32 @@
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 48
+New Score: 48
+
+========== Vehicle ==========
+New Score: 62
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 90
+New Score: 90
+
+LiberationArmy before Fight:
+LiberationArmy[LF=1,EXP=48,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=4,weight=12,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=10,position=(1,1)]]]
+Combo A:
+
+Combo B:
+Draw. Combat does not exist. Units in unitlist lose 10% weights
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 44
+New Score: 44
+
+========== Vehicle ==========
+New Score: 1
+
+LiberationArmy After Fight:
+LiberationArmy[LF=1,EXP=44,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=4,weight=11,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=9,position=(1,1)]]]

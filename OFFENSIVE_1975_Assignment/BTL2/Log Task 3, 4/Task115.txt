@@ -1,0 +1,7 @@
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 6
+weight: 7
+attackScore lúc đầu: 98
+số cá nhân: 3
+attackScore tính lại: 98

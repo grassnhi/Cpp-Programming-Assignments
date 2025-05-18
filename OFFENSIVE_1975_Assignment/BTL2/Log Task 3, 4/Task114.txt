@@ -1,0 +1,5 @@
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARMOREDCAR
+quantity: 7
+weight: 9
+attackScore: 33

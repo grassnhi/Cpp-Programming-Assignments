@@ -1,0 +1,6 @@
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.

@@ -1,0 +1,79 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 100
+weight: 5
+attackScore lúc đầu: 780
+số cá nhân: 1
+quantity sau khi giảm 10%: 90
+attackScore tính lại: 730
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 90
+weight: 5
+attackScore: 15
+LF: 15
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (0,0)
+Quân đội ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 15
+River::getEffect()---------------------------
+Vị trí địa hình: (0,1)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (1,0)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (2,2)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Bộ binh thuộc quân ARVN trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)]
+attackScore ban đầu: 730
+Tăng attackScore: 388
+attackScore còn: 1118
+SpecialZone::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]
+attackScore đưa về: 0
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (0,0)
+Quân đội ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 15
+River::getEffect()---------------------------
+Vị trí địa hình: (0,1)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (1,0)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Urban::getEffect()---------------------------
+Vị trí địa hình: (2,2)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Bộ binh thuộc quân ARVN trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)]
+attackScore ban đầu: 1118
+Tăng attackScore: 593
+attackScore còn: 1711
+SpecialZone::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(4,4)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]],battleField=]
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(4,3)]
+attackScore đưa về: 0

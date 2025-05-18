@@ -1,0 +1,161 @@
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 72
+New Score: 72
+
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 132
+Person Number < 3 -> New Quantity: 9
+New Score: 130
+
+========== Vehicle ==========
+New Score: 11
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+LiberationArmy before Fight:
+LiberationArmy[LF=41,EXP=202,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=MORTARSQUAD,quantity=9,weight=2,position=(1,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=4,weight=4,position=(1,2)],Vehicle[vehicleType=APC,quantity=9,weight=1,position=(1,1)]]]
+Combo A:
+
+Combo B:
+Vehicle[vehicleType=APC,quantity=9,weight=1,position=(1,1)]
+Victory because of comboB and EXP > enemy->EXP
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 130
+Person Number > 7 -> New Quantity: 11
+New Score: 134
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 130
+Person Number > 7 -> New Quantity: 11
+New Score: 134
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 72
+New Score: 72
+
+========== Infantry ==========
+Original Quantity: 11
+Original Score: 134
+New Score: 134
+
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 11
+Original Score: 134
+New Score: 134
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 72
+New Score: 72
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 72
+New Score: 72
+
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 72
+New Score: 72
+
+========== Vehicle ==========
+New Score: 41
+
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+========== Vehicle ==========
+New Score: 11
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Vehicle ==========
+New Score: 11
+
+========== Vehicle ==========
+New Score: 11
+
+========== Vehicle ==========
+New Score: 11
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+========== Infantry ==========
+Original Quantity: 1
+Original Score: 225
+New Score: 225
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 15
+Person Number < 3 -> New Quantity: 3
+New Score: 15
+
+========== Vehicle ==========
+New Score: 11
+
+LiberationArmy After Fight:
+LiberationArmy[LF=11,EXP=240,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=SPECIALFORCES,quantity=1,weight=1,position=(3,3)],Infantry[infantryType=SNIPER,quantity=3,weight=5,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=5,weight=3,position=(3,1)]]]

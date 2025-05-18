@@ -1,0 +1,9 @@
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+Thêm Infantry vào đầu danh sách.

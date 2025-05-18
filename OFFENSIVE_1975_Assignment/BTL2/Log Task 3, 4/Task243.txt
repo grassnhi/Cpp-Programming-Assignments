@@ -1,0 +1,30 @@
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 2
+weight: 1
+attackScore lúc đầu: 282
+số cá nhân: 7
+attackScore tính lại: 282
+Tổng số lượng: 2
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 282
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 1
+attackScore lúc đầu: 283
+số cá nhân: 8
+quantity sau khi tăng 20%: 4
+attackScore tính lại: 284
+Tổng số lượng: 4
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 284

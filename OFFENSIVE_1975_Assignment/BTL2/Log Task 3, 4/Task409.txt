@@ -1,0 +1,74 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 4
+attackScore: 21
+LF: 21
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 2
+weight: 3
+attackScore lúc đầu: 6
+số cá nhân: 1
+quantity sau khi giảm 10%: 2
+attackScore tính lại: 6
+LF: 0
+EXP: 6
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+SpecialZone::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: LiberationArmy
+LiberationArmy[LF=21,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=4,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=4,position=(3,2)]
+attackScore đưa về: 0
+Áp dụng hiệu ứng địa hình cho ARVN
+SpecialZone::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=0,EXP=6,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=SNIPER,quantity=2,weight=3,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=2,weight=3,position=(2,3)]
+attackScore đưa về: 0
+Sự kiện: 40
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 32
+EXP * 1.5: 0
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=21,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=4,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 4
+attackScore: 21
+LF: 21
+EXP: 0
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=21,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=4,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 4
+attackScore: 21
+LF: 21
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=6,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

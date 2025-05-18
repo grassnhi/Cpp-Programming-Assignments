@@ -1,0 +1,10 @@
+Army::Army()---------------------------
+Tính LF và EXP
+LF: 0
+EXP: 0
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (5,5)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 0

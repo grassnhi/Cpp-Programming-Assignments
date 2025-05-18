@@ -1,0 +1,22 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 2
+weight: 1
+attackScore lúc đầu: 2
+số cá nhân: 6
+attackScore tính lại: 2
+LF: 61
+EXP: 2
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.

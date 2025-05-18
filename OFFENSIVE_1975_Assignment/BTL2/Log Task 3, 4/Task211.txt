@@ -1,0 +1,48 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 57
+weight: 4
+attackScore lúc đầu: 396
+số cá nhân: 4
+attackScore tính lại: 396
+LF: 61
+EXP: 396
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 62
+weight: 1
+attackScore lúc đầu: 342
+số cá nhân: 4
+attackScore tính lại: 342
+LF: 62
+EXP: 342
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+LiberationArmy::fight(defense = true)---------------------------
+LiberationArmy đã thắng trận
+Liber LF: 80 >= Enemy LF:62
+Liber EXP: 500 >= Enemy EXP:342

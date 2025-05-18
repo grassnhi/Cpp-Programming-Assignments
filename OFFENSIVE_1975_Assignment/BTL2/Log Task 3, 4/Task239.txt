@@ -1,0 +1,74 @@
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 6
+weight: 10
+attackScore lúc đầu: 340
+số cá nhân: 2
+quantity sau khi giảm 10%: 6
+attackScore tính lại: 340
+Tổng số lượng: 6
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 340
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 9
+weight: 10
+attackScore lúc đầu: 370
+số cá nhân: 5
+attackScore tính lại: 370
+Tổng số lượng: 9
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 370
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 12
+weight: 10
+attackScore lúc đầu: 400
+số cá nhân: 8
+quantity sau khi tăng 20%: 15
+attackScore tính lại: 430
+Tổng số lượng: 15
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 430
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 18
+weight: 10
+attackScore lúc đầu: 460
+số cá nhân: 5
+attackScore tính lại: 460
+Tổng số lượng: 18
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 460
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 21
+weight: 10
+attackScore lúc đầu: 490
+số cá nhân: 8
+quantity sau khi tăng 20%: 26
+attackScore tính lại: 540
+Tổng số lượng: 26
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 540
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.

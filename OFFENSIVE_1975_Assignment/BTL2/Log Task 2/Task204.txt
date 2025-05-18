@@ -1,0 +1,22 @@
+========== Vehicle ==========
+New Score: 21
+
+========== Vehicle ==========
+New Score: 11
+
+========== Infantry ==========
+Original Quantity: 2
+Original Score: 2
+New Score: 2
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 227
+Person Number > 7 -> New Quantity: 4
+New Score: 228
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 284
+Person Number > 7 -> New Quantity: 5
+New Score: 285

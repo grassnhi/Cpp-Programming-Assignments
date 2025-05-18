@@ -1,0 +1,25 @@
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 2
+weight: 1
+attackScore: 1
+Tổng số lượng: 2
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 1
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 1
+attackScore: 1
+Tổng số lượng: 3
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 1

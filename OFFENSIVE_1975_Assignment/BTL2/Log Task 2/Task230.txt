@@ -1,0 +1,10 @@
+========== Vehicle ==========
+New Score: 62
+
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 8
+New Score: 8

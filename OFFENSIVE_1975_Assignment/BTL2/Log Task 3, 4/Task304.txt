@@ -1,0 +1,144 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 8
+weight: 6
+attackScore lúc đầu: 104
+số cá nhân: 9
+quantity sau khi tăng 20%: 10
+attackScore tính lại: 116
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 6
+weight: 7
+attackScore lúc đầu: 154
+số cá nhân: 5
+attackScore tính lại: 154
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 8
+weight: 6
+attackScore: 12
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 6
+weight: 7
+attackScore: 22
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 5
+weight: 8
+attackScore lúc đầu: 208
+số cá nhân: 5
+attackScore tính lại: 208
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 4
+weight: 9
+attackScore lúc đầu: 260
+attackScore thoả điều kiện cộng thêm 75: 335
+số cá nhân: 6
+attackScore tính lại: 260
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 10
+attackScore lúc đầu: 310
+số cá nhân: 8
+quantity sau khi tăng 20%: 4
+attackScore tính lại: 320
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARMOREDCAR
+quantity: 5
+weight: 8
+attackScore: 32
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 4
+weight: 9
+attackScore: 42
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 3
+weight: 10
+attackScore: 52
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 11
+attackScore: 62
+LF: 224
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: APC
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Danh sách đã đầy, không thể thêm đơn vị này.
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (0,0)
+Quân đội ARVN
+ARVN[LF=224,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)]
+Tăng EXP: 42
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)]
+Tăng EXP: 31
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)]
+Tăng EXP: 24
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)]
+Tăng EXP: 12
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)]
+Giảm LF: 0
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)]
+Giảm LF: 0
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]
+Giảm LF: -1
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 223

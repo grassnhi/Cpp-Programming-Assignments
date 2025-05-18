@@ -1,0 +1,86 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 100
+weight: 5
+attackScore lúc đầu: 500
+số cá nhân: 9
+quantity sau khi tăng 20%: 120
+attackScore tính lại: 600
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 100
+weight: 5
+attackScore lúc đầu: 780
+số cá nhân: 1
+quantity sau khi giảm 10%: 90
+attackScore tính lại: 730
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 80
+weight: 5
+attackScore: 14
+LF: 14
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (0,0)
+Quân đội ARVN
+ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)]
+Tăng EXP: 146
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)]
+Tăng EXP: 120
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]
+Giảm LF: 0
+Tổng EXP sau hiệu ứng: 500
+Tổng LF sau hiệu ứng: 14
+River::getEffect()---------------------------
+Vị trí địa hình: (0,1)
+Quân đội: ARVN
+ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)]
+attackScore ban đầu: 730
+Giảm attackScore: -73
+attackScore còn: 657
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)]
+attackScore ban đầu: 600
+Giảm attackScore: -60
+attackScore còn: 540
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (1,0)
+Quân đội: ARVN
+ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)]
+attackScore ban đầu: 657
+Điều chỉnh attackScore: 132
+attackScore còn: 789
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)]
+attackScore ban đầu: 540
+Điều chỉnh attackScore: 108
+attackScore còn: 648
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]
+attackScore ban đầu: 14
+Điều chỉnh attackScore: 3
+attackScore còn: 17
+Urban::getEffect()---------------------------
+Vị trí địa hình: (2,2)
+Quân đội: ARVN
+ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]
+Bộ binh thuộc quân ARVN trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)]
+attackScore ban đầu: 789
+Tăng attackScore: 530
+attackScore còn: 1319
+SpecialZone::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]

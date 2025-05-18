@@ -1,0 +1,22 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 4
+weight: 2
+attackScore: 51
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 3
+weight: 3
+attackScore lúc đầu: 65
+số cá nhân: 6
+attackScore tính lại: 65
+LF: 51
+EXP: 65
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+Thêm Infantry vào đầu danh sách.

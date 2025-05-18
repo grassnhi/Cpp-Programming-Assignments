@@ -1,0 +1,41 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+LF: 2
+EXP: 60
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (0,0)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=2,EXP=60,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)]
+Tăng EXP: 18
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]
+Giảm LF: 0
+Tổng EXP sau hiệu ứng: 78
+Tổng LF sau hiệu ứng: 2
+River::getEffect()---------------------------
+Vị trí địa hình: (1,1)
+Quân đội: LiberationArmy
+LiberationArmy[LF=2,EXP=78,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)]
+attackScore ban đầu: 60
+Giảm attackScore: -6
+attackScore còn: 54

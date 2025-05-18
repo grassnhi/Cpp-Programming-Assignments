@@ -163,8 +163,6 @@ public:
 
     UnitNode* getHead() const;
     int getSize() const;
-
-    bool isSpecialNumber(int S);
 };
 
 class Army
@@ -189,6 +187,7 @@ public:
     void setEXP(int value);
 
     void updateScore();
+    bool isSpecialNumber(int S);
 
     UnitList* getUnitList() const;
     BattleField* getBattleField() const;

@@ -1,0 +1,7 @@
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 5
+weight: 8
+attackScore lúc đầu: 152
+số cá nhân: 3
+attackScore tính lại: 152

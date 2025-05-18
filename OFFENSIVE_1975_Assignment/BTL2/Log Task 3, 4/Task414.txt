@@ -1,0 +1,144 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 2
+attackScore: 21
+LF: 21
+EXP: 286
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 3
+attackScore: 61
+LF: 61
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (2,3)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=21,EXP=286,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=3,weight=2,position=(2,3)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=2,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=3,weight=2,position=(2,3)]
+Tăng EXP: 86
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=2,position=(3,2)]
+Giảm LF: -2
+Tổng EXP sau hiệu ứng: 372
+Tổng LF sau hiệu ứng: 19
+Áp dụng hiệu ứng địa hình cho ARVN
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (2,3)
+Quân đội ARVN
+ARVN[LF=61,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=2,weight=3,position=(1,1)]],battleField=BattleField[n_rows=6,n_cols=6]]
+Phương tiện trong bán kính ảnh hưởng: Vehicle[vehicleType=TANK,quantity=2,weight=3,position=(1,1)]
+Giảm LF: -3
+Tổng EXP sau hiệu ứng: 0
+Tổng LF sau hiệu ứng: 58
+Sự kiện: 90
+ARVN tấn công Liberation Army
+ARVN::fight(defense = false)---------------------------
+Cập nhật số lượng của: Vehicle[vehicleType=TANK,quantity=2,weight=3,position=(1,1)]
+Số lượng sau khi cập nhật: 2
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 3
+attackScore: 61
+LF: 61
+EXP: 0
+Liberation Army phòng thủ ARVN
+LiberationArmy::fight(defense = true)---------------------------
+LiberationArmy đã thắng trận nhưng bị trừ 10% quantity
+Cập nhật số lượng của: Infantry[infantryType=REGULARINFANTRY,quantity=3,weight=2,position=(2,3)]
+Số lượng sau khi cập nhật: 3
+Cập nhật số lượng của: Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=2,position=(3,2)]
+Số lượng sau khi cập nhật: 1
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 2
+attackScore: 21
+LF: 21
+EXP: 286
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 32
+EXP * 1.5: 429
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=21,EXP=286,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=3,weight=2,position=(2,3)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=2,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 2
+attackScore: 21
+LF: 21
+EXP: 286
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=21,EXP=286,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=3,weight=2,position=(2,3)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=1,weight=2,position=(3,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 1
+weight: 2
+attackScore: 21
+LF: 21
+EXP: 286
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=61,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=2,weight=3,position=(1,1)]],battleField=BattleField[n_rows=6,n_cols=6]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 3
+attackScore: 61
+LF: 61
+EXP: 0

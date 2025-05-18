@@ -1,0 +1,38 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 4
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 2
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARMOREDCAR
+quantity: 4
+weight: 3
+attackScore: 31
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 6
+weight: 5
+attackScore lúc đầu: 254
+số cá nhân: 6
+attackScore tính lại: 254
+LF: 94
+EXP: 254
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.

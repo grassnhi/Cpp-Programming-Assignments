@@ -1,0 +1,86 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 3
+weight: 2
+attackScore lúc đầu: 118
+số cá nhân: 5
+attackScore tính lại: 118
+LF: 0
+EXP: 118
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 2
+weight: 3
+attackScore lúc đầu: 174
+số cá nhân: 7
+attackScore tính lại: 174
+LF: 0
+EXP: 174
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+River::getEffect()---------------------------
+Vị trí địa hình: (1,1)
+Quân đội: LiberationArmy
+LiberationArmy[LF=0,EXP=118,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=MORTARSQUAD,quantity=3,weight=2,position=(2,2)]],battleField=BattleField[n_rows=5,n_cols=5]]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=MORTARSQUAD,quantity=3,weight=2,position=(2,2)]
+attackScore ban đầu: 118
+Giảm attackScore: -11
+attackScore còn: 107
+Áp dụng hiệu ứng địa hình cho ARVN
+River::getEffect()---------------------------
+Vị trí địa hình: (1,1)
+Quân đội: ARVN
+ARVN[LF=0,EXP=174,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=ENGINEER,quantity=2,weight=3,position=(3,3)]],battleField=BattleField[n_rows=5,n_cols=5]]
+Sự kiện: 60
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 0
+EXP * 1.5: 177
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=0,EXP=118,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=MORTARSQUAD,quantity=3,weight=2,position=(2,2)]],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 3
+weight: 2
+attackScore lúc đầu: 118
+số cá nhân: 5
+attackScore tính lại: 118
+LF: 0
+EXP: 118
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=0,EXP=118,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=MORTARSQUAD,quantity=3,weight=2,position=(2,2)]],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 3
+weight: 2
+attackScore lúc đầu: 118
+số cá nhân: 5
+attackScore tính lại: 118
+LF: 0
+EXP: 118
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=174,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=ENGINEER,quantity=2,weight=3,position=(3,3)]],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 2
+weight: 3
+attackScore lúc đầu: 174
+số cá nhân: 7
+attackScore tính lại: 174
+LF: 0
+EXP: 174

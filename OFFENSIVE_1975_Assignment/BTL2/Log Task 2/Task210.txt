@@ -1,0 +1,172 @@
+========== Vehicle ==========
+New Score: 62
+
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 227
+Person Number > 7 -> New Quantity: 4
+New Score: 228
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Vehicle ==========
+New Score: 51
+
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+LiberationArmy before Fight:
+LiberationArmy[LF=103,EXP=288,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=4,weight=1,position=(2,1)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=1,position=(2,2)],Vehicle[vehicleType=TANK,quantity=3,weight=5,position=(1,1)],Vehicle[vehicleType=APC,quantity=1,weight=1,position=(1,2)]]]
+Combo A:
+Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=4,weight=1,position=(2,1)]
+
+Combo B:
+Vehicle[vehicleType=TANK,quantity=3,weight=5,position=(1,1)]
+Find combo A and B!!!
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 228
+Person Number < 3 -> New Quantity: 4
+New Score: 228
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Vehicle ==========
+New Score: 62
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Vehicle ==========
+New Score: 41
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 60
+Person Number < 3 -> New Quantity: 4
+New Score: 60
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 228
+Person Number < 3 -> New Quantity: 4
+New Score: 228
+
+========== Vehicle ==========
+New Score: 62
+
+========== Vehicle ==========
+New Score: 62
+
+========== Vehicle ==========
+New Score: 62
+
+========== Vehicle ==========
+New Score: 41
+
+========== Vehicle ==========
+New Score: 62
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 51
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+========== Vehicle ==========
+New Score: 51
+
+========== Vehicle ==========
+New Score: 51
+
+========== Vehicle ==========
+New Score: 51
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+========== Infantry ==========
+Original Quantity: 3
+Original Score: 6
+Person Number < 3 -> New Quantity: 3
+New Score: 6
+
+========== Infantry ==========
+Original Quantity: 4
+Original Score: 228
+Person Number < 3 -> New Quantity: 4
+New Score: 228
+
+========== Vehicle ==========
+New Score: 41
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 51
+
+LiberationArmy After Fight:
+LiberationArmy[LF=93,EXP=234,unitList=UnitList[count_vehicle=3;count_infantry=2;Infantry[infantryType=SNIPER,quantity=3,weight=2,position=(3,2)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=1,position=(2,2)],Vehicle[vehicleType=APC,quantity=1,weight=1,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=2,position=(3,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=1,position=(3,1)]]]

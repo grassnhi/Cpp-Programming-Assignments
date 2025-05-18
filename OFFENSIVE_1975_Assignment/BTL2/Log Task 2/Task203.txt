@@ -1,0 +1,14 @@
+========== Infantry ==========
+Original Quantity: 300
+Original Score: 300
+New Score: 300
+
+========== Infantry ==========
+Original Quantity: 250
+Original Score: 530
+New Score: 530
+
+========== Infantry ==========
+Original Quantity: 200
+Original Score: 368
+New Score: 368

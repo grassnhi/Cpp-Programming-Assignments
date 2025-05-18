@@ -1,0 +1,105 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+LF: 6
+EXP: 180
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 24
+weight: 5
+attackScore lúc đầu: 120
+số cá nhân: 7
+attackScore tính lại: 120
+Tổng số lượng: 24
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 120
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 36
+weight: 5
+attackScore lúc đầu: 180
+số cá nhân: 4
+attackScore tính lại: 180
+Tổng số lượng: 36
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 180
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 20
+weight: 5
+attackScore: 4
+Tổng số lượng: 20
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 4
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 30
+weight: 5
+attackScore: 5
+Tổng số lượng: 30
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 5
+River::getEffect()---------------------------
+Vị trí địa hình: (7,7)
+Quân đội: LiberationArmy
+LiberationArmy[LF=6,EXP=180,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=36,weight=5,position=(7,7)],Vehicle[vehicleType=TRUCK,quantity=30,weight=5,position=(7,7)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=36,weight=5,position=(7,7)]
+attackScore ban đầu: 180
+Giảm attackScore: -18
+attackScore còn: 162

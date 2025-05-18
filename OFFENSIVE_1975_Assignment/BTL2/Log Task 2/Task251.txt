@@ -1,0 +1,129 @@
+========== Vehicle ==========
+New Score: 24
+
+========== Vehicle ==========
+New Score: 5
+
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 200
+New Score: 200
+
+========== Vehicle ==========
+New Score: 14
+
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 7
+Original Score: 140
+Person Number > 7 -> New Quantity: 9
+New Score: 180
+
+LiberationArmy before Fight:
+LiberationArmy[LF=29,EXP=200,unitList=UnitList[count_vehicle=2;count_infantry=1;Infantry[infantryType=SNIPER,quantity=10,weight=20,position=(1,1)],Vehicle[vehicleType=MORTAR,quantity=20,weight=20,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=15,weight=10,position=(2,2)]]]
+Combo A:
+Infantry[infantryType=SNIPER,quantity=10,weight=20,position=(1,1)]
+
+Combo B:
+Vehicle[vehicleType=MORTAR,quantity=20,weight=20,position=(1,2)]
+Find combo A and B!!!
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 200
+New Score: 200
+
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 200
+New Score: 200
+
+========== Vehicle ==========
+New Score: 24
+
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 200
+New Score: 200
+
+========== Vehicle ==========
+New Score: 5
+
+========== Infantry ==========
+Original Quantity: 10
+Original Score: 200
+New Score: 200
+
+========== Vehicle ==========
+New Score: 24
+
+========== Vehicle ==========
+New Score: 24
+
+========== Vehicle ==========
+New Score: 5
+
+========== Vehicle ==========
+New Score: 24
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 180
+New Score: 180
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 14
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 1
+
+========== Vehicle ==========
+New Score: 1
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 180
+New Score: 180
+
+========== Vehicle ==========
+New Score: 14
+
+========== Vehicle ==========
+New Score: 14
+
+========== Vehicle ==========
+New Score: 14
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 180
+New Score: 180
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 180
+New Score: 180
+
+========== Infantry ==========
+Original Quantity: 9
+Original Score: 180
+New Score: 180
+
+========== Vehicle ==========
+New Score: 6
+
+========== Vehicle ==========
+New Score: 14
+
+LiberationArmy After Fight:
+LiberationArmy[LF=20,EXP=180,unitList=UnitList[count_vehicle=2;count_infantry=1;Infantry[infantryType=SNIPER,quantity=9,weight=20,position=(3,3)],Vehicle[vehicleType=TRUCK,quantity=16,weight=10,position=(2,2)],Vehicle[vehicleType=MORTAR,quantity=5,weight=20,position=(3,2)]]]
+ARVN before fight:
+ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0]]
+ARVN after fight: ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0]]

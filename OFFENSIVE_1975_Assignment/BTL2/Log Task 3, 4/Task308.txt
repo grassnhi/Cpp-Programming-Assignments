@@ -1,0 +1,144 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+LF: 4
+EXP: 120
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 24
+weight: 5
+attackScore lúc đầu: 120
+số cá nhân: 7
+attackScore tính lại: 120
+Tổng số lượng: 24
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 120
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 20
+weight: 5
+attackScore: 4
+Tổng số lượng: 20
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 4
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+LF: 4
+EXP: 120
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 24
+weight: 5
+attackScore lúc đầu: 120
+số cá nhân: 7
+attackScore tính lại: 120
+Tổng số lượng: 24
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 120
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 20
+weight: 5
+attackScore: 4
+Tổng số lượng: 20
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 4
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: LiberationArmy
+LiberationArmy[LF=4,EXP=120,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=24,weight=5,position=(3,4)],Vehicle[vehicleType=TRUCK,quantity=20,weight=5,position=(4,3)]],battleField=]
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=24,weight=5,position=(3,4)]
+attackScore ban đầu: 120
+Điều chỉnh attackScore: -24
+attackScore còn: 96
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=20,weight=5,position=(4,3)]
+attackScore ban đầu: 4
+Điều chỉnh attackScore: 0
+attackScore còn: 4
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=4,EXP=120,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=24,weight=5,position=(3,4)],Vehicle[vehicleType=TRUCK,quantity=20,weight=5,position=(4,3)]],battleField=]
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=24,weight=5,position=(3,4)]
+attackScore ban đầu: 120
+Điều chỉnh attackScore: 24
+attackScore còn: 144
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=20,weight=5,position=(4,3)]
+attackScore ban đầu: 4
+Điều chỉnh attackScore: 1
+attackScore còn: 5

@@ -1,0 +1,280 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 9
+weight: 1
+attackScore: 41
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 4
+weight: 4
+attackScore lúc đầu: 72
+số cá nhân: 4
+attackScore tính lại: 72
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 10
+weight: 2
+attackScore lúc đầu: 132
+số cá nhân: 1
+quantity sau khi giảm 10%: 9
+attackScore tính lại: 130
+LF: 41
+EXP: 202
+UnitList::insert()---------------------------
+vehicleType: APC
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+LF: 11
+EXP: 240
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 62
+EXP * 1.5: 303
+Có combo B
+Combo B bao gồm: 
+Vehicle[vehicleType=APC,quantity=9,weight=1,position=(1,1)]
+Liber EXP: 303 > Enemy EXP:240
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 9
+weight: 2
+attackScore lúc đầu: 130
+số cá nhân: 8
+quantity sau khi tăng 20%: 11
+attackScore tính lại: 134
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 9
+weight: 2
+attackScore lúc đầu: 130
+số cá nhân: 8
+quantity sau khi tăng 20%: 11
+attackScore tính lại: 134
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 4
+weight: 4
+attackScore lúc đầu: 72
+số cá nhân: 4
+attackScore tính lại: 72
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 11
+weight: 2
+attackScore lúc đầu: 134
+số cá nhân: 3
+attackScore tính lại: 134
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 9
+weight: 1
+attackScore: 41
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 11
+weight: 2
+attackScore lúc đầu: 134
+số cá nhân: 3
+attackScore tính lại: 134
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 4
+weight: 4
+attackScore lúc đầu: 72
+số cá nhân: 4
+attackScore tính lại: 72
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 4
+weight: 4
+attackScore lúc đầu: 72
+số cá nhân: 4
+attackScore tính lại: 72
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 9
+weight: 1
+attackScore: 41
+Infantry::getAttackScore()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+quantity: 4
+weight: 4
+attackScore lúc đầu: 72
+số cá nhân: 4
+attackScore tính lại: 72
+Xoá Infantry: UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=APC,quantity=9,weight=1,position=(1,1)]]
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 9
+weight: 1
+attackScore: 41
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 9
+weight: 1
+attackScore: 41
+Xoá Vehicle: UnitList[count_vehicle=0;count_infantry=0]
+Trưng dụng lại quân địch: 
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+Vehicle[vehicleType=MORTAR,quantity=5,weight=3,position=(3,1)]
+Infantry[infantryType=SNIPER,quantity=3,weight=5,position=(3,2)]
+Infantry[infantryType=SPECIALFORCES,quantity=1,weight=1,position=(3,3)]
+ARVN: ARVN[LF=11,EXP=240,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=SPECIALFORCES,quantity=1,weight=1,position=(3,3)],Infantry[infantryType=SNIPER,quantity=3,weight=5,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=5,weight=3,position=(3,1)]],battleField=]
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+LiberationArmy: LiberationArmy[LF=41,EXP=202,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=SPECIALFORCES,quantity=1,weight=1,position=(3,3)],Infantry[infantryType=SNIPER,quantity=3,weight=5,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=5,weight=3,position=(3,1)]],battleField=]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 1
+weight: 1
+attackScore lúc đầu: 225
+attackScore thoả điều kiện cộng thêm 75: 300
+số cá nhân: 7
+attackScore tính lại: 225
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 5
+attackScore lúc đầu: 15
+số cá nhân: 1
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 15
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 5
+weight: 3
+attackScore: 11
+LF: 11
+EXP: 240

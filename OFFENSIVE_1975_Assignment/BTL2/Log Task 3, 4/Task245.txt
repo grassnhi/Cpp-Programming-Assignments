@@ -1,0 +1,47 @@
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: APC
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 1
+attackScore: 61
+Tổng số lượng: 2
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61

@@ -1,0 +1,272 @@
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 10
+weight: 10
+attackScore lúc đầu: 380
+số cá nhân: 6
+attackScore tính lại: 380
+Tổng số lượng: 10
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 380
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 20
+weight: 10
+attackScore lúc đầu: 480
+số cá nhân: 7
+attackScore tính lại: 480
+Tổng số lượng: 20
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 480
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 40
+weight: 10
+attackScore lúc đầu: 680
+số cá nhân: 9
+quantity sau khi tăng 20%: 48
+attackScore tính lại: 760
+Tổng số lượng: 48
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 760
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 96
+weight: 10
+attackScore lúc đầu: 1240
+số cá nhân: 2
+quantity sau khi giảm 10%: 87
+attackScore tính lại: 1150
+Tổng số lượng: 87
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 1150
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 174
+weight: 10
+attackScore lúc đầu: 2020
+số cá nhân: 8
+quantity sau khi tăng 20%: 209
+attackScore tính lại: 2370
+Tổng số lượng: 209
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 2370
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 418
+weight: 10
+attackScore lúc đầu: 4460
+số cá nhân: 9
+quantity sau khi tăng 20%: 502
+attackScore tính lại: 5300
+Tổng số lượng: 502
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 5300
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1004
+weight: 10
+attackScore lúc đầu: 10320
+số cá nhân: 1
+quantity sau khi giảm 10%: 904
+attackScore tính lại: 9320
+Tổng số lượng: 904
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 9320
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1808
+weight: 10
+attackScore lúc đầu: 18360
+số cá nhân: 4
+attackScore tính lại: 18360
+Tổng số lượng: 1808
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 18360
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3616
+weight: 10
+attackScore lúc đầu: 36440
+số cá nhân: 3
+attackScore tính lại: 36440
+Tổng số lượng: 3616
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 36440
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 7232
+weight: 10
+attackScore lúc đầu: 72600
+số cá nhân: 1
+quantity sau khi giảm 10%: 6509
+attackScore tính lại: 65370
+Tổng số lượng: 6509
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 65370
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 13018
+weight: 10
+attackScore lúc đầu: 130460
+số cá nhân: 9
+quantity sau khi tăng 20%: 15622
+attackScore tính lại: 156500
+Tổng số lượng: 15622
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 156500
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 31244
+weight: 10
+attackScore lúc đầu: 312720
+số cá nhân: 1
+quantity sau khi giảm 10%: 28120
+attackScore tính lại: 281480
+Tổng số lượng: 28120
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 281480
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 56240
+weight: 10
+attackScore lúc đầu: 562680
+số cá nhân: 4
+attackScore tính lại: 562680
+Tổng số lượng: 56240
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 562680
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 112480
+weight: 10
+attackScore lúc đầu: 1125080
+số cá nhân: 3
+attackScore tính lại: 1125080
+Tổng số lượng: 112480
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 1125080
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 224960
+weight: 10
+attackScore lúc đầu: 2249880
+số cá nhân: 1
+quantity sau khi giảm 10%: 202464
+attackScore tính lại: 2024920
+Tổng số lượng: 202464
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 2024920
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 404928
+weight: 10
+attackScore lúc đầu: 4049560
+số cá nhân: 5
+attackScore tính lại: 4049560
+Tổng số lượng: 404928
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 4049560
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 809856
+weight: 10
+attackScore lúc đầu: 8098840
+số cá nhân: 5
+attackScore tính lại: 8098840
+Tổng số lượng: 809856
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 8098840
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1619712
+weight: 10
+attackScore lúc đầu: 16197400
+số cá nhân: 5
+attackScore tính lại: 16197400
+Tổng số lượng: 1619712
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 16197400
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3239424
+weight: 10
+attackScore lúc đầu: 32394520
+số cá nhân: 5
+attackScore tính lại: 32394520
+Tổng số lượng: 3239424
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 32394520
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 6478848
+weight: 10
+attackScore lúc đầu: 64788760
+số cá nhân: 5
+attackScore tính lại: 64788760
+Tổng số lượng: 6478848
+Trọng số lớn nhất: 10
+Cập nhật attackScore: 64788760

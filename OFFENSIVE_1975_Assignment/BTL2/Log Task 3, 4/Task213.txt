@@ -1,0 +1,154 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 1
+attackScore lúc đầu: 10
+số cá nhân: 5
+attackScore tính lại: 10
+LF: 61
+EXP: 10
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 3
+attackScore lúc đầu: 9
+số cá nhân: 4
+attackScore tính lại: 9
+LF: 62
+EXP: 9
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 92
+EXP * 1.5: 15
+Có combo A
+Combo A bao gồm: 
+Infantry[infantryType=SNIPER,quantity=10,weight=1,position=(1,2)]
+Liber LF: 92 > Enemy LF:62
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 1
+attackScore lúc đầu: 10
+số cá nhân: 5
+attackScore tính lại: 10
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Xoá Vehicle: UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=SNIPER,quantity=10,weight=1,position=(1,2)]]
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 1
+attackScore lúc đầu: 10
+số cá nhân: 5
+attackScore tính lại: 10
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 1
+attackScore lúc đầu: 10
+số cá nhân: 5
+attackScore tính lại: 10
+Xoá Infantry: UnitList[count_vehicle=0;count_infantry=0]
+Trưng dụng lại quân địch: 
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+Vehicle[vehicleType=TANK,quantity=3,weight=3,position=(3,1)]
+Infantry[infantryType=SNIPER,quantity=3,weight=3,position=(3,2)]
+ARVN: ARVN[LF=62,EXP=9,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=3,weight=3,position=(3,2)],Vehicle[vehicleType=TANK,quantity=3,weight=3,position=(3,1)]],battleField=]
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 3
+attackScore lúc đầu: 9
+số cá nhân: 4
+attackScore tính lại: 9
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 3
+attackScore lúc đầu: 9
+số cá nhân: 4
+attackScore tính lại: 9
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 3
+attackScore lúc đầu: 9
+số cá nhân: 4
+attackScore tính lại: 9
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+LiberationArmy: LiberationArmy[LF=61,EXP=10,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=3,weight=3,position=(3,2)],Vehicle[vehicleType=TANK,quantity=3,weight=3,position=(3,1)]],battleField=]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 3
+attackScore lúc đầu: 9
+số cá nhân: 4
+attackScore tính lại: 9
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+LF: 62
+EXP: 9
