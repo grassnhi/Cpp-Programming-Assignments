@@ -82,6 +82,41 @@ void process(const char *name, char *outstr) {
     outstr[j] = '\0'; 
 }
 
+// Student may implement another function as need
+
+void process(const char *name, char *outstr) {
+    // TODO
+    int len = strlen(name);
+    bool newWord = true;
+    int idx = 0;
+    
+    for(int i = 0; i < len; i++){
+        if(newWord){
+            if((name[i] >= 'A' && name[i] <= 'Z')){
+                outstr[idx++] = name[i];
+                newWord = false;
+            }else if(name[i] >= 'a' && name[i] <= 'z'){
+                outstr[idx++] = name[i] - 32;
+                newWord = false;
+            }
+            
+        }else{
+            if((name[i] >= 'A' && name[i] <= 'Z')){
+                outstr[idx++] = name[i] + 32;
+            }else if(name[i] >= 'a' && name[i] <= 'z'){
+                outstr[idx++] = name[i];
+            }else if(name[i] == ' '){
+                outstr[idx++] = ' ';
+                newWord = true;
+            }
+        }
+    }
+    if (idx > 0 && outstr[idx - 1] == ' '){
+        idx--;
+    }
+    outstr[idx] = '\0'; 
+}
+
 int main() {
     const int MAX_SIZE = 100;
     char str[] = "doAn VAN *(()hau @!#$" ;

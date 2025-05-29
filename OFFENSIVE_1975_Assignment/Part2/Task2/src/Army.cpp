@@ -53,9 +53,9 @@ bool Army::isSpecialNumber(int S) {
     return false;
 }
 
-Army::Army(Unit **unitArray, int size, string name/*, BattleField *battleField*/){
+Army::Army(Unit **unitArray, int size, string name, BattleField *battleField){
     this->name = name;
-    // this->battleField = battleField;
+    this->battleField = battleField;
     this->LF = 0;
     this->EXP = 0;
 
@@ -84,21 +84,9 @@ Army::Army(Unit **unitArray, int size, string name/*, BattleField *battleField*/
     int capacity = isSpecialNumber(S) ? 12 : 8;
 
     this->unitList = new UnitList(capacity); 
-    // Khúc này bug vì cái size nè
-    cout << "Create " << endl;
+
     for(int i = 0; i < size; i++){
-        // cout << "Insert ";
         this->unitList->insert(unitArray[i]);
-        // cout << unitArray[i]->str() << endl;
-        // if(unitArray[i]->isVehicle()){
-            
-        //     this->LF += unitArray[i]->getAttackScore();
-        //     // cout << "isVehicle ";
-        // }else{
-        //     this->EXP += unitArray[i]->getAttackScore();
-        //     // cout << "isInfantry ";
-        // }
-        // cout << "done " << endl;
     }
 
     for (int i = 0; i < size; i++) {
@@ -142,13 +130,13 @@ void Army::updateScore(){
     while (temp)
     {
         if(temp->unit->isVehicle()){
-            cout << "\nveh attack:";
+            // cout << "\nveh attack:";
             this->LF += temp->unit->getAttackScore();
-            cout << " lf " << this->LF;
+            // cout << "LF: " << this->LF << endl;
         }else{
-            cout << "\ninf attack:";
+            // cout << "\ninf attack:";
             this->EXP += temp->unit->getAttackScore();
-            cout << " exp " << this->EXP;
+            // cout << "EXP: " << this->EXP << endl;
         }
         temp = temp->next;
     }
@@ -160,6 +148,6 @@ UnitList* Army::getUnitList() const{
     return this->unitList;
 }
 
-// BattleField* Army::getBattleField() const{
-//     return this->battleField;
-// }
+BattleField* Army::getBattleField() const{
+    return this->battleField;
+}

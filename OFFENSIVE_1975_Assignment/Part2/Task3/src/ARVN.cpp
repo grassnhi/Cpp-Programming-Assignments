@@ -9,15 +9,17 @@ void ARVN::fight(Army* enemy, bool defense){
     } 
 
     if(defense){
-        if (enemy->getLF() >= this->LF && enemy->getEXP() >= this->EXP) {
+        cout << "ARVN: Defense = true: \n";
+        if (enemy->getLF() > this->LF && enemy->getEXP() > this->EXP) {
             this->unitList->transferTo(enemy->getUnitList());
             enemy->setLF(0);
             enemy->setEXP(0);
         } else {
             this->unitList->reduceWeight(0.2);
         }
-        this->updateScore();
+        // this->updateScore();
     }else{
+        cout << "ARVN: Defense = false: \n";
         UnitNode* temp = this->unitList->getHead();
         while (temp)
         {
@@ -46,5 +48,5 @@ string ARVN::str() const {
     return "ARVN[LF=" + to_string(LF) + 
            ",EXP=" + to_string(EXP) + 
            ",unitList=" + unitList->str() + "," +
-           (battleField ? battleField->str() : "battleField=") + "]";
+           (battleField ? ("battleField=" + battleField->str()) : "battleField=") + "]";
 }

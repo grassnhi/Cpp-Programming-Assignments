@@ -81,49 +81,41 @@ int Infantry::personalNumber(int score) {
 int Infantry::getAttackScore(bool donoth){
     int score = ceil(static_cast<int>(this->infantryType) * 56.0 + this->quantity * this->weight);
 
-    cout << "\nScore: " << score;
+    // cout << "\nScore: " << score;
+    if(donoth){
+        score = this->unitScore;
+    }else{
+        if (this->infantryType == SPECIALFORCES && isPerfectSquare(this->weight)) {
+            score += 75;
+            // cout << " -- Perfect -- " << score;
+        }
 
-    if (this->infantryType == SPECIALFORCES && isPerfectSquare(this->weight)) {
-        score += 75;
-        cout << " -- Perfect -- " << score;
-    }
-    // SPECIALFORCES => duplicate personal perfect or NOT ???
-    if(personalNumber(score) > 7){
-        // cout << " (" << this->quantity << ") ";
-        if(!donoth){
+        cout << "personalNumber(score): " << personalNumber(score);
+        if(personalNumber(score) > 7){
+            // if(!donoth){
+            //     this->quantity = static_cast<int>(ceil(this->quantity * 1.2));
+            // }
+            cout << " => " << this->quantity;
             this->quantity = static_cast<int>(ceil(this->quantity * 1.2));
-        }
-        
-        
-        // score = (static_cast<int>(this->infantryType) * 56 + this->quantity * this->weight);
-
-        cout << " -- Personal7 -- " << score;
-        // cout << " (" << this->quantity << ") ";
-
-        // if (this->infantryType == SPECIALFORCES && isPerfectSquare(this->weight)) {
-        //     score += 75;
-        //     // cout << " -- Perfect7 -- " << score;
-        // }
-    }else if(personalNumber(score) < 3){
-        // cout << " (" << this->quantity << ") ";
-        
-        if(!donoth){
+            cout << " => " << this->str() << endl;
+        }else if(personalNumber(score) < 3){
+            // if(!donoth){
+            //     this->quantity =  max(0, static_cast<int>(ceil(this->quantity * 0.9)));
+            // }
+            cout << " => " << this->quantity;
             this->quantity =  max(0, static_cast<int>(ceil(this->quantity * 0.9)));
+            cout << " => " << this->str() << endl;
         }
-        // score = (static_cast<int>(this->infantryType) * 56 + this->quantity * this->weight);
+        else{
+            cout << " => " << this->str() << endl;
+        }
 
-        cout << " -- Personal3 -- " << score;
-        // cout << " (" << this->quantity << ") ";
+        score = ceil(static_cast<int>(this->infantryType) * 56.0 + this->quantity * this->weight);
 
-        // if (this->infantryType == SPECIALFORCES && isPerfectSquare(this->weight)) {
-        //     score += 75;
-        //     // cout << " -- Perfect3 -- " << score;
-        // }
+        this->unitScore = score;
     }
 
-    score = ceil(static_cast<int>(this->infantryType) * 56.0 + this->quantity * this->weight);
-
-    cout << " =>> ";
+    // cout << "Score: " << score << endl;
 
     return score;
 }

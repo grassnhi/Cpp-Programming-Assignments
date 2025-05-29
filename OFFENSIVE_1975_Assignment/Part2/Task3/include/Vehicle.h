@@ -18,6 +18,7 @@ enum VehicleType
 class Vehicle : public Unit {
 private:
     VehicleType vehicleType;
+
 public:
     Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
     int getAttackScore(bool donoth = false) override;

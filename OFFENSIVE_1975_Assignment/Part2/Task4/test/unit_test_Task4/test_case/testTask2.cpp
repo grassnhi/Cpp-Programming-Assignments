@@ -1370,17 +1370,25 @@ bool UNIT_TEST_Task4::Task4242() {
     bool allInserted = true;
     Vehicle* listveh[8];
     for (int i = 0; i < 8; ++i) {
+        // cout << i << " - ";
         listveh[i] = new Vehicle(1, 1, Position(), (VehicleType)i);
+        // cout << listveh[i]->str() << endl;
         if (!ul.insert(listveh[i])) {
+            // cout << " Fail insert" << endl;
             allInserted = false;
             break;
         }
+        delete listveh[i];
     }
+    // cout << "haiza" << endl;
     Vehicle* veh9 = new Vehicle(1, 1, Position(), APC);
+    cout << veh9->str() << endl;
     bool insert13 = ul.insert(veh9);
+    // cout << " Done insert" << endl;
+    bool result = allInserted && !insert13;
+    // cout << result << endl;
     delete veh9;
-    bool result = allInserted && !veh9;
-
+    // cout << " Done delete" << endl;
     //! expect ----------------------------------
     string expect = "0";
 
@@ -1388,11 +1396,15 @@ bool UNIT_TEST_Task4::Task4242() {
     stringstream output;
     output << result;
 
-    //! delete ----------------------------------
-    for (int i = 0; i < 8; ++i) {
-        delete listveh[i];
-    }
+    cout << result << endl;
 
+    //! delete ----------------------------------
+    // for (int i = 0; i < 8; ++i) {
+    //     delete listveh[i];
+    //     cout << " Done delete veh " << i << endl;
+    // }
+    
+    // cout << "Done" << endl;
     return printResult(output.str(), expect, name);
 }
 
@@ -1464,11 +1476,14 @@ bool UNIT_TEST_Task4::Task4245() {
         unitlist[i] = new Infantry(1, 1, Position(), (InfantryType)i);
         if (!ul.insert(unitlist[i])) allInserted = false;
     }
+    
     Vehicle* veh13 = new Vehicle(1, 1, Position(), TANK);
     bool insert13 = ul.insert(veh13);
+    cout << "\nallInserted: " << allInserted << endl;
+    cout << "insert13: " << insert13 << endl;
     delete veh13;
     bool result = allInserted && !insert13;
-
+    cout << "result: " << endl;
     //! expect ----------------------------------
     string expect = "1";
     

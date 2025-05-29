@@ -15,6 +15,7 @@ if [ $? -eq 0 ]; then
     echo "To run tests, use one of the following commands:"
     echo "1. Run all tests: ./main "
     echo "2. Run a specific test: ./main nameFunctionUnitTest"
+    ./main 
 else
     echo "Build failed!"
     exit 1

@@ -19,13 +19,40 @@ UnitList::~UnitList(){
 }
 
 bool UnitList::insert(Unit *unit){
+    // cout << "Go to ";
     if(unit == nullptr){
         return false;
     }
+
+    cout << "Insert! " << unit->str() << endl;
+
     bool isVehicle = unit->isVehicle();
     bool isInfantry = !isVehicle;
 
-    // cout << "\n ";
+    if (isVehicle) {
+        Vehicle* newVeh = dynamic_cast<Vehicle*>(unit);
+        if (!newVeh) {
+            // cout << "Invalid vehicle cast!" << endl;
+            return false;
+        }
+        int vt = static_cast<int>(newVeh->getVehicleType());
+        if (vt < TRUCK || vt > TANK) {
+            return false;
+        }
+    } else {
+        Infantry* newInf = dynamic_cast<Infantry*>(unit);
+        if (!newInf) {
+            // cout << "Invalid infantry cast!" << endl;
+            return false;
+        }
+        int it = static_cast<int>(newInf->getInfantryType());
+        if (it < SNIPER || it > REGULARINFANTRY) {
+            return false;
+        }
+    }
+
+
+    // cout << " Checked type: ";
 
     // Check if unit with same type already exists
     UnitNode* temp = head;
@@ -36,6 +63,7 @@ bool UnitList::insert(Unit *unit){
             if (existVeh && newVeh && existVeh->getVehicleType() == newVeh->getVehicleType()) {
                 // cout << "V Existed! ";
                 // cout << existVeh->getQuantity() << " ->> " << newVeh->getQuantity();
+                // newVeh->getAttackScore();
                 existVeh->increaseQuantity(unit->getQuantity());
                 // cout << " =>> " << existVeh->getQuantity();
                 
@@ -46,18 +74,20 @@ bool UnitList::insert(Unit *unit){
             Infantry* existInf = dynamic_cast<Infantry*>(temp->unit);
             Infantry* newInf = dynamic_cast<Infantry*>(unit);
             if (existInf && newInf && existInf->getInfantryType() == newInf->getInfantryType()) {
-                cout << "I Existed! ";
+                // cout << "I Existed! ";
                 cout << existInf->getQuantity() << " + " << newInf->getQuantity();
                 existInf->increaseQuantity(unit->getQuantity());
                 cout << " = " << existInf->getQuantity() << endl;
-                cout << existInf->str();
+                // cout << existInf->str();
                 existInf->getAttackScore(); //252
-                cout << " => " << existInf->str() << endl;
+                cout << " => " << existInf->getScore() << endl;
                 return false;
             }
         }
         temp = temp->next;
     }
+
+    // cout << "Not existed!";
 
     // If unit with same type doesn't exist, insert it
     if(this->size >= this->capacity){
@@ -86,7 +116,7 @@ bool UnitList::insert(Unit *unit){
     }
     // cout << "Add new: " << unit->str() + " -> ";
     unit->getAttackScore();
-    // cout << unit->str() << endl;
+    cout << unit->str() << " - " << unit->getScore() << endl;
     
     return true;
 }
@@ -140,7 +170,7 @@ void UnitList::removeUnit(Unit* unit){
     UnitNode* prev = nullptr;
     UnitNode* curr = this->head;
     if(!curr){
-        cout << " NOT Found! \n";
+        // cout << " NOT Found! \n";
     }
     while (curr)
     {
@@ -177,11 +207,15 @@ void UnitList::removeWeakUnits(){
     UnitNode* node = head;
     while (node)
     {
-        if(node->unit->getAttackScore() <= 5){
+        UnitNode* next = node->next;
+        if(node->unit->getAttackScore(true) <= 5){
+            // cout << "Remove: " << node->unit->str() << endl;
             removeUnit(node->unit);
+            // cout << "done remove" << endl;
         }
-        node = node->next;
+        node = next;
     }
+    // cout << "end remove weak" << endl;
 }
 
 UnitNode* UnitList::getHead() const{
@@ -222,11 +256,11 @@ void UnitList::transferTo(UnitList* otherList){
     for (int i = 0; i < (int)units.size(); ++i) {
         int idx = units.size() - 1 - i;
         otherList->insert(units[idx]);
-        cout << "Insert + Remove: " << units[idx]->str() << endl;
+        // cout << "Insert + Remove: " << units[idx]->str() << endl;
         removeUnit(units[idx]);
     }
 
-    cout << this->str() << endl;
+    // cout << this->str() << endl;
 
     head = tail = nullptr;
     size = 0;

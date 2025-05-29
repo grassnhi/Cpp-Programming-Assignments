@@ -40,7 +40,7 @@ using namespace std;
 
 void expand(const string& s, int left, int right, int& start, int& maxlen){
     int n = s.length();
-    while(left >= 0 && right <= n && s[left] == s[right]){
+    while(left >= 0 && right < n && s[left] == s[right]){
         if(right - left + 1 > maxlen){
             maxlen = right - left + 1;
             start = left;

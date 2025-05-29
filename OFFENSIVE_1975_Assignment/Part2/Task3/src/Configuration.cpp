@@ -2,6 +2,9 @@
 
 // * Hint: Bạn có thể thêm hoặc thay thế các phương thức khác để truy cập các thành viên riêng tư nếu cần thiết.
 void Configuration::extractPosition(const string& data, vector<Position*>& target) {
+    if(data == "]" || data == " ]"){
+        return;
+    }
     stringstream ss(data);
     string pos;
     while (getline(ss, pos, ')')) {
@@ -19,9 +22,15 @@ void Configuration::extractPosition(const string& data, vector<Position*>& targe
 }
 
 Configuration::Configuration(const string& filepath){
+    // cout << "?????????????????" << endl;
     ifstream file(filepath.c_str());
+    // if (!file.is_open()) {
+    //     cout << "FAILED TO OPEN FILE: " << filepath << endl;
+    //     return; // or handle the error appropriately
+    // }
     string line;
     while (getline(file, line)){
+        // cout << "can we getline" << endl;
         if(line.find("NUM_ROWS=") == 0){
             this->num_rows = stoi(line.substr(9));
         }else if(line.find("NUM_COLS=") == 0){
@@ -167,6 +176,12 @@ Configuration::Configuration(const string& filepath){
             // cout << this->eventCode << endl;
         }
     }
+    // cout << "arrayForest size = " << (int)arrayForest.size() << endl;
+    // cout << "arrayRiver size = " << (int)arrayRiver.size() << endl;
+    // cout << "arrayFortification size = " << (int)arrayFortification.size() << endl;
+    // cout << "arrayUrban size = " << (int)arrayUrban.size() << endl;
+    // cout << "arraySpecialZone size = " << (int)arraySpecialZone.size() << endl;
+
     file.close();
 }
 

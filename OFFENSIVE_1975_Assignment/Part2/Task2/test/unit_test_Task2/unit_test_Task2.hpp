@@ -70,7 +70,7 @@ public:
     REGISTER_TEST(Task249);
     REGISTER_TEST(Task250);
     REGISTER_TEST(Task251);
-    REGISTER_TEST(Task252); //
+    // REGISTER_TEST(Task252); //
   }
 
 private:

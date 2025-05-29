@@ -4,7 +4,9 @@
 //! Lớp Vehicle
 //!----------------------------------------------
 Vehicle::Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType)
-    : Unit(quantity, weight, pos), vehicleType(vehicleType) {}
+    : Unit(quantity, weight, pos), vehicleType(vehicleType) {
+        // cout << "vehicleType: " << vehicleType << endl;
+    }
 
 int Vehicle::getAttackScore(bool donoth){
     // string vehicleTypeStr;
@@ -18,8 +20,18 @@ int Vehicle::getAttackScore(bool donoth){
     //     case TANK: vehicleTypeStr = "TANK"; break;
     //     default: vehicleTypeStr = "UNKNOWN"; break;
     // }
-    // cout << "\n type: " << vehicleTypeStr << " qual: " << quantity << " weig: " << weight << " => " << ceil((static_cast<int>(this->vehicleType) * 304 + this->quantity * this->weight) / 30.0);
-    return ceil((static_cast<int>(this->vehicleType) * 304 + this->quantity * this->weight) / 30.0);
+
+    double score;
+
+    if(donoth){
+        score = this->unitScore;
+    }else{
+        score = (static_cast<int>(this->vehicleType) * 304 + this->quantity * this->weight) / 30.0;
+    
+        this->unitScore = ceil(score);
+    } 
+    
+    return ceil(score);
 }
 
 string Vehicle::str() const{

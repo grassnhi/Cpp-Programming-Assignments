@@ -19,6 +19,8 @@ public:
     virtual void getEffect(Army *army) = 0;
     Position getPosition() const;
     virtual string type() const = 0;
+
+    double calculateDistance(const Position& pos1, const Position& pos2);
 };
 
 class Road : public TerrainElement {
@@ -62,5 +64,7 @@ public:
     void getEffect(Army* army) override;
     string type() const override;
 };
+
+
 
 #endif

@@ -5,7 +5,7 @@
 
 class LiberationArmy : public Army {
 public:
-    LiberationArmy(Unit** unitArray, int size, string name/*, BattleField* battleField*/);
+    LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField = nullptr);
     void fight(Army* enemy, bool defense = false) override;
     string str() const override;
 
@@ -15,5 +15,6 @@ private:
     int getNearestFibonacci(int num);
     bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 };
+
 
 #endif

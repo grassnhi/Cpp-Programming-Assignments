@@ -4,6 +4,7 @@ bool UNIT_TEST_Task4::Task402() {
     string name = "Task402";
     string cfg = "test/unit_test_Task4/test_case/input/config402.txt";
     ofstream ofs(cfg);
+    
     // Scenario: one infantry each, no terrain, eventCode=50 (<75)
     ofs << "NUM_COLS=3\n";
     ofs << "NUM_ROWS=3\n";
@@ -20,6 +21,9 @@ bool UNIT_TEST_Task4::Task402() {
     string result;
     try {
         campaign = new HCMCampaign(cfg);
+        // cout << "PRINT: BattleFile: " << campaign->getBattleField()->str() << endl;
+        // cout << "PRINT: LBRA: " << campaign->getLiberationArmy()->str() << endl;
+        // cout << "PRINT: ARVN: " << campaign->getARVNArmy()->str() << endl;
         result = "** Before the fight\n";
         result += campaign->printResult();
         result += "\n** After the fight\n";

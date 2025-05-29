@@ -19,5 +19,4 @@ public:
 };
 
 
-
 #endif // POSITION_H

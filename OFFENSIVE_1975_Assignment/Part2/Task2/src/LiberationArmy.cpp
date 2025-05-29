@@ -1,7 +1,7 @@
 #include "LiberationArmy.h"
 
-LiberationArmy::LiberationArmy(Unit** unitArray, int size, string name/*, BattleField* battleField*/)
-                : Army(unitArray, size, name/*, battleField*/) {}
+LiberationArmy::LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField)
+                : Army(unitArray, size, name, battleField) {}
 
 int LiberationArmy::getNearestFibonacci(int num){
     int a = 0, b = 1;
@@ -52,9 +52,9 @@ bool LiberationArmy::findSmallest(int target, vector<Unit*>& selectedUnits, bool
         vector<Unit*> group;
 
         for(int j = i; j < (int)thisUnits.size(); j++){
-            cout << "CK: " << thisUnits[j]->str() << " -> ";
+            // cout << "CK: " << thisUnits[j]->str() << " -> ";
             sum += thisUnits[j]->getAttackScore(true);
-            cout << thisUnits[j]->str() << endl;
+            // cout << thisUnits[j]->str() << endl;
             group.push_back(thisUnits[j]);
             
             if(sum >= target){
@@ -69,12 +69,12 @@ bool LiberationArmy::findSmallest(int target, vector<Unit*>& selectedUnits, bool
         }
     }
 
-    cout << "\nBest group: ";
-    for (int i = 0; i < (int)bestGroup.size(); i++)
-    {
-        cout << bestGroup[i]->str() << " - ";
-    }
-    cout << endl;
+    // cout << "\nBest group: ";
+    // for (int i = 0; i < (int)bestGroup.size(); i++)
+    // {
+    //     cout << bestGroup[i]->str() << " - ";
+    // }
+    // cout << endl;
 
     if(!bestGroup.empty()){
         selectedUnits = bestGroup;
@@ -89,7 +89,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         return;
     }
     if(defense){
-        cout << "Defense = true: ";
+        cout << "LiberationArmy: Defense = true: ";
         this->EXP = ceil(this->EXP*1.3);
         this->LF = ceil(this->LF*1.3);
 
@@ -124,21 +124,21 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         }
         updateScore();
     }else{
-        cout << "Defense = false: ";
+        cout << "LiberationArmy: Defense = false: ";
         this->EXP = ceil(this->EXP*1.5);
         this->LF = ceil(this->LF*1.5);
 
-        // this->LF = min(this->LF, 1000);
-        // this->EXP = min(this->EXP, 500);
+        this->LF = min(this->LF, 1000);
+        this->EXP = min(this->EXP, 500);
 
         vector<Unit*> groupA; // Inf mình > EXP enemy
         vector<Unit*> groupB; // Veh mình > LF enemy
 
-        cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
+        // cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
 
-        cout << "Gr A: ";
+        // cout << "Gr A: ";
         bool foundA = findSmallest(enemy->getEXP(), groupA, false);
-        cout << "Gr B: ";
+        // cout << "Gr B: ";
         bool foundB = findSmallest(enemy->getLF(), groupB, true);
 
         if(foundA && foundB){
@@ -202,6 +202,5 @@ bool LiberationArmy::isLiberation() const  {
 string LiberationArmy::str() const {
     return "LiberationArmy[LF=" + to_string(LF) + 
            ",EXP=" + to_string(EXP) + 
-           ",unitList=" + unitList->str() + /*"," +
-           (battleField ? battleField->str() : "battleField=") + */"]";
+           ",unitList=" + unitList->str() + "]";
 }

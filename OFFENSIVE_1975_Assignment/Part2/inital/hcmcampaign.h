@@ -84,11 +84,11 @@ class Unit
 protected:
     int quantity, weight;
     Position pos;
-
+    int unitScore;
 public:
     Unit(int quantity, int weight, Position pos);
     virtual ~Unit();
-    virtual int getAttackScore() = 0; // must be overridden by derived classes
+    virtual int getAttackScore(bool donoth = false) = 0; // must be overridden by derived classes
     Position getCurrentPosition() const;
     virtual string str() const = 0; // Pure virtual functions cannot have an implementation in the base class
     
@@ -101,19 +101,25 @@ public:
     void increaseQuantity(int amount); 
     void reduceQuantity(double percent);
 
+    int getScore() const;
+    void storeAttackScore(int attackScore);
+
     virtual bool isVehicle() const = 0;
 };
+
 
 class Vehicle : public Unit {
 private:
     VehicleType vehicleType;
+
 public:
     Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
-    int getAttackScore() override;
+    int getAttackScore(bool donoth = false) override;
     string str() const override;
     VehicleType getVehicleType() const;
     bool isVehicle() const override;
 };
+
 
 class Infantry : public Unit {
 private:
@@ -121,7 +127,7 @@ private:
 
 public:
     Infantry(int quantity, int weight, Position pos, InfantryType infantryType);
-    int getAttackScore() override;
+    int getAttackScore(bool donoth = false) override;
     string str() const override;
     InfantryType getInfantryType() const;  // Getter for InfantryType
     int personalNumber(int score);
@@ -203,7 +209,7 @@ public:
 
 private:
     int getNearestFibonacci(int num);
-    bool findSmallest(int target, vector<Unit*>& selectedUnits); 
+    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 };
 
 class ARVN : public Army {
@@ -226,6 +232,8 @@ public:
     virtual void getEffect(Army *army) = 0;
     Position getPosition() const;
     virtual string type() const = 0;
+
+    double calculateDistance(const Position& pos1, const Position& pos2);
 };
 
 class Road : public TerrainElement {
@@ -284,6 +292,9 @@ public:
 
     void replaceTerrain(Position* pos, TerrainElement* newTerrain);
     void applyTerrainEffects(Army* army);
+    // Trả về đối tượng TerrainElement tại vị trí (r,c)
+    TerrainElement* getElement(int r, int c) const;
+
     string str() const;
 };
 
@@ -331,6 +342,11 @@ public:
     ~HCMCampaign();
     void run();
     string printResult();
+
+    Configuration* getConfig() const;
+    BattleField* getBattleField() const;
+    LiberationArmy* getLiberationArmy() const;
+    ARVN* getARVNArmy() const;
 };
 
 #endif

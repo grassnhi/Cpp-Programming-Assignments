@@ -5,6 +5,14 @@ Unit::Unit(int quantity, int weight, Position pos)
 
 Unit::~Unit() {}
 
+int Unit::getScore() const{
+    return this->unitScore;
+}
+
+void Unit::storeAttackScore(int attackScore){
+    this->unitScore = attackScore;
+}
+
 Position Unit::getCurrentPosition() const{
     return this->pos;
 }
@@ -18,7 +26,8 @@ int Unit::getQuantity() const{
 }
 
 void Unit::reduceWeight(double percent){
-    this->weight *= (1 - percent);
+    double temp = this->weight * (1 - percent);
+    this->weight = ceil(temp);
 }
 
 void Unit::setWeight(int w){
@@ -34,7 +43,8 @@ void Unit::increaseQuantity(int amount){
 }
 
 void Unit::reduceQuantity(double percent){
-    cout << "\n Old: " << this->quantity;
-    this->quantity *= (1 - percent);
-    cout << " - New: " << this->quantity;
+    // cout << "\n Old: " << this->quantity;
+    double temp = this->quantity * (1 - percent);
+    this->quantity = ceil(temp);
+    // cout << " - New: " << this->quantity;
 }

@@ -5,11 +5,12 @@
 
 class ARVN : public Army {
 public:
-    ARVN(Unit** unitArray, int size, string name/*, BattleField* battleField*/);
+    ARVN(Unit** unitArray, int size, string name, BattleField* battleField  = nullptr);
     void fight(Army* enemy, bool defense = false) override;
     string str() const override;
 
     bool isLiberation() const override;
 };
+
 
 #endif
