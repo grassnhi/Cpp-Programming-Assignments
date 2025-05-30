@@ -1,0 +1,32 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 10
+weight: 5
+attackScore: 2
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARMOREDCAR
+quantity: 5
+weight: 2
+attackScore: 31
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 3
+weight: 1
+attackScore lúc đầu: 227
+attackScore thoả điều kiện cộng thêm 75: 302
+số cá nhân: 9
+quantity sau khi tăng 20%: 4
+attackScore tính lại: 228
+LF: 33
+EXP: 228
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.

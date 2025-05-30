@@ -1,0 +1,66 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 112
+weight: 4
+attackScore: 76
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 3
+weight: 1
+attackScore lúc đầu: 171
+số cá nhân: 4
+attackScore tính lại: 171
+LF: 76
+EXP: 171
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 1
+attackScore lúc đầu: 283
+số cá nhân: 8
+quantity sau khi tăng 20%: 4
+attackScore tính lại: 284
+LF: 62
+EXP: 284
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+LiberationArmy::fight(defense = true)---------------------------
+LiberationArmy đã thắng trận nhưng bị trừ 10% quantity
+Cập nhật số lượng của: Infantry[infantryType=ENGINEER,quantity=3,weight=1,position=(1,2)]
+Số lượng sau khi cập nhật: 3
+Cập nhật số lượng của: Vehicle[vehicleType=TANK,quantity=112,weight=4,position=(1,1)]
+Số lượng sau khi cập nhật: 101
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 3
+weight: 1
+attackScore lúc đầu: 171
+số cá nhân: 4
+attackScore tính lại: 171
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 101
+weight: 4
+attackScore: 75
+LF: 75
+EXP: 171

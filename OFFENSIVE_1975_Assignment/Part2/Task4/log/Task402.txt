@@ -1,0 +1,74 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1
+weight: 1
+attackScore lúc đầu: 281
+số cá nhân: 6
+attackScore tính lại: 281
+LF: 0
+EXP: 281
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1
+weight: 1
+attackScore lúc đầu: 281
+số cá nhân: 6
+attackScore tính lại: 281
+LF: 0
+EXP: 281
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Áp dụng hiệu ứng địa hình cho ARVN
+Sự kiện: 50
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 0
+EXP * 1.5: 422
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=0,EXP=281,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=1,weight=1,position=(1,1)]],battleField=BattleField[n_rows=3,n_cols=3]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1
+weight: 1
+attackScore lúc đầu: 281
+số cá nhân: 6
+attackScore tính lại: 281
+LF: 0
+EXP: 281
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=0,EXP=281,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=1,weight=1,position=(1,1)]],battleField=BattleField[n_rows=3,n_cols=3]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1
+weight: 1
+attackScore lúc đầu: 281
+số cá nhân: 6
+attackScore tính lại: 281
+LF: 0
+EXP: 281
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=281,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=1,weight=1,position=(2,2)]],battleField=BattleField[n_rows=3,n_cols=3]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 1
+weight: 1
+attackScore lúc đầu: 281
+số cá nhân: 6
+attackScore tính lại: 281
+LF: 0
+EXP: 281

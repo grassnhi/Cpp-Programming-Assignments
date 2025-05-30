@@ -180,6 +180,7 @@ protected:
     BattleField *battleField;
 
 public:
+    bool isBattle;
     Army(Unit **unitArray, int size, string name, BattleField *battleField);
     virtual void fight(Army *enemy, bool defense = false) = 0;
     virtual string str() const = 0;
@@ -194,6 +195,7 @@ public:
 
     void updateScore();
     bool isSpecialNumber(int S);
+    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 
     UnitList* getUnitList() const;
     BattleField* getBattleField() const;
@@ -201,6 +203,7 @@ public:
 
 class LiberationArmy : public Army {
 public:
+    
     LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField);
     void fight(Army* enemy, bool defense = false) override;
     string str() const override;
@@ -209,7 +212,7 @@ public:
 
 private:
     int getNearestFibonacci(int num);
-    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
+    // bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 };
 
 class ARVN : public Army {

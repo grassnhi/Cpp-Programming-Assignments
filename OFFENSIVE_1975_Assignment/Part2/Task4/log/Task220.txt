@@ -1,0 +1,30 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 7
+weight: 3
+attackScore: 62
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 5
+weight: 2
+attackScore: 1
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 10
+weight: 4
+attackScore lúc đầu: 152
+số cá nhân: 3
+attackScore tính lại: 152
+LF: 63
+EXP: 152
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Thêm Infantry vào đầu danh sách.

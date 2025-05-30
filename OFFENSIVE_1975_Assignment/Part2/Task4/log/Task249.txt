@@ -1,0 +1,3 @@
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.

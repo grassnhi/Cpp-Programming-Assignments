@@ -2,8 +2,7 @@
 
 bool UNIT_TEST_Task4::Task425() {
     string name = "Task425";
-
-    // cout << name << endl;
+    
 
     Unit** unitArrayOfLiber6 = new Unit*[1];
     Vehicle tankOfLiber6(20, 20, Position(1, 2), MORTAR);
@@ -16,5 +15,6 @@ bool UNIT_TEST_Task4::Task425() {
     delete liberationArmy6;
     delete[] unitArrayOfLiber6;
 
+    
     return printResult(result, expect, name);
 }

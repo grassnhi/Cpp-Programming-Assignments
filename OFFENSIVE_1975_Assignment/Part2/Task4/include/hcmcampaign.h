@@ -1,3 +1,11 @@
+/*
+ * Ho Chi Minh City University of Technology
+ * Faculty of Computer Science and Engineering
+ * Initial code for Assignment 2
+ * Programming Fundamentals Spring 2025
+ * Date: 02.02.2025
+ */
+
 // The library here is concretely set, students are not allowed to include any other libraries.
 #ifndef _H_HCM_CAMPAIGN_H_
 #define _H_HCM_CAMPAIGN_H_
@@ -56,9 +64,6 @@ enum InfantryType
     REGULARINFANTRY
 };
 
-//!-----------------------------------------------------
-//! CLASS Position
-//!-----------------------------------------------------
 class Position
 {
 private:
@@ -74,10 +79,6 @@ public:
     string str() const; // Example: returns "(1,15)"
 };
 
-
-//!-----------------------------------------------------
-//! CLASS Unit
-//!-----------------------------------------------------
 class Unit
 {
 protected:
@@ -106,9 +107,20 @@ public:
     virtual bool isVehicle() const = 0;
 };
 
-//!-----------------------------------------------------
-//! CLASS Infantry : public Unit
-//!-----------------------------------------------------
+
+class Vehicle : public Unit {
+private:
+    VehicleType vehicleType;
+
+public:
+    Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
+    int getAttackScore(bool donoth = false) override;
+    string str() const override;
+    VehicleType getVehicleType() const;
+    bool isVehicle() const override;
+};
+
+
 class Infantry : public Unit {
 private:
     InfantryType infantryType;
@@ -123,24 +135,6 @@ public:
     bool isVehicle() const override;
 };
 
-//!-----------------------------------------------------
-//! CLASS Vehicle : public Unit
-//!-----------------------------------------------------
-class Vehicle : public Unit {
-private:
-    VehicleType vehicleType;
-
-public:
-    Vehicle(int quantity, int weight, Position pos, VehicleType vehicleType);
-    int getAttackScore(bool donoth = false) override;
-    string str() const override;
-    VehicleType getVehicleType() const;
-    bool isVehicle() const override;
-};
-
-//!-----------------------------------------------------
-//! CLASS UnitList
-//!-----------------------------------------------------
 class UnitNode {
 public:
     Unit* unit;
@@ -177,9 +171,6 @@ public:
     int getSize() const;
 };
 
-//!-----------------------------------------------------
-//! CLASS Army 
-//!-----------------------------------------------------
 class Army
 {
 protected:
@@ -189,6 +180,7 @@ protected:
     BattleField *battleField;
 
 public:
+    bool isBattle;
     Army(Unit **unitArray, int size, string name, BattleField *battleField);
     virtual void fight(Army *enemy, bool defense = false) = 0;
     virtual string str() const = 0;
@@ -203,17 +195,15 @@ public:
 
     void updateScore();
     bool isSpecialNumber(int S);
+    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 
     UnitList* getUnitList() const;
     BattleField* getBattleField() const;
 };
 
-
-//!-----------------------------------------------------
-//! CLASS LiberationArmy
-//!-----------------------------------------------------
 class LiberationArmy : public Army {
 public:
+    
     LiberationArmy(Unit** unitArray, int size, string name, BattleField* battleField);
     void fight(Army* enemy, bool defense = false) override;
     string str() const override;
@@ -222,13 +212,9 @@ public:
 
 private:
     int getNearestFibonacci(int num);
-    bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
+    // bool findSmallest(int target, vector<Unit*>& selectedUnits, bool veh); 
 };
 
-
-//!-----------------------------------------------------
-//! CLASS ARVN
-//!-----------------------------------------------------
 class ARVN : public Army {
 public:
     ARVN(Unit** unitArray, int size, string name, BattleField* battleField);
@@ -238,9 +224,6 @@ public:
     bool isLiberation() const override;
 };
 
-//!-----------------------------------------------------
-//! CLASS TerrainElement và các lớp dẫn xuất
-//!-----------------------------------------------------
 class TerrainElement
 {
 private:
@@ -298,10 +281,6 @@ public:
     string type() const override;
 };
 
-
-//!-----------------------------------------------------
-//! CLASS BattleField
-//!-----------------------------------------------------
 class BattleField
 {
 private:
@@ -322,10 +301,6 @@ public:
     string str() const;
 };
 
-
-//!-----------------------------------------------------
-//! CLASS Configuration
-//!-----------------------------------------------------
 class Configuration {
 private:
     int num_rows, num_cols;
@@ -357,9 +332,6 @@ public:
     string printPositions(const string& label, const vector<Position*>& positions) const;
 };
 
-//!-----------------------------------------------------
-//! Lớp HCMCampaign
-//!-----------------------------------------------------
 class HCMCampaign
 {
 private:

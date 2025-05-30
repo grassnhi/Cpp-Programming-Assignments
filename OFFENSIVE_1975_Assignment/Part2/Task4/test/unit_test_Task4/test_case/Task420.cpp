@@ -2,6 +2,7 @@
 
 bool UNIT_TEST_Task4::Task420() {
     string name = "Task420";
+    
     string cfg = "test/unit_test_Task4/test_case/input/config420.txt";
     ofstream ofs(cfg);
     // Edge case: missing EVENT_CODE line -> default to 0 (Liberation attacks)
@@ -34,5 +35,6 @@ bool UNIT_TEST_Task4::Task420() {
 "LIBERATIONARMY[LF=0,EXP=0]-ARVN[LF=0,EXP=0]";
     if(campaign) delete campaign;
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

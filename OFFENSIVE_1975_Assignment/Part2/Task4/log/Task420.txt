@@ -1,0 +1,71 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 1
+weight: 2
+attackScore lúc đầu: 2
+số cá nhân: 6
+attackScore tính lại: 2
+LF: 0
+EXP: 2
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 3
+attackScore: 61
+LF: 61
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Áp dụng hiệu ứng địa hình cho ARVN
+Sự kiện: 79
+ARVN tấn công Liberation Army
+ARVN::fight(defense = false)---------------------------
+Cập nhật số lượng của: Vehicle[vehicleType=TANK,quantity=1,weight=3,position=(2,2)]
+Số lượng sau khi cập nhật: 1
+CẬP NHẬT CHỈ SỐ---------------------------
+Xoá Vehicle vì quantity <= 1: Vehicle[vehicleType=TANK,quantity=1,weight=3,position=(2,2)]
+LF: 0
+EXP: 0
+Liberation Army phòng thủ ARVN
+LiberationArmy::fight(defense = true)---------------------------
+LiberationArmy đã thắng trận
+Liber LF: 0 >= Enemy LF:0
+Liber EXP: 3 >= Enemy EXP:0
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 0
+EXP * 1.5: 5
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=0,EXP=3,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=SNIPER,quantity=1,weight=2,position=(3,3)]],battleField=BattleField[n_rows=4,n_cols=4]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 1
+weight: 2
+attackScore lúc đầu: 2
+số cá nhân: 6
+attackScore tính lại: 2
+LF: 0
+EXP: 2
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=0,EXP=2,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=4,n_cols=4]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=4,n_cols=4]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

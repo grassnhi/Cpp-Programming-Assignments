@@ -1,0 +1,8 @@
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 50
+weight: 10
+attackScore lúc đầu: 780
+số cá nhân: 1
+quantity sau khi giảm 10%: 45
+attackScore tính lại: 730

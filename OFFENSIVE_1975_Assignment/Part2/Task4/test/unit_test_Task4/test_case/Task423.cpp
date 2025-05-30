@@ -2,6 +2,7 @@
 
 bool UNIT_TEST_Task4::Task423() {
     string name = "Task423";
+    
     string cfg = "test/unit_test_Task4/test_case/input/config423.txt";
     ofstream ofs(cfg);
     // Edge case: missing EVENT_CODE line -> default to 0 (Liberation attacks)
@@ -28,5 +29,6 @@ bool UNIT_TEST_Task4::Task423() {
     }
     string expect = "[num_rows=10,num_cols=8,arrayForest=[(1,2),(3,5)],arrayRiver=[(0,0),(0,4)],arrayFortification=[(6,6)],arrayUrban=[(2,0)],arraySpecialZone=[(9,7)],liberationUnits=[Vehicle[vehicleType=TANK,quantity=5,weight=2,position=(1,2)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=2,position=(1,1)]],ARVNUnits=[Vehicle[vehicleType=TANK,quantity=5,weight=2,position=(3,2)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=2,position=(3,3)]],eventCode=23]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

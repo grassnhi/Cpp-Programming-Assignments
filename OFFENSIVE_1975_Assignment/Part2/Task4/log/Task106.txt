@@ -1,0 +1,8 @@
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 10
+weight: 15
+attackScore lúc đầu: 374
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 404

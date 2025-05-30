@@ -1,0 +1,39 @@
+Expected: Initial State:
+1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(4,4)],Infantry[infantryType=REGULAR
+INFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2
+,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+2. ARVN[LF=14,EXP=473,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGUL
+ARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],b
+attleField=BattleField[n_rows=6,n_cols=6]]
+Applying Battlefield Effects (Round 1):
+After Effects (Round 1):
+1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(4,4)],Infantry[infantryType=REGULAR
+INFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2
+,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGUL
+ARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],b
+attleField=BattleField[n_rows=6,n_cols=6]]
+Liberation attacks ARVN (Round 2):
+After Liberation Attack:
+1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULAR
+INFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2
+,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGUL
+ARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],b
+attleField=BattleField[n_rows=6,n_cols=6]]
+ARVN defends Liberation (Round 2):
+After ARVN Defense:
+1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULAR
+INFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2
+,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGUL
+ARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],b
+attleField=BattleField[n_rows=6,n_cols=6]]
+Applying Battlefield Effects (Round 3):
+After Effects (Round 3):
+1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULAR
+INFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2
+,2)]],battleField=BattleField[n_rows=6,n_cols=6]]
+2. ARVN[LF=9,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULA
+RINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],ba
+ttleField=BattleField[n_rows=6,n_cols=6]]

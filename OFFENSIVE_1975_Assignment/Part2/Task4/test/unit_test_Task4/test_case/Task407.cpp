@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task407() {
     string name = "Task407";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config407.txt";
     ofstream ofs(cfg);
     // Fortification benefits ARVN, Liberation penalized
@@ -33,6 +36,7 @@ bool UNIT_TEST_Task4::Task407() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=288]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

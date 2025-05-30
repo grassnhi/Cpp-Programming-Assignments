@@ -1,0 +1,98 @@
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: APC
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: ANTIAIRCRAFTSQUAD
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 35
+weight: 20
+attackScore: 85
+Tổng số lượng: 35
+Trọng số lớn nhất: 20
+Cập nhật attackScore: 85
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 90
+weight: 100
+attackScore: 300
+Tổng số lượng: 90
+Trọng số lớn nhất: 100
+Cập nhật attackScore: 300
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 20
+weight: 20
+attackScore: 24
+Tổng số lượng: 20
+Trọng số lớn nhất: 20
+Cập nhật attackScore: 24
+UnitList::insert()---------------------------
+infantryType: MORTARSQUAD
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: MORTARSQUAD
+quantity: 25
+weight: 20
+attackScore lúc đầu: 612
+số cá nhân: 4
+attackScore tính lại: 612
+Tổng số lượng: 25
+Trọng số lớn nhất: 20
+Cập nhật attackScore: 612
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 14
+weight: 30
+attackScore lúc đầu: 588
+số cá nhân: 7
+attackScore tính lại: 588
+Tổng số lượng: 14
+Trọng số lớn nhất: 30
+Cập nhật attackScore: 588

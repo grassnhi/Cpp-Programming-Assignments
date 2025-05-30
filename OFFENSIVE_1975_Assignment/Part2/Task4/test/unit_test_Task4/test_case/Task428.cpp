@@ -3,6 +3,7 @@
 bool UNIT_TEST_Task4::Task428()
 {
     string name = "Task428";
+    
     //! data ------------------------------------
     Vehicle tankOfLiber1(20, 20, Position(1, 2), MORTAR);
     Vehicle tankOfLiber2(5, 20, Position(3, 2), MORTAR);
@@ -28,5 +29,6 @@ bool UNIT_TEST_Task4::Task428()
     delete liberationArmy8;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }

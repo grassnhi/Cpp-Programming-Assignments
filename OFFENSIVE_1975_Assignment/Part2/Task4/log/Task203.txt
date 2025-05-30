@@ -1,0 +1,34 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 300
+weight: 1
+attackScore lúc đầu: 300
+số cá nhân: 7
+attackScore tính lại: 300
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 250
+weight: 1
+attackScore lúc đầu: 530
+số cá nhân: 3
+attackScore tính lại: 530
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 200
+weight: 1
+attackScore lúc đầu: 368
+số cá nhân: 3
+attackScore tính lại: 368
+LF: 0
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Thêm Infantry vào đầu danh sách.

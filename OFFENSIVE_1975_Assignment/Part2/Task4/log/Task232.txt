@@ -1,0 +1,6 @@
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Danh sách đã đầy, không thể thêm đơn vị này.

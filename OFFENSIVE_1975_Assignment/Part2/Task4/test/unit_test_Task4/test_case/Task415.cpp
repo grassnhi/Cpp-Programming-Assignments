@@ -2,6 +2,8 @@
 
 bool UNIT_TEST_Task4::Task415() {
     string name = "Task415";
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config415.txt";
     ofstream ofs(cfg);
     // Full scenario: varied terrain, many units, multi-round
@@ -35,5 +37,6 @@ bool UNIT_TEST_Task4::Task415() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=500]-ARVN[LF=113,EXP=124]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

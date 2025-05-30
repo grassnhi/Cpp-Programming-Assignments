@@ -2,6 +2,7 @@
 
 bool UNIT_TEST_Task4::Task422() {
     string name = "Task422";
+    
     string cfg = "test/unit_test_Task4/test_case/input/config422.txt";
     ofstream ofs(cfg);
     // Edge case: missing EVENT_CODE line -> default to 0 (Liberation attacks)
@@ -34,5 +35,6 @@ bool UNIT_TEST_Task4::Task422() {
                     "** After the fight\n"
                     "LIBERATIONARMY[LF=62,EXP=290]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

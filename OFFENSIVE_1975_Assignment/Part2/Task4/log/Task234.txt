@@ -1,0 +1,3 @@
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.

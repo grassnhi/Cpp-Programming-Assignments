@@ -1,0 +1,23 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 5
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 3
+weight: 2
+attackScore lúc đầu: 286
+số cá nhân: 2
+quantity sau khi giảm 10%: 3
+attackScore tính lại: 286
+LF: 62
+EXP: 286
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.

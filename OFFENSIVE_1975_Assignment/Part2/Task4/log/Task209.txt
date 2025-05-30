@@ -1,0 +1,64 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 10
+attackScore: 1
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 4
+weight: 12
+attackScore lúc đầu: 48
+số cá nhân: 7
+attackScore tính lại: 48
+LF: 1
+EXP: 48
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 3
+attackScore: 62
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 3
+weight: 30
+attackScore lúc đầu: 90
+số cá nhân: 4
+attackScore tính lại: 90
+LF: 62
+EXP: 90
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 2
+EXP * 1.5: 72
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=1,EXP=48,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=4,weight=11,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=9,position=(1,1)]],battleField=]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 4
+weight: 11
+attackScore lúc đầu: 44
+số cá nhân: 3
+attackScore tính lại: 44
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 9
+attackScore: 1
+LF: 1
+EXP: 44

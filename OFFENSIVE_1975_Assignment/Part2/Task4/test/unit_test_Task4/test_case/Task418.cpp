@@ -1,6 +1,7 @@
 #include "../unit_test_Task4.hpp"
 bool UNIT_TEST_Task4::Task418() {
     string name = "Task418";
+    
     string cfg = "test/unit_test_Task4/test_case/input/config418.txt";
     ofstream ofs(cfg);
     // Engineer in special zone heals neighboring infantry
@@ -26,5 +27,6 @@ bool UNIT_TEST_Task4::Task418() {
 "LIBERATIONARMY[LF=0,EXP=460]-ARVN[LF=61,EXP=0]";
     delete campaign;
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

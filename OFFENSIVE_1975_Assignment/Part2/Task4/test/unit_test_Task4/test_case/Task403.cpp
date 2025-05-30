@@ -2,6 +2,8 @@
 
 bool UNIT_TEST_Task4::Task403() {
     string name = "Task403";
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config403.txt";
     ofstream ofs(cfg);
     // Scenario: eventCode >=75, ARVN attacks and Liberation counter-attacks
@@ -36,5 +38,6 @@ bool UNIT_TEST_Task4::Task403() {
 "LIBERATIONARMY[LF=0,EXP=0]-ARVN[LF=0,EXP=0]";
 
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

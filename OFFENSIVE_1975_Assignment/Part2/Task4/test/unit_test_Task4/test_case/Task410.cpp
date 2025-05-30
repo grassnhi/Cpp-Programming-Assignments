@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task410() {
     string name = "Task410";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config410.txt";
     ofstream ofs(cfg);
     // Capacity limit: many units added, list should cap at 12 or 8
@@ -42,5 +45,6 @@ bool UNIT_TEST_Task4::Task410() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=62,EXP=0]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

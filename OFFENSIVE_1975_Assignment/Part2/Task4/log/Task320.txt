@@ -1,0 +1,66 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 100
+weight: 5
+attackScore lúc đầu: 724
+số cá nhân: 8
+quantity sau khi tăng 20%: 120
+attackScore tính lại: 824
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 80
+weight: 5
+attackScore: 64
+LF: 64
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+Urban::getEffect()---------------------------
+Vị trí địa hình: (1,0)
+Quân đội: LiberationArmy
+LiberationArmy[LF=64,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SPECIALFORCES,quantity=120,weight=5,position=(1,1)],Vehicle[vehicleType=ARTILLERY,quantity=80,weight=5,position=(1,1)]],battleField=]
+Bộ binh thuộc quân giải phóng trong bán kính ảnh hưởng: Infantry[infantryType=SPECIALFORCES,quantity=120,weight=5,position=(1,1)]
+attackScore ban đầu: 824
+Tăng attackScore: 1648
+attackScore còn: 2472
+Phương tiện thuộc quân giải phóng trong bán kính ảnh hưởng: Vehicle[vehicleType=ARTILLERY,quantity=80,weight=5,position=(1,1)]
+attackScore ban đầu: 64
+Giảm attackScore: -32
+attackScore còn: 32
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 100
+weight: 5
+attackScore lúc đầu: 780
+số cá nhân: 1
+quantity sau khi giảm 10%: 90
+attackScore tính lại: 730
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 90
+weight: 5
+attackScore: 15
+LF: 15
+EXP: 500
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+Urban::getEffect()---------------------------
+Vị trí địa hình: (1,0)
+Quân đội: ARVN
+ARVN[LF=15,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)],Vehicle[vehicleType=TRUCK,quantity=90,weight=5,position=(1,1)]],battleField=]
+Bộ binh thuộc quân ARVN trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)]
+attackScore ban đầu: 730
+Tăng attackScore: 1095
+attackScore còn: 1825

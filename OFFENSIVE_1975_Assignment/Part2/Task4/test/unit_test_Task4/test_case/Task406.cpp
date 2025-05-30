@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task406() {
     string name = "Task406";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config406.txt";
     ofstream ofs(cfg);
     // River-heavy map, infantry slow and penalized
@@ -34,6 +37,7 @@ bool UNIT_TEST_Task4::Task406() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=118]-ARVN[LF=0,EXP=174]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

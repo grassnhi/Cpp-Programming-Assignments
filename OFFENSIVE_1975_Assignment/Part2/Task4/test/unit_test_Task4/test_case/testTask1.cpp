@@ -4,6 +4,8 @@ bool UNIT_TEST_Task4::Task4101()
 {
     // Test Position với số dương
     string name = "Task101";
+
+    
     //! data ------------------------------------
     int row = 15;
     int col = 8;
@@ -25,13 +27,15 @@ bool UNIT_TEST_Task4::Task4101()
     // Không có cấp phát động cần giải phóng.
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4102()
 {
     // Test Position với số âm
     string name = "Task102";
+    
     //! data ------------------------------------
     int row = 5;
     int col = 10;
@@ -52,12 +56,14 @@ bool UNIT_TEST_Task4::Task4102()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4103()
 {
     // Test Vehicle: tính điểm tấn công với TRUCK
     string name = "Task103";
+    
     //! data ------------------------------------
     int quantity = 3;
     int weight = 10;
@@ -79,12 +85,14 @@ bool UNIT_TEST_Task4::Task4103()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4104()
 {
     // Test Vehicle: định dạng chuỗi xuất
     string name = "Task104";
+    
     //! data ------------------------------------
     int quantity = 4;
     int weight = 12;
@@ -104,11 +112,13 @@ bool UNIT_TEST_Task4::Task4104()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4105()
 {
     string name = "Task105";
+    
     //! data ------------------------------------
     int quantity = 10;
     int weight = 25; 
@@ -130,12 +140,14 @@ bool UNIT_TEST_Task4::Task4105()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4106()
 {
     // Test Infantry SPECIALFORCES với weight không phải số chính phương -> tăng số lượng
     string name = "Task106";
+    
     //! data ------------------------------------
     int quantity = 10;
     int weight = 15; // không phải số chính phương
@@ -160,12 +172,14 @@ bool UNIT_TEST_Task4::Task4106()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4107()
 {
     // Test Infantry REGULARINFANTRY với giảm số lượng khi "số cá nhân" < 3
     string name = "Task107";
+    
     //! data ------------------------------------
     int quantity = 50;
     int weight = 10;
@@ -190,12 +204,14 @@ bool UNIT_TEST_Task4::Task4107()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4108()
 {
     // Test Infantry ENGINEER không thay đổi số lượng
     string name = "Task108";
+    
     //! data ------------------------------------
     int quantity = 20;
     int weight = 12;
@@ -218,12 +234,14 @@ bool UNIT_TEST_Task4::Task4108()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4109()
 {
     // Test Infantry SNIPER với tăng số lượng khi "số cá nhân" > 7
     string name = "Task109";
+    
     //! data ------------------------------------
     int quantity = 1;
     int weight = 58;
@@ -248,12 +266,14 @@ bool UNIT_TEST_Task4::Task4109()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4110()
 {
     // Test Infantry MORTARSQUAD không điều chỉnh số lượng
     string name = "Task110";
+    
     //! data ------------------------------------
     int quantity = 5;
     int weight = 8;
@@ -276,12 +296,14 @@ bool UNIT_TEST_Task4::Task4110()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4111()
 {
     // Test Infantry REGULARINFANTRY với trường hợp không thay đổi số lượng (digit nằm giữa)
     string name = "Task111";
+    
     //! data ------------------------------------
     int quantity = 10;
     int weight = 10;
@@ -304,12 +326,14 @@ bool UNIT_TEST_Task4::Task4111()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4112()
 {
     // Test Position với số lớn
     string name = "Task112";
+    
     //! data ------------------------------------
     int row = 1000;
     int col = 2000;
@@ -329,12 +353,14 @@ bool UNIT_TEST_Task4::Task4112()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4113()
 {
     // Test Position với row = 0 và col âm
     string name = "Task113";
+    
     //! data ------------------------------------
     int row = 0;
     int col = -7;
@@ -354,12 +380,14 @@ bool UNIT_TEST_Task4::Task4113()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4114()
 {
     // Test đa hình: Unit* trỏ đến Vehicle
     string name = "Task114";
+    
     //! data ------------------------------------
     Unit* unit = new Vehicle(7, 9, Position(12,12), ARMOREDCAR); // ARMOREDCAR có giá trị 3
     //! process ---------------------------------
@@ -378,12 +406,14 @@ bool UNIT_TEST_Task4::Task4114()
     delete unit;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4115()
 {
     // Test đa hình: Unit* trỏ đến Infantry
     string name = "Task115";
+    
     //! data ------------------------------------
     Unit* unit = new Infantry(6, 7, Position(13,13), ANTIAIRCRAFTSQUAD); // ANTIAIRCRAFTSQUAD có giá trị 1
     //! process ---------------------------------
@@ -402,12 +432,14 @@ bool UNIT_TEST_Task4::Task4115()
     delete unit;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4116()
 {
     // Test nhiều đơn vị trong mảng và tính tổng điểm tấn công
     string name = "Task116";
+    
     //! data ------------------------------------
     Unit* units[2];
     units[0] = new Vehicle(2, 10, Position(14,14), APC); // APC có giá trị 4 → score = 4*304 + 2*10 = 1216 + 20 = 1236
@@ -433,12 +465,14 @@ bool UNIT_TEST_Task4::Task4116()
     }
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4117()
 {
     // Test Infantry REGULARINFANTRY: số lượng không giảm dưới 1 khi giảm 10%
     string name = "Task117";
+    
     //! data ------------------------------------
     int quantity = 1;
     int weight = 5;
@@ -460,12 +494,14 @@ bool UNIT_TEST_Task4::Task4117()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }
 bool UNIT_TEST_Task4::Task4118()
 {
     // Test scenario: chuỗi xuất của Vehicle và Infantry
     string name = "Task118";
+    
     //! data ------------------------------------
     Vehicle vehicle(3, 15, Position(16,16), MORTAR); // MORTAR có giá trị 1
     Infantry infantry(7, 10, Position(16,17), ANTIAIRCRAFTSQUAD); // ANTIAIRCRAFTSQUAD có giá trị 1
@@ -483,12 +519,14 @@ bool UNIT_TEST_Task4::Task4118()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4119()
 {
     // Test các hàm set và get của Position
     string name = "Task119";
+    
     //! data ------------------------------------
     Position pos;
     pos.setRow(25);
@@ -509,12 +547,14 @@ bool UNIT_TEST_Task4::Task4119()
     //! remove data -----------------------------
     
     //! result ----------------------------------
-    return printResult(output.str(), expect, name);
+    
+return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4120()
 {
     // Test Infantry MORTARSQUAD không điều chỉnh số lượng
     string name = "Task120";
+    
     //! data ------------------------------------
     int quantity = 5;
     int weight = 8;
@@ -537,5 +577,6 @@ bool UNIT_TEST_Task4::Task4120()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expectStream.str(), name);
 }

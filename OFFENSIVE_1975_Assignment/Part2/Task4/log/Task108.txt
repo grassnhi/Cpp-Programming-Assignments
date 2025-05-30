@@ -1,0 +1,7 @@
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 20
+weight: 12
+attackScore lúc đầu: 408
+số cá nhân: 7
+attackScore tính lại: 408

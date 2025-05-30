@@ -1,0 +1,87 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 5
+attackScore lúc đầu: 50
+số cá nhân: 9
+quantity sau khi tăng 20%: 12
+attackScore tính lại: 60
+LF: 0
+EXP: 240
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 24
+weight: 5
+attackScore lúc đầu: 120
+số cá nhân: 7
+attackScore tính lại: 120
+Tổng số lượng: 24
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 120
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 36
+weight: 5
+attackScore lúc đầu: 180
+số cá nhân: 4
+attackScore tính lại: 180
+Tổng số lượng: 36
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 180
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Đã tồn tại Infantry
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 48
+weight: 5
+attackScore lúc đầu: 240
+số cá nhân: 1
+quantity sau khi giảm 10%: 44
+attackScore tính lại: 220
+Tổng số lượng: 44
+Trọng số lớn nhất: 5
+Cập nhật attackScore: 220
+Mountain::getEffect()---------------------------
+Vị trí địa hình: (10,10)
+Quân đội LiberationArmy: 
+LiberationArmy[LF=0,EXP=240,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=SNIPER,quantity=44,weight=5,position=(10,10)]],battleField=]
+Bộ binh trong bán kính ảnh hưởng: Infantry[infantryType=SNIPER,quantity=44,weight=5,position=(10,10)]
+Tăng EXP: 66
+Tổng EXP sau hiệu ứng: 306
+Tổng LF sau hiệu ứng: 0

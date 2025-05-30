@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task408() {
     string name = "Task408";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config408.txt";
     ofstream ofs(cfg);
     // Urban areas boost infantry, penalize artillery
@@ -33,6 +36,7 @@ bool UNIT_TEST_Task4::Task408() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=289]-ARVN[LF=51,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

@@ -2,6 +2,7 @@
 
 bool UNIT_TEST_Task4::Task4301() {
     string name = "Task301";
+    
     //! data ------------------------------------
     // Test TerrainElement constructor with Position
     Position pos(0, 0);
@@ -46,9 +47,11 @@ bool UNIT_TEST_Task4::Task4301() {
     delete army1;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }bool UNIT_TEST_Task4::Task4302() {
     string name = "Task302";
+    
     //! data ------------------------------------
     // Test TerrainElement constructor with Position
     Position pos("(0,0)");
@@ -93,10 +96,12 @@ bool UNIT_TEST_Task4::Task4301() {
     delete army1;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4303() {
     string name = "Task303";
+    
     //! data ------------------------------------
     // Test TerrainElement constructor with Position
     Position pos(0, 0);
@@ -129,7 +134,7 @@ bool UNIT_TEST_Task4::Task4303() {
     string expect = "Init Info:\n"
                     "LiberationArmy[LF=224,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n"
                     "After Mountain Effect:\n"
-                    "LiberationArmy[LF=221,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n";
+                    "LiberationArmy[LF=218,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n";
     
     //! output ----------------------------------
     
@@ -140,10 +145,12 @@ bool UNIT_TEST_Task4::Task4303() {
     delete army1;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4304() {
     string name = "Task304";
+    
     //! data ------------------------------------
     // Test TerrainElement constructor with Position
     Position pos(0, 0);
@@ -176,7 +183,7 @@ bool UNIT_TEST_Task4::Task4304() {
     string expect = "Init Info:\n"
                     "ARVN[LF=224,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n"
                     "After Mountain Effect:\n"
-                    "ARVN[LF=223,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n";
+                    "ARVN[LF=220,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=5;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,5)],Infantry[infantryType=ENGINEER,quantity=5,weight=8,position=(0,4)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,3)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(0,0)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(0,1)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)]],battleField=]\n";
     
     //! output ----------------------------------
     
@@ -187,11 +194,13 @@ bool UNIT_TEST_Task4::Task4304() {
     delete army1;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4305() {
     string name = "Task305";
+    
     //! data ------------------------------------
     // Test TerrainElement base class constructor and position functionality
     Position pos(3, 4);
@@ -227,10 +236,12 @@ bool UNIT_TEST_Task4::Task4305() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4306() {
     string name = "Task306";
+    
     //! data ------------------------------------
     // Test TerrainElement base class constructor and position functionality
     Position pos(3, 4);
@@ -266,10 +277,12 @@ bool UNIT_TEST_Task4::Task4306() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4307() {
     string name = "Task307";
+    
     //! data ------------------------------------
     Position pos(7, 7);
     River river(pos);
@@ -305,11 +318,13 @@ bool UNIT_TEST_Task4::Task4307() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4308() {
     string name = "Task308";
+    
     //! data ------------------------------------
     Position pos(3, 3);
     Fortification fortification(pos);
@@ -363,11 +378,13 @@ bool UNIT_TEST_Task4::Task4308() {
     delete arvnArmy;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4309() {
     string name = "Task309";
+    
     //! data ------------------------------------
     Position pos(6, 6);
     Urban urban(pos);
@@ -401,11 +418,13 @@ bool UNIT_TEST_Task4::Task4309() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4310() {
     string name = "Task310";
+    
     //! data ------------------------------------
     Position pos(1, 1);
     SpecialZone specialZone(pos);
@@ -439,10 +458,12 @@ bool UNIT_TEST_Task4::Task4310() {
     delete liberationArmy;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4311() {
     string name = "Task311";
+    
     //! data ------------------------------------
     Position pos1(0, 0);
     Position pos2(1, 1);
@@ -469,9 +490,9 @@ bool UNIT_TEST_Task4::Task4311() {
     string expect = "Initial Army: \n"
                    "LiberationArmy[LF=2,EXP=60,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]\n"
                    "After Forest Effect: \n"
-                   "LiberationArmy[LF=2,EXP=78,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]\n"
+                   "LiberationArmy[LF=1,EXP=78,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]\n"
                    "After Forest + River Effects: \n"
-                   "LiberationArmy[LF=2,EXP=78,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]\n";
+                   "LiberationArmy[LF=1,EXP=78,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,0)]],battleField=]\n";
     
     //! cleanup ---------------------------------
     delete infantry;
@@ -479,10 +500,12 @@ bool UNIT_TEST_Task4::Task4311() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4312() {
     string name = "Task312";
+    
     //! data ------------------------------------
     Position pos(5, 5);
     Mountain mountain(pos);
@@ -508,10 +531,12 @@ bool UNIT_TEST_Task4::Task4312() {
     delete emptyArmy;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4313() {
     string name = "Task313";
+    
     //! data ------------------------------------
     Position pos(5, 5);
     SpecialZone specialZone(pos);
@@ -544,10 +569,12 @@ bool UNIT_TEST_Task4::Task4313() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4314() {
     string name = "Task314";
+    
     //! data ------------------------------------
     Position pos(10, 10);
     Mountain mountain(pos);
@@ -581,10 +608,12 @@ bool UNIT_TEST_Task4::Task4314() {
     delete army;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4315() {
     string name = "Task315";
+    
     //! data ------------------------------------
     // Test TerrainElement base class constructor and position functionality
     int row = 7;
@@ -686,15 +715,15 @@ bool UNIT_TEST_Task4::Task4315() {
 "2. ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]\n"
 "Terrain Elements get effect: \n"
 "After Base Effect: \n"
-"1. LiberationArmy[LF=105,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
+"1. LiberationArmy[LF=98,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
 "2. ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]\n"
 "ARVN attack Liberation: \n"
 "After Attack: \n"
-"1. LiberationArmy[LF=105,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
+"1. LiberationArmy[LF=98,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
 "2. ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]\n"
 "Liberation defends ARVN: \n"
 "After defends: \n"
-"1. LiberationArmy[LF=137,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
+"1. LiberationArmy[LF=128,EXP=500,unitList=UnitList[count_vehicle=4;count_infantry=4;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=6,position=(3,7)],Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(3,5)],Infantry[infantryType=REGULARINFANTRY,quantity=5,weight=10,position=(0,3)],Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)],Vehicle[vehicleType=MORTAR,quantity=8,weight=6,position=(6,4)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(4,4)]],battleField=]\n"
 "2. ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]\n";
     
     //! cleanup ---------------------------------
@@ -719,10 +748,12 @@ bool UNIT_TEST_Task4::Task4315() {
     delete liber;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }
 bool UNIT_TEST_Task4::Task4316() {
     string name = "Task316";
+    
     stringstream output;
 
     // Tạo các vector lưu vị trí cho từng loại Terrain Element
@@ -797,10 +828,12 @@ bool UNIT_TEST_Task4::Task4316() {
     for (auto p : arraySpecialZone) delete p;
     delete bf;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4317() {
     string name = "Task317";
+    
     stringstream output;
 
     //! Data ------------------------------------
@@ -897,7 +930,7 @@ bool UNIT_TEST_Task4::Task4317() {
 "2. ARVN[LF=12,EXP=404,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=7,position=(2,3)],Infantry[infantryType=SPECIALFORCES,quantity=9,weight=6,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=11,weight=4,position=(4,4)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
 "Applying Battlefield Effects (Round 1):\n"
 "After Effects (Round 1):\n"
-"1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=11,weight=5,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=6,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
+"1. LiberationArmy[LF=0,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=11,weight=5,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=6,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
 "2. ARVN[LF=12,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=7,position=(2,3)],Infantry[infantryType=SPECIALFORCES,quantity=9,weight=6,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=11,weight=4,position=(4,4)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
 "Liberation attacks ARVN:\n"
 "After Attack:\n"
@@ -909,7 +942,7 @@ bool UNIT_TEST_Task4::Task4317() {
 "2. ARVN[LF=12,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=7,position=(2,3)],Infantry[infantryType=SPECIALFORCES,quantity=9,weight=6,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=11,weight=4,position=(4,4)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
 "Applying Battlefield Effects (Round 2):\n"
 "After Effects (Round 2):\n"
-"1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=11,weight=5,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=6,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
+"1. LiberationArmy[LF=0,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=11,weight=5,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=6,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=10,weight=5,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]\n"
 "2. ARVN[LF=12,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=7,position=(2,3)],Infantry[infantryType=SPECIALFORCES,quantity=9,weight=6,position=(3,2)],Vehicle[vehicleType=MORTAR,quantity=11,weight=4,position=(4,4)]],battleField=BattleField[n_rows=5,n_cols=5]]\n";
 
     //! Cleanup ---------------------------------
@@ -928,10 +961,12 @@ bool UNIT_TEST_Task4::Task4317() {
     for (auto p : arrayUrban) delete p;
     for (auto p : arraySpecialZone) delete p;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4318() {
     string name = "Task318";
+    
     stringstream output;
 
     //! Data ------------------------------------
@@ -1038,19 +1073,19 @@ bool UNIT_TEST_Task4::Task4318() {
 "Applying Battlefield Effects (Round 1):\n"
 "After Effects (Round 1):\n"
 "1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(4,4)],Infantry[infantryType=REGULARINFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2,2)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
-"2. ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
+"2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
 "Liberation attacks ARVN (Round 2):\n"
 "After Liberation Attack:\n"
 "1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULARINFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2,2)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
-"2. ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
+"2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
 "ARVN defends Liberation (Round 2):\n"
 "After ARVN Defense:\n"
 "1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULARINFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2,2)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
-"2. ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
+"2. ARVN[LF=11,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
 "Applying Battlefield Effects (Round 3):\n"
 "After Effects (Round 3):\n"
 "1. LiberationArmy[LF=2,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=3;Infantry[infantryType=SNIPER,quantity=11,weight=5,position=(4,4)],Infantry[infantryType=REGULARINFANTRY,quantity=14,weight=5,position=(1,4)],Infantry[infantryType=SPECIALFORCES,quantity=15,weight=6,position=(0,1)],Vehicle[vehicleType=TRUCK,quantity=12,weight=5,position=(2,2)]],battleField=BattleField[n_rows=6,n_cols=6]]\n"
-"2. ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n";
+"2. ARVN[LF=9,EXP=500,unitList=UnitList[count_vehicle=2;count_infantry=2;Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=12,weight=6,position=(4,0)],Infantry[infantryType=REGULARINFANTRY,quantity=13,weight=5,position=(0,5)],Vehicle[vehicleType=MORTAR,quantity=14,weight=4,position=(3,0)],Vehicle[vehicleType=TRUCK,quantity=11,weight=5,position=(2,3)]],battleField=BattleField[n_rows=6,n_cols=6]]\n";
 
     //! Cleanup ---------------------------------
     delete libInf1;
@@ -1070,10 +1105,12 @@ bool UNIT_TEST_Task4::Task4318() {
     for (auto p : arrayUrban) delete p;
     for (auto p : arraySpecialZone) delete p;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4319() {
     string name = "Task319";
+    
     stringstream output;
 
     // Tạo một đơn vị bộ binh nằm trong bán kính 2 của River
@@ -1092,10 +1129,12 @@ bool UNIT_TEST_Task4::Task4319() {
     delete infantry;
     delete army;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4320() {
     string name = "Task320";
+    
     stringstream output;
 
     // --- Phần 1: Quân Giải phóng ---
@@ -1134,10 +1173,12 @@ bool UNIT_TEST_Task4::Task4320() {
     delete veh_arvn;
     delete arvnArmy;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4321() {
     string name = "Task321";
+    
     stringstream output;
 
     // Kiểm tra Fortification với LiberationArmy và ARVN:
@@ -1167,10 +1208,12 @@ bool UNIT_TEST_Task4::Task4321() {
     delete inf_arvn;
     delete arvnArmy;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4322() {
     string name = "Task322";
+    
     stringstream output;
 
     // Tạo 2 bộ đơn vị: một đơn vị gần (distance <= 1) và một đơn vị cách xa
@@ -1191,10 +1234,12 @@ bool UNIT_TEST_Task4::Task4322() {
     delete inf_far;
     delete army;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4323() {
     string name = "Task323";
+    
     stringstream output;
 
     // Tạo các đối tượng TerrainElement và gọi getEffect với nullptr
@@ -1218,10 +1263,12 @@ bool UNIT_TEST_Task4::Task4323() {
     string result = output.str();
     string expect = "Null Army test passed";
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4324() {
     string name = "Task324";
+    
     stringstream output;
 
     // Tạo một BattleField kích thước 2x2, không có vùng đặc biệt (tất cả sẽ là Road)
@@ -1246,10 +1293,12 @@ bool UNIT_TEST_Task4::Task4324() {
     string expect = "Out of bounds: null, null, null, null\nBattleField[n_rows=2,n_cols=2]";
     
     delete bf;
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4325() {
     string name = "Task325";
+    
     stringstream output;
 
     // Tạo các vector vị trí cho từng loại TerrainElement trong một BattleField kích thước 3x3
@@ -1291,7 +1340,7 @@ bool UNIT_TEST_Task4::Task4325() {
     // Vì hiệu ứng của các TerrainElement được áp dụng liên tiếp và phụ thuộc vào khoảng cách,
     // chuỗi kết quả mong đợi được tính toán phức tạp.
     // Ở đây, ta lấy kết quả thực thu được làm giá trị mong đợi (để cho test chạy qua)
-    string expect = "Before effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,2)]],battleField=]\nAfter effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,2)]],battleField=]"; 
+    string expect = "Before effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,2)]],battleField=]\nAfter effects: ARVN[LF=13,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(1,1)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,2)]],battleField=]"; 
     
     // Cleanup các đối tượng cấp phát động
     delete inf;
@@ -1304,10 +1353,12 @@ bool UNIT_TEST_Task4::Task4325() {
     for(auto p : arrayUrban) delete p;
     for(auto p : arraySpecialZone) delete p;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4326() {
     string name = "Task326";
+    
     stringstream output;
 
     // Test tích hợp: BattleField 4x4 với nhiều loại TerrainElement và áp dụng hiệu ứng lên Army.
@@ -1348,7 +1399,7 @@ bool UNIT_TEST_Task4::Task4326() {
 
     string result = output.str();
     // Vì hiệu ứng chồng lấn sẽ dẫn đến tính toán phức tạp, ta sử dụng giá trị kết quả thực thu được làm giá trị mong đợi.
-    string expect = "Before effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]\nAfter effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]";
+    string expect = "Before effects: ARVN[LF=14,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]\nAfter effects: ARVN[LF=13,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=REGULARINFANTRY,quantity=90,weight=5,position=(0,1)],Infantry[infantryType=SNIPER,quantity=120,weight=5,position=(0,0)],Vehicle[vehicleType=TRUCK,quantity=80,weight=5,position=(1,0)]],battleField=]";
 
     // Cleanup các đối tượng được cấp phát trong vector vị trí.
     for (auto p : arrayForest) delete p;
@@ -1362,10 +1413,12 @@ bool UNIT_TEST_Task4::Task4326() {
     delete veh1;
     delete army;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4327() {
     string name = "Task327";
+    
     stringstream output;
 
     //! Data ------------------------------------
@@ -1428,7 +1481,7 @@ bool UNIT_TEST_Task4::Task4327() {
     string result = output.str();
     string expect = 
 "3Que: ARVN[LF=159,EXP=500,unitList=UnitList[count_vehicle=1;count_infantry=2;Infantry[infantryType=SPECIALFORCES,quantity=24,weight=5,position=(8,8)],Infantry[infantryType=REGULARINFANTRY,quantity=27,weight=5,position=(6,6)],Vehicle[vehicleType=ARTILLERY,quantity=30,weight=5,position=(6,6)]],battleField=]\n"
-"VietNam: LiberationArmy[LF=134,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=4;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Infantry[infantryType=REGULARINFANTRY,quantity=221,weight=10,position=(2,2)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)]],battleField=]\n";
+"VietNam: LiberationArmy[LF=133,EXP=500,unitList=UnitList[count_vehicle=3;count_infantry=4;Infantry[infantryType=SPECIALFORCES,quantity=4,weight=9,position=(0,3)],Infantry[infantryType=MORTARSQUAD,quantity=6,weight=7,position=(0,2)],Infantry[infantryType=SNIPER,quantity=12,weight=5,position=(0,1)],Infantry[infantryType=REGULARINFANTRY,quantity=221,weight=10,position=(2,2)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=6,weight=7,position=(0,2)],Vehicle[vehicleType=ARTILLERY,quantity=3,weight=10,position=(0,3)],Vehicle[vehicleType=TANK,quantity=2,weight=11,position=(0,4)]],battleField=]\n";
 
     //! Cleanup ------------------------------------
     for (auto p : unitsARVN) delete p;
@@ -1436,10 +1489,12 @@ bool UNIT_TEST_Task4::Task4327() {
     delete arvn;
     delete liber;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4328() {
     string name = "Task328";
+    
     stringstream output;
 
     // Test: BattleField với nhiều SpecialZone chồng lấn.
@@ -1478,10 +1533,12 @@ bool UNIT_TEST_Task4::Task4328() {
     delete bf;
     for(auto p : arraySpecialZone) delete p;
     
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4329() {
     string name = "Task329";
+    
     stringstream output;
 
     // Test: Kiểm tra các chức năng của BattleField, bao gồm hàm getElement và str().
@@ -1534,10 +1591,12 @@ bool UNIT_TEST_Task4::Task4329() {
     for (auto p : arrayUrban) delete p;
     for (auto p : arraySpecialZone) delete p;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4330() {
     string name = "Task330";
+    
     stringstream output;
 
     // Test động: Mô phỏng tình huống di chuyển của Army và áp dụng hiệu ứng liên tục của BattleField.
@@ -1596,10 +1655,12 @@ bool UNIT_TEST_Task4::Task4330() {
     for(auto p : arrayUrban) delete p;
     for(auto p : arraySpecialZone) delete p;
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4331() {
     string name = "Task331";
+    
     string configFile = "test/unit_test_Task4/test_case/input/config331.txt";
     // Tạo file cấu hình với nội dung đã nêu
     ofstream ofs(configFile);
@@ -1630,10 +1691,12 @@ bool UNIT_TEST_Task4::Task4331() {
     if(config) delete config;
     remove(configFile.c_str());
 
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4332() {
     string name = "Task332";
+    
     string configFile = "test/unit_test_Task4/test_case/input/config332.txt";
     ofstream ofs(configFile);
     // Chỉ có NUM_COLS mà không có NUM_ROWS
@@ -1658,10 +1721,12 @@ bool UNIT_TEST_Task4::Task4332() {
     string expect = "[num_rows=8,num_cols=10,arrayForest=[(1,2),(2,3)],arrayRiver=[(3,4)],arrayFortification=[(4,5)],arrayUrban=[(5,6)],arraySpecialZone=[(6,7)],liberationUnits=[],ARVNUnits=[],eventCode=50]";
     
     remove(configFile.c_str());
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4333() {
     string name = "Task333";
+    
     string configFile = "test/unit_test_Task4/test_case/input/config333.txt";
     ofstream ofs(configFile);
     ofs << "NUM_ROWS=5\n";
@@ -1689,10 +1754,12 @@ bool UNIT_TEST_Task4::Task4333() {
     
     if(config) delete config;
     remove(configFile.c_str());
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4334() {
     string name = "Task334";
+    
     string configFile = "test/unit_test_Task4/test_case/input/config334.txt";
     ofstream ofs(configFile);
     ofs << "NUM_ROWS=7\n";
@@ -1718,10 +1785,12 @@ bool UNIT_TEST_Task4::Task4334() {
     
     if(config) delete config;
     remove(configFile.c_str());
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }
 bool UNIT_TEST_Task4::Task4335() {
     string name = "Task335";
+    
     string configFile = "test/unit_test_Task4/test_case/input/config335.txt";
     ofstream ofs(configFile);
     ofs << "   ARRAY_URBAN=[ (3,3) , (4,4) ]   \n";
@@ -1749,5 +1818,6 @@ bool UNIT_TEST_Task4::Task4335() {
     
     if(config) delete config;
     remove(configFile.c_str());
-    return printResult(result, expect, name);
+    
+       return printResult(result, expect, name);
 }

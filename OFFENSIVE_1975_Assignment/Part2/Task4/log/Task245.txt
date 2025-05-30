@@ -1,0 +1,39 @@
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: APC
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: UNKNOWN
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Danh sách đã đầy, không thể thêm đơn vị này.

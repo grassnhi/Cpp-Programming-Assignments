@@ -1,0 +1,507 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+LF: 915
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 2
+weight: 1
+attackScore: 61
+Tổng số lượng: 2
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 3
+weight: 1
+attackScore: 61
+Tổng số lượng: 3
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 4
+weight: 1
+attackScore: 61
+Tổng số lượng: 4
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 5
+weight: 1
+attackScore: 61
+Tổng số lượng: 5
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 6
+weight: 1
+attackScore: 61
+Tổng số lượng: 6
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 61
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 7
+weight: 1
+attackScore: 62
+Tổng số lượng: 7
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 8
+weight: 1
+attackScore: 62
+Tổng số lượng: 8
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 9
+weight: 1
+attackScore: 62
+Tổng số lượng: 9
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 10
+weight: 1
+attackScore: 62
+Tổng số lượng: 10
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 11
+weight: 1
+attackScore: 62
+Tổng số lượng: 11
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 12
+weight: 1
+attackScore: 62
+Tổng số lượng: 12
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 13
+weight: 1
+attackScore: 62
+Tổng số lượng: 13
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 14
+weight: 1
+attackScore: 62
+Tổng số lượng: 14
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+UnitList::insert()---------------------------
+vehicleType: TANK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 15
+weight: 1
+attackScore: 62
+Tổng số lượng: 15
+Trọng số lớn nhất: 1
+Cập nhật attackScore: 62
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 3
+attackScore: 1
+LF: 15
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 6
+weight: 3
+attackScore: 1
+Tổng số lượng: 6
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 1
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 9
+weight: 3
+attackScore: 1
+Tổng số lượng: 9
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 1
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 12
+weight: 3
+attackScore: 2
+Tổng số lượng: 12
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 2
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 15
+weight: 3
+attackScore: 2
+Tổng số lượng: 15
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 2
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 18
+weight: 3
+attackScore: 2
+Tổng số lượng: 18
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 2
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 21
+weight: 3
+attackScore: 3
+Tổng số lượng: 21
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 3
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 24
+weight: 3
+attackScore: 3
+Tổng số lượng: 24
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 3
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 27
+weight: 3
+attackScore: 3
+Tổng số lượng: 27
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 3
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 30
+weight: 3
+attackScore: 3
+Tổng số lượng: 30
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 3
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 33
+weight: 3
+attackScore: 4
+Tổng số lượng: 33
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 4
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 36
+weight: 3
+attackScore: 4
+Tổng số lượng: 36
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 4
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 39
+weight: 3
+attackScore: 4
+Tổng số lượng: 39
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 4
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 42
+weight: 3
+attackScore: 5
+Tổng số lượng: 42
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 5
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 45
+weight: 3
+attackScore: 5
+Tổng số lượng: 45
+Trọng số lớn nhất: 3
+Cập nhật attackScore: 5
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Áp dụng hiệu ứng địa hình cho ARVN
+Sự kiện: 5
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 1000
+EXP * 1.5: 0
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=915,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=15,weight=1,position=(1,1)]],battleField=BattleField[n_rows=10,n_cols=10]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 15
+weight: 1
+attackScore: 62
+LF: 62
+EXP: 0
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=62,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=15,weight=1,position=(1,1)]],battleField=BattleField[n_rows=10,n_cols=10]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 15
+weight: 1
+attackScore: 62
+LF: 62
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=15,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=10,n_cols=10]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

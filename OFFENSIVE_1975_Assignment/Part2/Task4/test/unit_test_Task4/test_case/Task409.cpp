@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task409() {
     string name = "Task409";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config409.txt";
     ofstream ofs(cfg);
     // Special zones nullify all nearby units
@@ -33,6 +36,7 @@ bool UNIT_TEST_Task4::Task409() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=21,EXP=0]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

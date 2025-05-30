@@ -1,0 +1,89 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 4
+weight: 2
+attackScore lúc đầu: 288
+số cá nhân: 4
+attackScore tính lại: 288
+LF: 0
+EXP: 288
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Thêm Infantry vào đầu danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 2
+weight: 3
+attackScore: 1
+LF: 1
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: LiberationArmy
+LiberationArmy[LF=0,EXP=288,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=4,weight=2,position=(3,2)]],battleField=BattleField[n_rows=7,n_cols=7]]
+Đơn vị trong bán kính ảnh hưởng: Infantry[infantryType=REGULARINFANTRY,quantity=4,weight=2,position=(3,2)]
+attackScore ban đầu: 288
+Điều chỉnh attackScore: -57
+attackScore còn: 231
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (4,5)
+Quân đội: LiberationArmy
+LiberationArmy[LF=0,EXP=288,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=4,weight=2,position=(3,2)]],battleField=BattleField[n_rows=7,n_cols=7]]
+Áp dụng hiệu ứng địa hình cho ARVN
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (3,3)
+Quân đội: ARVN
+ARVN[LF=1,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TRUCK,quantity=2,weight=3,position=(4,6)]],battleField=BattleField[n_rows=7,n_cols=7]]
+Fortification::getEffect()---------------------------
+Vị trí địa hình: (4,5)
+Quân đội: ARVN
+ARVN[LF=1,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TRUCK,quantity=2,weight=3,position=(4,6)]],battleField=BattleField[n_rows=7,n_cols=7]]
+Đơn vị trong bán kính ảnh hưởng: Vehicle[vehicleType=TRUCK,quantity=2,weight=3,position=(4,6)]
+attackScore ban đầu: 1
+Điều chỉnh attackScore: 1
+attackScore còn: 2
+Sự kiện: 30
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 0
+EXP * 1.5: 432
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=0,EXP=288,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=4,weight=2,position=(3,2)]],battleField=BattleField[n_rows=7,n_cols=7]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 4
+weight: 2
+attackScore lúc đầu: 288
+số cá nhân: 4
+attackScore tính lại: 288
+LF: 0
+EXP: 288
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=0,EXP=288,unitList=UnitList[count_vehicle=0;count_infantry=1;Infantry[infantryType=REGULARINFANTRY,quantity=4,weight=2,position=(3,2)]],battleField=BattleField[n_rows=7,n_cols=7]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 4
+weight: 2
+attackScore lúc đầu: 288
+số cá nhân: 4
+attackScore tính lại: 288
+LF: 0
+EXP: 288
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=1,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=7,n_cols=7]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

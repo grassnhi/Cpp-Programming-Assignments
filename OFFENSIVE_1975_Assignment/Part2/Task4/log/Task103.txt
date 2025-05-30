@@ -1,0 +1,5 @@
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 3
+weight: 10
+attackScore: 1

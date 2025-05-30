@@ -1,0 +1,12 @@
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 2
+weight: 10
+attackScore: 42
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 4
+weight: 8
+attackScore lúc đầu: 200
+số cá nhân: 6
+attackScore tính lại: 200

@@ -1,0 +1,33 @@
+Army::Army()---------------------------
+Tính LF và EXP
+LF: 0
+EXP: 0
+Army::Army()---------------------------
+Tính LF và EXP
+LF: 0
+EXP: 0
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Áp dụng hiệu ứng địa hình cho ARVN
+Sự kiện: 0
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 0
+EXP * 1.5: 0
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

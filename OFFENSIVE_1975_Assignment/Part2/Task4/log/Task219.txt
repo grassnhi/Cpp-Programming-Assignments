@@ -1,0 +1,31 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 6
+weight: 4
+attackScore: 52
+Vehicle::getAttackScore()---------------------------
+vehicleType: ANTIAIRCRAFT
+quantity: 4
+weight: 3
+attackScore: 21
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 3
+weight: 2
+attackScore lúc đầu: 230
+số cá nhân: 9
+quantity sau khi tăng 20%: 4
+attackScore tính lại: 232
+LF: 73
+EXP: 232
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ANTIAIRCRAFT
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.

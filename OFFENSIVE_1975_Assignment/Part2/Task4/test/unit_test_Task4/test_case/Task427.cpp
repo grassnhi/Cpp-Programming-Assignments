@@ -3,6 +3,7 @@
 bool UNIT_TEST_Task4::Task427()
 {
     string name = "Task427";
+    
     //! data ------------------------------------
     Vehicle tankOfLiber(20, 20, Position(1, 2), MORTAR);
     Vehicle truckOfLiber(15, 10, Position(2, 2), TRUCK);
@@ -56,5 +57,6 @@ bool UNIT_TEST_Task4::Task427()
     delete[] unitArrayOfAr;
     
     //! result ----------------------------------
+    
     return printResult(output.str(), expect, name);
 }

@@ -2,6 +2,8 @@
 
 bool UNIT_TEST_Task4::Task412() {
     string name = "Task412";
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config412.txt";
     ofstream ofs(cfg);
     ofs << "NUM_COLS=4\n";
@@ -32,6 +34,7 @@ bool UNIT_TEST_Task4::Task412() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=0]-ARVN[LF=61,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task405() {
     string name = "Task405";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config405.txt";
     ofstream ofs(cfg);
     // All terrain types scattered, multiple units per side
@@ -36,6 +39,7 @@ bool UNIT_TEST_Task4::Task405() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=112,EXP=118]-ARVN[LF=31,EXP=500]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

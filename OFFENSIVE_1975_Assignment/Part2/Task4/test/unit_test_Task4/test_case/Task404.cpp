@@ -2,6 +2,9 @@
 
 bool UNIT_TEST_Task4::Task404() {
     string name = "Task404";
+
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config404.txt";
     ofstream ofs(cfg);
     // Terrain: forest affects infantry and vehicles
@@ -36,5 +39,6 @@ bool UNIT_TEST_Task4::Task404() {
 "LIBERATIONARMY[LF=0,EXP=286]-ARVN[LF=61,EXP=0]";
 
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

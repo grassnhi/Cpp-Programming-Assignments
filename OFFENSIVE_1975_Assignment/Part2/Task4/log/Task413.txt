@@ -1,0 +1,61 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+LF: 61
+EXP: 0
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+Army::Army()---------------------------
+Tính LF và EXP
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 1
+weight: 1
+attackScore lúc đầu: 1
+số cá nhân: 5
+attackScore tính lại: 1
+LF: 0
+EXP: 1
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+HCMCampaign::run()---------------------------
+Áp dụng hiệu ứng địa hình cho LiberationArmy
+Áp dụng hiệu ứng địa hình cho ARVN
+Sự kiện: 10
+LiberationArmy tấn công ARVN
+LiberationArmy::fight(defense = false)---------------------------
+LF * 1.5: 92
+EXP * 1.5: 0
+Không giao tranh
+LiberationArmy: LiberationArmy[LF=61,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=1,weight=1,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+LF: 61
+EXP: 0
+ARVN phòng thủ LiberationArmy
+ARVN::fight(defense = true)---------------------------
+Xoá các đơn vị có attackScore <= 5 trong Liberation
+LiberationArmy[LF=61,EXP=0,unitList=UnitList[count_vehicle=1;count_infantry=0;Vehicle[vehicleType=TANK,quantity=1,weight=1,position=(1,1)]],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 1
+weight: 1
+attackScore: 61
+LF: 61
+EXP: 0
+Xoá các đơn vị có attackScore <= 5 trong ARVN
+ARVN[LF=0,EXP=1,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=BattleField[n_rows=5,n_cols=5]]
+CẬP NHẬT CHỈ SỐ---------------------------
+LF: 0
+EXP: 0

@@ -3,6 +3,8 @@
 // Edge cases: invalid EVENT_CODE mapping
 bool UNIT_TEST_Task4::Task411() {
     string name = "Task411";
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config411.txt";
     ofstream ofs(cfg);
     ofs << "NUM_COLS=3\n";
@@ -33,6 +35,7 @@ bool UNIT_TEST_Task4::Task411() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=0,EXP=281]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 

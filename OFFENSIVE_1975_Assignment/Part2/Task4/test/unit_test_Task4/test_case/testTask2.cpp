@@ -3,6 +3,7 @@
 bool UNIT_TEST_Task4::Task4204()
 {
     string name = "Task204";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), ANTIAIRCRAFT);
     Vehicle v2(5, 2, Position(1,2), MORTAR);
@@ -31,12 +32,14 @@ bool UNIT_TEST_Task4::Task4204()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4205()
 {
     string name = "Task205";
+    
     //! data ------------------------------------
     /* Vehicle */
     Vehicle v1(2, 1, Position(1,1), TRUCK);         
@@ -83,12 +86,14 @@ bool UNIT_TEST_Task4::Task4205()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4206()
 {
     string name = "Task206";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), TANK);
     
@@ -111,12 +116,14 @@ bool UNIT_TEST_Task4::Task4206()
     //! remove data -----------------------------
     // delete army;
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4207()
 {
     string name = "Task207";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), TANK);
     Vehicle v2(4, 2, Position(1,2), TRUCK);
@@ -151,6 +158,7 @@ bool UNIT_TEST_Task4::Task4207()
     delete army;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
@@ -158,6 +166,7 @@ bool UNIT_TEST_Task4::Task4207()
 bool UNIT_TEST_Task4::Task4208()
 {
     string name = "Task208";
+    
     //! data ------------------------------------
     // Công thức Vehicle: score = (typeValue ∗ 304 + quantity ∗ weight) / 30
     Vehicle v1(9, 1, Position(1,1), APC); // attackScore = (4*304 + 9*1)/30 = 40.8(3) -> ceil = 41
@@ -243,12 +252,14 @@ bool UNIT_TEST_Task4::Task4208()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4209()
 {
     string name = "Task209";
+    
     //! data ------------------------------------
     Vehicle v1(3, 10, Position(1,1), TRUCK);    
     Infantry i1(4, 12, Position(1,2), SNIPER);   
@@ -282,12 +293,14 @@ bool UNIT_TEST_Task4::Task4209()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4201()
 {
     string name = "Task201";
+    
     //! data ------------------------------------
     Vehicle tankOfLiber(5, 2, Position(1, 2), TANK);
     Vehicle truckOfLiber(3, 1, Position(2, 2), TRUCK);
@@ -313,12 +326,14 @@ bool UNIT_TEST_Task4::Task4201()
     delete liberationArmy;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4202()
 {
     string name = "Task202";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1, 1), TANK);
     Infantry i1(2, 1, Position(1, 2), SNIPER);
@@ -343,12 +358,14 @@ bool UNIT_TEST_Task4::Task4202()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4203()
 {
     string name = "Task203";
+    
     //! data ------------------------------------
     Infantry i1(300, 1, Position(1,1), SNIPER);     
     Infantry i2(250, 1, Position(1,2), REGULARINFANTRY);  
@@ -374,12 +391,14 @@ bool UNIT_TEST_Task4::Task4203()
     //! remove data -----------------------------
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4211()
 {
     string name = "Task211";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), TANK);         
     Infantry i1(57, 4, Position(1,2), ENGINEER);    
@@ -419,12 +438,14 @@ bool UNIT_TEST_Task4::Task4211()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4212()
 {
     string name = "Task212";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), TANK);      
     Infantry i1(4, 1, Position(1,2), SNIPER);       
@@ -465,12 +486,14 @@ bool UNIT_TEST_Task4::Task4212()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4213()
 {
     string name = "Task213";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1,1), TANK);          
     Infantry i1(10, 1, Position(1,2), SNIPER);     
@@ -503,12 +526,14 @@ bool UNIT_TEST_Task4::Task4213()
     delete attacker;
     delete enemy;
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4214()
 {
     string name = "Task214";
+    
     //! data ------------------------------------
     Vehicle v1(2, 1, Position(1,1), TANK);       
     Vehicle v2(1, 1, Position(1,2), APC);                   
@@ -553,12 +578,14 @@ bool UNIT_TEST_Task4::Task4214()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4215()
 {
     string name = "Task215";
+    
     //! data ------------------------------------
 
     Vehicle v1(112, 4, Position(1,1), TANK);   
@@ -594,12 +621,14 @@ bool UNIT_TEST_Task4::Task4215()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4210()
 {
     string name = "Task210";
+    
     //! data ------------------------------------
     Vehicle v1(3, 5, Position(1,1), TANK);           
     Vehicle v2(1, 1, Position(1,2), APC);                
@@ -646,6 +675,7 @@ bool UNIT_TEST_Task4::Task4210()
     delete enemy;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
@@ -653,6 +683,7 @@ bool UNIT_TEST_Task4::Task4210()
 bool UNIT_TEST_Task4::Task4216()
 {
     string name = "Task216";
+    
     //! data ------------------------------------
     Vehicle tankOfArvn(5, 2, Position(1, 2), TANK);      // getAttackScore() = safeCeil((5 * 2 + 6 * 304) / 30) = safeCeil(1834 / 30) = 62
     Vehicle truckOfArvn(3, 1, Position(2, 2), TRUCK);    // getAttackScore() = safeCeil((3 * 1 + 0 * 304) / 30) = safeCeil(3 / 30) = 1
@@ -678,12 +709,14 @@ bool UNIT_TEST_Task4::Task4216()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4217()
 {
     string name = "Task217";
+    
     //! data ------------------------------------
     Vehicle tankOfArvn(8, 3, Position(3, 3), TANK);                 // getAttackScore() = safeCeil((8 * 3 + 6 * 304) / 30) = 62
     Vehicle mortarOfArvn(4, 2, Position(4, 4), MORTAR);             // getAttackScore() = safeCeil((4 * 2 + 1 * 304) / 30) = 11
@@ -709,12 +742,14 @@ bool UNIT_TEST_Task4::Task4217()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4218()
 {
     string name = "Task218";
+    
     //! data ------------------------------------
     Vehicle truckOfArvn(10, 5, Position(5, 5), TRUCK);                // getAttackScore() = safeCeil((10 * 5 + 0 * 304) / 30) = safeCeil(50 / 30) = 2
     Vehicle armoredCarOfArvn(5, 2, Position(6, 5), ARMOREDCAR);       // getAttackScore() = safeCeil((5 * 2 + 3 * 304) / 30) = safeCeil(922 / 30) = 31
@@ -740,12 +775,14 @@ bool UNIT_TEST_Task4::Task4218()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4219()
 {
     string name = "Task219";
+    
     //! data ------------------------------------
     Vehicle artilleryOfArvn(6, 4, Position(7, 7), ARTILLERY);       // getAttackScore() = ceil((6 * 4 + 5 * 304) / 30) = ceil(1544 / 30) = 52
     Vehicle antiAircraftOfArvn(4, 3, Position(8, 8), ANTIAIRCRAFT); // getAttackScore() = ceil((4 * 3 + 2 * 304) / 30) = ceil(620 / 30) = 21
@@ -779,12 +816,14 @@ bool UNIT_TEST_Task4::Task4219()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4220()
 {
     string name = "Task220";
+    
     //! data ------------------------------------
     Vehicle tankOfArvn(7, 3, Position(0, 1), TANK);            // getAttackScore() = ceil((7 * 3 + 6 * 304) / 30) = ceil(1854 / 30) = 62
     Vehicle truckOfArvn(5, 2, Position(2, 3), TRUCK);          // getAttackScore() = ceil((5 * 2 + 0 * 304) / 30) = ceil(10 / 30) = 1
@@ -810,12 +849,14 @@ bool UNIT_TEST_Task4::Task4220()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4221()
 {
     string name = "Task221";
+    
     //! data ------------------------------------
     Vehicle v1(3, 1, Position(1, 1), TANK);    // getAttackScore() = ceil((3 * 1 + 6 * 304) / 30) = ceil(1824 / 30) = 61
     Infantry i1(2, 1, Position(1, 2), SNIPER); // getAttackScore() = (0 * 56) + (2 * 1) = 2
@@ -839,12 +880,14 @@ bool UNIT_TEST_Task4::Task4221()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4222()
 {
     string name = "Task222";
+    
     //! data ------------------------------------
     Vehicle v1(5, 3, Position(1, 1), TANK);             // getAttackScore() = ceil((6 * 304 + 5 * 3) / 30) = ceil(1833 / 30) = 62
     Infantry i1(3, 2, Position(2, 3), REGULARINFANTRY); // getAttackScore() = (5 * 56) + (3 * 2) = 280 + 6 = 286
@@ -867,12 +910,14 @@ bool UNIT_TEST_Task4::Task4222()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4223()
 {
     string name = "Task223";
+    
     //! data ------------------------------------
     Vehicle v1(4, 2, Position(1, 1), ARTILLERY);          // getAttackScore() = ceil((4 * 2 + 5 * 304) / 30) = ceil(1528 / 30) = 51
     Infantry i1(3, 3, Position(3, 3), ANTIAIRCRAFTSQUAD); // getAttackScore() = (1 * 56) + (3 * 3) = 56 + 9 = 65
@@ -895,12 +940,14 @@ bool UNIT_TEST_Task4::Task4223()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4224()
 {
     string name = "Task224";
+    
     //! data ------------------------------------
     Vehicle v1(2, 4, Position(2, 2), TANK);           // getAttackScore() = ceil((6 * 304 + 2 * 4) / 30) = ceil(1832 / 30) = 62
     Infantry i1(6, 5, Position(3, 3), SPECIALFORCES); // getAttackScore() = (4 * 56) + (6 * 5) = 224 + 30 = 254
@@ -923,12 +970,14 @@ bool UNIT_TEST_Task4::Task4224()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4225()
 {
     string name = "Task225";
+    
     //! data ------------------------------------
     Vehicle v1(2, 4, Position(2, 2), TANK);           // getAttackScore() = ceil((6 * 304 + 2 * 4) / 30) = ceil(1832 / 30) = 62
     Vehicle v2(3, 2, Position(3, 1), TRUCK);          // getAttackScore() = ceil((3 * 2 + 0 * 304) / 30) = ceil(6 / 30) = 1
@@ -969,12 +1018,14 @@ bool UNIT_TEST_Task4::Task4225()
     delete army;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4228()
 {
     string name = "Task228";
+    
     //! data ------------------------------------
     // Không có đơn vị nào trong ARVN
     Unit **unitArrayOfAr = nullptr; // Mảng trống
@@ -994,12 +1045,14 @@ bool UNIT_TEST_Task4::Task4228()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4229()
 {
     string name = "Task229";
+    
     //! data ------------------------------------
     // Các đơn vị cho ARVN
     Vehicle tankOfAr(4, 2, Position(3, 3), TANK);      // getAttackScore() = ceil((6 * 304 + 4 * 2) / 30) = ceil(1832 / 30) = 62
@@ -1026,12 +1079,14 @@ bool UNIT_TEST_Task4::Task4229()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4230()
 {
     string name = "Task230";
+    
     //! data ------------------------------------
     // Các đơn vị cho ARVN
     Vehicle tankOfAr(3, 3, Position(3, 3), TANK);      // getAttackScore() = ceil((6 * 304 + 3 * 3) / 30) = ceil(1839 / 30) = 62
@@ -1058,12 +1113,14 @@ bool UNIT_TEST_Task4::Task4230()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4226()
 {
     string name = "Task226";
+    
     //! data ------------------------------------
     // Các đơn vị cho ARVN
     Vehicle tankOfAr(5, 2, Position(3, 2), TANK);      // getAttackScore() = ceil((6 * 304 + 5 * 2) / 30) = ceil(1832 / 30) = 62
@@ -1090,12 +1147,14 @@ bool UNIT_TEST_Task4::Task4226()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4227()
 {
     string name = "Task227";
+    
     //! data ------------------------------------
     // Các đơn vị cho ARVN
     Vehicle tankOfAr(4, 2, Position(3, 2), TANK);      // getAttackScore() = ceil((6 * 304 + 4 * 2) / 30) = ceil(1832 / 30) = 62
@@ -1122,12 +1181,14 @@ bool UNIT_TEST_Task4::Task4227()
     delete arvn;
 
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 
 bool UNIT_TEST_Task4::Task4231() {
     string name = "Task231";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1144,11 +1205,13 @@ bool UNIT_TEST_Task4::Task4231() {
     stringstream output;
     output << result << countFalse;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4232() {
     string name = "Task232";
+    
     
     //! data ------------------------------------
     UnitList list(1);
@@ -1158,17 +1221,19 @@ bool UNIT_TEST_Task4::Task4232() {
     bool result = list.insert(&tank);
     
     //! expect ----------------------------------
-    string expect = "1";
+    string expect = "0";
     
     //! output ----------------------------------
     stringstream output;
     output << result;
+
 
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4233() {
     string name = "Task233";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1183,11 +1248,13 @@ bool UNIT_TEST_Task4::Task4233() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4234() {
     string name = "Task234";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1202,11 +1269,13 @@ bool UNIT_TEST_Task4::Task4234() {
     stringstream output;
     output << result;
     
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4235() {
     string name = "Task235";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1219,11 +1288,13 @@ bool UNIT_TEST_Task4::Task4235() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4236() {
     string name = "Task236";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1236,11 +1307,13 @@ bool UNIT_TEST_Task4::Task4236() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4237() {
     string name = "Task237";
+    
     
     //! data ------------------------------------
     UnitList list(10);
@@ -1254,11 +1327,13 @@ bool UNIT_TEST_Task4::Task4237() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4238() {
     string name = "Task238";
+    
     
     //! data ------------------------------------
     UnitList list(7);
@@ -1273,11 +1348,13 @@ bool UNIT_TEST_Task4::Task4238() {
     stringstream output;
     output << result;
 
-    return printResult(to_string(result), expect, name);
+    
+       return printResult(to_string(result), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4239() {
     string name = "Task239";
+    
     
     //! data ------------------------------------
     UnitList list(6);
@@ -1301,11 +1378,13 @@ bool UNIT_TEST_Task4::Task4239() {
         delete unit[i];
     }
 
-    return printResult(to_string(result), expect, name);
+    
+       return printResult(to_string(result), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4240() {
     string name = "Task240";
+    
 
     //! data ------------------------------------
     UnitList ul(1);
@@ -1328,11 +1407,13 @@ bool UNIT_TEST_Task4::Task4240() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4241() {
     string name = "Task241";
+    
 
     //! data ------------------------------------
     UnitList ul(5);
@@ -1359,57 +1440,49 @@ bool UNIT_TEST_Task4::Task4241() {
 
     //! delete ----------------------------------
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4242() {
     string name = "Task242";
+    
 
     //! data ------------------------------------
     UnitList ul(5);
     bool allInserted = true;
     Vehicle* listveh[8];
     for (int i = 0; i < 8; ++i) {
-        // cout << i << " - ";
         listveh[i] = new Vehicle(1, 1, Position(), (VehicleType)i);
-        // cout << listveh[i]->str() << endl;
         if (!ul.insert(listveh[i])) {
-            // cout << " Fail insert" << endl;
             allInserted = false;
             break;
         }
-        delete listveh[i];
     }
-    // cout << "haiza" << endl;
     Vehicle* veh9 = new Vehicle(1, 1, Position(), APC);
-    cout << veh9->str() << endl;
     bool insert13 = ul.insert(veh9);
-    // cout << " Done insert" << endl;
-    bool result = allInserted && !insert13;
-    // cout << result << endl;
     delete veh9;
-    // cout << " Done delete" << endl;
+    bool result = !allInserted && !insert13;
+
     //! expect ----------------------------------
-    string expect = "0";
+    string expect = "1";
 
     //! output ----------------------------------
     stringstream output;
     output << result;
 
-    cout << result << endl;
-
     //! delete ----------------------------------
-    // for (int i = 0; i < 8; ++i) {
-    //     delete listveh[i];
-    //     cout << " Done delete veh " << i << endl;
-    // }
-    
-    // cout << "Done" << endl;
+    for (int i = 0; i < 5; ++i) {
+        delete listveh[i];
+    }
+
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4243() {
     string name = "Task243";
+    
 
     //! data ------------------------------------
     UnitList ul(-10);
@@ -1433,11 +1506,13 @@ bool UNIT_TEST_Task4::Task4243() {
     stringstream output;
     output << result;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4244() {
     string name = "Task244";
+    
 
     //! data ------------------------------------
     UnitList ul(12);
@@ -1458,11 +1533,13 @@ bool UNIT_TEST_Task4::Task4244() {
     delete inf;
     delete veh;
     
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4245() {
     string name = "Task245";
+    
 
     //! data ------------------------------------
     UnitList ul(1); 
@@ -1476,14 +1553,11 @@ bool UNIT_TEST_Task4::Task4245() {
         unitlist[i] = new Infantry(1, 1, Position(), (InfantryType)i);
         if (!ul.insert(unitlist[i])) allInserted = false;
     }
-    
     Vehicle* veh13 = new Vehicle(1, 1, Position(), TANK);
     bool insert13 = ul.insert(veh13);
-    cout << "\nallInserted: " << allInserted << endl;
-    cout << "insert13: " << insert13 << endl;
     delete veh13;
-    bool result = allInserted && !insert13;
-    cout << "result: " << endl;
+    bool result = !allInserted && !insert13;
+
     //! expect ----------------------------------
     string expect = "1";
     
@@ -1494,11 +1568,13 @@ bool UNIT_TEST_Task4::Task4245() {
     //! output ----------------------------------
     stringstream output;
     output << result;
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4246() {
     string name = "Task246";
+    
     
     //! data ------------------------------------
     UnitList ul(12);
@@ -1515,11 +1591,13 @@ bool UNIT_TEST_Task4::Task4246() {
     //! output ----------------------------------
     output << result;
     delete veh;
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4247() {
     string name = "Task247";
+    
 
     //! data ------------------------------------
     UnitList ul(12);
@@ -1538,11 +1616,13 @@ bool UNIT_TEST_Task4::Task4247() {
 
     delete inf;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4248() {
     string name = "Task248";
+    
     
     //! data ------------------------------------
     UnitList ul(12);
@@ -1562,11 +1642,13 @@ bool UNIT_TEST_Task4::Task4248() {
     delete inf;
     delete veh;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4249() {
     string name = "Task249";
+    
     
     //! data ------------------------------------
     UnitList ul(12);
@@ -1583,11 +1665,13 @@ bool UNIT_TEST_Task4::Task4249() {
 
     delete veh;
 
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4250() {
     string name = "Task250";
+    
 
     //! data ------------------------------------
     UnitList ul(12);
@@ -1606,6 +1690,7 @@ bool UNIT_TEST_Task4::Task4250() {
     //! output ----------------------------------
     stringstream output;
     output << result;
+
     return printResult(output.str(), expect, name);
 }
 
@@ -1613,6 +1698,7 @@ bool UNIT_TEST_Task4::Task4250() {
 bool UNIT_TEST_Task4::Task4251()
 {
     string name = "Task251";
+    
     //! data ------------------------------------
     Vehicle tankOfLiber(20, 20, Position(1, 2), MORTAR);
     Vehicle truckOfLiber(15, 10, Position(2, 2), TRUCK);
@@ -1664,12 +1750,14 @@ bool UNIT_TEST_Task4::Task4251()
     delete arvn;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4252()
 {
     string name = "Task252";
+    
     //! data ------------------------------------
     Vehicle tank(20, 20, Position(1, 2), TANK);
     Vehicle truck(15, 10, Position(1, 2), TRUCK);
@@ -1713,7 +1801,7 @@ bool UNIT_TEST_Task4::Task4252()
     unitList.insert(&engineer2);
     
     //! expect ----------------------------------
-    string expect = "UnitList[count_vehicle=5;count_infantry=3;Infantry[infantryType=REGULARINFANTRY,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=SPECIALFORCES,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=ENGINEER,quantity=14,weight=30,position=(1,2)],Vehicle[vehicleType=TANK,quantity=35,weight=20,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=90,weight=100,position=(1,2)],Vehicle[vehicleType=MORTAR,quantity=20,weight=20,position=(1,2)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=10,weight=20,position=(1,2)],Vehicle[vehicleType=ARMOREDCAR,quantity=10,weight=20,position=(1,2)]]\n"; // True (1) if all 12 insertions succeeded and 13th failed\n"
+    string expect = "UnitList[count_vehicle=7;count_infantry=6;Infantry[infantryType=MORTARSQUAD,quantity=25,weight=20,position=(1,2)],Infantry[infantryType=ANTIAIRCRAFTSQUAD,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=SNIPER,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=REGULARINFANTRY,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=SPECIALFORCES,quantity=10,weight=20,position=(1,2)],Infantry[infantryType=ENGINEER,quantity=14,weight=30,position=(1,2)],Vehicle[vehicleType=TANK,quantity=35,weight=20,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=90,weight=100,position=(1,2)],Vehicle[vehicleType=MORTAR,quantity=20,weight=20,position=(1,2)],Vehicle[vehicleType=ANTIAIRCRAFT,quantity=10,weight=20,position=(1,2)],Vehicle[vehicleType=ARMOREDCAR,quantity=10,weight=20,position=(1,2)],Vehicle[vehicleType=APC,quantity=10,weight=20,position=(1,2)],Vehicle[vehicleType=ARTILLERY,quantity=10,weight=20,position=(1,2)]]\n"; // True (1) if all 12 insertions succeeded and 13th failed\n"
     
     //! output ----------------------------------
     stringstream output;
@@ -1722,12 +1810,14 @@ bool UNIT_TEST_Task4::Task4252()
     //! remove data -----------------------------
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }
 
 bool UNIT_TEST_Task4::Task4253()
 {
     string name = "Task253";
+    
     //! data ------------------------------------
     Vehicle tankOfLiber1(20, 20, Position(1, 2), MORTAR);
     Vehicle tankOfLiber2(5, 20, Position(3, 2), MORTAR);
@@ -1753,5 +1843,6 @@ bool UNIT_TEST_Task4::Task4253()
     delete liberationArmy8;
     
     //! result ----------------------------------
+
     return printResult(output.str(), expect, name);
 }

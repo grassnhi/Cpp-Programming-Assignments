@@ -7,6 +7,8 @@
 
 bool UNIT_TEST_Task4::Task401() {
     string name = "Task401";
+    
+
     string cfg = "test/unit_test_Task4/test_case/input/config401.txt";
     ofstream ofs(cfg);
     // Scenario: no units on either side, eventCode=0 (Liberation attacks)
@@ -41,5 +43,8 @@ bool UNIT_TEST_Task4::Task401() {
 "LIBERATIONARMY[LF=0,EXP=0]-ARVN[LF=0,EXP=0]";
 
     remove(cfg.c_str());
+
+    
+
     return printResult(result, expect, name);
 }

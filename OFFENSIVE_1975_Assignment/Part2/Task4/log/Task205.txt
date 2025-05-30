@@ -1,0 +1,126 @@
+Army::Army()---------------------------
+Tính LF và EXP
+Vehicle::getAttackScore()---------------------------
+vehicleType: TRUCK
+quantity: 2
+weight: 1
+attackScore: 1
+Vehicle::getAttackScore()---------------------------
+vehicleType: MORTAR
+quantity: 3
+weight: 1
+attackScore: 11
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARMOREDCAR
+quantity: 3
+weight: 2
+attackScore: 31
+Vehicle::getAttackScore()---------------------------
+vehicleType: TANK
+quantity: 4
+weight: 1
+attackScore: 61
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 4
+weight: 2
+attackScore: 51
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 1
+weight: 1
+attackScore: 51
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 1
+weight: 2
+attackScore: 41
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 3
+weight: 4
+attackScore: 41
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 10
+weight: 1
+attackScore lúc đầu: 10
+số cá nhân: 5
+attackScore tính lại: 10
+Infantry::getAttackScore()---------------------------
+infantryType: SPECIALFORCES
+quantity: 20
+weight: 1
+attackScore lúc đầu: 244
+attackScore thoả điều kiện cộng thêm 75: 319
+số cá nhân: 8
+quantity sau khi tăng 20%: 24
+attackScore tính lại: 248
+Infantry::getAttackScore()---------------------------
+infantryType: ENGINEER
+quantity: 15
+weight: 1
+attackScore lúc đầu: 183
+số cá nhân: 7
+attackScore tính lại: 183
+Infantry::getAttackScore()---------------------------
+infantryType: REGULARINFANTRY
+quantity: 7
+weight: 1
+attackScore lúc đầu: 287
+số cá nhân: 3
+attackScore tính lại: 287
+LF: 288
+EXP: 500
+UnitList::insert()---------------------------
+vehicleType: TRUCK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: MORTAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARMOREDCAR
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: TANK
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: ARTILLERY
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: ARTILLERY
+quantity: 5
+weight: 2
+attackScore: 51
+Tổng số lượng: 5
+Trọng số lớn nhất: 2
+Cập nhật attackScore: 51
+UnitList::insert()---------------------------
+vehicleType: APC
+Thêm Vehicle vào cuối danh sách.
+UnitList::insert()---------------------------
+vehicleType: APC
+Đã tồn tại Vehicle
+Vehicle::getAttackScore()---------------------------
+vehicleType: APC
+quantity: 4
+weight: 4
+attackScore: 42
+Tổng số lượng: 4
+Trọng số lớn nhất: 4
+Cập nhật attackScore: 42
+UnitList::insert()---------------------------
+infantryType: SNIPER
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: SPECIALFORCES
+Thêm Infantry vào đầu danh sách.
+UnitList::insert()---------------------------
+infantryType: ENGINEER
+Danh sách đã đầy, không thể thêm đơn vị này.
+UnitList::insert()---------------------------
+infantryType: REGULARINFANTRY
+Danh sách đã đầy, không thể thêm đơn vị này.

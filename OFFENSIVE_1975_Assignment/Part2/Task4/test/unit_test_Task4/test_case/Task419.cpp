@@ -2,6 +2,7 @@
 
 bool UNIT_TEST_Task4::Task419() {
     string name = "Task419";
+    
     string cfg = "test/unit_test_Task4/test_case/input/config419.txt";
     ofstream ofs(cfg);
     // Full chaos: mixed terrain, max capacity, random units
@@ -35,5 +36,6 @@ bool UNIT_TEST_Task4::Task419() {
 "LIBERATIONARMY[LF=0,EXP=500]-ARVN[LF=145,EXP=124]";
     delete campaign;
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }

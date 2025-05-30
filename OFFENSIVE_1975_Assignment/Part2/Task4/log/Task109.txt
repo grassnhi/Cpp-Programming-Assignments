@@ -1,0 +1,8 @@
+Infantry::getAttackScore()---------------------------
+infantryType: SNIPER
+quantity: 1
+weight: 58
+attackScore lúc đầu: 58
+số cá nhân: 8
+quantity sau khi tăng 20%: 2
+attackScore tính lại: 116

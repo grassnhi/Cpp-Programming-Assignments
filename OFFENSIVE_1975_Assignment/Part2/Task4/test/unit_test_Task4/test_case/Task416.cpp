@@ -2,6 +2,8 @@
 
 bool UNIT_TEST_Task4::Task416() {
     string name = "Task416";
+    
+    
     string cfg = "test/unit_test_Task4/test_case/input/config416.txt";
     ofstream ofs(cfg);
     // Large grid stress test: 20x20, random terrain clusters
@@ -46,6 +48,7 @@ bool UNIT_TEST_Task4::Task416() {
 "** After the fight\n"
 "LIBERATIONARMY[LF=65,EXP=0]-ARVN[LF=0,EXP=0]";
     remove(cfg.c_str());
+    
     return printResult(result, expect, name);
 }
 
