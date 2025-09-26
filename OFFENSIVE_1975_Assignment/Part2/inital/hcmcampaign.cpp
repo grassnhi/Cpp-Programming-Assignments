@@ -236,7 +236,7 @@ int Infantry::getAttackScore(bool donoth){
             // cout << " -- Perfect -- " << score;
         }
 
-        // cout << "personalNumber(score): " << personalNumber(score);
+        // cout << " personalNumber(score): " << personalNumber(score);
         if(personalNumber(score) > 7){
             // if(!donoth){
             //     this->quantity = static_cast<int>(ceil(this->quantity * 1.2));
@@ -261,7 +261,7 @@ int Infantry::getAttackScore(bool donoth){
         this->unitScore = score;
     }
 
-    // cout << "Score: " << score << endl;
+    // cout << " Score: " << score << endl;
 
     return score;
 }
@@ -332,7 +332,7 @@ bool UnitList::insert(Unit *unit){
             Vehicle* existVeh = dynamic_cast<Vehicle*>(temp->unit);
             Vehicle* newVeh = dynamic_cast<Vehicle*>(unit);
             if (existVeh && newVeh && existVeh->getVehicleType() == newVeh->getVehicleType()) {
-                // cout << "V Existed! ";
+                cout << "V Existed! ";
                 // cout << existVeh->getQuantity() << " ->> " << newVeh->getQuantity();
                 // newVeh->getAttackScore();
                 existVeh->increaseQuantity(unit->getQuantity());
@@ -347,7 +347,7 @@ bool UnitList::insert(Unit *unit){
             Infantry* existInf = dynamic_cast<Infantry*>(temp->unit);
             Infantry* newInf = dynamic_cast<Infantry*>(unit);
             if (existInf && newInf && existInf->getInfantryType() == newInf->getInfantryType()) {
-                // cout << "I Existed! ";
+                cout << "I Existed! ";
                 // newInf->getAttackScore(); 
                 // cout << existInf->getQuantity() << " + " << newInf->getQuantity();
                 existInf->increaseQuantity(unit->getQuantity());
@@ -355,9 +355,9 @@ bool UnitList::insert(Unit *unit){
                     existInf->setWeight(newInf->getWeight());
                 }
                 // cout << " = " << existInf->getQuantity() << endl;
-                // cout << existInf->str();
+                cout << existInf->str();
                 existInf->getAttackScore(); 
-                // cout << " => " << existInf->getScore() << endl;
+                cout << " => " << existInf->getScore() << endl;
                 return false;
             }
         }
@@ -391,9 +391,9 @@ bool UnitList::insert(Unit *unit){
     else if(isVehicle){
         count_vehicle++;
     }
-    // cout << "Add new: " << unit->str() + " -> ";
+    cout << "Add new: " << unit->str() + " -> " << unit->getScore();
     unit->getAttackScore();
-    // cout << unit->str() << " - " << unit->getScore() << endl;
+    cout << " => " << unit->getScore() << endl;
     
     return true;
 }
@@ -535,7 +535,7 @@ void UnitList::transferTo(UnitList* otherList){
     for (int i = 0; i < (int)units.size(); ++i) {
         int idx = units.size() - 1 - i;
         otherList->insert(units[idx]);
-        // cout << "Insert + Remove: " << units[idx]->str() << endl;
+        cout << "Insert + Remove: " << units[idx]->str() << endl;
         removeUnit(units[idx]);
     }
 
@@ -740,11 +740,10 @@ bool Army::findSmallest(int target, vector<Unit*>& selectedUnits, bool veh){
         }
     }
 
-    // for (int i = 0; i < (int)thisUnits.size(); i++)
-    // {
-    //     cout << thisUnits[i]->str() << " - ";
-    // }
-    // cout << endl;
+    for (int i = 0; i < (int)thisUnits.size(); i++)
+    {
+        cout << thisUnits[i]->str() << " - score: " << thisUnits[i]->getScore() << endl;
+    }
     
     int bestScore = INT_MAX;
     vector<Unit*> bestGroup;
@@ -770,12 +769,13 @@ bool Army::findSmallest(int target, vector<Unit*>& selectedUnits, bool veh){
         }
     }
 
-    // cout << "\nBest group: ";
-    // for (int i = 0; i < (int)bestGroup.size(); i++)
-    // {
-    //     cout << bestGroup[i]->str() << " - ";
-    // }
-    // cout << endl;
+    cout << "\nBest group: ";
+    for (int i = 0; i < (int)bestGroup.size(); i++)
+    {
+        cout << bestGroup[i]->str() << " - ";
+    }
+    cout << endl;
+    cout << "=> best score: " << bestScore << endl;;
 
     if(!bestGroup.empty()){
         selectedUnits = bestGroup;
@@ -796,7 +796,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         return;
     }
     if(defense){
-        // cout << "LiberationArmy: Defense = true: ";
+        cout << "LiberationArmy: Defense = true: ";
         this->EXP = ceil(this->EXP*1.3);
         this->LF = ceil(this->LF*1.3);
 
@@ -805,13 +805,13 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         if(this->LF >= enemy->getLF() && this->EXP >= enemy->getEXP()){
             this->LF = min(this->LF, 1000);
             this->EXP = min(this->EXP, 500);
-            // cout << "Case 1: Winnn \n";
+            cout << "Case 1: Winnn \n";
             return;
         } else if (this->LF < enemy->getLF() || this->EXP < enemy->getEXP()) {
-            // cout << "Case 2: Reduce 10% \n";
+            cout << "Case 2: Reduce 10% \n";
             this->unitList->reduceQuantity(0.1);
         } else {
-            // cout << "Case 3: Need help \n";
+            cout << "Case 3: Need help \n";
             UnitNode* temp = this->unitList->getHead();
             while (temp) {
                 int newQuantity = getNearestFibonacci(temp->unit->getQuantity());
@@ -831,7 +831,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         }
         this->updateScore();
     }else{
-        // cout << "LiberationArmy: Defense = false: ";
+        cout << "LiberationArmy: Defense = false: ";
         this->EXP = ceil(this->EXP*1.5);
         this->LF = ceil(this->LF*1.5);
 
@@ -841,7 +841,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         vector<Unit*> groupA; // Inf mình > EXP enemy
         vector<Unit*> groupB; // Veh mình > LF enemy
 
-        // cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
+        cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
 
         // cout << "Gr A: ";
         bool foundA = findSmallest(enemy->getEXP(), groupA, false);
@@ -849,7 +849,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
         bool foundB = findSmallest(enemy->getLF(), groupB, true);
 
         if(foundA && foundB){
-            // cout << "Case 1: Win -> Remove \n";
+            cout << "Case 1: Win -> Remove \n";
             for(int i = 0; i < groupA.size(); i++){
                 // cout << " GrA :";
                 this->unitList->removeUnit(groupA[i]);
@@ -861,7 +861,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
             // isBattle = true;
             // cout << "Then liber: " << this->unitList->str() << " \n vs arvn: " << enemy->getUnitList()->str() << endl; 
         }else if(foundA && this->LF > enemy->getLF()){
-            // cout << "Case 2.1: Fair but Win \n";
+            cout << "Case 2.1: Fair but Win \n";
             for(int i = 0; i < groupA.size(); i++){
                 this->unitList->removeUnit(groupA[i]);
             }
@@ -875,7 +875,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
             }
             // isBattle = true;
         }else if((foundB && this->EXP > enemy->getEXP())){
-            // cout << "Case 2.2: Fair but Win \n";
+            cout << "Case 2.2: Fair but Win \n";
             for(int i = 0; i < groupB.size(); i++){
                 // cout << "remove: " << groupB[i]->str() << endl;
                 this->unitList->removeUnit(groupB[i]);
@@ -893,7 +893,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
             // cout << "Then liber: " << this->unitList->str() << " \n vs arvn: " << enemy->getUnitList()->str() << endl; 
 
         }else{
-            // cout << "Case 3: No fight \n";
+            cout << "Case 3: No fight \n";
             this->unitList->reduceWeight(0.1);
             this->updateScore();
             // cout << "Liber LF: " << this->LF << " - Liber EXP: " << this->EXP << endl;
@@ -942,7 +942,7 @@ void ARVN::fight(Army* enemy, bool defense){
     } 
 
     if(defense){
-        // cout << "ARVN: Defense = true: \n";
+        cout << "ARVN: Defense = true: \n";
         // enemy->fight(this, false);
 
         vector<Unit*> groupA; // Inf mình > EXP enemy
@@ -964,7 +964,7 @@ void ARVN::fight(Army* enemy, bool defense){
             enemy->updateScore();
             this->updateScore();
         } else if((foundA && this->LF < enemy->getLF()) || (foundB && this->EXP < enemy->getEXP())){
-            // cout << "Case 2: Fail" << endl;
+            cout << "Case 2: Fail" << endl;
             this->unitList->reduceWeight(0.2);
             this->updateScore();
 
@@ -972,11 +972,11 @@ void ARVN::fight(Army* enemy, bool defense){
             // cout << "Enemy EXP: " << enemy->getEXP() << " - Enemy LF: " << enemy->getLF() << endl;
             
         }else{
-            // cout << "Case 1: No fight" << endl;
+            cout << "Case 1: No fight" << endl;
         }
         // this->updateScore();
     }else{
-        // cout << "ARVN: Defense = false: \n";
+        cout << "ARVN: Defense = false: \n";
         UnitNode* temp = this->unitList->getHead();
         while (temp)
         {
@@ -1096,10 +1096,11 @@ void River::getEffect(Army* army){
         double distance = calculateDistance(node->unit->getCurrentPosition(), this->getPosition());
         if(distance <= 2){
             if(!(node->unit->isVehicle())){
-                // cout << "Effect River: " << node->unit->str() << endl;
+                cout << "River effected: " << node->unit->str()  << " - " << node->unit->getScore() << endl;
                 double newScore = node->unit->getScore() * 0.9;
                 // cout << "difference: " << node->unit->getScore() * 0.1 << endl;
                 node->unit->storeAttackScore(static_cast<int>(ceil(newScore)));
+                cout << "new score: " << node->unit->getScore() << endl;
             }
         }
         node = node->next;
@@ -1132,17 +1133,19 @@ void Urban::getEffect(Army* army){
             }else{
                 Infantry* inf = dynamic_cast<Infantry*>(node->unit);
                 if((inf->getInfantryType() == SPECIALFORCES || inf->getInfantryType() == REGULARINFANTRY) && distance <= 5){
-                    // cout << "Effect urban: " << inf->str() << endl;
+                    cout << "Effect urban: " << inf->str() << " score: " << inf->getScore() << endl;
                     int delta = static_cast<int>(ceil((2.0 * node->unit->getScore()) / distance));
                     inf->storeAttackScore(inf->getScore() + delta);
+                    cout << "new score: " << inf->getScore() << " => distance: " << distance << endl;
                 }
             }
         }else if(!node->unit->isVehicle()){
             Infantry* inf = dynamic_cast<Infantry*>(node->unit);
             if(inf->getInfantryType() == REGULARINFANTRY && distance <= 3){
-                // cout << "Effect urban: " << inf->str() << endl;
-                int delta = static_cast<int>(ceil((3 * node->unit->getScore()) / (2 * distance)));
+                cout << "Effect urban: " << inf->str() << " score: " << inf->getScore() << endl;
+                int delta = static_cast<int>(ceil((3.0 * node->unit->getScore()) / (2.0 * distance)));
                 inf->storeAttackScore(inf->getScore() + delta);
+                cout << "new score: " << inf->getScore() << endl;
             }
         }
         node = node->next;
@@ -1166,15 +1169,16 @@ void Fortification::getEffect(Army* army){
     {
         double distance = calculateDistance(node->unit->getCurrentPosition(), this->getPosition());
         if(distance <= 2){
-            // cout << "Effect Fort: " << node->unit->str() << endl;
-            int delta = static_cast<int>(ceil(node->unit->getScore() * 0.2));
-            // cout << " => delta: " << delta << " => node->unit->getScore(): " << node->unit->getScore() << endl;
+            cout << "Fort effected: " << node->unit->str()  << " - " << node->unit->getScore() << endl;
+            double delta = static_cast<int>(ceil(node->unit->getScore() * 0.2));
+            cout << " => delta: " << delta << " => node->unit->getScore(): " << node->unit->getScore() << endl;
             if(isLiberation){
-                node->unit->storeAttackScore(node->unit->getScore() - delta);
+                node->unit->storeAttackScore(node->unit->getScore() - static_cast<int>(delta));
             }else{
-                node->unit->storeAttackScore(node->unit->getScore() + delta);
+                node->unit->storeAttackScore(node->unit->getScore() + static_cast<int>(delta));
             }
-            // cout << " => newScore: " << node->unit->getScore() << endl;
+            cout << " => newScore: " << node->unit->getScore() << " => distance: " << distance << endl;
+            
         }
         node = node->next;
     }
@@ -1199,8 +1203,9 @@ void SpecialZone::getEffect(Army* army){
                 // cout << "Vehicle effected: " << node->unit->str() << " - " << node->unit->getScore() << endl;
                 node->unit->storeAttackScore(0);
             }else{
-                // cout << "Inf effected: " << node->unit->str()  << " - " << node->unit->getScore() << endl;
+                cout << "Inf effected: " << node->unit->str()  << " - " << node->unit->getScore() << endl;
                 node->unit->storeAttackScore(0);
+                cout << "new score: " << node->unit->getScore() << endl;
             }
         }
         node = node->next;
@@ -1300,6 +1305,7 @@ void BattleField::applyTerrainEffects(Army* army) {
         for (int j = 0; j < n_cols; ++j) {
             if (terrain[i][j]) {
                 terrain[i][j]->getEffect(army);
+                // cout << "Get effect: " << terrain[i][j]->type() << endl;
             }
         }
     }
@@ -1316,6 +1322,20 @@ string BattleField::str() const {
     //     }
     //     ss << "\n";
     // }
+    return ss.str();
+}
+
+string BattleField::printField() const {
+    stringstream ss;
+    // ss << "BattleField[n_rows=" << n_rows << ",n_cols=" << n_cols << "]";
+
+    cout << "Just for test: " << endl;
+    for (int i = 0; i < n_rows; ++i) {
+        for (int j = 0; j < n_cols; ++j) {
+            ss << terrain[i][j]->type() << "\t"; 
+        }
+        ss << "\n";
+    }
     return ss.str();
 }
 
@@ -1666,31 +1686,67 @@ HCMCampaign::~HCMCampaign() {
     delete config;
 }
 
+void printLiberationArmyUnitScores(LiberationArmy* army) {
+    UnitList* unitList = army->getUnitList();
+    UnitNode* current = unitList->getHead();
+
+    cout << "LiberationArmy unit scores:\n";
+    while (current != nullptr) {
+        Unit* unit = current->unit;
+        cout << "- " << unit->str() << ": " << unit->getScore() << "\n";
+        current = current->next;
+    }
+}
+
+void printARVNUnitScores(ARVN* army) {
+    UnitList* unitList = army->getUnitList();
+    UnitNode* current = unitList->getHead();
+
+    cout << "ARVN unit scores:\n";
+    while (current != nullptr) {
+        Unit* unit = current->unit;
+        cout << "- " << unit->str() << ": " << unit->getScore() << "\n";
+        current = current->next;
+    }
+}
+
+
 void HCMCampaign::run() {
+    // cout << ": LBRA: " << this->liberationArmy->str() << endl;
+    // cout << ": ARVN: " << this->ARVNArmy->str() << endl;
+
+    printLiberationArmyUnitScores(liberationArmy);
+    printARVNUnitScores(ARVNArmy);
+
     this->battleField->applyTerrainEffects(liberationArmy);
     this->battleField->applyTerrainEffects(ARVNArmy);
 
+    cout << this->battleField->printField() << endl;
+
+    cout << "RUN: LBRA: " << this->liberationArmy->str() << endl;
+    cout << "RUN: ARVN: " << this->ARVNArmy->str() << endl;
+
     if(this->config->getEventCode() < 75){
         liberationArmy->fight(ARVNArmy, false);  // attacker
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
         ARVNArmy->fight(liberationArmy, true);   // defender
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
     }else{
         ARVNArmy->fight(liberationArmy, false);  // attacker
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
         liberationArmy->fight(ARVNArmy, false);   // counterattack
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
     }
 
     liberationArmy->getUnitList()->removeWeakUnits();
     ARVNArmy->getUnitList()->removeWeakUnits();
 
-    // cout << "REMOVED: LBRA: " << this->liberationArmy->str() << endl;
-    // cout << "REMOVED: ARVN: " << this->ARVNArmy->str() << endl;
+    cout << "REMOVED: LBRA: " << this->liberationArmy->str() << endl;
+    cout << "REMOVED: ARVN: " << this->ARVNArmy->str() << endl;
 
     liberationArmy->updateScore();
     ARVNArmy->updateScore();

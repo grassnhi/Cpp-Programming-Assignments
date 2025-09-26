@@ -1,0 +1,5 @@
+----- Testcase COMPLEX -----
+* Before the fight
+LIBERATIONARMY[LF=179,EXP=500]-ARVN[LF=156,EXP=500]
+* After the fight
+LIBERATIONARMY[LF=177,EXP=500]-ARVN[LF=152,EXP=500]

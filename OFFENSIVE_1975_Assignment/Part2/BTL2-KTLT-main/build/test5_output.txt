@@ -1,0 +1,2 @@
+----- Sample Testcase 05 -----
+Vehicle[vehicleType=MORTAR,quantity=20,weight=20,position=(1,2)]

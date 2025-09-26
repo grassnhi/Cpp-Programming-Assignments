@@ -486,9 +486,9 @@ void UnitList::removeWeakUnits(){
     {
         UnitNode* next = node->next;
         if(node->unit->getScore() <= 5){
-            // cout << "Remove: " << node->unit->str() << endl;
+            cout << "Remove: " << node->unit->str() << " - score: " << node->unit->getScore() << endl;
             removeUnit(node->unit);
-            // cout << "done remove" << endl;
+            cout << "done remove" << endl;
         }
         node = next;
     }
@@ -858,7 +858,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
                 // cout << " GrB :" ;
                 this->unitList->removeUnit(groupB[i]);
             }
-            // isBattle = true;
+            isBattle = true;
             // cout << "Then liber: " << this->unitList->str() << " \n vs arvn: " << enemy->getUnitList()->str() << endl; 
         }else if(foundA && this->LF > enemy->getLF()){
             // cout << "Case 2.1: Fair but Win \n";
@@ -873,7 +873,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
                     this->unitList->removeUnit(temp);
                 } 
             }
-            // isBattle = true;
+            isBattle = true;
         }else if((foundB && this->EXP > enemy->getEXP())){
             // cout << "Case 2.2: Fair but Win \n";
             for(int i = 0; i < groupB.size(); i++){
@@ -889,7 +889,7 @@ void LiberationArmy::fight(Army* enemy, bool defense) {
                     this->unitList->removeUnit(temp);
                 } 
             }
-            // isBattle = true;
+            isBattle = true;
             // cout << "Then liber: " << this->unitList->str() << " \n vs arvn: " << enemy->getUnitList()->str() << endl; 
 
         }else{
@@ -941,30 +941,44 @@ void ARVN::fight(Army* enemy, bool defense){
         return;
     } 
 
+    enemy->fight(this, !defense);
+
     if(defense){
         // cout << "ARVN: Defense = true: \n";
         // enemy->fight(this, false);
 
-        vector<Unit*> groupA; // Inf mình > EXP enemy
-        vector<Unit*> groupB; // Veh mình > LF enemy
+        // vector<Unit*> groupA; // Inf mình > EXP enemy
+        // vector<Unit*> groupB; // Veh mình > LF enemy
 
-        // cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
+        // // cout << "\nTarget A (EXP - Inf): " << enemy->getEXP() << " - Target B (LF - Veh): " << enemy->getLF() << endl;
 
-        // cout << "Gr A: ";
-        bool foundA = enemy->findSmallest(this->getEXP(), groupA, false);
-        // cout << "Gr B: ";
-        bool foundB = enemy->findSmallest(this->getLF(), groupB, true);
+        // // cout << "Gr A: ";
+        // bool foundA = enemy->findSmallest(this->getEXP(), groupA, false);
+        // // cout << "Gr B: ";
+        // bool foundB = enemy->findSmallest(this->getLF(), groupB, true);
 
-        if(foundA && foundB){
-        // if (enemy->isBattle) {
-            // cout << "Case 1: Win" << endl;
-            this->unitList->transferTo(enemy->getUnitList());
-            // this->setLF(0);
-            // this->setEXP(0);
-            enemy->updateScore();
-            this->updateScore();
-        } else if((foundA && this->LF < enemy->getLF()) || (foundB && this->EXP < enemy->getEXP())){
-            // cout << "Case 2: Fail" << endl;
+        // if(foundA && foundB){
+        // // if (enemy->isBattle) {
+        //     // cout << "Case 1: Win" << endl;
+        //     this->unitList->transferTo(enemy->getUnitList());
+        //     // this->setLF(0);
+        //     // this->setEXP(0);
+        //     enemy->updateScore();
+        //     this->updateScore();
+        // } else if((foundA && this->LF < enemy->getLF()) || (foundB && this->EXP < enemy->getEXP())){
+        //     // cout << "Case 2: Fail" << endl;
+        //     this->unitList->reduceWeight(0.2);
+        //     this->updateScore();
+
+        //     // cout << "ARVN LF: " << this->LF << " - ARVN EXP: " << this->EXP << endl;
+        //     // cout << "Enemy EXP: " << enemy->getEXP() << " - Enemy LF: " << enemy->getLF() << endl;
+            
+        // }else{
+        //     // cout << "Case 1: No fight" << endl;
+        // }
+        // this->updateScore();
+        if (enemy->isBattle) {
+
             this->unitList->reduceWeight(0.2);
             this->updateScore();
 
@@ -1643,7 +1657,6 @@ HCMCampaign::HCMCampaign(const string& config_file_path){
         const_cast<Unit**>(this->config->getLiberationUnits().data()),
         this->config->getLiberationUnits().size(),
         "LiberationArmy",
-        this->battleField
     );
 
     // cout << "[DEBUG] Creating ARVNArmy..." << endl;
@@ -1671,26 +1684,26 @@ void HCMCampaign::run() {
     this->battleField->applyTerrainEffects(ARVNArmy);
 
     if(this->config->getEventCode() < 75){
-        liberationArmy->fight(ARVNArmy, false);  // attacker
+        // liberationArmy->fight(ARVNArmy, false);  // attacker
         // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
         // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
         ARVNArmy->fight(liberationArmy, true);   // defender
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
     }else{
         ARVNArmy->fight(liberationArmy, false);  // attacker
         // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
         // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
         liberationArmy->fight(ARVNArmy, false);   // counterattack
-        // cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
-        // cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
+        cout << "PRINT: LBRA: " << this->liberationArmy->str() << endl;
+        cout << "PRINT: ARVN: " << this->ARVNArmy->str() << endl;
     }
 
     liberationArmy->getUnitList()->removeWeakUnits();
     ARVNArmy->getUnitList()->removeWeakUnits();
 
-    // cout << "REMOVED: LBRA: " << this->liberationArmy->str() << endl;
-    // cout << "REMOVED: ARVN: " << this->ARVNArmy->str() << endl;
+    cout << "REMOVED: LBRA: " << this->liberationArmy->str() << endl;
+    cout << "REMOVED: ARVN: " << this->ARVNArmy->str() << endl;
 
     liberationArmy->updateScore();
     ARVNArmy->updateScore();

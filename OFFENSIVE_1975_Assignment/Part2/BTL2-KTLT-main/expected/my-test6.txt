@@ -1,0 +1,5 @@
+----- Triet's test 6 -----
+** Before the fight
+LIBERATIONARMY[LF=1,EXP=442]-ARVN[LF=42,EXP=72]
+** After the fight
+LIBERATIONARMY[LF=0,EXP=442]-ARVN[LF=42,EXP=72]

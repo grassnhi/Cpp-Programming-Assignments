@@ -1,0 +1,5 @@
+----- Sample Testcase 03 -----
+** Before the fight
+LIBERATIONARMY[LF=62,EXP=290]-ARVN[LF=62,EXP=290]
+** After the fight
+LIBERATIONARMY[LF=62,EXP=290]-ARVN[LF=0,EXP=0]

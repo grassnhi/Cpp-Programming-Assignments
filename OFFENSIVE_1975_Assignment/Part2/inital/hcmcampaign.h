@@ -299,6 +299,7 @@ public:
     TerrainElement* getElement(int r, int c) const;
 
     string str() const;
+    string printField() const;
 };
 
 class Configuration {

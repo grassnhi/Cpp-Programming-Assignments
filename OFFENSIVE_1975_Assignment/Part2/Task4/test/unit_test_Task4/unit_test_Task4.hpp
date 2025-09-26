@@ -117,7 +117,7 @@ public:
     REGISTER_TEST(Task4249);
     REGISTER_TEST(Task4250);
     REGISTER_TEST(Task4251);
-    // REGISTER_TEST(Task4252); //// => attackScore
+    REGISTER_TEST(Task4252); //// => attackScore
     REGISTER_TEST(Task4253);
 
     REGISTER_TEST(Task4301);
@@ -126,28 +126,28 @@ public:
     REGISTER_TEST(Task4304);
     REGISTER_TEST(Task4305);
     REGISTER_TEST(Task4306);
-    // REGISTER_TEST(Task4307); // attackScore => SNIPPER quantity 10
-    // REGISTER_TEST(Task4308); // attackScore vs personalNumber
-    // REGISTER_TEST(Task4309); // attackScore vs personalNumber
+    REGISTER_TEST(Task4307); // attackScore => SNIPPER quantity 10
+    REGISTER_TEST(Task4308); // attackScore vs personalNumber
+    REGISTER_TEST(Task4309); // attackScore vs personalNumber
     REGISTER_TEST(Task4310);
     REGISTER_TEST(Task4311);
     REGISTER_TEST(Task4312);
-    // REGISTER_TEST(Task4313); // attackScore => SNIPPER quantity 10
-    // REGISTER_TEST(Task4314); // attackScore => SNIPPER quantity 10
-    // REGISTER_TEST(Task4315); // forti truck effect
+    REGISTER_TEST(Task4313); // attackScore => SNIPPER quantity 10
+    REGISTER_TEST(Task4314); // attackScore => SNIPPER quantity 10
+    REGISTER_TEST(Task4315); // forti truck effect
     REGISTER_TEST(Task4316);
     REGISTER_TEST(Task4317); 
     REGISTER_TEST(Task4318); 
     REGISTER_TEST(Task4319);
     REGISTER_TEST(Task4320);
     REGISTER_TEST(Task4321);
-    // REGISTER_TEST(Task4322); // quantity SNIPER
+    REGISTER_TEST(Task4322); // quantity SNIPER
     REGISTER_TEST(Task4323);
     REGISTER_TEST(Task4324);
     REGISTER_TEST(Task4325);
     REGISTER_TEST(Task4326);
-    // REGISTER_TEST(Task4327); //// quantity, insert, attack
-    // REGISTER_TEST(Task4328); // quantity, insert, attack
+    REGISTER_TEST(Task4327); //// quantity, insert, attack
+    REGISTER_TEST(Task4328); // quantity, insert, attack
     REGISTER_TEST(Task4329);
     REGISTER_TEST(Task4330);
     REGISTER_TEST(Task4331);
@@ -155,6 +155,7 @@ public:
     REGISTER_TEST(Task4333);
     REGISTER_TEST(Task4334);
     // REGISTER_TEST(Task4335); // config :v
+
   }
 
 private:

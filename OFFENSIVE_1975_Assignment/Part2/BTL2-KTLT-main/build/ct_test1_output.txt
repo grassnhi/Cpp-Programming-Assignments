@@ -1,0 +1,5 @@
+LiberationArmy[LF=63,EXP=10,unitList=UnitList[count_vehicle=2;count_infantry=1;Infantry[infantryType=SNIPER,quantity=5,weight=2,position=(1,1)],Vehicle[vehicleType=TANK,quantity=5,weight=2,position=(1,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=1,position=(2,2)]],battleField=]
+ARVN[LF=63,EXP=10,unitList=UnitList[count_vehicle=2;count_infantry=1;Infantry[infantryType=SNIPER,quantity=5,weight=2,position=(3,3)],Vehicle[vehicleType=TANK,quantity=5,weight=2,position=(3,2)],Vehicle[vehicleType=TRUCK,quantity=3,weight=1,position=(3,1)]],battleField=]
+* After the fight
+LiberationArmy[LF=63,EXP=10,unitList=UnitList[count_vehicle=2;count_infantry=1;Infantry[infantryType=SNIPER,quantity=5,weight=2,position=(3,3)],Vehicle[vehicleType=TRUCK,quantity=3,weight=1,position=(3,1)],Vehicle[vehicleType=TANK,quantity=5,weight=2,position=(3,2)]],battleField=]
+ARVN[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]

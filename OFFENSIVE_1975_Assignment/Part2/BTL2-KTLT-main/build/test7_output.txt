@@ -1,0 +1,2 @@
+----- Sample Testcase 06 -----
+LiberationArmy[LF=0,EXP=0,unitList=UnitList[count_vehicle=0;count_infantry=0],battleField=]
